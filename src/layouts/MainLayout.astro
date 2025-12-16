@@ -51,4 +51,21 @@ const { title, description, url } = Astro.props;
       font-size: 2rem;
     }
   </style>
+
+  <script>
+    const state = history.state;
+
+    if (state?.scrollTo) {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(state.scrollTo);
+
+        if (el) {
+          el.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      });
+    }
+  </script>
 </html>

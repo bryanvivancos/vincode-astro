@@ -23,20 +23,5 @@ import { Toaster } from "react-hot-toast";
 		<OtherProjects client:load />
 		<ContactForm client:load />
 	</div>
-
-	<!-- Scroll automático -->
-	<script>
-	const params = new URLSearchParams(window.location.search);
-	const scrollTo = params.get("scrollTo");
-
-	if (scrollTo) {
-		window.addEventListener("load", () => {
-		const el = document.getElementById(scrollTo);
-		if (el) {
-			el.scrollIntoView({ behavior: "smooth", block: "start" });
-		}
-		});
-	}
-	</script>
 	<Toaster client:load />
 </MainLayout>
