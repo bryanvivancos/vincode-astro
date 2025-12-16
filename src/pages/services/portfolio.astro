@@ -1,0 +1,76 @@
+---
+import { PeopleIcon, DashboardIcon, ClockIcon } from "../../components/icons";
+import { BRAND_NAME, PORTFOLIO_SERVICE_SUBTITLES, PORTFOLIO_SERVICE_TITLES } from "../../CONSTANTS";
+import { ServicesPageTemplate } from "../../components/Services/ServicesPageTemplate";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const benefits = [
+  {
+    id: 1,
+    icon: DashboardIcon,
+    title: 'Visibilidad Aumentada',
+    description: 'Un portfolio diseñado profesionalmente aumenta su visibilidad en línea, lo que hace que sea más fácil para los clientes potenciales encontrarlo.',
+  },
+  {
+    id: 2,
+    icon: PeopleIcon,
+    title: 'Atrae Más Clientes',
+    description: 'Un portfolio bien elaborada muestra eficazmente sus habilidades y proyectos, atrayendo clientes y oportunidades de alta calidad.',
+  },
+  {
+    id: 3,
+    icon: ClockIcon,
+    title: 'Ahorra Tiempo y Esfuerzo',
+    description: 'Deja que nos encarguemos del desarrollo, liberándote tiempo para concentrarte en tu trabajo.'
+  }
+]
+
+const projects = [
+  {
+    title: 'Portfolio Profesional',
+    description: 'Muestra tu trabajo con un portfolio profesional en línea.',
+    img: '/portfolio_image.webp'
+  },
+];
+
+const faqData = [
+  {
+    id: 1,
+    question: '¿En cuánto tiempo estará listo mi portfolio?',
+    answer: 'El tiempo de entrega promedio va de 10 a 15 días, dependiendo de la cantidad de contenido, el diseño requerido y las funciones adicionales que desees incluir.',
+  },
+  {
+    id: 2,
+    question: '¿Mi portfolio será editable o necesitaré pedir cambios cada vez?',
+    answer: 'Tu portfolio será 100% administrable, dependiendo del plan que elijas. Podemos entregarte una versión donde tú mismo puedas actualizar proyectos e información, o una versión totalmente administrada por nosotros.',
+  },
+  {
+    id: 3,
+    question: '¿Qué necesito proporcionarte para empezar a crear mi portfolio?',
+    answer: 'Solo necesitamos tu información básica (bio o descripción profesional), tus proyectos, imágenes o enlaces relevantes y tus datos de contacto. Si aún no tienes todo listo, podemos guiarte para organizar tu contenido.',
+  },
+  {
+    id: 4,
+    question: '¿En qué plataformas o tecnologías construirán mi portfolio?',
+    answer: 'Trabajamos con tecnologías modernas como React, Tailwind, HTML/CSS, y generamos sitios altamente optimizados, rápidos y compatibles con cualquier dispositivo. Elegimos la mejor opción según tus necesidades y objetivos.',
+  },
+];
+
+const title= "Servicio de Creación de Portfolios"
+---
+
+<MainLayout 
+    title={`${title} | ${BRAND_NAME}`} 
+    description="Entendemos que cada negocio es único, por eso creamos plataformas robustas, escalables y totalmente adaptadas a tus necesidades, ya sea para gestión interna, automatización, ventas, reservas, educación, logística, administración de usuarios, dashboards y mucho más." 
+    url="https://www.vincode.dev/services/custom-software" client:load>
+    
+    <ServicesPageTemplate
+        title= {title}
+        subtitles={PORTFOLIO_SERVICE_TITLES}
+        description={PORTFOLIO_SERVICE_SUBTITLES}
+        demos="Portfolios"
+        profits={benefits}
+        projects={projects}
+        faqsItems={faqData}
+    />
+</MainLayout>

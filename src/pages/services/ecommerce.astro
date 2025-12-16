@@ -1,0 +1,76 @@
+---
+import { Square3StackIcon, TrendingUpIcon, RectanglesIcon, CardIcon } from '../../components/icons';
+import { ServicesPageTemplate } from '../../components/Services/ServicesPageTemplate'
+import { BRAND_NAME, ECOMMERCE_WEB_SUBTITLES, ECOMMERCE_WEB_TITLES } from '../../CONSTANTS'
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const benefits = [
+  {
+    id: 1,
+    icon: TrendingUpIcon,
+    title: 'Aumenta Tus Ventas y Alcance',
+    description: 'Llega a más clientes y vende en cualquier momento y lugar con una tienda online optimizada para SEO, marketing y redes sociales.',
+  },
+  {
+    id: 2,
+    icon: CardIcon,
+    title: 'Experiencia de Compra Fluida',
+    description: 'Diseños intuitivos y adaptativos que facilitan la navegación, el proceso de pago y la fidelización de tus clientes.',
+  },
+  {
+    id: 3,
+    icon: RectanglesIcon,
+    title: 'Integraciones Potentes',
+    description: 'Conectamos tu ecommerce con pasarelas de pago, sistemas de envío, gestión de inventario y herramientas de automatización.'
+  },
+  {
+    id: 3,
+    icon: Square3StackIcon,
+    title: 'Escalable y Autogestionable',
+    description: 'Te entregamos una tienda lista para crecer: podrás gestionar productos, precios y promociones fácilmente, sin depender de terceros.'
+  }
+]
+
+const projects = [
+  {
+    title: 'Web Ecommerce',
+    description: 'Muestra tus productos, precios descuentos y más con nuestro servicio de creación de Web Ecommerce',
+    img: '/project-image.webp'
+  },
+];
+
+const faqData = [
+  {
+    id: 1,
+    question: '¿Qué funcionalidades incluye una tienda online?',
+    answer: 'Incluye catálogo, carrito de compras, pagos online, control de inventario, reseñas y panel de administración.',
+  },
+  {
+    id: 2,
+    question: '¿Puedo gestionar mi tienda sin conocimientos técnicos?',
+    answer: 'Sí. Recibirás una tienda totalmente administrable y una guía para actualizar productos, precios y pedidos fácilmente.',
+  },
+  {
+    id: 3,
+    question: '¿Cuánto tiempo demora la creación de un ecommerce?',
+    answer: 'Depende del tamaño del catálogo y funciones extras, pero en promedio va de 15 a 30 días.',
+  },
+];
+
+const title = "Desarrollo Web Ecommerce"
+---
+
+<MainLayout 
+    title={`${title} | ${BRAND_NAME}`} 
+    description="Impulsa tus ventas con una tienda ecommerce moderna y personalizada que refleje la esencia de tu marca, facilite la compra y ofrezca una experiencia de usuario impecable."
+    url="https://www.vincode.dev/services/ecommerce" client:load>
+    <ServicesPageTemplate
+        title= {title}
+        subtitles={ECOMMERCE_WEB_TITLES}
+        description={ECOMMERCE_WEB_SUBTITLES}
+        demos='Projects'
+        profits={benefits}
+        projects={projects}
+        faqsItems={faqData}
+    </>
+</MainLayout>
