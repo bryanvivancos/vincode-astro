@@ -5,7 +5,7 @@ import { projects } from "../../CONSTANTS";
 export default function Projects() {
   return (
     <section id="projects" className="py-10 sm:py-12 md:py-15 place-items-center">
-      <div className="max-w-[960px]">
+      <div className="max-w-240">
         <h2 className="sectionTitle">Proyectos de Clientes</h2>
         {/* <img 
           src="/portfolio-mockups.svg" 

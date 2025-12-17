@@ -1,34 +1,34 @@
 ---
+id: 4
 title: Desarrollo Software Personalizado
-id: 2
-icon: customsoftware
-cardDescription: Impulsa tu negocio con una plataforma personalizada, diseñada para optimizar tus flujos de trabajo.
+icon: CustomSoftwareIcon
+cardDescription: "Impulsa tu negocio con una plataforma personalizada, diseñada para optimizar tus flujos de trabajo."
 available: true
-subtitle: Nuestro servicio de desarrollo de plataformas personalizadas está dirigido a empresas, emprendedores y proyectos que requieren soluciones tecnológicas diseñadas exactamente a la medida de sus procesos, operaciones y objetivos.
-description: Entendemos que cada negocio es único, por eso creamos plataformas robustas, escalables y totalmente adaptadas a tus necesidades, ya sea para gestión interna, automatización, ventas, reservas, educación, logística, administración de usuarios, dashboards y mucho más.
+subtitle: "Nuestro servicio de desarrollo de plataformas personalizadas está dirigido a empresas, emprendedores y proyectos que requieren soluciones tecnológicas diseñadas exactamente a la medida de sus procesos, operaciones y objetivos."
+description: "Entendemos que cada negocio es único, por eso creamos plataformas robustas, escalables y totalmente adaptadas a tus necesidades, ya sea para gestión interna, automatización, ventas, reservas, educación, logística, administración de usuarios, dashboards y mucho más."
 demosTitle: ""
 benefits: [
     {
         id: 1,
-        icon: RocketIcon,
+        icon: "RocketIcon",
         title: 'Solución a la Medida de Tu Negocio',
         description: 'Desarrollamos tu plataforma desde cero, enfocada completamente en tus procesos, requerimientos y objetivos, sin limitaciones de plantillas o sistemas genéricos.',
     },
     {
         id: 2,
-        icon: CogIcon,
+        icon: "CogIcon",
         title: 'Automatización y Optimización',
         description: 'Creamos herramientas que reducen tareas repetitivas, automatizan procesos clave y mejoran el rendimiento de tu equipo o empresa.',
     },
     {
         id: 3,
-        icon: TrendingUpIcon,
+        icon: "TrendingUpIcon",
         title: 'Escalable y Preparada para Crecer',
         description: 'Diseñamos tu plataforma con arquitectura moderna, lista para integrar nuevas funciones, módulos y usuarios conforme tu negocio crece.'
     },
     {
         id: 4,
-        icon: PuzzleIcon,
+        icon: "PuzzleIcon",
         title: 'Integraciones con Servicios Externos',
         description: 'API, sistemas empresariales, dashboards, CRM, ERPs, herramientas de automatización, y cualquier integración que tu proyecto necesite.'
     }

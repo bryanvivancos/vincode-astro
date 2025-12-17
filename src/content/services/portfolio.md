@@ -1,28 +1,28 @@
 ---
 id: 1
 title: Creación de Portfolios
-icon: briefcase
+icon: BriefcaseIcon
 cardDescription: Muestra tu trabajo con un portfolio profesional en línea.
 available: true
-subtitle: Entendemos que su portfolio suele ser la primera impresión que causa a clientes o empleadores potenciales, por lo que nos centramos en crear una experiencia visualmente atractiva e intuitiva que destaque sus talentos y logros únicos.
-description: Realza tu presencia profesional con un portfolio impactante y personalizado que muestre tus mejores trabajos y habilidades. Juntos crearemos un portfolio que no solo lucirá impecable, sino que también comunicará eficazmente tu valor a clientes y empleadores potenciales.
+subtitle: "Entendemos que su portfolio suele ser la primera impresión que causa a clientes o empleadores potenciales, por lo que nos centramos en crear una experiencia visualmente atractiva e intuitiva que destaque sus talentos y logros únicos."
+description: "Realza tu presencia profesional con un portfolio impactante y personalizado que muestre tus mejores trabajos y habilidades. Juntos crearemos un portfolio que no solo lucirá impecable, sino que también comunicará eficazmente tu valor a clientes y empleadores potenciales."
 demosTitle: "Portfolios"
 benefits: [
   {
     id: 1,
-    icon: DashboardIcon,
+    icon: "DashboardIcon",
     title: Visibilidad Aumentada,
     description: 'Un portfolio diseñado profesionalmente aumenta su visibilidad en línea, lo que hace que sea más fácil para los clientes potenciales encontrarlo.',
   },
   {
     id: 2,
-    icon: PeopleIcon,
+    icon: "PeopleIcon",
     title: 'Atrae Más Clientes',
     description: 'Un portfolio bien elaborada muestra eficazmente sus habilidades y proyectos, atrayendo clientes y oportunidades de alta calidad.',
   },
   {
     id: 3,
-    icon: ClockIcon,
+    icon: "ClockIcon",
     title: 'Ahorra Tiempo y Esfuerzo',
     description: 'Deja que nos encarguemos del desarrollo, liberándote tiempo para concentrarte en tu trabajo.'
   }

@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { SlideItems } from "../atoms/SlideItems";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
+import type { IconName } from "../icons";
 
 interface ServicesPageProps {
   title: string
@@ -13,7 +14,7 @@ interface ServicesPageProps {
 }
 
 type Profits = {
-  icon: ComponentType<{ width?: number; height?: number; color?: string }>
+  icon: IconName
   id: number
   title: string
   description: string
@@ -25,12 +26,21 @@ type Project = {
   img?: string
 }
 
-export const ServicesPageTemplate = ({ title, description, subtitles, profits, projects, faqsItems, demos }: ServicesPageProps) => {
 
-  
+
+export const ServicesPageTemplate = ({ 
+  title, 
+  description, 
+  subtitles, 
+  profits, 
+  projects, 
+  faqsItems, 
+  demos 
+}: ServicesPageProps) => {
+
   return (
     <>
-    <section className="mt-16 py-9 max-w-[960px] px-4 space-y-8">
+    <section className="mt-16 py-9 max-w-240 px-4 space-y-8">
 
       <h2 className="text-3xl md:text-4xl font-extrabold leading-11 -tracking-[0.5px] text-text-primary animate-slide-in-top">{title}</h2>
 
@@ -43,12 +53,12 @@ export const ServicesPageTemplate = ({ title, description, subtitles, profits, p
       </p>
 
       <div className={`${profits.length == 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"} grid gap-2 sm:grid-cols-1 grid-cols-1`}>
-        {profits.map((profits) => (
+        {profits.map((profit) => (
           <SlideItems
-            icon={profits.icon}
-            key={profits.id}
-            title={profits.title}
-            description={profits.description}
+            icon={profit.icon}
+            key={profit.id}
+            title={profit.title}
+            description={profit.description}
             classNames="cursor-default animate-slide-in-top"
           />
         ))}

@@ -1,33 +1,38 @@
-import { number } from "astro/zod";
 import { defineCollection, z } from "astro:content";
-import { boolean, object, string } from "astro:schema";
+import { icons } from "../components/icons";
+
+const iconNames = Object.keys(icons) as [
+  keyof typeof icons,
+  ...(keyof typeof icons)[]
+];
+
 
 const services = defineCollection({
     schema: z.object({
-        id: number(),
-        title: string(),
-        icon: z.any(),
-        available: boolean(),
-        cardDescription: string(),
-        subtitle: string(),
-        description: string(),
-        demosTitle: string(),
+        id: z.number(),
+        title: z.string(),
+        icon: z.string(),
+        available: z.boolean(),
+        cardDescription: z.string(),
+        subtitle: z.string(),
+        description: z.string(),
+        demosTitle: z.string(),
         // Beneficios
         benefits: z.array(
-        z.object({
-            id: z.number(),
-            icon: z.any(), // Usamos any porque los iconos suelen ser componentes/referencias
-            title: z.string(),
-            description: z.string(),
-        })
+            z.object({
+                id: z.number(),
+                icon: z.enum(iconNames), 
+                title: z.string(),
+                description: z.string(),
+            })
         ),
         // Proyectos
         projects: z.array(
-        z.object({
-            title: z.string(),
-            description: z.string(),
-            img: z.string(),
-        })
+            z.object({
+                title: z.string(),
+                description: z.string(),
+                img: z.string(),
+            })
         ),
         // FAQ
         faqData: z.array(

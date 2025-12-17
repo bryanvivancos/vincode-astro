@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import ChevronLeftIcon from "../icons/ChevronLeftIcon";
-import ChevronRightIcon from "../icons/ChevronRightIcon";
+import { Icon } from "../icons/Icon";
 
 interface CarrouselItem {
   src: string;
@@ -54,7 +53,11 @@ const Carrousel: React.FC<CarrouselProps> = ({
         className="absolute left-0 top-1/2 -translate-y-1/2 hover:opacity-50 h-full p-2 shadow-md z-20"
         aria-label="anterior"
       >
-        <ChevronLeftIcon className={`-mx-6 w-24 h-full text-white ${items.length <= 4 ? "hidden" : ""}`} />
+        
+        <Icon
+        name="ChevronLeftIcon"
+        className={`-mx-6 w-24 h-full text-white ${items.length <= 4 ? "hidden" : ""}`} 
+        />
       </button>
 
 
@@ -91,7 +94,9 @@ const Carrousel: React.FC<CarrouselProps> = ({
         onClick={() => scroll("right")}
         className="absolute right-0 top-1/2 -translate-y-1/2 hover:opacity-50 h-full p-2 shadow-md z-10"
       >
-        <ChevronRightIcon className={`-mr-8 w-24 h-24 text-white ${items.length <= 4 ? "hidden" : ""}`} />
+        <Icon
+        name="ChevronRightIcon"
+        className={`-mr-8 w-24 h-24 text-white ${items.length <= 4 ? "hidden" : ""}`} />
       </button>
     </div>
   );

@@ -1,4 +1,4 @@
-import InstagramIcon from '../icons/InstagramIcon';
+import { Icon } from "../icons/Icon";
 import { VINCODE_IG } from '../../CONSTANTS';
 import { navigate } from 'astro:transitions/client';
 import { useEffect, useState } from 'react';
@@ -21,15 +21,15 @@ export default function Footer({initialPathname} : {initialPathname: string}) {
 
   return (
     <footer className="py-10 sm:py-12 md:py-15 place-items-center">
-      <div className="max-w-[960px] w-full px-6">
+      <div className="max-w-240 w-full px-6">
         <div className="flex flex-col gap-6 items-center">
 
-          {currentPath !== "/" && <div className='md:max-w-[960px] flex justify-between w-full gap-1 md:gap-6'>
-            <a href='/#services' className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
+          {currentPath !== "/" && <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
+            <a href={'/#services'} className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
 
-            <a href='/#projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
+            <a href={'/#projects'} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
 
-            <a href='/#others' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
+            <a href={'/#others'} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
 
             {/* <a onClick={() => navigate("/", { state: { scrollTo: "contact" } })} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Contáctanos</a> */}
           </div>
@@ -45,7 +45,7 @@ export default function Footer({initialPathname} : {initialPathname: string}) {
               <TwitterIcon width={24} height={24} color="#91B8C9" />
             </a> */}
             <a href={VINCODE_IG} target="_blank" className="flex items-center justify-center transition-all opacity-90 duration-300 ease-in-out hover:opacity-40" aria-label="Instagram">
-              <InstagramIcon width={24} height={24} color="#91B8C9" />
+              <Icon name="InstagramIcon" width={24} height={24} color="#91B8C9" />
             </a>
             {/* <a href="#facebook" className="flex items-center justify-center transition-all opacity-90 duration-300 ease-in-out hover:opacity-40" aria-label="Facebook">
               <FacebookIcon width={24} height={24} color="#91B8C9" />

@@ -1,10 +1,3 @@
-import BriefcaseIcon from "./components/icons/BriefcaseIcon"
-import CardIcon from "./components/icons/CardIcon"
-import CustomSoftwareIcon from "./components/icons/CustomSoftwareIcon"
-import GlobeIcon from "./components/icons/GlobeIcon"
-import LinkIcon from "./components/icons/LinkIcon"
-import ServerIcon from "./components/icons/ServerIcon"
-
 export const BRAND_NAME = "Vincode.dev"
 export const VINCODE_IG = "https://www.instagram.com/vincodedev/"
 
@@ -65,50 +58,50 @@ export const navbar_items = [
 ]
 
 // SERVICIOS
-export const servicess = [
-  {
-    icon: BriefcaseIcon,
-    title: 'Creación de Portfolios',
-    description: 'Muestra tu trabajo con un portfolio profesional en línea.',
-    page: '/services/portfolio',
-    available: true,
-  },
-  {
-    icon: LinkIcon,
-    title: 'Links in Bio',
-    description: 'Crea un centro para todos tus enlaces importantes.',
-    page: '/services/link-bio',
-    available: true,
-  },
-  {
-    icon: CardIcon,
-    title: 'Tarjetas de Presentación Digital',
-    description: 'Deje una impresión duradera con una tarjeta de presentación digital.',
-    page: '/services/digital-card',
-    available: true,
-  },
-  {
-    icon: CustomSoftwareIcon,
-    title: 'Desarrollo Software Personalizado',
-    description: 'Impulsa tu negocio con una plataforma personalizada, diseñada para optimizar tus flujos de trabajo.',
-    page: '/services/custom-software',
-    available: true,
-  },
-  {
-    icon: ServerIcon,
-    title: 'Soporte Técnico',
-    description: 'Tu software favorito con licencia legítima en tu pc.',
-    page: '/services/technique-support',
-    available: true,
-  },
-  {
-    icon: GlobeIcon,
-    title: 'Desarrollo Web Ecommerce',
-    description: 'Construye una potente tienda online para vender tus productos o servicios.',
-    page: '/services/ecommerce',
-    available: false,
-  },
-];
+// export const servicess = [
+//   {
+//     icon: BriefcaseIcon,
+//     title: 'Creación de Portfolios',
+//     description: 'Muestra tu trabajo con un portfolio profesional en línea.',
+//     page: '/services/portfolio',
+//     available: true,
+//   },
+//   {
+//     icon: LinkIcon,
+//     title: 'Links in Bio',
+//     description: 'Crea un centro para todos tus enlaces importantes.',
+//     page: '/services/link-bio',
+//     available: true,
+//   },
+//   {
+//     icon: CardIcon,
+//     title: 'Tarjetas de Presentación Digital',
+//     description: 'Deje una impresión duradera con una tarjeta de presentación digital.',
+//     page: '/services/digital-card',
+//     available: true,
+//   },
+//   {
+//     icon: CustomSoftwareIcon,
+//     title: 'Desarrollo Software Personalizado',
+//     description: 'Impulsa tu negocio con una plataforma personalizada, diseñada para optimizar tus flujos de trabajo.',
+//     page: '/services/custom-software',
+//     available: true,
+//   },
+//   {
+//     icon: ServerIcon,
+//     title: 'Soporte Técnico',
+//     description: 'Tu software favorito con licencia legítima en tu pc.',
+//     page: '/services/technique-support',
+//     available: true,
+//   },
+//   {
+//     icon: GlobeIcon,
+//     title: 'Desarrollo Web Ecommerce',
+//     description: 'Construye una potente tienda online para vender tus productos o servicios.',
+//     page: '/services/ecommerce',
+//     available: false,
+//   },
+// ];
 
 // PROYECTOS
 export const projects = [
