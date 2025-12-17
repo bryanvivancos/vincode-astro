@@ -25,11 +25,11 @@ export default function Footer({initialPathname} : {initialPathname: string}) {
         <div className="flex flex-col gap-6 items-center">
 
           {currentPath !== "/" && <div className='md:max-w-[960px] flex justify-between w-full gap-1 md:gap-6'>
-            <a onClick={() => navigate("/", { state: { scrollTo: "services" } })} className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
+            <a href='/#services' className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
 
-            <a onClick={() => navigate("/", { state: { scrollTo: "projects" } })} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
+            <a href='/#projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
 
-            <a onClick={() => navigate("/", { state: { scrollTo: "others" } })} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
+            <a href='/#others' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
 
             {/* <a onClick={() => navigate("/", { state: { scrollTo: "contact" } })} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Contáctanos</a> */}
           </div>

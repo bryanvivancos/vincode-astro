@@ -65,7 +65,7 @@ export const navbar_items = [
 ]
 
 // SERVICIOS
-export const services = [
+export const servicess = [
   {
     icon: BriefcaseIcon,
     title: 'Creación de Portfolios',

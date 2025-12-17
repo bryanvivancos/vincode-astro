@@ -1,11 +1,13 @@
 ---
-import { ServicesPageTemplate } from '../../components/Services/ServicesPageTemplate'
-import { BRAND_NAME, CUSTOM_SOFTWARE_SUBTITLES, CUSTOM_SOFTWARE_TITLES } from '../../CONSTANTS';
-import { CogIcon, TrendingUpIcon, RocketIcon, PuzzleIcon } from '../../components/icons';
-import "../../global.css"
-import MainLayout from '../../layouts/MainLayout.astro';
-
-const benefits = [
+title: Desarrollo Software Personalizado
+id: 2
+icon: customsoftware
+cardDescription: Impulsa tu negocio con una plataforma personalizada, diseñada para optimizar tus flujos de trabajo.
+available: true
+subtitle: Nuestro servicio de desarrollo de plataformas personalizadas está dirigido a empresas, emprendedores y proyectos que requieren soluciones tecnológicas diseñadas exactamente a la medida de sus procesos, operaciones y objetivos.
+description: Entendemos que cada negocio es único, por eso creamos plataformas robustas, escalables y totalmente adaptadas a tus necesidades, ya sea para gestión interna, automatización, ventas, reservas, educación, logística, administración de usuarios, dashboards y mucho más.
+demosTitle: ""
+benefits: [
     {
         id: 1,
         icon: RocketIcon,
@@ -31,8 +33,8 @@ const benefits = [
         description: 'API, sistemas empresariales, dashboards, CRM, ERPs, herramientas de automatización, y cualquier integración que tu proyecto necesite.'
     }
 ]
-
-const faqData = [
+projects: []
+faqData: [
     {
         id: 1,
         question: '¿Qué tipo de plataformas pueden desarrollar?',
@@ -58,23 +60,5 @@ const faqData = [
         question: '¿Cuánto tiempo toma desarrollar una plataforma personalizada?',
         answer: 'Depende del alcance y complejidad del proyecto. Las plataformas pequeñas pueden tardar de 2 a 4 semanas, mientras que proyectos más completos pueden tomar de 1 a 3 meses.',
     },
-];
-
-const title = "Desarrollo Software Personalizado" 
+]
 ---
-
-<MainLayout 
-    title={`${title} | ${BRAND_NAME}`} 
-    description="Entendemos que cada negocio es único, por eso creamos plataformas robustas, escalables y totalmente adaptadas a tus necesidades, ya sea para gestión interna, automatización, ventas, reservas, educación, logística, administración de usuarios, dashboards y mucho más." 
-    url="https://www.vincode.dev/services/custom-software">
-
-    <ServicesPageTemplate
-            title= {title}
-            subtitles={CUSTOM_SOFTWARE_TITLES}
-            description={CUSTOM_SOFTWARE_SUBTITLES}
-            profits={benefits}
-            faqsItems={faqData}
-            demos={''}
-            projects={[]} />
-        </>
-</MainLayout>

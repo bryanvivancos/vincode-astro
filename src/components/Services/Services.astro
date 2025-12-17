@@ -1,0 +1,57 @@
+---
+import { SERVICES_SUBTITLE, SERVICES_TITLE } from '../../CONSTANTS';
+import { CogIcon, TrendingUpIcon, RocketIcon, PuzzleIcon } from '../icons';
+import { icons } from '../icons/index.tsx'
+import { getCollection } from 'astro:content'
+
+const services = await getCollection('services')
+
+export const prerender= true
+---
+
+<div id="services" class="max-w-[960px] py-10 sm:py-12 md:py-15">
+    <h2 class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary mb-6 sm:mb-8 md:mb-10">Nuestros Servicios</h2>
+
+    <div class="flex flex-col gap-6 sm:gap-8 md:gap-10">
+    <div class="flex flex-col gap-2 sm:gap-3">
+        <h3 class="sectionTitle">{SERVICES_TITLE}</h3>
+        <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
+        {SERVICES_SUBTITLE}
+        </p>
+    </div>
+
+    <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2 sm:gap-4">
+        {services.map((service) => { 
+
+            const { slug, data } = service
+            const { id, icon, title, cardDescription, available } = data 
+
+            const Icon = icons[icon] 
+            return (
+            <a
+                href={`/services/${slug}`}
+                class={`bg-background-card  border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out relative animate-slide-in-top ${available ? "hover:border-primary hover:-translate-y-1 border" : "pointer-events-none"}`}
+            >
+                {Icon && <Icon width={24} height={24} color="#FFFFFF" />}
+                <div class="flex flex-col gap-1">
+                <h4 class="text-base font-bold leading-5 text-text-primary">{title}</h4>
+                <p class="text-sm font-medium leading-5 text-text-secondary">{cardDescription}</p>
+                </div>
+
+                {available === false && (
+                <>
+                    {/* Badge */}
+                    <div class="p-1.5 rounded-lg absolute bg-[#0090c7] -top-1 -right-1 z-50">
+                    <p class="text-xs font-semibold">PROXIMAMENTE</p>
+                    </div>
+
+                    {/* Overlay que sí bloquea clics */}
+                    <div class="absolute top-0 left-0 w-full h-full bg-black/50 bg-opacity-50 z-40 rounded-lg" />
+                </>
+                )}
+            </a>
+        )
+        })}
+    </div>
+    </div>
+</div>

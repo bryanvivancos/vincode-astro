@@ -1,14 +1,17 @@
 ---
-import { PeopleIcon, DashboardIcon, ClockIcon } from "../../components/icons";
-import { BRAND_NAME, PORTFOLIO_SERVICE_SUBTITLES, PORTFOLIO_SERVICE_TITLES } from "../../CONSTANTS";
-import { ServicesPageTemplate } from "../../components/Services/ServicesPageTemplate";
-import MainLayout from "../../layouts/MainLayout.astro";
-
-const benefits = [
+id: 1
+title: Creación de Portfolios
+icon: briefcase
+cardDescription: Muestra tu trabajo con un portfolio profesional en línea.
+available: true
+subtitle: Entendemos que su portfolio suele ser la primera impresión que causa a clientes o empleadores potenciales, por lo que nos centramos en crear una experiencia visualmente atractiva e intuitiva que destaque sus talentos y logros únicos.
+description: Realza tu presencia profesional con un portfolio impactante y personalizado que muestre tus mejores trabajos y habilidades. Juntos crearemos un portfolio que no solo lucirá impecable, sino que también comunicará eficazmente tu valor a clientes y empleadores potenciales.
+demosTitle: "Portfolios"
+benefits: [
   {
     id: 1,
     icon: DashboardIcon,
-    title: 'Visibilidad Aumentada',
+    title: Visibilidad Aumentada,
     description: 'Un portfolio diseñado profesionalmente aumenta su visibilidad en línea, lo que hace que sea más fácil para los clientes potenciales encontrarlo.',
   },
   {
@@ -24,16 +27,14 @@ const benefits = [
     description: 'Deja que nos encarguemos del desarrollo, liberándote tiempo para concentrarte en tu trabajo.'
   }
 ]
-
-const projects = [
+projects: [
   {
     title: 'Portfolio Profesional',
     description: 'Muestra tu trabajo con un portfolio profesional en línea.',
     img: '/portfolio_image.webp'
   },
-];
-
-const faqData = [
+]
+faqData: [
   {
     id: 1,
     question: '¿En cuánto tiempo estará listo mi portfolio?',
@@ -54,23 +55,5 @@ const faqData = [
     question: '¿En qué plataformas o tecnologías construirán mi portfolio?',
     answer: 'Trabajamos con tecnologías modernas como React, Tailwind, HTML/CSS, y generamos sitios altamente optimizados, rápidos y compatibles con cualquier dispositivo. Elegimos la mejor opción según tus necesidades y objetivos.',
   },
-];
-
-const title= "Servicio de Creación de Portfolios"
+]
 ---
-
-<MainLayout 
-    title={`${title} | ${BRAND_NAME}`} 
-    description="Entendemos que cada negocio es único, por eso creamos plataformas robustas, escalables y totalmente adaptadas a tus necesidades, ya sea para gestión interna, automatización, ventas, reservas, educación, logística, administración de usuarios, dashboards y mucho más." 
-    url="https://www.vincode.dev/services/custom-software">
-    
-    <ServicesPageTemplate
-        title= {title}
-        subtitles={PORTFOLIO_SERVICE_TITLES}
-        description={PORTFOLIO_SERVICE_SUBTITLES}
-        demos="Portfolios"
-        profits={benefits}
-        projects={projects}
-        faqsItems={faqData}
-    />
-</MainLayout>
