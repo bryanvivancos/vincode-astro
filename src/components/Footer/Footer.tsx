@@ -1,6 +1,5 @@
 import { Icon } from "../icons/Icon";
 import { VINCODE_IG } from '../../CONSTANTS';
-import { navigate } from 'astro:transitions/client';
 import { useEffect, useState } from 'react';
 
 
@@ -25,31 +24,21 @@ export default function Footer({initialPathname} : {initialPathname: string}) {
         <div className="flex flex-col gap-6 items-center">
 
           {currentPath !== "/" && <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
-            <a href={'/#services'} className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
+            <a href='/#services' className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
 
-            <a href={'/#projects'} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
+            <a href='/#projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
 
-            <a href={'/#others'} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
+            <a href='/#others' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
 
-            {/* <a onClick={() => navigate("/", { state: { scrollTo: "contact" } })} className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Contáctanos</a> */}
           </div>
           }
 
-          {/* <div className="flex md:flex-row md:gap-4 md:items-baseline flex-wrap justify-center items-center gap-3 flex-col">
-            <a href="#privacy" className="text-base font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Privacy Policy</a>
-            <a href="#terms" className="text-base font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Terms of Service</a>
-          </div> */}
-
           <div className="flex gap-4 items-center">
-            {/*<a href="#twitter" className="flex items-center justify-center transition-all opacity-90 duration-300 ease-in-out hover:opacity-40" aria-label="Twitter">
-              <TwitterIcon width={24} height={24} color="#91B8C9" />
-            </a> */}
+
             <a href={VINCODE_IG} target="_blank" className="flex items-center justify-center transition-all opacity-90 duration-300 ease-in-out hover:opacity-40" aria-label="Instagram">
               <Icon name="InstagramIcon" width={24} height={24} color="#91B8C9" />
             </a>
-            {/* <a href="#facebook" className="flex items-center justify-center transition-all opacity-90 duration-300 ease-in-out hover:opacity-40" aria-label="Facebook">
-              <FacebookIcon width={24} height={24} color="#91B8C9" />
-            </a> */}
+            
           </div>
 
           <p className="text-base font-normal text-text-secondary text-center">

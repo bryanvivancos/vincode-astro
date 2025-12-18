@@ -1,9 +1,9 @@
 ---
 import Hero from "../components/Hero/Hero";
 import Services from "../components/Services/Services.astro";
-import Projects from "../components/Projects/Projects";
+import Projects from "../components/Projects/Projects.astro";
 import OtherProjects from "../components/OtherProjects/OtherProjects";
-import ContactForm from "../components/ContactForm/ContactForm";
+import ContactForm from "../components/ContactForm/ContactForm.astro";
 import { BRAND_NAME } from "../CONSTANTS";
 import MainLayout from "../layouts/MainLayout.astro";
 import "../global.css"
@@ -11,17 +11,17 @@ import { Toaster } from "react-hot-toast";
 ---
 
 <MainLayout 
-	title={`Home | ${BRAND_NAME}`} 
+	title={`${BRAND_NAME} | Home`} 
 	description="Vincode es un equipo de desarrollo de software que ofrece soluciones personalizadas para emprendimientos, startups y autónomos." 
 	url="www.vincode.dev" 
 	>
 
 	<Hero client:load />
 	<div class="px-4 mx-auto w-dvw md:w-full">
-		<Services/>
-		<Projects client:load />
+		<Services />
+		<Projects />
 		<OtherProjects client:load />
-		<ContactForm client:load />
+		<ContactForm />
 	</div>
 	<Toaster client:load />
 </MainLayout>

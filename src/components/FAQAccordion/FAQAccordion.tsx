@@ -16,8 +16,8 @@ export const FAQAccordion = ({faqs}: { faqs: FaqData[]}) => {
     <section>
 
         <div className="space-y-4">
-            {faqs.map((faq) => (
-                <details className="border border-gray-700 rounded-lg group">
+            {faqs.map((faq, index) => (
+                <details className="border border-gray-700 rounded-lg group" key={index}>
                   <summary className="flex justify-between items-center w-full py-5 px-6 cursor-pointer list-none">
                     <span className="text-base font-medium text-white">
                       {faq.question}

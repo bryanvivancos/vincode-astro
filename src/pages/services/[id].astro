@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
-import { ServicesPageTemplate } from '../../components/Services/ServicesPageTemplate';
+import ServicesPageTemplate from '../../components/Services/ServicePageTemplate.astro';
 import { BRAND_NAME } from '../../CONSTANTS';
 
 export async function getStaticPaths() {
@@ -17,7 +17,7 @@ const { service } = Astro.props;
 const { data } = service;
 const { title, subtitle, description, demosTitle, benefits, projects, faqData } = data;
 
-export const prerender = true
+// export const prerender = true
 ---
 
 <MainLayout 
@@ -26,7 +26,7 @@ export const prerender = true
     url={`www.vincode.dev/services/${service.slug}`}>
 
     <ServicesPageTemplate
-      title= {title}
+      serviceTitle= {title}
       subtitles={subtitle}
       description={description}
       profits={benefits}

@@ -101,9 +101,7 @@ export const DashboardIcon = (props: SVGProps<SVGSVGElement>) => (
 </svg>
 );
 export const ExclamationIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
-  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
-</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-exclamation-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 9v4" /><path d="M12 16v.01" /></svg>
 );
 export const FacebookIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}><path xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.37-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.37 9.75-9.75c-.006-5.38-4.368-9.74-9.75-9.75m.75 17.97v-5.97H15c.414 0 .75-.34.75-.75s-.336-.75-.75-.75h-2.25V10.5c0-.83.672-1.5 1.5-1.5h1.5c.414 0 .75-.34.75-.75s-.336-.75-.75-.75h-1.5c-1.657 0-3 1.34-3 3v2.25H9c-.414 0-.75.34-.75.75s.336.75.75.75h2.25v5.97a8.26 8.26 0 0 1-7.491-8.6A8.25 8.25 0 0 1 12 3.75a8.25 8.25 0 0 1 8.241 7.87 8.26 8.26 0 0 1-7.491 8.6" clipRule="evenodd" /></svg>

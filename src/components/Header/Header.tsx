@@ -20,7 +20,7 @@ export default function Header({initialPathname} : {initialPathname: string}) {
   }, []);
 
   return (
-    <header className="fixed bg-background-dark border-b-1 border-[#e5e8eb] z-1000 top-0 left-0 right-0 place-items-center">
+    <header className="fixed bg-background-dark border-b border-[#e5e8eb] z-1000 top-0 left-0 right-0 place-items-center">
 
       <div className="flex justify-between items-center h-16 max-w-7xl w-full py-4 md:py-0 px-4 sm:px-6 md:px-10">
 
@@ -37,7 +37,7 @@ export default function Header({initialPathname} : {initialPathname: string}) {
             <div className="flex items-center gap-9">
               {navbar_items.map(item => (
 
-                <a key={item.id} href={`/#${item.htmlId}`} className="text-base font-medium text-text-primary transition-all duration-300 ease-in-out hover:text-primary lg:block hidden">{item.name}</a>
+                <a key={item.id} href={`#${item.htmlId}`} className="text-base font-medium text-text-primary transition-all duration-300 ease-in-out hover:text-primary lg:block hidden">{item.name}</a>
 
               ))
               }

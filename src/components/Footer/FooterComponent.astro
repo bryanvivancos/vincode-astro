@@ -1,0 +1,31 @@
+---
+import { Icon } from "../icons/Icon";
+import { VINCODE_IG } from '../../CONSTANTS';
+
+const pathname = Astro.url.pathname
+---
+
+<footer class="py-10 sm:py-12 md:py-15 place-items-center">
+    <div class="max-w-240 w-full px-6">
+        <div class="flex flex-col gap-6 items-center">
+
+            {pathname !== "/" && 
+            <div class='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
+                <a href='/#services' class="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
+                <a href='/#projects' class="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
+                <a href='/#others' class="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
+            </div>
+            }
+            
+            <div class="flex gap-4 items-center">
+                <a href={VINCODE_IG} target="_blank" class="flex items-center justify-center transition-all opacity-90 duration-300 ease-in-out hover:opacity-40" aria-label="Instagram">
+                    <Icon name="InstagramIcon" width={24} height={24} color="#91B8C9" />
+            </a>
+            </div>
+
+            <p class="text-base font-normal text-text-secondary text-center">
+            © 2025 Vincode All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>

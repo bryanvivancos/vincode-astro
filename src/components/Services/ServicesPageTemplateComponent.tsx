@@ -1,4 +1,3 @@
-import type { ComponentType } from "react";
 import { SlideItems } from "../atoms/SlideItems";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
 import type { IconName } from "../icons";
