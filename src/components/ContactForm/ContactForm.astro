@@ -1,48 +1,15 @@
 ---
-import toast from "react-hot-toast";
-const FORM_ACCESS_KEY = import.meta.env.FORM_ACCESS_KEY;
-
-const form = document.getElementById("contact-form");
-
- form?.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const form = event.currentTarget as HTMLFormElement;
-    const formData = new FormData(form);
-
-    formData.append("access_key", FORM_ACCESS_KEY);
-
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-        });
-
-        const data: { success: boolean } = await response.json();
-        // setResult(data.success ? "Success!" : "Error");
-        // toast(data.success ? "Correo enviado" : "Error");
-        if (data.success) {
-        toast.success("Correo enviado satisfactoriamente", {
-            position: 'bottom-right',
-        });
-        form.reset();
-        }
-    } catch (error) {
-        console.error(error);
-        toast.error("Error");
-    }
-  });
+import { WEB3FORMS_KEY } from "astro:env/server"
 ---
 
 <section id="contact" class="py-10 sm:py-12 md:py-15 place-items-center">
-    <div class="max-w-[960px] flex items-center flex-col w-full">
+    <div class="max-w-240 flex items-center flex-col w-full">
     <h2 class="sectionTitle text-center">Contáctanos</h2>
 
     <form class="flex flex-col gap-6 sm:gap-8 w-full md:max-w-lg"
-       id="contact-form"
-    >
-    <!-- REQUIRED -->
-    <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
+        method="POST"
+        id="contact-form"
+    >   
 
         <div class="flex flex-col gap-2">
         <label class="text-base font-normal text-text-primary">Nombre</label>
@@ -79,9 +46,49 @@ const form = document.getElementById("contact-form");
         />
         </div>
 
-        <button type="submit" class="self-center py-3 px-6 bg-primary rounded-lg text-sm font-bold text-text-primary transition-all duration-300 ease-in-out transform hover:bg-[#0090c7] hover:-translate-y-0.5">
+        <button id="submit-btn" type="submit" class="self-center py-3 px-6 bg-primary rounded-lg text-sm font-bold text-text-primary transition-all duration-300 ease-in-out transform hover:bg-[#0090c7] hover:-translate-y-0.5">
         Enviar
         </button>
+
     </form>
     </div>
 </section>
+
+<script is:inline>
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        formData.append("access_key", WEB3FORMS_KEY);
+
+        const originalText = submitBtn.textContent;
+
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("Success! Your message has been sent.");
+                form.reset();
+            } else {
+                alert("Error: " + data.message);
+            }
+
+        } catch (error) {
+            alert("Something went wrong. Please try again.");
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+</script>

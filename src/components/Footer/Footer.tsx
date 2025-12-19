@@ -23,7 +23,7 @@ export default function Footer({initialPathname} : {initialPathname: string}) {
       <div className="max-w-240 w-full px-6">
         <div className="flex flex-col gap-6 items-center">
 
-          {currentPath !== "/" && <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
+          {currentPath !== "/" && currentPath !== "/form-message/message-sent" && <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
             <a href='/#services' className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
 
             <a href='/#projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>

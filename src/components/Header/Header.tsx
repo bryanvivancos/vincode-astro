@@ -44,7 +44,7 @@ export default function Header({initialPathname} : {initialPathname: string}) {
             </div>
           }
 
-          <a href={`/#contact`} className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Empecemos</a>
+          {currentPath !== "/form-message/message-sent" && <a href={`/#contact`} className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Empecemos</a>}
         </nav>
       </div>
     </header>
