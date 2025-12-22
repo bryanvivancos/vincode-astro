@@ -4,7 +4,6 @@ import Footer from "../components/Footer/Footer";
 import { ClientRouter } from "astro:transitions";
 import "../global.css";
 const pathname = Astro.url.pathname;
-console.log(pathname);
 
 interface Props {
     title: string;
@@ -36,37 +35,16 @@ const { title, description, url } = Astro.props;
         <meta property="og:url" content={url} />
         <ClientRouter fallback="none" />
     </head>
-
+    
     <body
-        class="mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope"
+    class="mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope"
     >
-        <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
-            <Header currentPath={pathname} client:load />
-            <main class="w-dvw md:w-full place-items-center">
-                <slot />
-            </main>
-            <Footer currentPath={pathname} client:load />
-        </div>
-
-        <script>
-            const scrollToHash = () => {
-                if (!location.hash) return;
-
-                const id = location.hash.slice(1);
-
-                const targetElement = document.getElementById(id);
-                if (!targetElement) return;
-
-                // 2. Call scrollIntoView() on that element
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: "smooth", // Smooth animation
-                        block: "start", // Aligns the top of the element to the top of the viewport
-                    });
-                }
-            };
-
-            window.onload = scrollToHash;
-        </script>
+    <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
+        <Header currentPath={pathname} client:load />
+        <main class="w-dvw md:w-full place-items-center">
+            <slot />
+        </main>
+        <Footer currentPath={pathname} />
+    </div>
     </body>
 </html>

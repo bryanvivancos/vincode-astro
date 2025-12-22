@@ -1,11 +1,13 @@
 export const BRAND_NAME = "VINCODE"
 export const VINCODE_IG = "https://www.instagram.com/vincodedev/"
+export const email = 'vincodedev@gmail.com'
+export const phone = '+51 956023028'
 
 export const HERO_TITLE = "Eleva Tu Presencia En Línea con Servicios Digitales"
 export const HERO_SUBTITLE = "Desde tarjetas digitales intuitivas, portfolios impresionantes hasta potentes plataformas de comercio electrónico, creamos soluciones digitales que impulsan el éxito."
 
 export const SERVICES_TITLE = "Soluciones Digitales"
-export const SERVICES_SUBTITLE = "Ofrecemos una gama de servicios para satisfacer sus necesidades digitales, desde la creación de portfolios hasta el desarrollo de comercio electrónico."
+export const SERVICES_SUBTITLE = "Ofrecemos una gama de servicios para satisfacer tus necesidades digitales, desde la creación de tarjetas digitales, portfolios hasta el desarrollo de un software a la medida de tu negocio."
 
 // NAVBAR ITEMS
 export const navbar_items = [
@@ -19,18 +21,23 @@ export const navbar_items = [
     name: "Proyectos",
     htmlId: "projects"
   },
+  // {
+  //   id: 3,
+  //   name: "Otros Proyectos",
+  //   htmlId: "other-projects"
+  // },
   {
-    id: 3,
-    name: "Otros Proyectos",
-    htmlId: "other-projects"
+    id: 4,
+    name: "Sobre Nosotros",
+    htmlId: "about-us"
   },
   // {
-  //   id: 4,
+  //   id: 5,
   //   name: "Testimonios",
   //   htmlId: "testimonials"
   // },
   // {
-  //   id: 5,
+  //   id: 6,
   //   name: "Contacto",
   //   htmlId: "contact"
   // },
@@ -41,7 +48,7 @@ export const projects = [
   {
     title: 'Portfolio',
     description: 'Portfolio profesional para Ingeniero.',
-    img: '/portfolio_image.webp',
+    img: '/portfolio-web.webp',
     link: 'https://bryanvivancos.netlify.app/'
   },
   {
@@ -58,9 +65,9 @@ export const projects = [
   // },
   {
     title: 'Tarjeta de presentación digital',
-    description: 'Impresión duradera con una tarjeta de presentación digital para ingeniero.',
-    img: '/digital-card.webp',
-    link: 'https://bryanvivancosbusiness.vercel.app/'
+    description: 'Impresión duradera con una tarjeta de presentación digital negocio de joyas.',
+    img: '/catquiz-digital-card.webp',
+    link: 'https://catquiz-card.vercel.app/'
   },
 ];
 
@@ -98,12 +105,14 @@ export const items = [
   {
     src: "/quizter-image-01.webp",
     title: "QUIZTER",
-    href: `${QUIZTER_APP}`
+    href: `${QUIZTER_APP}`,
+    description: 'Juego de Quiz con preguntas de cultura general',
   },
   {
     src: "/randomizer-image-01.webp",
     title: "RANDOMIZER",
-    href: `${RANDOMIZER_APP}`
+    href: `${RANDOMIZER_APP}`,
+    description: 'Pagina de juegos, aplicaciones de números random, sorteos',
   },
 ];
 

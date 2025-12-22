@@ -1,5 +1,6 @@
 ---
 id: 1
+category: 'web'
 title: Creación de Portfolios
 icon: BriefcaseIcon
 cardDescription: Muestra tu trabajo con un portfolio profesional en línea.

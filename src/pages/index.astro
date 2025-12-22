@@ -19,11 +19,15 @@ import { Toaster } from "react-hot-toast";
     <div class="px-4">
         <Services />
         <Projects />
-        <div id="other-projects" data-scroll="other-projects">
+        <div id="other-projects">
             <OtherProjects client:load />
         </div>
-        <div id="contact" data-scroll="contact">
-            <ContactForm client:load />
+        <div class="flex flex-col gap-8 text-center">
+            <p class="text-primary font-extrabold text-2xl md:text-4xl">¿LISTO PARA EMPEZAR?</p>
+            <p class="text-center text-base tmd:text-lg text-balance ">Contáctanos hoy para discutir tu proyecto y descubrir como podemos ayudarte con tus metas digitales.</p>
+            <div class="flex justify-center">
+                <a href="/contact" class="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Contáctanos</a>
+            </div>
         </div>
     </div>
     <Toaster client:load />

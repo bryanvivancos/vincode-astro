@@ -1,5 +1,6 @@
 ---
 id: 6
+category: 'web'
 title: Desarrollo Web Ecommerce
 icon: GlobeIcon
 cardDescription: Construye una potente tienda online para vender tus productos o servicios.

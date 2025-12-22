@@ -93,7 +93,7 @@ export const ServicesPageTemplate = ({
       />
 
       <div className="flex justify-center">
-        <a href="/#contact" className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Contáctanos</a>
+        <a href="/contact" className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Contáctanos</a>
       </div>
 
     </section>

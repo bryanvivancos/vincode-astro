@@ -1,5 +1,6 @@
 ---
 id: 4
+category: 'software'
 title: Desarrollo Software Personalizado
 icon: CustomSoftwareIcon
 cardDescription: "Impulsa tu negocio con una plataforma personalizada, diseñada para optimizar tus flujos de trabajo."

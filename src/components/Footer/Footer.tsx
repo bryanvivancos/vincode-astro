@@ -1,36 +1,29 @@
 import { Icon } from "../icons/Icon";
-import { VINCODE_IG } from '../../CONSTANTS';
-import { useEffect, useState } from 'react';
-
+import { navbar_items, VINCODE_IG } from '../../CONSTANTS';
 
 export default function Footer(
   {currentPath} : {currentPath: string}
 ) {
-
-  // const [currentPath, setCurrentPath] = useState(initialPathname);
-
-  // useEffect(() => {
-  //   // Escuchar cambios de navegación de Astro para actualizar el estado
-  //   const handleNavigation = () => {
-  //     setCurrentPath(window.location.pathname);
-  //   };
-
-  //   document.addEventListener('astro:after-navigation', handleNavigation);
-  //   return () => document.removeEventListener('astro:after-navigation', handleNavigation);
-  // }, []);
 
   return (
     <footer className="py-10 sm:py-12 md:py-15 place-items-center">
       <div className="max-w-240 w-full px-6">
         <div className="flex flex-col gap-6 items-center">
 
-          {currentPath !== "/" && <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
-            <a href='/#services' className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
-
-            <a href='/#projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
-
-            <a href='/#other-projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
-
+          {currentPath !== "/" && 
+          
+          <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
+            {
+              navbar_items.map( item => (
+                <a key={item.id} 
+                  href={`/${item.htmlId}`} 
+                  className={`md:text-base text-sm font-normal transition-all duration-300 ease-in-out text-center 
+                  ${currentPath === `/${item.htmlId}` ? "text-primary": "text-text-secondary hover:text-primary"}`}
+                >
+                  {item.name}
+                </a>
+              ) )
+            }
           </div>
           }
 

@@ -32,7 +32,7 @@ export default function Hero() {
           <p className="text-sm sm:text-base md:text-lg font-medium text-text-primary mb-4 sm:mb-6 md:mb-8">
             {HERO_SUBTITLE}
           </p>
-          <a className="py-2.5 sm:py-3 px-5 sm:px-6 bg-primary rounded-lg text-sm sm:text-base font-bold text-text-primary transition-all duration-300 ease-in-out transform hover:bg-[#0090c7] hover:-translate-y-0.5" href="/#services">Ver Servicios</a>
+          <a className="py-2.5 sm:py-3 px-5 sm:px-6 bg-primary rounded-lg text-sm sm:text-base font-bold text-text-primary transition-all duration-300 ease-in-out transform hover:bg-[#0090c7] hover:-translate-y-0.5" href="/services">Ver Servicios</a>
         </div>
       </div>
     </div>

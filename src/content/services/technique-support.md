@@ -1,5 +1,6 @@
 ---
 id: 5
+category: 'software'
 title: Software Licenciado e Instalación Profesional
 icon: ServerIcon
 cardDescription: "Instalación y configuración profesional de software original y licenciado."

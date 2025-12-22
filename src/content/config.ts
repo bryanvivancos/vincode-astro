@@ -10,6 +10,7 @@ const iconNames = Object.keys(icons) as [
 const services = defineCollection({
     schema: z.object({
         id: z.number(),
+        category: z.string(),
         title: z.string(),
         icon: z.string(),
         available: z.boolean(),

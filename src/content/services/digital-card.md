@@ -1,5 +1,6 @@
 ---
 id: 3
+category: 'web'
 title: Tarjeta de Presentación Digital
 icon: CardIcon
 cardDescription: Deja una impresión duradera con una tarjeta de presentación digital.'

@@ -1,5 +1,6 @@
 ---
 id: 2
+category: 'web'
 title: Links in Bio
 icon: LinkIcon
 cardDescription: Crea un centro para todos tus enlaces importantes.

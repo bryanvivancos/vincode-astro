@@ -1,23 +1,12 @@
 import { navbar_items } from '../../CONSTANTS';
-import { useEffect, useState } from 'react';
 
 
 export default function Header(
   {currentPath} : {currentPath: string}
 ) {
-  // Estado para rastrear la ruta actual y que React re-renderice
-  // const [currentPath, setCurrentPath] = useState(initialPathname);
   
-  // useEffect(() => {
-  //     // Escuchar cambios de navegación de Astro para actualizar el estado
-  //     const handleNavigation = () => {
-  //         setCurrentPath(window.location.pathname);
-  //       };
-      
-  //       document.addEventListener('astro:after-navigation', handleNavigation);
-  //       return () => document.removeEventListener('astro:after-navigation', handleNavigation);
-  //     }, []);
-  
+  const isOnPage = navbar_items.some(item => `/${item.htmlId}` === currentPath)
+
     return (
     <header className="fixed bg-background-dark border-b border-[#e5e8eb] z-1000 top-0 left-0 right-0 place-items-center">
 
@@ -30,20 +19,25 @@ export default function Header(
           </p>
         </a>
 
-        <nav className="flex items-center gap-8">
+        <nav className="flex items-center gap-4 lg:gap-9">
 
-          {currentPath === '/' &&
-            <div className="flex items-center gap-9">
+          {(currentPath === '/' 
+          || currentPath === '/contact'
+          || isOnPage) &&
+            <div className="flex items-center gap-4 lg:gap-9">
               {navbar_items.map(item => (
 
-                <a key={item.id} href={`#${item.htmlId}`} className="text-base font-medium text-text-primary transition-all duration-300 ease-in-out hover:text-primary lg:block hidden">{item.name}</a>
-
+                <a key={item.id} href={`${item.htmlId}`} 
+                  className={`text-base font-medium  transition-all duration-300 ease-in-out  md:block hidden 
+                  ${currentPath === `/${item.htmlId}` ? "text-primary": "text-text-primary hover:text-primary"}`}>{item.name}
+                </a>
               ))
               }
             </div>
           }
 
-          <a href={`/#contact`} className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Empecemos</a>
+          { currentPath !== '/contact' &&
+            <a href={`/contact`} className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Empecemos</a>}
         </nav>
       </div>
     </header>
