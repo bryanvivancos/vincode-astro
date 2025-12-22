@@ -13,7 +13,7 @@ export default function Hero() {
     <div className="mt-16 md:mt-16 w-full sectionContainer animate-slide-in-top">
       {/* <div className="relative overflow-hidden min-h-[300px] sm:min-h-[400px] md:h-[480px] flex flex-col items-center justify-center bg-[linear-gradient(90deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.6)_100%),url('/hero-bg-00.webp')] bg-cover bg-center bg-no-repeat"> */}
 
-      <div className="relative overflow-hidden min-h-[300px] sm:min-h-[400px] md:h-[480px] flex flex-col items-center justify-center w-full">
+      <div className="relative overflow-hidden min-h-75 sm:min-h-100 md:h-120 flex flex-col items-center justify-center w-full">
   
         <img 
           src="/hero-bg-00.webp" 
@@ -25,8 +25,8 @@ export default function Hero() {
 
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.6)_100%)] -z-10"></div>
 
-        <div className="flex flex-col items-center gap-2 sm:gap-3 text-center px-4 sm:px-8 md:px-12 py-12 sm:py-16 max-w-[800px] w-full">
-          <h1 className="font-extrabold leading-tight sm:leading-[40px] md:leading-[60px] tracking-[-1px] sm:tracking-[-2px] text-text-primary text-3xl md:text-5xl">
+        <div className="flex flex-col items-center gap-2 sm:gap-3 text-center px-4 sm:px-8 md:px-12 py-12 sm:py-16 max-w-200 w-full">
+          <h1 className="font-extrabold leading-tight sm:leading-10 md:leading-15 tracking-[-1px] sm:tracking-[-2px] text-text-primary text-3xl md:text-5xl">
             {HERO_TITLE}
           </h1>
           <p className="text-sm sm:text-base md:text-lg font-medium text-text-primary mb-4 sm:mb-6 md:mb-8">

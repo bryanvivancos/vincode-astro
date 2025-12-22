@@ -1,54 +1,49 @@
-
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-const FORM_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+const SUBJECT = "Nuevo mensaje desde la web";
+const FORM_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 
-export default function ContactForm() {
+export default function Form() {
 
     const [btnText, setBtnText] = useState("Enviar");
 
-    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (event: any) => {
         event.preventDefault();
         setBtnText("Enviando...");
 
-        const form = event.currentTarget;
+        const form = event.target;
         const formData = new FormData(form);
 
-        formData.append("access_key", FORM_ACCESS_KEY);
+        formData.append("access_key", FORM_KEY);
+        formData.append("subject", SUBJECT);
+
 
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                body: formData,
+            const res = await fetch(FORM_ENDPOINT, {
+            method: "POST",
+            body: formData,
             });
 
-            const data: { success: boolean } = await response.json();
-            // setResult(data.success ? "Success!" : "Error");
-            // toast(data.success ? "Correo enviado" : "Error");
+            const data = await res.json();
+
             if (data.success) {
-                toast.success("Correo enviado satisfactoriamente", {
-                position: 'bottom-right',
-                });
-                setBtnText("Enviar");
-                form.reset();
-            } else {
-                toast.error("Error al enviar el correo, inténtelo más tarde", {
-                position: 'bottom-right',
-                });
-                setBtnText("Enviar");
-            }
+            toast.success("Mensaje enviado satisfactoriamente", {
+                position: "bottom-right",
+            });
+            setBtnText("Enviar");
+            form.reset();
+            } 
         } catch (error) {
-            toast.error("Error al enviar el correo, inténtelo más tarde");
+            console.error(error);
+            toast.error("Error al enviar el mensaje.");
         }
     };
 
     return (
-        <section className="py-10 sm:py-12 md:py-15 place-items-center">
-        <div className="max-w-240 flex items-center flex-col w-full">
-            <h2 className="sectionTitle text-center">Contáctanos</h2>
 
-            <form className="flex flex-col gap-6 sm:gap-8 w-full md:max-w-lg" onSubmit={onSubmit}>
+        <form className="flex flex-col gap-6 sm:gap-8 w-full md:max-w-lg" onSubmit={onSubmit}>
             <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-base font-normal text-text-primary">Nombre</label>
                 <input
@@ -86,12 +81,10 @@ export default function ContactForm() {
 
             <button type="submit" 
                 className={`self-center py-3 px-6 bg-primary rounded-lg text-sm font-bold text-text-primary transition-all duration-300 ease-in-out transform hover:bg-[#0090c7] hover:-translate-y-0.5
-                ${btnText !== "Enviar" ? "cursor-not-allowed opacity-70 pointer-events-none" : ""}
+                ${btnText !== "Enviar" ? "cursor-not-allowed opacity-50 pointer-events-none" : ""}
                 `}>
                 {btnText}
             </button>
-            </form>
-        </div>
-        </section>
+        </form>
     );
 }

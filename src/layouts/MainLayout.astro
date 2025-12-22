@@ -1,92 +1,72 @@
 ---
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import { ClientRouter } from "astro:transitions";
-import "../global.css"
+import "../global.css";
 const pathname = Astro.url.pathname;
+console.log(pathname);
 
 interface Props {
-  title: string;
-  description: string;
-  url: string
+    title: string;
+    description: string;
+    url: string;
 }
 const { title, description, url } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" transition:name="root" transition:animate="none">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="public/vincode-icon.ico" />
-  	<link rel="shortcut icon" type="image/x-icon" href="/vincode-icon.ico">
-    <title>{title}</title>
-    <meta name="description" content={description}>
-    <link
-          rel="canonical"
-          href={url}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="public/vincode-icon.ico" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/vincode-icon.ico"
         />
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:image" content="/cover-page.webp" />
-    <meta
-        property="og:description"
-        content={description}
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={url}></meta>
-    <ClientRouter />
-  </head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={url} />
+        <!-- Open Graph -->
+        <meta property="og:title" content={title} />
+        <meta property="og:image" content="/cover-page.webp" />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <ClientRouter fallback="none" />
+    </head>
 
-   <script>
-    (() => {
-      const scrollToHash = () => {
-        if (!location.hash) return;
-        const targetId = location.hash.slice(1);
-        let attempts = 0;
-        const maxAttempts = 30;
-        const tryScroll = () => {
-          const el = document.getElementById(targetId);
-          if (!el) {
-            if (attempts < maxAttempts) {
-              attempts++;
-              return requestAnimationFrame(tryScroll);
-            }
-            return;
-          }
-          // Ajusta este valor si tienes un header fijo de diferente altura
-          const headerOffset = 64; // px
-          const y = el.getBoundingClientRect().top + window.scrollY - headerOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        };
-        requestAnimationFrame(tryScroll);
-      };
-      window.addEventListener("pageshow", scrollToHash);
-      window.addEventListener("hashchange", scrollToHash);
-      // Si ya hay hash al cargar
-      if (location.hash) {
-        scrollToHash();
-      }
-    })();
-    </script>
+    <body
+        class="mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope"
+    >
+        <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
+            <Header currentPath={pathname} client:load />
+            <main class="w-dvw md:w-full place-items-center">
+                <slot />
+            </main>
+            <Footer currentPath={pathname} client:load />
+        </div>
 
+        <script>
+            const scrollToHash = () => {
+                if (!location.hash) return;
 
-  <body class="w-full mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope">
-    <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
-      <Header initialPathname={pathname}/>
-      <main class="w-dvw md:w-full place-items-center">
-        <slot />
-      </main>
-      <Footer initialPathname={pathname}/>
-    </div>
-  </body>
+                const id = location.hash.slice(1);
 
-  <style is:global>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 4rem;
-    }
-  </style>
+                const targetElement = document.getElementById(id);
+                if (!targetElement) return;
 
+                // 2. Call scrollIntoView() on that element
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: "smooth", // Smooth animation
+                        block: "start", // Aligns the top of the element to the top of the viewport
+                    });
+                }
+            };
 
+            window.onload = scrollToHash;
+        </script>
+    </body>
 </html>

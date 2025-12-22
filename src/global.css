@@ -3,9 +3,9 @@
 @plugin "@midudev/tailwind-animations";
 
 html {
-  scroll-padding-top: 2rem;
+  scroll-padding-top: 4rem;
   /* para que al hacer el scroll desde el nav no quede pegado en la parte de arriba arriba */
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 @theme {

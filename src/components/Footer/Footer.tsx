@@ -3,32 +3,33 @@ import { VINCODE_IG } from '../../CONSTANTS';
 import { useEffect, useState } from 'react';
 
 
-export default function Footer({initialPathname} : {initialPathname: string}) {
-  // const location = useLocation()
-  // const navigate = useNavigate()
-  const [currentPath, setCurrentPath] = useState(initialPathname);
+export default function Footer(
+  {currentPath} : {currentPath: string}
+) {
 
-  useEffect(() => {
-    // Escuchar cambios de navegación de Astro para actualizar el estado
-    const handleNavigation = () => {
-      setCurrentPath(window.location.pathname);
-    };
+  // const [currentPath, setCurrentPath] = useState(initialPathname);
 
-    document.addEventListener('astro:after-navigation', handleNavigation);
-    return () => document.removeEventListener('astro:after-navigation', handleNavigation);
-  }, []);
+  // useEffect(() => {
+  //   // Escuchar cambios de navegación de Astro para actualizar el estado
+  //   const handleNavigation = () => {
+  //     setCurrentPath(window.location.pathname);
+  //   };
+
+  //   document.addEventListener('astro:after-navigation', handleNavigation);
+  //   return () => document.removeEventListener('astro:after-navigation', handleNavigation);
+  // }, []);
 
   return (
     <footer className="py-10 sm:py-12 md:py-15 place-items-center">
       <div className="max-w-240 w-full px-6">
         <div className="flex flex-col gap-6 items-center">
 
-          {currentPath !== "/" && currentPath !== "/form-message/message-sent" && <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
+          {currentPath !== "/" && <div className='grid grid-cols-3 w-full place-items-center gap-1 md:gap-6'>
             <a href='/#services' className="md:text-base text-sm font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary ">Servicios</a>
 
             <a href='/#projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Proyectos</a>
 
-            <a href='/#others' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
+            <a href='/#other-projects' className="md:text-base text-sm  font-normal text-text-secondary transition-all duration-300 ease-in-out hover:text-primary">Otros Proyectos</a>
 
           </div>
           }

@@ -1,0 +1,12 @@
+---
+import { items } from "../../CONSTANTS";
+import Carrousel from "../atoms/Carrousel";
+---
+
+<section class="py-10 sm:py-12 md:py-15 place-items-center">
+    <div class="max-w-240 flex items-center flex-col">
+        <h2 class="sectionTitle text-center">Otros Proyectos de Nosotros</h2>
+
+        <Carrousel items={items} client:load />
+    </div>
+</section>
