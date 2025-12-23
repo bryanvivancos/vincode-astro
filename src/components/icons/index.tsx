@@ -101,7 +101,7 @@ export const DashboardIcon = (props: SVGProps<SVGSVGElement>) => (
 </svg>
 );
 export const ExclamationIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-exclamation-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 9v4" /><path d="M12 16v.01" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-exclamation-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 9v4" /><path d="M12 16v.01" /></svg>
 );
 export const FacebookIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}><path xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.37-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.37 9.75-9.75c-.006-5.38-4.368-9.74-9.75-9.75m.75 17.97v-5.97H15c.414 0 .75-.34.75-.75s-.336-.75-.75-.75h-2.25V10.5c0-.83.672-1.5 1.5-1.5h1.5c.414 0 .75-.34.75-.75s-.336-.75-.75-.75h-1.5c-1.657 0-3 1.34-3 3v2.25H9c-.414 0-.75.34-.75.75s.336.75.75.75h2.25v5.97a8.26 8.26 0 0 1-7.491-8.6A8.25 8.25 0 0 1 12 3.75a8.25 8.25 0 0 1 8.241 7.87 8.26 8.26 0 0 1-7.491 8.6" clipRule="evenodd" /></svg>
@@ -191,6 +191,9 @@ export const TrendingUpIcon = (props: SVGProps<SVGSVGElement>) => (
 export const TwitterIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}><path xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" d="M23.193 6.46A.75.75 0 0 0 22.5 6h-2.853a4.57 4.57 0 0 0-3.888-2.25 4.4 4.4 0 0 0-3.164 1.28 4.5 4.5 0 0 0-1.345 3.22v.57c-3.774-.99-6.862-4.06-6.894-4.1a.76.76 0 0 0-.787-.18.75.75 0 0 0-.493.64c-.404 4.48.897 7.48 2.062 9.21.569.85 1.26 1.62 2.052 2.27-1.428 1.64-3.676 2.5-3.701 2.51a.754.754 0 0 0-.361 1.12c.071.11.352.47 1.039.82.85.42 1.972.64 3.333.64 6.625 0 12.161-5.1 12.727-11.67l2.804-2.8a.75.75 0 0 0 .162-.82m-4.219 2.76a.75.75 0 0 0-.217.48c-.382 5.92-5.325 10.55-11.257 10.55-.99 0-1.688-.13-2.177-.29 1.079-.58 2.584-1.59 3.551-3.04a.77.77 0 0 0 .106-.59.75.75 0 0 0-.355-.48c-.044-.02-4.117-2.47-4.125-9 1.5 1.22 4.242 3.11 7.375 3.64.218.03.44-.03.609-.17a.75.75 0 0 0 .266-.57v-1.5c-.002-.81.323-1.58.9-2.15a2.92 2.92 0 0 1 2.091-.85c1.186.01 2.296.74 2.76 1.8.119.27.389.45.687.45h1.5z" clipRule="evenodd" /></svg>
 );
+export const StoreIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-building-store"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0" /><path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" /><path d="M5 21l0 -10.15" /><path d="M19 21l0 -10.15" /><path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" /></svg>
+);
 
 export const icons = {
   BriefcaseIcon,
@@ -226,6 +229,7 @@ export const icons = {
   ThumbsUpIcon,
   TrendingUpIcon,
   TwitterIcon,
+  StoreIcon,
 } as const;
 
 export type IconName = keyof typeof icons;
