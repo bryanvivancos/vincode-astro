@@ -1,6 +1,7 @@
 ---
+import ProjectGrid from "../../components/atoms/ProjectGrid.astro";
 import Projects from "../../components/Projects/Projects.astro";
-import { BRAND_NAME, items, projects } from "../../CONSTANTS";
+import { BRAND_NAME, others_projects, projects } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 
@@ -14,77 +15,27 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
     <main class="py-10 px-4 sm:py-12 md:py-15 place-items-center">
         <div class="max-w-240 py-10 sm:py-12 md:py-15">
-        <h2 class="sectionTitle">Proyectos Realizados</h2>
+            <h2 class="sectionTitle">Proyectos Realizados</h2>
 
-        <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-            Explora algunos de nuestro proyectos recientes que hemos completado con exito para nuestros clientes. 
-        </p>
-        
-        <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6"
-        >
-            {
-                projects.map((project) => (
-                    <a
-                        href={project.link}
-                        target="_blank"
-                        class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top h-full"
-                    >
-                        <div class="flex flex-col gap-1">
-                            <img
-                                src={project.img}
-                                alt={`${project.title} screenshot`}
-                                class="w-full h-auto rounded-lg"
-                            />
-                            <div class="pt-4 space-y-2">
-                                <h4 class="text-base font-bold leading-5 text-text-primary">
-                                    {project.title}
-                                </h4>
-                                <p class="text-sm font-medium leading-5 text-text-secondary">
-                                    {project.description}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                ))
-            }
-        </div>
+            <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
+                Explora algunos de nuestro proyectos recientes que hemos completado con exito para nuestros clientes. 
+            </p>
+            
+            <ProjectGrid 
+                projects={projects}
+            />  
         </div>
 
         <div class="max-w-240 py-10 sm:py-12 md:py-15 w-full">
-        <h2 class="sectionTitle">Otro Proyectos de {BRAND_NAME}</h2>
+            <h2 class="sectionTitle">Otro Proyectos de {BRAND_NAME}</h2>
 
-        <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-            Explora algunos de nuestro proyectos recientes que hemos completado con exito para nuestros clientes. 
-        </p>
-        
-        <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6"
-        >
-            {
-                items.map((project) => (
-                    <a
-                        href={project.href}
-                        target="_blank"
-                        class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top h-full max-w-76"
-                    >
-                        <div class="flex flex-col gap-1">
-                            <img
-                                src={project.src}
-                                alt={`${project.title} screenshot`}
-                                class="w-full h-auto rounded-lg"
-                            />
-                            <div class="pt-4 space-y-2">
-                                <h4 class="text-base font-bold leading-5 text-text-primary">
-                                    {project.title}
-                                </h4>
-                                <p class="text-sm font-medium leading-5 text-text-secondary">
-                                    {project.description}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                ))
-            }
-        </div>
+            <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
+                Explora algunos de nuestro proyectos recientes que hemos completado con exito para nuestros clientes. 
+            </p>
+            
+            <ProjectGrid 
+                projects={others_projects}
+            />
         </div>
     </main>
 

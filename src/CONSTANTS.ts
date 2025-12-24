@@ -1,3 +1,5 @@
+import { getOrigQueryParams } from "astro/assets/utils"
+
 export const BRAND_NAME = "VINCODE"
 export const VINCODE_IG = "https://www.instagram.com/vincodedev/"
 export const email = 'vincodedev@gmail.com'
@@ -49,25 +51,28 @@ export const projects = [
     title: 'Portfolio',
     description: 'Portfolio profesional para Ingeniero.',
     img: '/portfolio-web.webp',
-    link: 'https://bryanvivancos.netlify.app/'
+    url: 'https://bryanvivancos.netlify.app/',
+    goToWeb: true
   },
   {
     title: 'Links in Bio',
     description: 'Web para centralizar los links más importantes de una empresa de Joyas.',
     img: '/link_bio.webp',
-    link: 'https://catquizpe.vercel.app/'
+    url: 'https://catquizpe.vercel.app/',
+    goToWeb: true
   },
   // {
   //   title: 'E-commerce Web',
   //   description: 'Build a powerful online store to sell your products or services.',
   //   img: '/project-image.webp',
-  //   link: '#'
+  //   url: '#'
   // },
   {
     title: 'Tarjeta de presentación digital',
     description: 'Impresión duradera con una tarjeta de presentación digital negocio de joyas.',
     img: '/catquiz-digital-card.webp',
-    link: 'https://catquiz-card.vercel.app/'
+    url: 'https://catquiz-card.vercel.app/',
+    goToWeb: true
   },
 ];
 
@@ -101,18 +106,27 @@ export const testimonials = [
 export const QUIZTER_APP = "https://quizter-web.vercel.app/"
 export const RANDOMIZER_APP = "https://randomizer-app-psi.vercel.app/"
 
-export const items = [
+export const others_projects = [
   {
-    src: "/quizter-image-01.webp",
+    img: "/quizter-image-01.webp",
     title: "QUIZTER",
-    href: `${QUIZTER_APP}`,
+    url: `${QUIZTER_APP}`,
     description: 'Juego de Quiz con preguntas de cultura general',
+    goToWeb: true,
   },
   {
-    src: "/randomizer-image-01.webp",
+    img: "/randomizer-image-01.webp",
     title: "RANDOMIZER",
-    href: `${RANDOMIZER_APP}`,
+    url: `${RANDOMIZER_APP}`,
     description: 'Pagina de juegos, aplicaciones de números random, sorteos',
+    goToWeb: true
+  },
+  {
+    img: "/randomizer-image-01.webp",
+    title: "VIN DISPLAY - Cartelera Digital",
+    url: ``,
+    description: 'Software de Cartelera Digital para mostrar publicidad y tus menus o sabores disponibles de tu restaurante',
+    goToWeb: false
   },
 ];
 

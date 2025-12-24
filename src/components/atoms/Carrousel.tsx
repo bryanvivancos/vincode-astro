@@ -62,7 +62,7 @@ const Carrousel: React.FC<CarrouselProps> = ({
 
 
       <div ref={containerRef}
-        className={`flex items-center ${items.length <= 4 ? "justify-center" : ""} h-70 gap-6 overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth animate-slide-in-top`}
+        className={`flex items-center ${items.length <= 4 ? "justify-center" : ""} h-96 gap-6 overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth animate-slide-in-top`}
         style={{
           paddingLeft: paddingCalc,
           paddingRight: paddingCalc,
@@ -82,7 +82,7 @@ const Carrousel: React.FC<CarrouselProps> = ({
                 alt={`imagen de ${item.title}`}
                 className="w-full h-full object-cover overflow-hidden"
               />
-              <p className="mt-1 text-xl font-semibold text-white text-center pb-4">
+              <p className="mt-1 text-lg font-semibold text-white text-center pb-4">
                 {item.title}
               </p>
             </a>

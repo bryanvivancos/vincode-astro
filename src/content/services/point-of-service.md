@@ -1,7 +1,7 @@
 ---
 id: 7
 category: 'software'
-title: Punto de Venta - POS
+title: VIN CASH - Punto de Venta POS
 icon: StoreIcon
 cardDescription: Centraliza ventas, inventario, caja y gestión administrativa con una plataforma moderna, rápida y fácil de usar.
 available: false

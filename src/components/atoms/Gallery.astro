@@ -1,0 +1,19 @@
+---
+import "photoswipe/style.css"
+---
+
+
+
+<script>
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+const lightbox = new PhotoSwipeLightbox({
+    gallery: '#project-gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe')
+});
+
+lightbox.init();
+
+
+</script>
