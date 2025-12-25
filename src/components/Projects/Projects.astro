@@ -4,24 +4,25 @@ import { projects } from "../../CONSTANTS";
 // export const prerender= true
 ---
 
-<section
-    id="projects"
-    class="py-10 sm:py-12 md:py-15 place-items-center"
->
+<section id="projects" class="py-10 sm:py-12 md:py-15 place-items-center">
     <div class="max-w-240">
         <h2 class="sectionTitle">Proyectos de Clientes</h2>
 
-        <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-            Explora algunos de nuestro proyectos recientes y mira como podemos ayudarte a alcanzar tus metas con soluciones innovadoras. 
+        <p
+            class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+        >
+            Explora algunos de nuestro proyectos recientes y mira como podemos
+            ayudarte a alcanzar tus metas con soluciones innovadoras.
         </p>
-        
-        <div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6"
+
+        <div
+            class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6"
         >
             {
                 projects.map((project) => (
                     <a
-                        href={project.link}
-                        target="_blank"
+                        href={project.url}
+                        target={project.goToWeb ? "_blank" : "_self"}
                         class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top h-full"
                     >
                         <div class="flex flex-col gap-1">

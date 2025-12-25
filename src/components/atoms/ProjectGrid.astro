@@ -8,19 +8,18 @@ interface Project {
 }
 
 interface Props {
-    projects: Project[]
+    projects: Project[];
 }
 
-
-const { projects } = Astro.props
+const { projects } = Astro.props;
 ---
 
-<div class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6">
+<div
+    class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6"
+>
     {
-        projects.map((project:Project) => (
-            <div
-                class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top h-full"
-            >
+        projects.map((project: Project) => (
+            <div class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top max-w-72 h-full group">
                 <div class="flex flex-col gap-1">
                     <img
                         src={project.img}
@@ -34,13 +33,17 @@ const { projects } = Astro.props
                         <p class="text-sm font-medium leading-5 text-text-secondary">
                             {project.description}
                         </p>
-                        <a href={project.url}
+                        <a
+                            href={project.url}
                             target="_blank"
-                            class={`${project.goToWeb === true ? "text-primary font-bold" : "text-slate-300 font-bold pointer-events-none"} text-sm`}>
-                            { project.goToWeb 
-                                ? <>Ir al Sitio</> 
-                                : <> Preguntar por el Servicio</>
-                            }
+                            class={`text-sm group-hover:text-base transition-all duration-300 ease-in-out
+                                ${project.goToWeb === true ? "text-primary font-bold" : "text-slate-300 font-bold pointer-events-none"}`}
+                        >
+                            {project.goToWeb ? (
+                                <>Echar un Vistazo</>
+                            ) : (
+                                <> Preguntar por el Servicio</>
+                            )}
                         </a>
                     </div>
                 </div>

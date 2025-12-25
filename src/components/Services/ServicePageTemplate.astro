@@ -4,96 +4,115 @@ import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
 import type { IconName } from "../icons";
 
 interface ServicesPageProps {
-  serviceTitle: string
-  subtitles: string
-  description: string
-  demos: string
-  profits: Profits[]
-  projects: Project[]
-  faqsItems: FaqData[]
+    serviceTitle: string;
+    subtitles: string;
+    description: string;
+    demos: string;
+    profits: Profits[];
+    projects: Project[];
+    faqsItems: FaqData[];
 }
 
 type Profits = {
-  icon: IconName
-  id: number
-  title: string
-  description: string
-}
+    icon: IconName;
+    id: number;
+    title: string;
+    description: string;
+};
 
 type Project = {
-  title: string
-  description: string
-  img?: string
-}
+    title: string;
+    description: string;
+    img?: string;
+};
 
-const { serviceTitle, 
-  description, 
-  subtitles, 
-  profits, 
-  projects, 
-  faqsItems, 
-  demos } = Astro.props as ServicesPageProps
+const {
+    serviceTitle,
+    description,
+    subtitles,
+    profits,
+    projects,
+    faqsItems,
+    demos,
+} = Astro.props as ServicesPageProps;
 
 // export const prerender= true
 ---
-<section class="mt-16 py-9 max-w-240 px-4 space-y-8">
 
-    <h2 class="text-3xl md:text-4xl font-extrabold leading-11 -tracking-[0.5px] text-text-primary"
+<section class="mt-16 py-9 max-w-240 px-4 space-y-8">
+    <h2
+        class="text-3xl md:text-4xl font-extrabold leading-11 -tracking-[0.5px] text-text-primary"
         transition:name={`service-${serviceTitle}`}
     >
         {serviceTitle}
     </h2>
 
     <p class="text-sm md:text-base font-medium leading-5 text-text-secondary">
-    {subtitles}
+        {subtitles}
     </p>
 
     <p class="text-base md:text-lg font-medium leading-6 text-text-primary">
-    {description}
+        {description}
     </p>
 
-    <div class={`${profits.length == 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"} grid gap-2 sm:grid-cols-1 grid-cols-1`}>
-    {profits.map((profit) => (
-        <SlideItems
-        icon={profit.icon}
-        title={profit.title}
-        description={profit.description}
-        classNames="cursor-default animate-slide-in-top"
-        />
-    ))}
+    <div
+        class={`${profits.length == 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"} grid gap-2 sm:grid-cols-1 grid-cols-1`}
+    >
+        {
+            profits.map((profit) => (
+                <SlideItems
+                    icon={profit.icon}
+                    title={profit.title}
+                    description={profit.description}
+                    classNames="cursor-default animate-slide-in-top"
+                />
+            ))
+        }
     </div>
 
-
-    {projects.map((project, index) => (
-    project.img &&
-    <>
-        <h3 class="text-2xl md:text-3xl font-bold">{demos}</h3>
-        {/* <img 
+    {
+        projects.map(
+            (project, index) =>
+                project.img && (
+                    <>
+                        <h3 class="text-2xl md:text-3xl font-bold">{demos}</h3>
+                        {/* <img 
             src="/portfolio-mockups.svg" 
             alt="Portfolio mockups showcasing our work" 
             className={styles.portfolioImage}/> */}
-        <div class="flex gap-4 items-center justify-center">
-        <a class="p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1">
-            <div class="flex flex-col gap-1">
-            <img src={project.img} alt="project image" class="w-full h-auto rounded-lg" />
-            <div class="pt-4 space-y-3">
-                <h4 class="text-xl font-bold leading-5 text-text-primary text-balance">{project.title}</h4>
-                <p class="text-lg font-medium leading-5 text-text-secondary">{project.description}</p>
-            </div>
-            </div>
-        </a>
-        </div>
-    </>
-    ))}
+                        <div class="flex gap-4 items-center justify-center">
+                            <a class="p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1">
+                                <div class="flex flex-col gap-1">
+                                    <img
+                                        src={project.img}
+                                        alt="project image"
+                                        class="w-full h-auto rounded-lg"
+                                    />
+                                    <div class="pt-4 space-y-3">
+                                        <h4 class="text-xl font-bold leading-5 text-text-primary text-balance">
+                                            {project.title}
+                                        </h4>
+                                        <p class="text-lg font-medium leading-5 text-text-secondary">
+                                            {project.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </>
+                )
+        )
+    }
 
     <h3 class="text-2xl md:text-3xl font-bold">Preguntas Frecuentes</h3>
 
-    <FAQAccordion
-    faqs={faqsItems}
-    />
+    <FAQAccordion faqs={faqsItems} />
 
     <div class="flex justify-center">
-    <a href="/contact" class="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Contáctanos</a>
+        <a
+            href="/contact"
+            class="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5"
+            >Solicitar Cotización</a
+        >
     </div>
-
 </section>

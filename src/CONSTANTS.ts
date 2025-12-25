@@ -1,4 +1,3 @@
-import { getOrigQueryParams } from "astro/assets/utils"
 
 export const BRAND_NAME = "VINCODE"
 export const VINCODE_IG = "https://www.instagram.com/vincodedev/"
@@ -74,6 +73,13 @@ export const projects = [
     url: 'https://catquiz-card.vercel.app/',
     goToWeb: true
   },
+  {
+    img: "/vin-display-img.webp",
+    title: "VIN DISPLAY - Software de Cartelera Digital y Menús Dinámicos",
+    url: `/contact`,
+    description: 'Software de Cartelera Digital para mostrar publicidad y tus menus o sabores disponibles de tu restaurante',
+    goToWeb: false
+  },
 ];
 
 // TESTIMONIOS
@@ -120,13 +126,6 @@ export const others_projects = [
     url: `${RANDOMIZER_APP}`,
     description: 'Pagina de juegos, aplicaciones de números random, sorteos',
     goToWeb: true
-  },
-  {
-    img: "/randomizer-image-01.webp",
-    title: "VIN DISPLAY - Cartelera Digital",
-    url: ``,
-    description: 'Software de Cartelera Digital para mostrar publicidad y tus menus o sabores disponibles de tu restaurante',
-    goToWeb: false
   },
 ];
 

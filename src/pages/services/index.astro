@@ -1,6 +1,7 @@
 ---
 import { icons } from "../../components/icons";
 import type { IconName } from "../../components/icons";
+import ServiceItem from "../../components/Services/ServiceItem.astro";
 import { BRAND_NAME, SERVICES_TITLE } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
@@ -8,7 +9,6 @@ import { getCollection } from "astro:content";
 const services = (await getCollection("services")).sort(
     (a, b) => a.data.id - b.data.id
 );
-
 ---
 
 <MainLayout
@@ -18,154 +18,73 @@ const services = (await getCollection("services")).sort(
 >
     <main class="py-10 px-4 w-full flex flex-col justify-center items-center">
         <div class="max-w-240 py-10 sm:py-12 md:py-15">
-            
             <div class="flex flex-col gap-4 sm:gap-6 md:gap-6">
                 <div class="flex flex-col gap-2 sm:gap-3 mb-8">
-                    <h3 class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary">
+                    <h3
+                        class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary"
+                    >
                         Nuestros Servicios
                     </h3>
                     <h2 class="sectionTitle">{SERVICES_TITLE}</h2>
-                    <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-                        Ofrecemos una gama de servicios para satisfacer tus necesidades digitales, desde la creación de tarjetas digitales, portfolios hasta el desarrollo de un software a la medida de tu negocio.<br>
+                    <p
+                        class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+                    >
+                        Ofrecemos una gama de servicios para satisfacer tus
+                        necesidades digitales, desde la creación de tarjetas
+                        digitales, portfolios hasta el desarrollo de un software
+                        a la medida de tu negocio.<br />
                         Y pronto... Tu propia Web Ecommerce!
                     </p>
                 </div>
 
-                <h2 class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary">
+                <h2
+                    class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary"
+                >
                     Desarrollo Web
                 </h2>
-                <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-                    Creamos sitios a medida, desde páginas informativas hasta plataformas complejas. Nos enfocamos en la usabilidad, el diseño responsivo y la optimización para motores de búsqueda (SEO).
+                <p
+                    class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+                >
+                    Creamos sitios a medida, desde páginas informativas hasta
+                    plataformas complejas. Nos enfocamos en la usabilidad, el
+                    diseño responsivo y la optimización para motores de búsqueda
+                    (SEO).
                 </p>
 
-                <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2 sm:gap-4 mb-8">
-                    {
-                        services.map((service) => {
-                            const { slug, data } = service;
-                            const { icon, category, title, cardDescription, available } =
-                                data;
-                            const Icon = icons?.[icon as IconName];
+                <ServiceItem
+                    services={services}
+                    itemCategory="web"
+                    icons={icons}
+                />
 
-                            if (category === 'web') {
-                                return (
-                                <a
-                                    href={`/services/${slug}`}
-                                    class={`bg-background-card  border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out relative ${available ? "hover:border-primary hover:-translate-y-1 border" : "pointer-events-none"}`}
-                                >
-                                        {Icon ? (
-                                            <Icon
-                                                width={24}
-                                                height={24}
-                                                color="#FFFFFF"
-                                            />
-                                        ) : (
-                                            <span class="text-red-500 text-xs">
-                                                Icono no encontrado: {data.icon}
-                                            </span>
-                                        )}
-                                        <div class="flex flex-col gap-1">
-                                            <h4
-                                                class="text-base font-bold leading-5 text-text-primary"
-                                                transition:name={`service-${title}`}
-                                            >
-                                                {title}
-                                            </h4>
-                                            <p class="text-sm font-medium leading-5 text-text-secondary">
-                                                {cardDescription}
-                                            </p>
-                                        </div>
-
-                                        {available === false && (
-                                            <>
-                                                {/* Badge */}
-                                                <div class="p-1.5 rounded-lg absolute bg-[#0090c7] -top-1 -right-1 z-50">
-                                                    <p class="text-xs font-semibold">
-                                                        PROXIMAMENTE
-                                                    </p>
-                                                </div>
-
-                                                {/* Overlay que sí bloquea clics */}
-                                                <div class="absolute top-0 left-0 w-full h-full bg-black/50 bg-opacity-50 z-40 rounded-lg" />
-                                            </>
-                                        )}
-                                    </a>
-                                );
-                            }
-                        })
-                    }
-                </div>
-
-                <h2 class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary" >
+                <h2
+                    class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary"
+                >
                     Desarrollo de Software
                 </h2>
 
-                <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-                    Desarrollamos software personalizado para automatizar procesos o agilizar procedimientos que hagan rendir mejor y optimizar tu negocio.
+                <p
+                    class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+                >
+                    Desarrollamos software personalizado para automatizar
+                    procesos o agilizar procedimientos que hagan rendir mejor y
+                    optimizar tu negocio.
                 </p>
 
-                <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2 sm:gap-4">
-                    {
-                        services.map((service) => {
-                            const { slug, data } = service;
-                            const { icon, category, title, cardDescription, available } =
-                                data;
-                            const Icon = icons?.[icon as IconName];
-
-                            if (category === 'software') {
-                                return (
-                                <a
-                                    href={`/services/${slug}`}
-                                    class={`bg-background-card  border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out relative ${available ? "hover:border-primary hover:-translate-y-1 border" : "pointer-events-none"}`}
-                                >
-                                        {Icon ? (
-                                            <Icon
-                                                width={24}
-                                                height={24}
-                                                color="#FFFFFF"
-                                            />
-                                        ) : (
-                                            <span class="text-red-500 text-xs">
-                                                Icono no encontrado: {data.icon}
-                                            </span>
-                                        )}
-                                        <div class="flex flex-col gap-1">
-                                            <h4
-                                                class="text-base font-bold leading-5 text-text-primary"
-                                                transition:name={`service-${title}`}
-                                            >
-                                                {title}
-                                            </h4>
-                                            <p class="text-sm font-medium leading-5 text-text-secondary">
-                                                {cardDescription}
-                                            </p>
-                                        </div>
-
-                                        {available === false && (
-                                            <>
-                                                {/* Badge */}
-                                                <div class="p-1.5 rounded-lg absolute bg-[#0090c7] -top-1 -right-1 z-50">
-                                                    <p class="text-xs font-semibold">
-                                                        PROXIMAMENTE
-                                                    </p>
-                                                </div>
-
-                                                {/* Overlay que sí bloquea clics */}
-                                                <div class="absolute top-0 left-0 w-full h-full bg-black/50 bg-opacity-50 z-40 rounded-lg" />
-                                            </>
-                                        )}
-                                    </a>
-                                );
-                            }
-                        })
-                    }
-                </div>
-
+                <ServiceItem
+                    services={services}
+                    itemCategory="software"
+                    icons={icons}
+                />
             </div>
         </div>
-        
+
         <div class="flex justify-center">
-            <a href="/contact" class="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Solicitar Cotización</a>
+            <a
+                href="/contact"
+                class="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5"
+                >Solicitar Cotización</a
+            >
         </div>
     </main>
-    
 </MainLayout>

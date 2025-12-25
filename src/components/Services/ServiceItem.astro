@@ -1,0 +1,82 @@
+---
+interface Service {
+    slug: string;
+    data: {
+        icon: string;
+        category: string;
+        title: string;
+        cardDescription: string;
+        available?: boolean;
+    };
+}
+
+interface Props {
+    services: Service[];
+    itemCategory: string;
+    icons: Record<string, any>;
+}
+
+const { services, icons, itemCategory } = Astro.props;
+type IconName = keyof typeof icons;
+---
+
+<div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2 sm:gap-4 mb-8">
+    {
+        services.map((service) => {
+            const { slug, data } = service;
+            const { icon, category, title, cardDescription, available } = data;
+            const Icon = icons?.[icon as IconName];
+
+            if (category === itemCategory) {
+                return (
+                    <a
+                        href={`/services/${slug}`}
+                        class={`bg-background-card  border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out relative group 
+                        ${available ? "hover:border-primary hover:-translate-y-1 border" : "pointer-events-none"}`}
+                    >
+                        {Icon ? (
+                            <Icon width={24} height={24} color="#FFFFFF" />
+                        ) : (
+                            <span class="text-red-500 text-xs">
+                                Icono no encontrado: {data.icon}
+                            </span>
+                        )}
+                        <div class="flex flex-col justify-between gap-2 flex-1">
+                            <div class="space-y-2s">
+                                <h4
+                                    class="text-base font-bold leading-5 text-text-primary"
+                                    transition:name={`service-${title}`}
+                                >
+                                    {title}
+                                </h4>
+                                <p class="text-sm font-medium leading-5 text-text-secondary">
+                                    {cardDescription}
+                                </p>
+                            </div>
+
+                            {available && (
+                                <p class="text-primary text-sm group-hover:text-base transition-all duration-300 ease-in-out font-bold">
+                                    Mas informacion...
+                                </p>
+                            )}
+                        </div>
+
+                        {available === false && (
+                            <>
+                                {/* Badge */}
+                                <div class="p-1.5 rounded-lg absolute bg-[#0090c7] -top-1 -right-1 z-50">
+                                    <p class="text-xs font-semibold">
+                                        PROXIMAMENTE
+                                    </p>
+                                </div>
+
+                                {/* Overlay que sí bloquea clics */}
+                                <div class="absolute top-0 left-0 w-full h-full bg-black/50 bg-opacity-50 z-40 rounded-lg" />
+                            </>
+                        )}
+                    </a>
+                );
+            }
+        })
+    }
+</div>
