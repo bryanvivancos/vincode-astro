@@ -50,6 +50,7 @@ export const projects = [
     title: 'Portfolio',
     description: 'Portfolio profesional para Ingeniero.',
     img: '/portfolio-web.webp',
+    imgGallery: 'portfolio-web',
     url: 'https://bryanvivancos.netlify.app/',
     goToWeb: true
   },
@@ -57,6 +58,7 @@ export const projects = [
     title: 'Links in Bio',
     description: 'Web para centralizar los links más importantes de una empresa de Joyas.',
     img: '/link_bio.webp',
+    imgGallery: 'link_bio',
     url: 'https://catquizpe.vercel.app/',
     goToWeb: true
   },
@@ -70,14 +72,16 @@ export const projects = [
     title: 'Tarjeta de presentación digital',
     description: 'Impresión duradera con una tarjeta de presentación digital negocio de joyas.',
     img: '/catquiz-digital-card.webp',
+    imgGallery: 'catquiz-digital-card',
     url: 'https://catquiz-card.vercel.app/',
     goToWeb: true
   },
   {
-    img: "/vin-display-img.webp",
     title: "VIN DISPLAY - Software de Cartelera Digital y Menús Dinámicos",
-    url: `/contact`,
     description: 'Software de Cartelera Digital para mostrar publicidad y tus menus o sabores disponibles de tu restaurante',
+    img: "/vin-display-img.webp",
+    imgGallery: "vin-display-img",
+    url: `/contact`,
     goToWeb: false
   },
 ];

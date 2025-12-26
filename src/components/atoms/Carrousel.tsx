@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
 import { Icon } from "../icons/Icon";
-import { others_projects } from "../../CONSTANTS";
 
 interface CarrouselItem {
-  src: string;
-  href: string;
+  img: string;
+  url: string;
   title: string;
 }
 
@@ -57,13 +56,13 @@ const Carrousel: React.FC<CarrouselProps> = ({
         
         <Icon
         name="ChevronLeftIcon"
-        className={`-mx-6 w-24 h-full text-white ${others_projects.length <= 4 ? "hidden" : ""}`} 
+        className={`-mx-6 w-24 h-full text-white ${items.length <= 4 ? "hidden" : ""}`} 
         />
       </button>
 
 
       <div ref={containerRef}
-        className={`flex items-center ${others_projects.length <= 4 ? "justify-center" : ""} h-96 gap-6 overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth animate-slide-in-top`}
+        className={`flex items-center ${items.length <= 4 ? "justify-center" : ""} h-96 gap-6 overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth animate-slide-in-top`}
         style={{
           paddingLeft: paddingCalc,
           paddingRight: paddingCalc,
@@ -72,7 +71,7 @@ const Carrousel: React.FC<CarrouselProps> = ({
           scrollPaddingRight: paddingCalc,
         }}>
 
-        {others_projects.map((item, index) => (
+        {items.map((item, index) => (
           <div
             key={index}
             className="shrink-0 w-64 snap-center flex flex-col items-center"
@@ -97,7 +96,7 @@ const Carrousel: React.FC<CarrouselProps> = ({
       >
         <Icon
         name="ChevronRightIcon"
-        className={`-mr-8 w-24 h-24 text-white ${others_projects.length <= 4 ? "hidden" : ""}`} />
+        className={`-mr-8 w-24 h-24 text-white ${items.length <= 4 ? "hidden" : ""}`} />
       </button>
     </div>
   );

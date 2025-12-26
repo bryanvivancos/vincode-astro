@@ -1,4 +1,4 @@
-import { items }  from "../../CONSTANTS";
+import { others_projects }  from "../../CONSTANTS";
 import Carrousel from "../atoms/Carrousel"
 
 export default function OtherProjects() {
@@ -11,7 +11,7 @@ export default function OtherProjects() {
         <h2 className="sectionTitle text-center">Más de nuestros Proyectos</h2>
 
         <Carrousel
-          items={items}
+          items={others_projects}
         // autoPlay={true} 
         // interval={3500}
         />

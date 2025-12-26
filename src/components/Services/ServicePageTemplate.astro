@@ -1,4 +1,5 @@
 ---
+import Gallery from "../atoms/Gallery.astro";
 import { SlideItems } from "../atoms/SlideItems";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
 import type { IconName } from "../icons";
@@ -88,6 +89,7 @@ const {
                                         alt="project image"
                                         class="w-full h-auto rounded-lg"
                                     />
+                                    <Gallery img="vin-display-img" />
                                     <div class="pt-4 space-y-3">
                                         <h4 class="text-xl font-bold leading-5 text-text-primary text-balance">
                                             {project.title}

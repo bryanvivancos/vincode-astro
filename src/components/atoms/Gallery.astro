@@ -1,19 +1,32 @@
 ---
-import "photoswipe/style.css"
+import "photoswipe/style.css";
+
+const { img } = Astro.props;
 ---
 
-
+<div class="pswp-gallery pswp-gallery--single-column" id="project-gallery">
+    <a
+        href={`/${img}.webp`}
+        data-pswp-width="1920"
+        data-pswp-height="1536"
+        target="_blank"
+    >
+        <img
+            src={`/${img}.webp`}
+            alt="Imagen de servicio"
+            class="w-full h-auto rounded-lg"
+        />
+    </a>
+</div>
 
 <script>
-import PhotoSwipeLightbox from "photoswipe/lightbox";
+    import PhotoSwipeLightbox from "photoswipe/lightbox";
 
-const lightbox = new PhotoSwipeLightbox({
-    gallery: '#project-gallery',
-    children: 'a',
-    pswpModule: () => import('photoswipe')
-});
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: "#project-gallery",
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+    });
 
-lightbox.init();
-
-
+    lightbox.init();
 </script>
