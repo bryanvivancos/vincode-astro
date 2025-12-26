@@ -33,6 +33,7 @@ const services = defineCollection({
                 title: z.string(),
                 description: z.string(),
                 img: z.string(),
+                imgGallery: z.string(),
             })
         ),
         // FAQ

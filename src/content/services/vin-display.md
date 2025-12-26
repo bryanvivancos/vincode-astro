@@ -42,7 +42,7 @@ benefits:
         },
     ]
 projects:
-    [{ title: "Vin Display", description: "", img: "/vin-display-img.webp" }]
+    [{ title: "Vin Display", description: "", img: "/vin-display-img.webp", imgGallery: "vin-display-img" }]
 faqData:
     [
         {

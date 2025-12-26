@@ -38,7 +38,8 @@ projects: [
   {
     title: 'Portfolio',
     description: 'Showcase your work with a professional online portfolio.',
-    img: ""
+    img: "",
+    imgGallery: "",
   },
 ]
 faqData: [

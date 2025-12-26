@@ -38,7 +38,8 @@ projects: [
   {
     title: 'Web Ecommerce',
     description: 'Muestra tus productos, precios descuentos y más con nuestro servicio de creación de Web Ecommerce',
-    img: '/project-image.webp'
+    img: '/project-image.webp',
+    imgGallery: "project-image",
   },
 ]
 faqData: [

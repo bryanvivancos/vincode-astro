@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import MobileNav from "../components/Header/MobileNav"
 import { ClientRouter } from "astro:transitions";
 import "../global.css";
 const pathname = Astro.url.pathname;
@@ -33,7 +34,7 @@ const { title, description, url } = Astro.props;
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
-        <ClientRouter fallback="none" />
+        <ClientRouter />
     </head>
     
     <body
@@ -41,6 +42,8 @@ const { title, description, url } = Astro.props;
     >
     <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
         <Header currentPath={pathname} client:load />
+        <MobileNav currentPath={pathname} client:load/>
+
         <main class="w-dvw md:w-full place-items-center">
             <slot />
         </main>

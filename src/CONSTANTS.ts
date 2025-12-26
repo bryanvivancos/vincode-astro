@@ -57,8 +57,8 @@ export const projects = [
   {
     title: 'Links in Bio',
     description: 'Web para centralizar los links más importantes de una empresa de Joyas.',
-    img: '/link_bio.webp',
-    imgGallery: 'link_bio',
+    img: '/cq-link-bio.webp',
+    imgGallery: 'cq-link-bio',
     url: 'https://catquizpe.vercel.app/',
     goToWeb: true
   },
@@ -118,14 +118,16 @@ export const RANDOMIZER_APP = "https://randomizer-app-psi.vercel.app/"
 
 export const others_projects = [
   {
-    img: "/quizter-image-01.webp",
+    img: "/services-imgs/quizter-img.webp",
+    imgGallery: 'quizter-img',
     title: "QUIZTER",
     url: `${QUIZTER_APP}`,
     description: 'Juego de Quiz con preguntas de cultura general',
     goToWeb: true,
   },
   {
-    img: "/randomizer-image-01.webp",
+    img: "/services-imgs/randomizer-img.webp",
+    imgGallery: 'randomizer-img',
     title: "RANDOMIZER",
     url: `${RANDOMIZER_APP}`,
     description: 'Pagina de juegos, aplicaciones de números random, sorteos',

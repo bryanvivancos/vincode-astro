@@ -32,7 +32,8 @@ projects: [
   {
     title: 'Portfolio Profesional',
     description: 'Muestra tu trabajo con un portfolio profesional en línea.',
-    img: '/portfolio-web.webp'
+    img: '/portfolio-web.webp',
+    imgGallery: 'portfolio-web',
   },
 ]
 faqData: [

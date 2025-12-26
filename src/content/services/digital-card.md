@@ -38,7 +38,8 @@ projects: [
   {
     title: 'Tarjeta de Presentación Digital',
     description: 'Muestra tus datos relevantes y de contacto en una Tarjeta Profesional de Presentación Digital',
-    img: '/digital-card.webp'
+    img: '/catquiz-digital-card.webp',
+    imgGallery: "catquiz-digital-card",
   },
 ]
 faqData: [

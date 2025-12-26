@@ -38,7 +38,8 @@ projects: [
   {
     title: 'Link in Bio',
     description: 'Déjanos crear un centro para todos tus enlaces importantes.',
-    img: '/link_bio.webp'
+    img: '/link_bio.webp',
+    imgGallery: "link_bio",
   },
 ]
 faqData: [

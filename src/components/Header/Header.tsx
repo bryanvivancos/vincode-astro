@@ -1,4 +1,6 @@
 import { navbar_items } from '../../CONSTANTS';
+import { isMenuOpen, toggleMenu } from '../../store/menuStore';
+import { CloseXIcon, Menu2Icon } from '../icons';
 
 
 export default function Header(
@@ -38,6 +40,13 @@ export default function Header(
 
           { currentPath !== '/contact' &&
             <a href={`/contact`} className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Empecemos</a>}
+        
+            <button
+              className='md:hidden cursor-pointer'
+              onClick={() => toggleMenu()}
+            >
+              { isMenuOpen ? <Menu2Icon /> : <CloseXIcon/>} 
+            </button>
         </nav>
       </div>
     </header>

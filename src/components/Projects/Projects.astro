@@ -42,8 +42,8 @@ import Gallery from "../atoms/Gallery.astro";
                                         {project.description}
                                     </p>
                                 </div>
-                                <p class="text-primary text-sm group-hover:text-base transition-all duration-300 ease-in-out font-bold">
-                                    Ver proyecto...
+                                <p class="text-primary text-xs group-hover:text-sm transition-all duration-300 ease-in-out font-bold">
+                                    {`${project.goToWeb ? "Ver proyecto...":"Preguntar por el servicio"}`}
                                 </p>
                             </a>
                         </div>
