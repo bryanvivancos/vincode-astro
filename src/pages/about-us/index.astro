@@ -3,56 +3,102 @@ import { BRAND_NAME } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 const pilares = [
-    {name:"Vanguardia",
-     text: "No nos conformamos con lo estándar; exploramos herramientas de última generación para ofrecerte una ventaja competitiva real."},
-    {name: "Excelencia Técnica",
-     text:"El rendimiento, la seguridad y la fluidez en la experiencia del usuario son la base de cada línea de código que escribimos."},
-    {name: "Empatía Estratégica",
-     text:"Escuchamos tu visión para ofrecer soluciones que hablen el lenguaje de tus necesidades reales."},
-    {name: "Confianza Radical",
-     text:"Creemos en la claridad total. Mantener procesos abiertos y un acompañamiento cercano es nuestra prioridad."
-    }]
+    {
+        name: "Vanguardia",
+        text: "No nos conformamos con lo estándar; exploramos herramientas de última generación para ofrecerte una ventaja competitiva real.",
+    },
+    {
+        name: "Excelencia Técnica",
+        text: "El rendimiento, la seguridad y la fluidez en la experiencia del usuario son la base de cada línea de código que escribimos.",
+    },
+    {
+        name: "Empatía Estratégica",
+        text: "Escuchamos tu visión para ofrecer soluciones que hablen el lenguaje de tus necesidades reales.",
+    },
+    {
+        name: "Confianza Radical",
+        text: "Creemos en la claridad total. Mantener procesos abiertos y un acompañamiento cercano es nuestra prioridad.",
+    },
+];
 ---
 
-<MainLayout 
+<MainLayout
     title={`Sobre Nosotros | ${BRAND_NAME}`}
     description="Vincode es un equipo de desarrollo de software que ofrece soluciones personalizadas para emprendimientos, startups y autónomos."
     url="www.vincode.dev/about-us"
 >
-    <h3>Nuestra Identidad</h3>
-    <p> En VINVOCE convertimos código en impacto real para tu negocio.
+    <main
+        class="py-20 px-8 sm:py-24 md:py-30 place-items-center max-w-240 flex flex-col gap-10"
+    >
+        <div class="flex flex-col gap-1 w-full">
+            <h3 class="sectionTitle">Nuestra Identidad</h3>
+            <p class="about-text">
+                <span class="font-bold"
+                    >En VINCODE convertimos código en impacto real para tu
+                    negocio.
+                </span>
+                <p>
+                    No somos una agencia más de desarrollo; somos arquitectos de
+                    soluciones digitales a medida. Nos especializamos en
+                    potenciar a emprendedores y empresas mediante herramientas
+                    modernas que no solo funcionan, sino que transforman su
+                    manera de trabajar y competir en el mercado actual.
+                </p>
+                Creemos firmemente que el software debe adaptarse al negocio, y no
+                al revés. Por eso, nos sumergimos en tus objetivos para construir
+                tecnología robusta, flexible y diseñada específicamente para generar
+                resultados.
+            </p>
+        </div>
 
-        No somos una agencia más de desarrollo; somos arquitectos de soluciones digitales a medida. Nos especializamos en potenciar a emprendedores y empresas mediante herramientas modernas que no solo funcionan, sino que transforman su manera de trabajar y competir en el mercado actual.
+        <div class="flex flex-col gap-1 w-full">
+            <h3 class="sectionTitle">Lo que nos mueve (Misión)</h3>
+            <p class="about-text">
+                Impulsar la evolución digital de nuestros clientes mediante el
+                desarrollo de software de alta precisión que optimice sus
+                operaciones y los posicione como líderes en su sector.
+            </p>
+        </div>
 
-        Creemos firmemente que el software debe adaptarse al negocio, y no al revés. Por eso, nos sumergimos en tus objetivos para construir tecnología robusta, flexible y diseñada específicamente para generar resultados.
-    </p>
+        <div class="flex flex-col gap-1 w-full">
+            <h3 class="sectionTitle">Hacia dónde vamos (Visión)</h3>
+            <p class="about-text">
+                Convertirnos en el aliado tecnológico estratégico por excelencia
+                en la región, liderando la creación de ecosistemas digitales que
+                definan el futuro de las empresas y marcas en la era de la
+                innovación.
+            </p>
+        </div>
 
-    <h3>Lo que nos mueve (Misión)</h3>
-    <p>Impulsar la evolución digital de nuestros clientes mediante el desarrollo de software de alta precisión que optimice sus operaciones y los posicione como líderes en su sector.</p>
+        <div class="flex flex-col gap-1 w-full">
+            <h3 class="sectionTitle">Nuestros Pilares</h3>
+            <div class="flex w-full items-center justify-around">
+                {
+                    pilares.map((pilar) => (
+                        <div class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top max-w-72 h-full font-bold text-center">
+                            {pilar.name}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
 
-    <h3>Hacia dónde vamos (Visión)</h3>
-    <p>Convertirnos en el aliado tecnológico estratégico por excelencia en la región, liderando la creación de ecosistemas digitales que definan el futuro de las empresas y marcas en la era de la innovación.</p>
+        <div class="flex flex-col gap-1 w-full">
+            <h3 class="sectionTitle">Nuestro Equipo</h3>
+        </div>
 
-    <h3>Nuestros Pilares</h3>
-
-
-    <h3>Nuestro Equipo</h3>  
-    {pilares.map(pilar => (
-        <p>
-            {pilar.name}
-        </p>
-    ))}
-
-    <h3>¿Por Qué Elegirnos?</h3>
-    <p>Cero Plantillas: Diseñamos trajes a la medida, no soluciones genéricas de "talla única".
-
-Stack Moderno: Utilizamos las tecnologías más eficientes y potentes del mercado actual.
-
-Visión de Negocio: Entendemos que la tecnología es un medio para aumentar tus ingresos y eficiencia.
-
-Socio Tecnológico: No te entregamos un archivo y nos vamos; te acompañamos en tu evolución digital.
-
-Enfoque en Resultados: Creamos herramientas que se traducen en crecimiento tangible.</p>
-
-    
+        <div class="flex flex-col gap-1 w-full">
+            <h3 class="sectionTitle">¿Por Qué Elegirnos?</h3>
+            <p class="about-text">
+                Cero Plantillas: Diseñamos trajes a la medida, no soluciones
+                genéricas de "talla única". Stack Moderno: Utilizamos las
+                tecnologías más eficientes y potentes del mercado actual. Visión
+                de Negocio: Entendemos que la tecnología es un medio para
+                aumentar tus ingresos y eficiencia. Socio Tecnológico: No te
+                entregamos un archivo y nos vamos; te acompañamos en tu
+                evolución digital. Enfoque en Resultados: Creamos herramientas
+                que se traducen en crecimiento tangible.
+            </p>
+        </div>
+    </main>
 </MainLayout>

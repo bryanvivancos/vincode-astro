@@ -3,8 +3,6 @@ import ProjectGrid from "../../components/atoms/ProjectGrid.astro";
 import Projects from "../../components/Projects/Projects.astro";
 import { BRAND_NAME, others_projects, projects } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
-
-
 ---
 
 <MainLayout
@@ -12,31 +10,30 @@ import MainLayout from "../../layouts/MainLayout.astro";
     description="Vincode es un equipo de desarrollo de software que ofrece soluciones personalizadas para emprendimientos, startups y autónomos."
     url="www.vincode.dev/projects"
 >
-
     <main class="py-10 px-4 sm:py-12 md:py-15 place-items-center">
         <div class="max-w-240 py-10 sm:py-12 md:py-15">
             <h2 class="sectionTitle">Proyectos Realizados</h2>
 
-            <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-                Explora algunos de nuestros proyectos recientes completados con exito para nuestros clientes. 
+            <p
+                class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+            >
+                Explora algunos de nuestros proyectos recientes completados con
+                exito para nuestros clientes.
             </p>
-            
-            <ProjectGrid 
-                projects={projects}
-            />  
+
+            <ProjectGrid projects={projects} />
         </div>
 
         <div class="max-w-240 py-10 sm:py-12 md:py-15 w-full">
             <h2 class="sectionTitle">Otro Proyectos de {BRAND_NAME}</h2>
 
-            <p class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary">
-                Explora otros de los proyectos realizados por nosotros. 
+            <p
+                class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+            >
+                Explora otros de los proyectos realizados por nosotros.
             </p>
-            
-            <ProjectGrid 
-                projects={others_projects}
-            />
+
+            <ProjectGrid projects={others_projects} />
         </div>
     </main>
-
 </MainLayout>
