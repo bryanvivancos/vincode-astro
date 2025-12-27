@@ -1,23 +1,24 @@
 ---
+import { CheckIcon } from "../../components/icons";
 import { BRAND_NAME } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 const pilares = [
     {
         name: "Vanguardia",
-        text: "No nos conformamos con lo estándar; exploramos herramientas de última generación para ofrecerte una ventaja competitiva real.",
+        text: "Tecnología moderna y en constante evolución.",
     },
     {
         name: "Excelencia Técnica",
-        text: "El rendimiento, la seguridad y la fluidez en la experiencia del usuario son la base de cada línea de código que escribimos.",
+        text: "Soluciones sólidas, seguras y bien construidas.",
     },
     {
         name: "Empatía Estratégica",
-        text: "Escuchamos tu visión para ofrecer soluciones que hablen el lenguaje de tus necesidades reales.",
+        text: "Cada proyecto se adapta a necesidades reales.",
     },
     {
         name: "Confianza Radical",
-        text: "Creemos en la claridad total. Mantener procesos abiertos y un acompañamiento cercano es nuestra prioridad.",
+        text: "Comunicación clara y acompañamiento continuo.",
     },
 ];
 ---
@@ -28,7 +29,7 @@ const pilares = [
     url="www.vincode.dev/about-us"
 >
     <main
-        class="py-20 px-8 sm:py-24 md:py-30 place-items-center max-w-240 flex flex-col gap-10"
+        class="py-20 px-8 sm:py-24 md:py-30 place-items-center max-w-240 flex flex-col gap-12"
     >
         <div class="flex flex-col gap-1 w-full">
             <h3 class="sectionTitle">Nuestra Identidad</h3>
@@ -38,35 +39,29 @@ const pilares = [
                     negocio.
                 </span>
                 <p>
-                    No somos una agencia más de desarrollo; somos arquitectos de
-                    soluciones digitales a medida. Nos especializamos en
-                    potenciar a emprendedores y empresas mediante herramientas
-                    modernas que no solo funcionan, sino que transforman su
-                    manera de trabajar y competir en el mercado actual.
+                    Creamos soluciones digitales modernas que ayudan a negocios
+                    y profesionales a crecer, optimizar procesos y destacar en
+                    el entorno digital. Desarrollamos tecnología funcional,
+                    escalable y pensada para generar resultados reales.
                 </p>
-                Creemos firmemente que el software debe adaptarse al negocio, y no
-                al revés. Por eso, nos sumergimos en tus objetivos para construir
-                tecnología robusta, flexible y diseñada específicamente para generar
-                resultados.
             </p>
         </div>
 
         <div class="flex flex-col gap-1 w-full">
             <h3 class="sectionTitle">Lo que nos mueve (Misión)</h3>
             <p class="about-text">
-                Impulsar la evolución digital de nuestros clientes mediante el
-                desarrollo de software de alta precisión que optimice sus
-                operaciones y los posicione como líderes en su sector.
+                Crear soluciones digitales innovadoras y personalizadas que
+                impulsen el crecimiento de nuestros clientes a través de la
+                tecnología.
             </p>
         </div>
 
         <div class="flex flex-col gap-1 w-full">
             <h3 class="sectionTitle">Hacia dónde vamos (Visión)</h3>
             <p class="about-text">
-                Convertirnos en el aliado tecnológico estratégico por excelencia
-                en la región, liderando la creación de ecosistemas digitales que
-                definan el futuro de las empresas y marcas en la era de la
-                innovación.
+                Ser un referente en desarrollo tecnológico, creando soluciones
+                digitales que acompañen la evolución de empresas y
+                emprendedores.
             </p>
         </div>
 
@@ -75,8 +70,16 @@ const pilares = [
             <div class="flex w-full items-center justify-around">
                 {
                     pilares.map((pilar) => (
-                        <div class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top max-w-72 h-full font-bold text-center">
-                            {pilar.name}
+                        <div
+                            class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top max-w-72 h-full font-bold text-center cursor-pointer relative items-center"
+                            onmouseenter="this.querySelector('div').classList.add('opacity-100')"
+                            onmouseleave="this.querySelector('div').classList.remove('opacity-100')"
+                            id="pilar"
+                        >
+                            <p class="group">{pilar.name}</p>
+                            <div class="absolute bottom-full bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out mb-2 opacity-0 text-balance min-w-36">
+                                {pilar.text}
+                            </div>
                         </div>
                     ))
                 }
@@ -84,21 +87,67 @@ const pilares = [
         </div>
 
         <div class="flex flex-col gap-1 w-full">
-            <h3 class="sectionTitle">Nuestro Equipo</h3>
+            <h3 class="sectionTitle">Detrás de VINCODE</h3>
+            <div class="flex max-md:flex-col items-center gap-4">
+                <img
+                    src="/profile.webp"
+                    alt="imagen de bryan web"
+                    class="max-h-55 object-cover mask-radial-at-center mask-radial-from-65% mask-radial-to-70% animate-slide-in-top mt-4"
+                />
+                <div class="flex flex-col flex-1 gap-2">
+                    <p class="about-text">
+                        Hola soy Bryan Vivanco, fundador de VINCODE. Soy un
+                        desarrollador apasionado por la tecnología y el
+                        emprendimiento.
+                    </p>
+                    <p class="about-text">
+                        Mi enfoque es integral: no solo escribo código, resuelvo
+                        problemas de negocio. Combino el rigor de la ingeniería
+                        con una visión estratégica para asegurar que cada
+                        producto sea una inversión rentable, sólida y preparada
+                        para el futuro. Trato cada proyecto con la dedicación de
+                        un socio tecnológico, cuidando cada detalle para que tú
+                        solo te preocupes por hacer crecer tu marca.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div class="flex flex-col gap-1 w-full">
             <h3 class="sectionTitle">¿Por Qué Elegirnos?</h3>
-            <p class="about-text">
-                Cero Plantillas: Diseñamos trajes a la medida, no soluciones
-                genéricas de "talla única". Stack Moderno: Utilizamos las
-                tecnologías más eficientes y potentes del mercado actual. Visión
-                de Negocio: Entendemos que la tecnología es un medio para
-                aumentar tus ingresos y eficiencia. Socio Tecnológico: No te
-                entregamos un archivo y nos vamos; te acompañamos en tu
-                evolución digital. Enfoque en Resultados: Creamos herramientas
-                que se traducen en crecimiento tangible.
-            </p>
+            <ul class="flex flex-col gap-2 about-text">
+                <li class="flex gap-2 items-center about-text">
+                    <CheckIcon />
+                    Cero Plantillas: Diseñamos trajes a la medida, no soluciones genéricas
+                    de "talla única".
+                </li>
+                <li class="flex gap-2 items-center about-text">
+                    <CheckIcon />
+                    Stack Moderno: Utilizamos las tecnologías más eficientes y potentes
+                    del mercado actual.
+                </li>
+                <li class="flex gap-2 items-center about-text">
+                    <CheckIcon />
+                    Visión de Negocio: Entendemos que la tecnología es un medio para
+                    aumentar tus ingresos y eficiencia.
+                </li>
+                <li class="flex gap-2 items-center about-text">
+                    <CheckIcon />
+                    Socio Tecnológico: No te entregamos un archivo y nos vamos; te
+                    acompañamos en tu evolución digital.
+                </li>
+                <li class="flex gap-2 items-center about-text">
+                    <CheckIcon />
+                    Enfoque en Resultados: Creamos herramientas que se traducen en
+                    crecimiento tangible.
+                </li>
+            </ul>
         </div>
+
+        <a
+            href="/contact"
+            class="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base sm:text-sm font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5"
+            >Contáctanos</a
+        >
     </main>
 </MainLayout>

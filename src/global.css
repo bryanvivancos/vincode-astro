@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
-@plugin "@tailwindcss/typography";
 
 html {
   scroll-padding-top: 4rem;
@@ -84,5 +83,5 @@ html {
 }
 
 .about-text {
-  @apply text-sm sm:text-base font-medium leading-5 sm:leading-6 text-slate-300 prose
+  @apply text-sm sm:text-base font-medium leading-5 sm:leading-6 text-slate-300 
 }
