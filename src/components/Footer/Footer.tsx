@@ -36,7 +36,7 @@ export default function Footer(
           </div>
 
           <p className="text-base font-normal text-text-secondary text-center">
-            © 2025 Vincode All rights reserved.
+            © 2025 Vincode - Todos los derechos reservados.
           </p>
         </div>
       </div>

@@ -2,7 +2,7 @@
 import Gallery from "../atoms/Gallery.astro";
 import { SlideItems } from "../atoms/SlideItems";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
-import type { IconName } from "../icons";
+import { ChevronLeftIcon, type IconName } from "../icons";
 
 type Profits = {
     icon: IconName;
@@ -42,6 +42,12 @@ const {
 ---
 
 <section class="mt-16 py-9 max-w-240 px-4 space-y-8">
+    <!-- <a
+        href="/services"
+        class="text-slate-400 hover:text-slate-300 transition-all ease-in-out duration-300 flex items-center gap-4"
+        ><ChevronLeftIcon width={20} height={20} />
+        <span>Ir a Servicios</span>
+    </a> -->
     <h2
         class="text-3xl md:text-4xl font-extrabold leading-11 -tracking-[0.5px] text-text-primary"
         transition:name={`service-${serviceTitle}`}

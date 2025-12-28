@@ -3,6 +3,8 @@ import ProjectGrid from "../../components/atoms/ProjectGrid.astro";
 import Projects from "../../components/Projects/Projects.astro";
 import { BRAND_NAME, others_projects, projects } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
+
+export const prerender = true;
 ---
 
 <MainLayout

@@ -23,20 +23,20 @@ export default function Header(
 
         <nav className="flex items-center gap-4 lg:gap-9">
 
-          {(currentPath === '/' 
+          {/* {(currentPath === '/' 
           || currentPath === '/contact'
-          || isOnPage) &&
+          || isOnPage) && */}
             <div className="flex items-center gap-4 lg:gap-9">
               {navbar_items.map(item => (
 
-                <a key={item.id} href={`${item.htmlId}`} 
+                <a key={item.id} href={`/${item.htmlId}`} 
                   className={`text-base font-medium  transition-all duration-300 ease-in-out  md:block hidden 
                   ${currentPath === `/${item.htmlId}` ? "text-primary": "text-text-primary hover:text-primary"}`}>{item.name}
                 </a>
               ))
               }
             </div>
-          }
+          {/* } */}
 
           { currentPath !== '/contact' &&
             <a href={`/contact`} className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5">Empecemos</a>}

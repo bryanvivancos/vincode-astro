@@ -1,5 +1,5 @@
 ---
-import { CheckIcon } from "../../components/icons";
+import { CheckIcon, ExternalLinkIcon } from "../../components/icons";
 import { BRAND_NAME } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 
@@ -21,6 +21,8 @@ const pilares = [
         text: "Comunicación clara y acompañamiento continuo.",
     },
 ];
+
+export const prerender = true;
 ---
 
 <MainLayout
@@ -29,10 +31,10 @@ const pilares = [
     url="www.vincode.dev/about-us"
 >
     <main
-        class="py-20 px-8 sm:py-24 md:py-30 place-items-center max-w-240 flex flex-col gap-12"
+        class="py-20 md:px-8 px-4 sm:py-24 md:py-30 place-items-center max-w-240 flex flex-col gap-12 max-md:gap-8"
     >
-        <div class="flex flex-col gap-1 w-full">
-            <h3 class="sectionTitle">Nuestra Identidad</h3>
+        <div class="flex flex-col gap-1 w-full max-md:mt-6">
+            <h3 class="sectionTitle max-md:text-2xl">Nuestra Identidad</h3>
             <p class="about-text">
                 <span class="font-bold"
                     >En VINCODE convertimos código en impacto real para tu
@@ -48,7 +50,9 @@ const pilares = [
         </div>
 
         <div class="flex flex-col gap-1 w-full">
-            <h3 class="sectionTitle">Lo que nos mueve (Misión)</h3>
+            <h3 class="sectionTitle max-md:text-2xl">
+                Lo que nos mueve (Misión)
+            </h3>
             <p class="about-text">
                 Crear soluciones digitales innovadoras y personalizadas que
                 impulsen el crecimiento de nuestros clientes a través de la
@@ -57,7 +61,9 @@ const pilares = [
         </div>
 
         <div class="flex flex-col gap-1 w-full">
-            <h3 class="sectionTitle">Hacia dónde vamos (Visión)</h3>
+            <h3 class="sectionTitle max-md:text-2xl">
+                Hacia dónde vamos (Visión)
+            </h3>
             <p class="about-text">
                 Ser un referente en desarrollo tecnológico, creando soluciones
                 digitales que acompañen la evolución de empresas y
@@ -66,18 +72,20 @@ const pilares = [
         </div>
 
         <div class="flex flex-col gap-1 w-full">
-            <h3 class="sectionTitle">Nuestros Pilares</h3>
-            <div class="flex w-full items-center justify-around">
+            <h3 class="sectionTitle max-md:text-2xl">Nuestros Pilares</h3>
+            <div
+                class="grid grid-cols-4 max-md:grid-cols-2 gap-4 place-items-center"
+            >
                 {
                     pilares.map((pilar) => (
                         <div
-                            class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top max-w-72 h-full font-bold text-center cursor-pointer relative items-center"
-                            onmouseenter="this.querySelector('div').classList.add('opacity-100')"
-                            onmouseleave="this.querySelector('div').classList.remove('opacity-100')"
+                            class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top w-full h-full font-bold text-center cursor-pointer relative items-center justify-center"
+                            onmouseenter="this.querySelector('div').classList.add('opacity-100'); this.querySelector('div').classList.remove('hidden')"
+                            onmouseleave="this.querySelector('div').classList.remove('opacity-100'); this.querySelector('div').classList.add('hidden')"
                             id="pilar"
                         >
                             <p class="group">{pilar.name}</p>
-                            <div class="absolute bottom-full bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out mb-2 opacity-0 text-balance min-w-36">
+                            <div class="absolute bottom-full bg-background-card border border-primary rounded-lg p-4 flex-col gap-3 transition-all transform duration-300 ease-in-out mb-2 opacity-0 text-balance min-w-36 hidden">
                                 {pilar.text}
                             </div>
                         </div>
@@ -87,7 +95,7 @@ const pilares = [
         </div>
 
         <div class="flex flex-col gap-1 w-full">
-            <h3 class="sectionTitle">Detrás de VINCODE</h3>
+            <h3 class="sectionTitle max-md:text-2xl">Detrás de VINCODE</h3>
             <div class="flex max-md:flex-col items-center gap-4">
                 <img
                     src="/profile.webp"
@@ -96,8 +104,8 @@ const pilares = [
                 />
                 <div class="flex flex-col flex-1 gap-2">
                     <p class="about-text">
-                        Hola soy Bryan Vivanco, fundador de VINCODE. Soy un
-                        desarrollador apasionado por la tecnología y el
+                        Hola soy Bryan Vivanco, fundador de VINCODE y
+                        Desarrollador apasionado por la tecnología y el
                         emprendimiento.
                     </p>
                     <p class="about-text">
@@ -105,21 +113,32 @@ const pilares = [
                         problemas de negocio. Combino el rigor de la ingeniería
                         con una visión estratégica para asegurar que cada
                         producto sea una inversión rentable, sólida y preparada
-                        para el futuro. Trato cada proyecto con la dedicación de
-                        un socio tecnológico, cuidando cada detalle para que tú
-                        solo te preocupes por hacer crecer tu marca.
+                        para el futuro.
                     </p>
+                    <p class="about-text">
+                        Trato cada proyecto con la dedicación de un socio
+                        tecnológico, cuidando cada detalle para que tú solo te
+                        preocupes por hacer crecer tu marca.
+                    </p>
+                    <a
+                        href="https://bryanvivancos.netlify.app/"
+                        class="text-primary font-bold flex gap-2 underline items-center hover:text-[#0083b7] transition-colors duration-300 ease-in-out mt-2"
+                        target="_blank"
+                    >
+                        <ExternalLinkIcon />
+                        <span>Puedes ver más de mí en mi portfolio.</span>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="flex flex-col gap-1 w-full">
-            <h3 class="sectionTitle">¿Por Qué Elegirnos?</h3>
+            <h3 class="sectionTitle max-md:text-2xl">¿Por Qué Elegirnos?</h3>
             <ul class="flex flex-col gap-2 about-text">
                 <li class="flex gap-2 items-center about-text">
                     <CheckIcon />
-                    Cero Plantillas: Diseñamos trajes a la medida, no soluciones genéricas
-                    de "talla única".
+                    Cero Plantillas: Diseñamos "trajes" a la medida, no soluciones
+                    genéricas de "talla única".
                 </li>
                 <li class="flex gap-2 items-center about-text">
                     <CheckIcon />

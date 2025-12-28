@@ -6,8 +6,7 @@ import { BRAND_NAME, SERVICES_TITLE } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 
-const services = (await getCollection("services")).sort(
-    (a, b) => {
+const services = (await getCollection("services")).sort((a, b) => {
     // (a, b) => a.data.id - b.data.id
     // 1. Prioridad por disponibilidad (disponibles primero)
     // Convertimos booleanos a números para restar: true -> 1, false -> 0
@@ -17,8 +16,10 @@ const services = (await getCollection("services")).sort(
     }
 
     // 2. Si ambos tienen la misma disponibilidad, ordenamos por ID
-    return a.data.id - b.data.id;}
-);
+    return a.data.id - b.data.id;
+});
+
+export const prerender = true;
 ---
 
 <MainLayout

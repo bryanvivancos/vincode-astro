@@ -1,7 +1,10 @@
 ---
+import { Toaster } from "react-hot-toast";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import { BRAND_NAME } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
+
+export const prerender = true;
 ---
 
 <MainLayout
@@ -12,4 +15,5 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <section class="py-10 px-4">
         <ContactForm client:load />
     </section>
+    <Toaster client:load />
 </MainLayout>
