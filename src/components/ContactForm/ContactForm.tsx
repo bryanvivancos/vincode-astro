@@ -28,19 +28,19 @@ export default function ContactForm() {
             // setResult(data.success ? "Success!" : "Error");
             // toast(data.success ? "Correo enviado" : "Error");
             if (data.success) {
-                toast.success("Correo enviado satisfactoriamente", {
+                toast.success("Mensaje enviado satisfactoriamente, pronto nos pondremos en contacto contigo", {
                 position: 'bottom-right',
                 });
                 setBtnText("Enviar");
                 form.reset();
             } else {
-                toast.error("Error al enviar el correo, inténtelo más tarde", {
+                toast.error("Error al enviar el mensaje, inténtelo más tarde", {
                 position: 'bottom-right',
                 });
                 setBtnText("Enviar");
             }
         } catch (error) {
-            toast.error("Error al enviar el correo, inténtelo más tarde");
+            toast.error("Error al enviar el mensaje, inténtelo más tarde");
         }
     };
 
