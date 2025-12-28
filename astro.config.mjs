@@ -6,14 +6,19 @@ import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-   output: "server",
-   vite: {
-    plugins: [tailwindcss()],
-   },
-   integrations: [react()],
-   env: {
-      schema: {
-         WEB3FORMS_KEY: envField.string({ context: 'server', access: 'public' }),
-      }
-   },
+  output: "server",
+
+  vite: {
+   plugins: [tailwindcss()],
+  },
+
+  integrations: [react()],
+
+  env: {
+     schema: {
+        WEB3FORMS_KEY: envField.string({ context: 'server', access: 'public' }),
+     }
+  },
+
+  adapter: vercel(),
 });

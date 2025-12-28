@@ -1,10 +1,11 @@
 ---
-import Gallery from './Gallery.astro';
+import Gallery from "./Gallery.astro";
 
 interface Project {
     title: string;
     description: string;
     img: string;
+    imgGallery: string;
     url: string;
     goToWeb: boolean;
 }
@@ -28,12 +29,11 @@ const { projects } = Astro.props;
                         alt={`${project.title} screenshot`}
                         class="w-full h-auto rounded-lg"
                     /> */}
-                    <Gallery 
-                        img= {project.imgGallery}
-                    />
-                    <a class="pt-4 space-y-2"
+                    <Gallery img={project.imgGallery} />
+                    <a
+                        class="pt-4 space-y-2"
                         href={project.url}
-                        target="_blank"
+                        target={project.goToWeb ? "_blank" : "_self"}
                     >
                         <h4 class="text-base font-bold leading-5 text-text-primary">
                             {project.title}
