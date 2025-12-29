@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import MobileNav from "../components/Header/MobileNav"
 import { ClientRouter } from "astro:transitions";
+import Analytics from '@vercel/analytics/astro';
 import "../global.css";
 const pathname = Astro.url.pathname;
 
@@ -35,19 +36,20 @@ const { title, description, url } = Astro.props;
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
         <ClientRouter />
+        <Analytics />
     </head>
     
     <body
     class="mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope"
     >
-    <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
-        <Header currentPath={pathname} client:load />
-        <MobileNav currentPath={pathname} client:load/>
+        <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
+            <Header currentPath={pathname} client:load />
+            <MobileNav currentPath={pathname} client:load/>
 
-        <main class="w-dvw md:w-full place-items-center">
-            <slot />
-        </main>
-        <Footer currentPath={pathname} />
-    </div>
+            <main class="w-dvw md:w-full place-items-center">
+                <slot />
+            </main>
+            <Footer currentPath={pathname} />
+        </div>
     </body>
 </html>
