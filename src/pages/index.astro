@@ -12,16 +12,14 @@ export const prerender = true;
 
 <MainLayout
     title={`${BRAND_NAME} | Eleva tu presencia digital`}
-    description="Vincode es un equipo de desarrollo de software que ofrece soluciones personalizadas para emprendimientos, startups y autónomos."
+    description={`Con ${BRAND_NAME} eleva tu presencia digital con nuestras soluciones personalizadas para emprendimientos, startups y autónomos.`}
     url="www.vincode.dev"
 >
     <Hero client:load />
     <div class="px-4">
         <Services />
         <Projects />
-        <div id="other-projects">
-            <OtherProjects client:load />
-        </div>
+        <OtherProjects client:visible />
         <div class="flex flex-col gap-8 text-center">
             <p class="text-primary font-extrabold text-2xl md:text-4xl">
                 ¿LISTO PARA EMPEZAR?

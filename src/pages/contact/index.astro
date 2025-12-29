@@ -9,11 +9,11 @@ export const prerender = true;
 
 <MainLayout
     title={`Contacto | ${BRAND_NAME}`}
-    description="Vincode es un equipo de desarrollo de software que ofrece soluciones personalizadas para emprendimientos, startups y autónomos."
+    description={`Haznos las consultas que desees y te acompañamos en el camino para crecer digitalmente tu negocio o marca personal.`}
     url="www.vincode.dev/contact"
 >
     <section class="py-10 px-4">
-        <ContactForm client:load />
+        <ContactForm client:visible />
     </section>
-    <Toaster client:load />
+    <Toaster client:visible />
 </MainLayout>

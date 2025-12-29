@@ -15,14 +15,14 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 const { data } = service;
-const { title, subtitle, description, demosTitle, benefits, projects, faqData } = data;
+const { title, subtitle, cardDescription, description, demosTitle, benefits, projects, faqData } = data;
 
 export const prerender = true
 ---
 
 <MainLayout 
     title={`${title} | ${BRAND_NAME}`} 
-    description={description} 
+    description={cardDescription} 
     url={`www.vincode.dev/services/${service.slug}`}>
 
     <ServicesPageTemplate

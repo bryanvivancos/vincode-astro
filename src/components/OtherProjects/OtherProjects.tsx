@@ -6,7 +6,7 @@ export default function OtherProjects() {
 
 
   return (
-    <section className="py-15 place-items-center">
+    <section id="other-projects" className="py-15 place-items-center">
       <div className="max-w-240 flex items-center flex-col">
         <h2 className="sectionTitle text-center">Más de nuestros Proyectos</h2>
 
