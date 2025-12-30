@@ -22,16 +22,16 @@ export const navbar_items = [
     name: "Proyectos",
     htmlId: "projects"
   },
-  // {
-  //   id: 3,
-  //   name: "Otros Proyectos",
-  //   htmlId: "other-projects"
-  // },
   {
     id: 4,
     name: "Sobre Nosotros",
     htmlId: "about-us"
   },
+  // {
+  //   id: 3,
+  //   name: "Otros Proyectos",
+  //   htmlId: "other-projects"
+  // },
   // {
   //   id: 5,
   //   name: "Testimonios",

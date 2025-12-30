@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap'); */
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
 
@@ -23,7 +23,7 @@ html {
 
 @font-face {
   font-family: "Manrope";
-  src: url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+  src: url('./assets/fonts/Manrope-VariableFont.woff2');
   font-display: swap;
 }
 

@@ -20,7 +20,7 @@ const { title, description, url } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href="public/vincode-icon.ico" />
+        <link rel="icon" type="image/x-icon" href="/vincode-icon.ico" />
         <link
             rel="shortcut icon"
             type="image/x-icon"
@@ -35,7 +35,14 @@ const { title, description, url } = Astro.props;
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
-        <ClientRouter />
+        <style is:inline>
+            /* Reemplaza #000 con el color exacto de tu variable bg-background-dark */
+            html {
+                background-color: #0d0d0d; 
+                color: #ffffff;
+            }
+        </style>
+        <ClientRouter/>
         <Analytics />
     </head>
     
@@ -46,7 +53,7 @@ const { title, description, url } = Astro.props;
             <Header currentPath={pathname} client:load />
             <MobileNav currentPath={pathname} client:load/>
 
-            <main class="w-dvw md:w-full place-items-center">
+            <main class="w-dvw md:w-full place-items-center" transition:animate="fade">
                 <slot />
             </main>
             <Footer currentPath={pathname} />

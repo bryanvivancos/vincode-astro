@@ -8,6 +8,7 @@ export default function Header(
 ) {
   
   const isOnPage = navbar_items.some(item => `/${item.htmlId}` === currentPath)
+  console.log(currentPath)
 
     return (
     <header className="fixed bg-background-dark border-b border-[#e5e8eb] z-1000 top-0 left-0 right-0 place-items-center">
