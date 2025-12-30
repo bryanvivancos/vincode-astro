@@ -2,7 +2,7 @@
 import Gallery from "../atoms/Gallery.astro";
 import { SlideItems } from "../atoms/SlideItems";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
-import { ChevronLeftIcon, type IconName } from "../icons";
+import { type IconName } from "../icons";
 
 type Profits = {
     icon: IconName;
@@ -50,7 +50,7 @@ const {
     </a> -->
     <h2
         class="text-3xl md:text-4xl font-extrabold leading-11 -tracking-[0.5px] text-text-primary"
-        transition:name={`service-${serviceTitle}`}
+        
     >
         {serviceTitle}
     </h2>
