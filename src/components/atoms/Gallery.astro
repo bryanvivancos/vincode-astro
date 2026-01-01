@@ -4,7 +4,7 @@ import "photoswipe/style.css";
 const { img } = Astro.props;
 ---
 
-<div class="pswp-gallery" id={`project-gallery`}>
+<div class="pswp-gallery">
     <a
         href={`/services-imgs/${img}.png`}
         data-pswp-width="1920"
@@ -25,15 +25,15 @@ const { img } = Astro.props;
     // Función que inicializa la galería
     function initPhotoSwipe() {
         const lightbox = new PhotoSwipeLightbox({
-            gallery: '.pswp-gallery',
-            children: 'a',
-            pswpModule: () => import('photoswipe')
+            gallery: ".pswp-gallery",
+            children: "a",
+            pswpModule: () => import("photoswipe"),
         });
-        
+
         lightbox.init();
     }
 
-    document.addEventListener('astro:page-load', () => {
+    document.addEventListener("astro:page-load", () => {
         initPhotoSwipe();
     });
 </script>

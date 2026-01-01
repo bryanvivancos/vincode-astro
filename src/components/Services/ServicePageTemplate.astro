@@ -1,4 +1,5 @@
 ---
+import GalleryReact from "../atoms/Gallery";
 import Gallery from "../atoms/Gallery.astro";
 import { SlideItems } from "../atoms/SlideItems";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
@@ -50,7 +51,6 @@ const {
     </a> -->
     <h2
         class="text-3xl md:text-4xl font-extrabold leading-11 -tracking-[0.5px] text-text-primary"
-        
     >
         {serviceTitle}
     </h2>
@@ -81,7 +81,7 @@ const {
     <h3 class="text-2xl md:text-3xl font-bold">{demos}</h3>
     {
         projects.map(
-            (project, index) =>
+            (project) =>
                 project.img && (
                     <>
                         <div class="flex gap-4 items-center justify-center">
@@ -92,7 +92,11 @@ const {
                                         alt="project image"
                                         class="w-full h-auto rounded-lg"
                                     /> */}
-                                    <Gallery img={project.imgGallery} />
+                                    <GalleryReact
+                                        galleryID="landing-gallery"
+                                        images={project.imgGallery}
+                                        client:load
+                                    />
                                     <div class="pt-4 space-y-3">
                                         <h4 class="text-xl font-bold leading-5 text-text-primary text-balance">
                                             {project.title}

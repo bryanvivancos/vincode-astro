@@ -1,5 +1,5 @@
 ---
-import Gallery from "./Gallery.astro";
+import GalleryReact from "./Gallery";
 
 interface Project {
     title: string;
@@ -29,7 +29,11 @@ const { projects } = Astro.props;
                         alt={`${project.title} screenshot`}
                         class="w-full h-auto rounded-lg"
                     /> */}
-                    <Gallery img={project.imgGallery} />
+                    <GalleryReact
+                        galleryID="landing-gallery"
+                        images={project.imgGallery}
+                        client:load
+                    />
                     <a
                         class="pt-4 space-y-2"
                         href={project.url}
