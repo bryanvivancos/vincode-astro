@@ -29,7 +29,10 @@ export default function GalleryReact({galleryID, images}
             target="_blank"
             rel="noreferrer"
             >
-            <img src={`/services-imgs/${images}.webp`} alt="" />
+            <img src={`/services-imgs/${images}.webp`} 
+                alt="Imagen de servicio" 
+                className="w-auto h-full rounded-lg object-cover"
+            />
             </a>
         {/* ))} */}
         </div>
