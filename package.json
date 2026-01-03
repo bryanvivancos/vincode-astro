@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.6.0",
     "@astrojs/ts-plugin": "^1.10.6",
     "@astrojs/vercel": "^9.0.2",
     "@midudev/tailwind-animations": "^0.2.0",
