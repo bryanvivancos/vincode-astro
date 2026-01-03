@@ -1,8 +1,8 @@
 ---
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import MobileNav from "../components/Header/MobileNav"
-import Analytics from '@vercel/analytics/astro';
+import MobileNav from "../components/Header/MobileNav";
+import Analytics from "@vercel/analytics/astro";
 import "../global.css";
 const pathname = Astro.url.pathname;
 
@@ -10,12 +10,13 @@ interface Props {
     title: string;
     description: string;
     url: string;
+    keywords?: string;
 }
-const { title, description, url } = Astro.props;
+const { title, description, url, keywords } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" >
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,6 +28,7 @@ const { title, description, url } = Astro.props;
         />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
         <link rel="canonical" href={url} />
         <!-- Open Graph -->
         <meta property="og:title" content={title} />
@@ -37,19 +39,19 @@ const { title, description, url } = Astro.props;
         <style is:inline>
             /* Reemplaza #000 con el color exacto de tu variable bg-background-dark */
             html {
-                background-color: #0d0d0d; 
+                background-color: #0d0d0d;
                 color: #ffffff;
             }
         </style>
         <Analytics />
     </head>
-    
+
     <body
-    class="mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope"
+        class="mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope"
     >
         <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
             <Header currentPath={pathname} client:load />
-            <MobileNav currentPath={pathname} client:load/>
+            <MobileNav currentPath={pathname} client:load />
 
             <main class="w-dvw md:w-full place-items-center">
                 <slot />

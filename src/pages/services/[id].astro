@@ -1,37 +1,47 @@
 ---
-import { getCollection, render } from 'astro:content';
-import MainLayout from '../../layouts/MainLayout.astro';
-import ServicesPageTemplate from '../../components/Services/ServicePageTemplate.astro';
-import { BRAND_NAME } from '../../CONSTANTS';
+import { getCollection, render } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import ServicesPageTemplate from "../../components/Services/ServicePageTemplate.astro";
+import { BRAND_NAME } from "../../CONSTANTS";
 
 export async function getStaticPaths() {
-  const services = await getCollection('services');
+    const services = await getCollection("services");
 
-  return services.map((service) => ({
-    params: { id: service.slug },
-    props: { service },
-  }));
+    return services.map((service) => ({
+        params: { id: service.slug },
+        props: { service },
+    }));
 }
 
 const { service } = Astro.props;
 const { data } = service;
-const { title, subtitle, cardDescription, description, demosTitle, benefits, projects, faqData } = data;
+const {
+    title,
+    subtitle,
+    cardDescription,
+    description,
+    demosTitle,
+    benefits,
+    projects,
+    faqData,
+} = data;
 
-export const prerender = true
+export const prerender = true;
 ---
 
-<MainLayout 
-    title={`${title} | ${BRAND_NAME}`} 
-    description={cardDescription} 
-    url={`www.vincode.dev/services/${service.slug}`}>
-
+<MainLayout
+    title={`${title} | ${BRAND_NAME}`}
+    description={cardDescription}
+    url={`www.vincode.dev/services/${service.slug}`}
+    keywords={`${title}, Servicios digitales, Desarrollo web, Vincode`}
+>
     <ServicesPageTemplate
-      serviceTitle= {title}
-      subtitles={subtitle}
-      description={description}
-      profits={benefits}
-      demos={demosTitle}
-      projects={projects} 
-      faqsItems={faqData}
+        serviceTitle={title}
+        subtitles={subtitle}
+        description={description}
+        profits={benefits}
+        demos={demosTitle}
+        projects={projects}
+        faqsItems={faqData}
     />
 </MainLayout>
