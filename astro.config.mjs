@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
    site: "https://www.vincode.dev", 
-   output: "server",
+   output: "static",
 
    vite: {
       plugins: [tailwindcss()],
@@ -21,7 +21,7 @@ export default defineConfig({
 
    env: {
       schema: {
-         WEB3FORMS_KEY: envField.string({ context: 'server', access: 'public' }),
+         WEB3FORMS_KEY: envField.string({ context: 'client', access: 'public' }),
       }
    },
 
