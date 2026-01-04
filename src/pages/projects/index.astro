@@ -23,7 +23,7 @@ export const prerender = true;
                 exito para nuestros clientes.
             </p>
 
-            <ProjectGrid projects={projects} />
+            <ProjectGrid projects={projects} client:visible />
         </div>
 
         <div class="max-w-240 py-10 sm:py-12 md:py-15 w-full">
@@ -35,7 +35,7 @@ export const prerender = true;
                 Explora otros de los proyectos realizados por nosotros.
             </p>
 
-            <ProjectGrid projects={others_projects} />
+            <ProjectGrid projects={others_projects} client:visible />
         </div>
     </main>
 </MainLayout>

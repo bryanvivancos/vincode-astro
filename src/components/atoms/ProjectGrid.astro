@@ -32,7 +32,7 @@ const { projects } = Astro.props;
                     <GalleryReact
                         galleryID="landing-gallery"
                         images={project.imgGallery}
-                        client:load
+                        client:visible
                     />
                     <a
                         class="pt-4 space-y-2"
