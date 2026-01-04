@@ -8,7 +8,7 @@ import { navbar_items } from '../../CONSTANTS';
 export default function MobileNav( {currentPath} : {currentPath: string}) {
   
   const $isMenuOpen = useStore(isMenuOpen);
-  const isOnPage = navbar_items.some(item => `/${item.htmlId}` === currentPath)
+  const path = currentPath.replace(/\/$/, '').split('/')[1] ?? '';
 
   return (
     <aside className={`z-10000 fixed inset-0 bg-background-dark transition-transform  flex justify-center py-32 ${
@@ -38,7 +38,7 @@ export default function MobileNav( {currentPath} : {currentPath: string}) {
               href={item.htmlId}
               key={item.id}
               onClick={() => toggleMenu()}
-              className={`${currentPath === `/${item.htmlId}` 
+              className={`${path === item.htmlId 
                 ? "text-primary"
                 : "text-text-primary hover:text-primary"}`}>
                 {item.name}
@@ -46,7 +46,7 @@ export default function MobileNav( {currentPath} : {currentPath: string}) {
           ))}
         </nav>
 
-        <a href={`/contact`} 
+        <a href={`contact`} 
           className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5"
           onClick={() => toggleMenu()}
         >
