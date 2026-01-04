@@ -3,6 +3,21 @@ import { Icon } from "../icons/Icon";
 import { navbar_items, VINCODE_IG } from "../../CONSTANTS";
 
 const pathname = Astro.url.pathname;
+
+console.log("Footer pathname:", pathname);
+
+const colorCurrentPath = ({
+    pathname,
+    item,
+}: {
+    pathname: string;
+    item: any;
+}) => {
+    if (pathname === `/${item.htmlId}`) {
+        return "text-primary";
+    }
+    return "text-text-secondary hover:text-primary";
+};
 ---
 
 <footer class="py-10 sm:py-12 md:py-15 place-items-center">
@@ -15,7 +30,7 @@ const pathname = Astro.url.pathname;
                             <a
                                 href={`/${item.htmlId}`}
                                 class={`md:text-base text-sm font-normal transition-all duration-300 ease-in-out text-center 
-                                    ${pathname === `/${item.htmlId}` ? "text-primary" : "text-text-secondary hover:text-primary"}`}
+                                    ${colorCurrentPath({ pathname, item })}`}
                             >
                                 {item.name}
                             </a>
