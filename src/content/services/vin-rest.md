@@ -5,34 +5,46 @@ title: VIN REST - Software para Restaurantes
 icon: SoupIcon
 cardDescription: "Unifica la gestión de mesas, pedidos, cocina y facturación en una sola plataforma moderna."
 available: false
-subtitle: ""
-description: ""
+subtitle: "Nuestro software punto de venta para restaurantes está diseñado para optimizar la operación diaria de restaurantes, bares, cafeterías y negocios gastronómicos. Centraliza la gestión de mesas, pedidos, cocina y facturación en una sola plataforma moderna, rápida y fácil de usar."
+description: "Digitaliza tu restaurante con un sistema profesional y eficiente, que reduce errores, agiliza la atención al cliente y te brinda control total sobre tus ventas y operaciones en tiempo real."
 demosTitle: ""
 benefits:
     [
         {
             id: 1,
-            icon: "RocketIcon",
-            title: "Solución a la Medida de Tu Negocio",
-            description: "Desarrollamos tu plataforma desde cero, enfocada completamente en tus procesos, requerimientos y objetivos, sin limitaciones de plantillas o sistemas genéricos.",
+            icon: "PicnicTableIcon",
+            title: "Control de Mesas y Estados",
+            description: "Visualiza en tiempo real las mesas libres, ocupadas o en atención, facilitando la organización del salón y mejorando la rotación de mesas.",
         },
         {
             id: 2,
-            icon: "CogIcon",
-            title: "Automatización y Optimización",
-            description: "Creamos herramientas que reducen tareas repetitivas, automatizan procesos clave y mejoran el rendimiento de tu equipo o empresa.",
+            icon: "ClipboardIcon",
+            title: "Pedidos por Mesa",
+            description: "Registra pedidos directamente por mesa, con tiempos y responsables, evitando confusiones y errores manuales.",
         },
         {
             id: 3,
-            icon: "TrendingUpIcon",
-            title: "Escalable y Preparada para Crecer",
-            description: "Diseñamos tu plataforma con arquitectura moderna, lista para integrar nuevas funciones, módulos y usuarios conforme tu negocio crece.",
+            icon: "ChefHatIcon",
+            title: "Comandas Digitales y Cocina",
+            description: "Los pedidos se envían automáticamente a cocina mediante comandas digitales, mejorando la comunicación entre salón y cocina y reduciendo tiempos de espera.",
         },
         {
             id: 4,
-            icon: "PuzzleIcon",
-            title: "Integraciones con Servicios Externos",
-            description: "API, sistemas empresariales, dashboards, CRM, ERPs, herramientas de automatización, y cualquier integración que tu proyecto necesite.",
+            icon: "FlameIcon",
+            title: "Gestión de Pedidos en Cocina",
+            description: "Pantalla de cocina con estados de pedidos: pendientes, en preparación y listos, optimizando el flujo de trabajo del personal.",
+        },
+        {
+            id: 5,
+            icon: "MoneyBagIcon",
+            title: "Boletas y Facturación",
+            description: "Emite boletas y facturas de forma rápida y ordenada, con historial completo de ventas y comprobantes.",
+        },
+        {
+            id: 6,
+            icon: "DashboardIcon",
+            title: "Dashboard y Reportes",
+            description: "Visualiza métricas clave como ventas por turno, platos más vendidos, rendimiento del personal y flujo diario del restaurante.",
         },
     ]
 projects: []
@@ -40,28 +52,28 @@ faqData:
     [
         {
             id: 1,
-            question: "¿Qué tipo de plataformas pueden desarrollar?",
-            answer: "Creamos plataformas totalmente personalizadas como sistemas de gestión, paneles administrativos, apps internas, plataformas de reservas, educación online, CRM, ecommerce avanzados y cualquier solución a medida que requiera tu negocio.",
+            question: "¿Este sistema funciona para cualquier tipo de restaurante?",
+            answer: "Sí. Es ideal para restaurantes, cafeterías, bares, food trucks y negocios gastronómicos en general. Se adapta al tamaño y tipo de operación.",
         },
         {
             id: 2,
-            question: "¿Qué necesito para comenzar con mi plataforma personalizada?",
-            answer: "Solo necesitamos una idea general de lo que deseas. Te ayudamos a definir características, módulos, funcionalidades y flujos de trabajo. Si ya tienes un documento o boceto, mucho mejor, pero no es obligatorio.",
+            question: "¿Puedo gestionar pedidos por mesa y enviarlos directamente a cocina?",
+            answer: "Sí. El sistema permite registrar pedidos por mesa y enviar comandas digitales automáticamente a cocina, reduciendo errores y tiempos.",
         },
         {
             id: 3,
-            question: "¿Qué tecnologías utilizan para el desarrollo?",
-            answer: "Trabajamos con tecnologías modernas como React, Next.js, Node.js, Express, PostgreSQL, MongoDB, APIs, microservicios, entre otros. Elegimos la mejor arquitectura según tus necesidades.",
+            question: "¿Incluye control de mesas y estados?",
+            answer: "Sí. Puedes visualizar mesas libres, ocupadas o en servicio en tiempo real, facilitando la atención y organización del local.",
         },
         {
             id: 4,
-            question: "¿El sistema será escalable y ampliable en el futuro?",
-            answer: "Sí. Diseñamos tu plataforma pensando en el crecimiento, permitiendo integrar nuevos módulos, usuarios, funciones o integraciones más adelante sin rehacer el sistema.",
+            question: "¿Puedo usar el sistema en varias pantallas o dispositivos?",
+            answer: "Sí. Puede utilizarse en PC, tablets o pantallas de cocina, permitiendo una operación fluida en todo el restaurante.",
         },
         {
             id: 5,
-            question: "¿Cuánto tiempo toma desarrollar una plataforma personalizada?",
-            answer: "Depende del alcance y complejidad del proyecto. Las plataformas pequeñas pueden tardar de 2 a 4 semanas, mientras que proyectos más completos pueden tomar de 1 a 3 meses.",
+            question: "¿El software se puede personalizar?",
+            answer: "Totalmente. Podemos adaptar el sistema a tus procesos, menú, flujo de atención y requerimientos específicos.",
         },
     ]
 ---
