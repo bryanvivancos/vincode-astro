@@ -7,7 +7,7 @@ export default function Header({ currentPath }: { currentPath: string }) {
 
     return (
         <header
-            className={`${path === "/" ? "sticky-scroll-navbar" : ""} bg-background-dark border-b border-[#e5e8eb] z-100`}
+            className={`sticky-scroll-navbar bg-background-dark border-b border-[#e5e8eb] z-100`}
         >
             <div className="flex justify-between items-center h-16 max-w-7xl w-full py-4 md:py-0 px-4 sm:px-6 md:px-10">
                 <a href="/" className="flex items-center gap-2 sm:gap-4">

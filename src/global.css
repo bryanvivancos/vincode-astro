@@ -84,7 +84,9 @@ html {
     @apply text-sm sm:text-base font-medium leading-5 sm:leading-6 text-slate-300;
 }
 
-/* PARALLAX EFFECT */
+/* ======================= 
+    PARALLAX EFFECT 
+=========================*/
 
 @keyframes sticky-parallax-hero {
     from {
@@ -130,7 +132,7 @@ html {
 
 /* ===============================
   Floating Navbar on Scroll
-  =============================== */
+=============================== */
 
 @keyframes sticky-navbar-reveal {
     from {
@@ -149,17 +151,28 @@ html {
     left: 0;
     width: 100%;
 
-    animation-name: sticky-navbar-reveal;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-
-    /* ✅ CLAVE */
-    animation-timeline: scroll();
-    animation-range: 15dvh 60dvh;
+    /* z-index: 60; */
 
     /* 🔒 estado inicial */
-    opacity: 0;
-    transform: translateY(-100%);
+    opacity: 1;
+	transform: translateY(0);
 
-    z-index: 60;
+
+
+}
+
+body:has(.sticky-parallax-hero) .sticky-scroll-navbar {
+
+    /* 🔒 estado inicial cuando esté presente el hero*/
+	opacity: 0;
+	transform: translateY(-100%);
+
+	animation-name: sticky-navbar-reveal;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+
+    /* ✅ CLAVE */
+	animation-timeline: scroll();
+	animation-range: 15dvh 60dvh;
+
 }
