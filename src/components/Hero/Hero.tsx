@@ -23,8 +23,16 @@ export default function Hero() {
             {/* Overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.6)_100%)] -z-10" />
 
+            
             {/* Contenido */}
             <div className="flex h-full flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12">
+                <div
+                    className="flex items-center gap-2 sm:gap-4 mb-4"
+                >
+                    <p className="text-xl md:2xl flex items-center font-black text-text-primary font-Codesaver text-center">
+                    Vin<span className="text-[#0090c7] font-black">{`<0`}</span>de
+                    </p>
+                </div>
                 <h1 className="font-extrabold leading-tight tracking-[-2px] text-text-primary text-3xl md:text-5xl">
                     {HERO_TITLE}
                 </h1>
