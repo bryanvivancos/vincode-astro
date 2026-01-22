@@ -1,86 +1,178 @@
 @import "tailwindcss";
-@plugin "@midudev/tailwind-animations";
+@import 'tailwind-animations';
 
 html {
-  scroll-padding-top: 4rem;
-  /* para que al hacer el scroll desde el nav no quede pegado en la parte de arriba arriba */
-  /* scroll-behavior: smooth; */
+    scroll-padding-top: 4rem;
+    /* para que al hacer el scroll desde el nav no quede pegado en la parte de arriba arriba */
+    /* scroll-behavior: smooth; */
 }
 
 @theme {
-  --color-primary: #00A8E8;
-  --color-background-dark: #0F1A1E;
-  --color-background-card: #1A2B33;
-  --color-border: #335466;
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #91B8C9;
-  --color-input-background: #243D47;
+    --color-primary: #00a8e8;
+    --color-background-dark: #0f1a1e;
+    --color-background-card: #1a2b33;
+    --color-border: #335466;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #91b8c9;
+    --color-input-background: #243d47;
 
-  --font-Manrope: "Manrope", system-ui, sans-serif;
-  --font-Codesaver: "Codesaver", system-ui, sans-serif;
+    --font-Manrope: "Manrope", system-ui, sans-serif;
+    --font-Codesaver: "Codesaver", system-ui, sans-serif;
 }
 
 @font-face {
-  font-family: "Manrope";
-  src: url('./assets/fonts/Manrope-VariableFont.woff2');
-  font-display: swap;
+    font-family: "Manrope";
+    src: url("./assets/fonts/Manrope-VariableFont.woff2");
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Codesaver";
-  font-weight: 900;
-  src: url('./assets/fonts/CodeSaver-Regular.woff2');
-  font-display: swap;
+    font-family: "Codesaver";
+    font-weight: 900;
+    src: url("./assets/fonts/CodeSaver-Regular.woff2");
+    font-display: swap;
 }
 
 @layer base {
-  * {
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+    * {
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-  button {
-    font-family: inherit;
-    cursor: pointer;
-    border: none;
-    background: none;
-  }
+    button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+    }
 
-  input,
-  textarea {
-    font-family: inherit;
-  }
+    input,
+    textarea {
+        font-family: inherit;
+    }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer
-  }
-
+    a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+    }
 }
 
 @layer components {
-  .sectionTitle {
-    font-size: 30px;
-    font-weight: 800;
-    line-height: 28px;
-    color: var(--color-text-primary);
-    margin-bottom: 28px;
-  }
+    .sectionTitle {
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 28px;
+        color: var(--color-text-primary);
+        margin-bottom: 28px;
+    }
 
-  /* En index.css o global.css */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+    /* En index.css o global.css */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
 
 .about-text {
-  @apply text-sm sm:text-base font-medium leading-5 sm:leading-6 text-slate-300 
+    @apply text-sm sm:text-base font-medium leading-5 sm:leading-6 text-slate-300;
+}
+
+/* ======================= 
+    PARALLAX EFFECT 
+=========================*/
+
+@keyframes sticky-parallax-hero {
+    from {
+        background-position: 50% 0;
+        height: 100dvh;
+        opacity: 1;
+    }
+    to {
+        opacity: 0.6;
+        background-position: 50% 100%;
+        background-color: #0b1584;
+        height: 4rem;
+    }
+}
+
+/* #sticky-parallax-header {
+    position: fixed;
+    top: 0;
+
+    animation: sticky-parallax-header-move-and-size linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0vh 90vh;
+} */
+
+.sticky-parallax-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    animation: sticky-parallax-hero linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0dvh 90dvh;
+
+    z-index: 40;
+    overflow: hidden;
+}
+
+/* Empuja el resto del contenido */
+.parallax-offset {
+    padding-top: 100dvh;
+}
+
+/* ===============================
+  Floating Navbar on Scroll
+=============================== */
+
+@keyframes sticky-navbar-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sticky-scroll-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    /* z-index: 60; */
+
+    /* 🔒 estado inicial */
+    opacity: 1;
+	transform: translateY(0);
+
+
+
+}
+
+body:has(.sticky-parallax-hero) .sticky-scroll-navbar {
+
+    /* 🔒 estado inicial cuando esté presente el hero*/
+	opacity: 0;
+	transform: translateY(-100%);
+
+	animation-name: sticky-navbar-reveal;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+
+    /* ✅ CLAVE */
+	animation-timeline: scroll();
+	animation-range: 15dvh 60dvh;
+
 }
