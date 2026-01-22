@@ -3,11 +3,13 @@
 // import { useNavigate } from "react-router-dom";
 import { navigate } from "astro:transitions/client";
 import { HERO_SUBTITLE, HERO_TITLE } from "../../CONSTANTS";
+import { ChevronDownIcon } from "../icons";
 
 export default function Hero() {
     // const navigate = useNavigate()
 
     return (
+        <>
         <header className="sticky-parallax-hero">
             {/* Imagen */}
             <img
@@ -38,7 +40,13 @@ export default function Hero() {
                     Ver Servicios
                 </a>
             </div>
+
         </header>
+            
+            <ChevronDownIcon width={28} height={28} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 animate-bounce"/>
+            
+
+        </>
 
         // // <section className="mt-16 py-6 sm:py-9 px-0 place-items-center">
         // <div className="mt-16 md:mt-16 w-full sectionContainer animate-slide-in-top">

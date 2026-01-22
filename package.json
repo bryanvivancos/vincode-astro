@@ -9,25 +9,25 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/ts-plugin": "^1.10.6",
-    "@astrojs/vercel": "^9.0.2",
-    "@midudev/tailwind-animations": "^0.2.0",
-    "@nanostores/react": "^1.0.0",
-    "@tailwindcss/vite": "^4.1.18",
-    "@types/react-dom": "^19.2.3",
-    "@vercel/analytics": "^1.6.1",
-    "astro": "^5.16.6",
-    "nanostores": "^1.1.0",
-    "photoswipe": "^5.4.4",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "react-hot-toast": "^2.6.0",
-    "tailwindcss": "^4.1.18"
+    "@astrojs/react": "4.4.2",
+    "@astrojs/sitemap": "3.6.0",
+    "@astrojs/ts-plugin": "1.10.6",
+    "@astrojs/vercel": "9.0.2",
+    "@nanostores/react": "1.0.0",
+    "@tailwindcss/vite": "4.1.18",
+    "@types/react-dom": "19.2.3",
+    "@vercel/analytics": "1.6.1",
+    "astro": "5.16.6",
+    "nanostores": "1.1.0",
+    "photoswipe": "5.4.4",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-hot-toast": "2.6.0",
+    "tailwind-animations": "1.0.1",
+    "tailwindcss": "4.1.18"
   },
   "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b",
   "devDependencies": {
-    "@types/react": "^19.2.7"
+    "@types/react": "19.2.7"
   }
 }

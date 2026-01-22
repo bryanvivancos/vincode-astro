@@ -46,7 +46,7 @@ const Carrousel: React.FC<CarrouselProps> = ({
   const paddingCalc = `calc((100% - ${ITEM_WIDTH_REM}rem) / 12)`;
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full timeline-view animate-bounce-fade-in animate-range-[entry_10%_cover_40%]">
 
       <button
         onClick={() => scroll("left")}
@@ -74,7 +74,8 @@ const Carrousel: React.FC<CarrouselProps> = ({
         {items.map((item, index) => (
           <div
             key={index}
-            className="shrink-0 w-64 snap-center flex flex-col items-center"
+            className="shrink-0 w-64 snap-center flex flex-col items-center 
+            "
           >
             <a href={item.url} target="_blank" className={`border border-transparent rounded-lg flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 overflow-hidden`}>
               <img
