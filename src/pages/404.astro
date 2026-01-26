@@ -1,0 +1,54 @@
+---
+import { BRAND_NAME } from "../CONSTANTS";
+import MainLayout from "../layouts/MainLayout.astro";
+import "../global.css";
+
+export const prerender = true;
+---
+
+<MainLayout
+    title={`Page | Not Found`}
+    description={`Eleva tu presencia digital con nuestras soluciones personalizadas para emprendimientos, startups y autónomos.`}
+    url="www.vincode.dev"
+    keywords="Desarrollo web, Diseño web, Soluciones digitales, Emprendimientos, Startups, Autónomos, Vincode, Presencia digital, Servicios web"
+>
+    <section class="notfound-body">
+        <div class="text">
+            <div>
+                <div>ERROR</div>
+                <h1>404</h1>
+                <hr>
+                <div>Página no encontrada</div>
+            </div>
+            <a href="/" class="font-bold underline text-primary">Volver al inicio</a>
+        </div>
+
+        <div class="astronaut">
+            <img src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png" alt="" class="src">
+        </div>
+    </section>
+</MainLayout>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded",function(){
+  
+        var body=document.body;
+        setInterval(createStar,100);
+        function createStar(){
+            var right=Math.random()*500;
+            var top=Math.random()*screen.height;
+            var star=document.createElement("div");
+        star.classList.add("star")
+        body.appendChild(star);
+        setInterval(runStar,10);
+            star.style.top=top+"px";
+        function runStar(){
+            if(right>=screen.width){
+            star.remove();
+            }
+            right+=3;
+            star.style.right=right+"px";
+        }
+        } 
+    })
+</script>
