@@ -21,7 +21,9 @@ export const SlideItems = ({
 
   return (
     <Wrapper
-      href={href} className={`bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 ${classNames}`}
+      href={href} className={`bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out 
+        timeline-view animate-zoom-in animate-range-[entry_5%_cover_15%]
+        hover:border-primary hover:-translate-y-1 ${classNames}`}
     >
       {icon && (
         <Icon
