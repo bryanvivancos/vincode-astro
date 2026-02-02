@@ -50,7 +50,7 @@ export const projects = [
     title: 'Portfolio',
     description: 'Portfolio profesional para Ingeniero.',
     img: '/portfolio-web.webp',
-    imgGallery: 'portfolio-web',
+    imgGallery: ['portfolio-web'],
     url: 'https://bryanvivancos.netlify.app/',
     goToWeb: true
   },
@@ -58,7 +58,7 @@ export const projects = [
     title: 'Links in Bio',
     description: 'Web para centralizar los links más importantes de una empresa de Joyas.',
     img: '/cq-link-bio.webp',
-    imgGallery: 'cq-link-bio',
+    imgGallery: ['cq-link-bio'],
     url: 'https://catquizpe.vercel.app/',
     goToWeb: true
   },
@@ -72,7 +72,7 @@ export const projects = [
     title: 'Tarjeta de presentación digital',
     description: 'Impresión duradera con una tarjeta de presentación digital negocio de joyas.',
     img: '/catquiz-digital-card.webp',
-    imgGallery: 'catquiz-digital-card',
+    imgGallery: ['catquiz-digital-card'],
     url: 'https://catquiz-card.vercel.app/',
     goToWeb: true
   },
@@ -80,7 +80,7 @@ export const projects = [
     title: "VIN DISPLAY - Software de Cartelera Digital y Menús Dinámicos",
     description: 'Software de Cartelera Digital para mostrar publicidad y tus menus o sabores disponibles de tu restaurante',
     img: "/vin-display-img.webp",
-    imgGallery: "vin-display-img",
+    imgGallery: ["vin-display-img"],
     url: `/contact`,
     goToWeb: false
   },
@@ -119,7 +119,7 @@ export const RANDOMIZER_APP = "https://randomizer-app-psi.vercel.app/"
 export const others_projects = [
   {
     img: "/services-imgs/quizter-img.webp",
-    imgGallery: 'quizter-img',
+    imgGallery: ['quizter-img'],
     title: "QUIZTER",
     url: `${QUIZTER_APP}`,
     description: 'Juego de Quiz con preguntas de cultura general',
@@ -127,7 +127,7 @@ export const others_projects = [
   },
   {
     img: "/services-imgs/randomizer-img.webp",
-    imgGallery: 'randomizer-img',
+    imgGallery: ['randomizer-img'],
     title: "RANDOMIZER",
     url: `${RANDOMIZER_APP}`,
     description: 'Pagina de juegos, aplicaciones de números random, sorteos',

@@ -41,8 +41,15 @@ benefits:
             description: "Cambia promociones o productos al instante, sin afectar la operación del local.",
         },
     ]
-projects:
-    [{ title: "Vin Display", description: "", img: "/vin-display-img.webp", imgGallery: "vin-display-img" }]
+projects: [
+        {
+            title: "Vin Display",
+            description: "Plataforma en ejecución ya instalada en local de venta.",
+            img: "/vin-display-img.webp",
+            # imgGallery: "vin-display-img",
+            imgGallery: ["vin-display-img", "vin-display-img-2"],
+        },
+    ]
 faqData:
     [
         {
