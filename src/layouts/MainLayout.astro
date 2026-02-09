@@ -4,6 +4,7 @@ import MobileNav from "../components/Header/MobileNav";
 import Analytics from "@vercel/analytics/astro";
 import "../global.css";
 import FooterComponent from "../components/Footer/FooterComponent.astro";
+import { ClientRouter } from "astro:transitions";
 const pathname = Astro.url.pathname;
 
 interface Props {
@@ -16,7 +17,7 @@ const { title, description, url, keywords } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" transition:animate="none">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,6 +45,7 @@ const { title, description, url, keywords } = Astro.props;
             }
         </style>
         <Analytics />
+        <ClientRouter fallback="none" />
     </head>
 
     <body
