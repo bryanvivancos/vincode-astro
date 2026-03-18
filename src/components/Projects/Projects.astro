@@ -5,50 +5,55 @@ import GalleryReact from "../atoms/Gallery";
 // export const prerender = true;
 ---
 
-<section id="projects" class="py-10 sm:py-12 md:py-15 place-items-center">
-    <div class="max-w-240">
-        <h2 class="sectionTitle">Proyectos de Clientes</h2>
+<section id="projects" class="w-full flex justify-center">
+    <div class="section-container section-spacing">
+        <p
+            class="text-sm sm:text-base font-semibold tracking-wider text-primary uppercase mb-3"
+        >
+            Nuestro Trabajo
+        </p>
+        <h2 class="sectionTitle text-4xl md:text-5xl">Proyectos de Clientes</h2>
 
         <p
-            class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+            class="text-base sm:text-lg font-medium leading-relaxed text-text-secondary max-w-3xl mb-10"
         >
             Explora algunos de nuestro proyectos recientes y mira como podemos
             ayudarte a alcanzar tus metas con soluciones innovadoras.
         </p>
 
         <div
-            class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6"
+            class="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
             {
                 projects.map((project) => (
-                    <div class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 h-full group
-                    timeline-view animate-fade-in-up animate-range-[entry_10%_cover_40%]">
-                        <div class="flex flex-col gap-1">
-                            {/* <img
-                                src={project.img}
-                                alt={`${project.title} screenshot`}
-                                class="w-full h-auto rounded-lg"
-                            /> */}
-                            <GalleryReact
-                                galleryID="landing-gallery"
-                                images={project.imgGallery}
-                                client:visible
-                            />
+                    <div
+                        class="card-elegant flex flex-col gap-4 group
+                    timeline-view animate-fade-in-up animate-range-[entry_10%_cover_40%]"
+                    >
+                        <div class="flex flex-col gap-3">
+                            <div class="rounded-xl overflow-hidden">
+                                <GalleryReact
+                                    galleryID="landing-gallery"
+                                    images={project.imgGallery}
+                                    client:visible
+                                />
+                            </div>
                             <a
-                                class="pt-4 space-y-2"
+                                class="pt-2 space-y-3"
                                 href={project.url}
                                 target={project.goToWeb ? "_blank" : "_self"}
                             >
                                 <div class="space-y-2">
-                                    <h4 class="text-base font-bold leading-5 text-text-primary">
+                                    <h4 class="text-base font-bold leading-5 text-text-primary group-hover:text-primary transition-colors duration-300">
                                         {project.title}
                                     </h4>
-                                    <p class="text-sm font-medium leading-5 text-text-secondary">
+                                    <p class="text-sm font-medium leading-relaxed text-text-secondary">
                                         {project.description}
                                     </p>
                                 </div>
-                                <p class="text-primary text-xs group-hover:text-sm transition-all duration-300 ease-in-out font-bold">
-                                    {`${project.goToWeb ? "Ver proyecto..." : "Preguntar por el servicio"}`}
+                                <p class="text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
+                                    {`${project.goToWeb ? "Ver proyecto" : "Preguntar por el servicio"}`}
+                                    <span class="text-lg">→</span>
                                 </p>
                             </a>
                         </div>

@@ -20,30 +20,31 @@ export default function Hero() {
                 className="absolute inset-0 w-full h-full object-cover -z-10"
             />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.6)_100%)] -z-10" />
+            {/* Overlay mejorado con gradiente más sofisticado */}
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,26,30,0.4)_0%,rgba(0,0,0,0.7)_50%,rgba(15,26,30,0.5)_100%)] -z-10" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] -z-10" />
 
             
             {/* Contenido */}
-            <div className="flex h-full flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12">
+            <div className="flex h-full flex-col items-center justify-center text-center px-6 sm:px-10 md:px-16">
                 <div
-                    className="flex items-center gap-2 sm:gap-4 mb-4"
+                    className="flex items-center gap-2 sm:gap-4 mb-6"
                 >
-                    <p className="text-xl md:2xl flex items-center font-black text-text-primary font-Codesaver text-center">
-                    Vin<span className="text-[#0090c7] font-black">{`<0`}</span>de
+                    <p className="text-xl md:text-2xl flex items-center font-black text-text-primary font-Codesaver text-center opacity-90">
+                    Vin<span className="text-primary font-black">{`<0`}</span>de
                     </p>
                 </div>
-                <h1 className="font-extrabold leading-tight tracking-[-2px] text-text-primary text-3xl md:text-5xl">
+                <h1 className="font-extrabold leading-tight tracking-[-1px] md:tracking-[-2px] text-text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl text-balance">
                     {HERO_TITLE}
                 </h1>
 
-                <p className="mt-3 text-sm sm:text-base md:text-lg font-medium text-text-primary max-w-xl">
+                <p className="mt-5 text-sm sm:text-base md:text-lg font-medium text-text-primary/90 max-w-2xl leading-relaxed">
                     {HERO_SUBTITLE}
                 </p>
 
                 <a
                     href="/services"
-                    className="mt-6 py-2.5 px-6 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 hover:bg-[#0090c7] hover:-translate-y-0.5"
+                    className="btn-primary mt-8 text-base md:text-lg"
                 >
                     Ver Servicios
                 </a>
@@ -51,7 +52,7 @@ export default function Hero() {
 
         </header>
             
-            <ChevronDownIcon width={28} height={28} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 animate-bounce"/>
+            <ChevronDownIcon width={28} height={28} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 animate-bounce text-white/70"/>
             
 
         </>

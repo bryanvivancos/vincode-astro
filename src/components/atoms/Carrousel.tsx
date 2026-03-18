@@ -43,47 +43,40 @@ const Carrousel: React.FC<CarrouselProps> = ({
   //   }
   // }, [autoPlay, interval]);
 
-  const paddingCalc = `calc((100% - ${ITEM_WIDTH_REM}rem) / 12)`;
-
   return (
-    <div className="relative w-full timeline-view animate-bounce-fade-in animate-range-[entry_10%_cover_40%]">
+    <div className="relative w-full overflow-hidden timeline-view animate-bounce-fade-in animate-range-[entry_10%_cover_40%] mt-8">
 
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 -translate-y-1/2 hover:opacity-50 h-full p-2 shadow-md z-20"
+        className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 group ${items.length <= 4 ? "hidden" : ""}`}
         aria-label="anterior"
       >
-        
-        <Icon
-        name="ChevronLeftIcon"
-        className={`-mx-6 w-24 h-full text-white ${items.length <= 4 ? "hidden" : ""}`} 
-        />
+        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+          <Icon
+            name="ChevronLeftIcon"
+            className="w-6 h-6 text-white"
+          />
+        </div>
       </button>
 
 
       <div ref={containerRef}
-        className={`flex items-center ${items.length <= 4 ? "justify-center" : ""} h-96 gap-6 overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth animate-slide-in-top`}
-        style={{
-          paddingLeft: paddingCalc,
-          paddingRight: paddingCalc,
-          // scroll-padding hace que el snap-center tenga en cuenta ese padding
-          scrollPaddingLeft: paddingCalc,
-          scrollPaddingRight: paddingCalc,
-        }}>
+        className={`flex items-center ${items.length <= 4 ? "justify-center flex-wrap" : "overflow-x-auto"} gap-6 py-4 px-4 scrollbar-hide scroll-smooth`}>
 
         {items.map((item, index) => (
           <div
             key={index}
-            className="shrink-0 w-64 snap-center flex flex-col items-center 
-            "
+            className="shrink-0 w-64 snap-center flex flex-col items-center"
           >
-            <a href={item.url} target="_blank" className={`border border-transparent rounded-lg flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 overflow-hidden`}>
-              <img
-                src={item.img}
-                alt={`imagen de ${item.title}`}
-                className="w-full h-full object-cover overflow-hidden"
-              />
-              <p className="mt-1 text-lg font-semibold text-white text-center pb-4">
+            <a href={item.url} target="_blank" className="bg-background-card border border-border rounded-xl overflow-hidden transition-all duration-300 ease-out hover:border-primary hover:shadow-lg hover:-translate-y-1 group">
+              <div className="overflow-hidden">
+                <img
+                  src={item.img}
+                  alt={`imagen de ${item.title}`}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <p className="p-4 text-base font-semibold text-white text-center group-hover:text-primary transition-colors duration-300">
                 {item.title}
               </p>
             </a>
@@ -93,11 +86,15 @@ const Carrousel: React.FC<CarrouselProps> = ({
 
       <button
         onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 -translate-y-1/2 hover:opacity-50 h-full p-2 shadow-md z-10"
+        className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 group ${items.length <= 4 ? "hidden" : ""}`}
+        aria-label="siguiente"
       >
-        <Icon
-        name="ChevronRightIcon"
-        className={`-mr-8 w-24 h-24 text-white ${items.length <= 4 ? "hidden" : ""}`} />
+        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+          <Icon
+            name="ChevronRightIcon"
+            className="w-6 h-6 text-white"
+          />
+        </div>
       </button>
     </div>
   );

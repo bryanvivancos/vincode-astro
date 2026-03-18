@@ -12,25 +12,34 @@ export const prerender = true;
     url="www.vincode.dev/projects"
     keywords="Proyectos, Portafolio, Desarrollo web, Vincode, Casos de estudio"
 >
-    <main class="py-10 px-4 sm:py-12 md:py-15 place-items-center">
-        <div class="max-w-240 py-10 sm:py-12 md:py-15">
-            <h1 class="sectionTitle">Proyectos Realizados</h1>
+    <main class="section-spacing w-full flex flex-col items-center">
+        <div class="section-container">
+            <p
+                class="text-sm sm:text-base font-semibold tracking-wider text-primary uppercase mb-3"
+            >
+                Nuestro Trabajo
+            </p>
+            <h1 class="sectionTitle text-4xl md:text-5xl">
+                Proyectos Realizados
+            </h1>
 
             <p
-                class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+                class="text-base sm:text-lg font-medium leading-relaxed text-text-secondary max-w-3xl mb-10"
             >
                 Explora algunos de nuestros proyectos recientes completados con
-                exito para nuestros clientes.
+                éxito para nuestros clientes.
             </p>
 
             <ProjectGrid projects={projects} client:visible />
         </div>
 
-        <div class="max-w-240 py-10 sm:py-12 md:py-15 w-full">
-            <h2 class="sectionTitle">Otro Proyectos de {BRAND_NAME}</h2>
+        <div class="section-container mt-16 md:mt-20">
+            <h2 class="sectionTitle text-3xl md:text-4xl">
+                Otros Proyectos de {BRAND_NAME}
+            </h2>
 
             <p
-                class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+                class="text-base sm:text-lg font-medium leading-relaxed text-text-secondary max-w-3xl mb-10"
             >
                 Explora otros de los proyectos realizados por nosotros.
             </p>

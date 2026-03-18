@@ -11,48 +11,48 @@ export default function MobileNav( {currentPath} : {currentPath: string}) {
   const path = currentPath.replace(/\/$/, '').split('/')[1] ?? '';
 
   return (
-    <aside className={`z-10000 fixed inset-0 bg-background-dark transition-transform  flex justify-center py-32 ${
-      $isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+    <aside className={`z-10000 fixed inset-0 glass-dark transition-all duration-500 ease-out flex justify-center py-32 ${
+      $isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
     }`}>
 
       <button
-				className='absolute top-5 right-5'
-				onClick={() => toggleMenu()}
-			>
-				<CloseXIcon/>
-			</button>
+        className='absolute top-6 right-6 p-2 rounded-xl transition-all duration-300 hover:bg-white/10'
+        onClick={() => toggleMenu()}
+      >
+        <CloseXIcon/>
+      </button>
 
-      <div className='flex flex-col gap-20 items-center'>
-				<a href='/' 
-          className="flex items-center gap-2 sm:gap-4"
+      <div className='flex flex-col gap-16 items-center'>
+        <a href='/' 
+          className="flex items-center gap-2 sm:gap-4 group"
           onClick={() => toggleMenu()}  
         >
-          <p className="text-5xl md:text-7xl flex items-center font-black text-text-primary font-Codesaver text-center">
-            Vin<span className="text-[#0090c7] font-black">{`<0`}</span>de
+          <p className="text-5xl md:text-6xl flex items-center font-black text-text-primary font-Codesaver text-center transition-all duration-300 group-hover:scale-105">
+            Vin<span className="text-primary font-black">{`<0`}</span>de
           </p>
         </a>
 
-        <nav className='flex flex-col items-center gap-5'>
+        <nav className='flex flex-col items-center gap-6'>
           {navbar_items.map(item => (
             <a
               href={`/${item.htmlId}`}
               key={item.id}
               onClick={() => toggleMenu()}
-              className={`${path === item.htmlId 
+              className={`text-xl font-medium transition-all duration-300 ease-out ${path === item.htmlId 
                 ? "text-primary"
-                : "text-text-primary hover:text-primary"}`}>
+                : "text-text-primary hover:text-primary hover:translate-x-1"}`}>
                 {item.name}
               </a>
           ))}
         </nav>
 
         <a href={`/contact`} 
-          className="py-2 md:py-3 px-3 sm:px-4 md:px-5 bg-primary rounded-lg text-base font-bold text-text-primary transition-all duration-300 ease-in-out hover:bg-[#0090c7] hover:transform hover:-translate-y-0.5"
+          className="btn-primary text-lg"
           onClick={() => toggleMenu()}
         >
-        Empecemos
+          Empecemos
         </a>
-			</div>
+      </div>
     </aside>
   );
 }

@@ -27,25 +27,27 @@ const services = (await getCollection("services")).sort((a, b) => {
     data-scroll="services"
     class="w-full flex justify-center"
 >
-    <div class="max-w-240 py-15 sm:py-18 md:py-20">
-        <h2
-            class="text-lg sm:text-xl font-bold leading-6 sm:leading-7 text-text-primary mb-6 sm:mb-8 md:mb-10"
+    <div class="section-container section-spacing">
+        <p
+            class="text-sm sm:text-base font-semibold tracking-wider text-primary uppercase mb-3"
         >
             Nuestros Servicios
-        </h2>
+        </p>
 
-        <div class="flex flex-col gap-6 sm:gap-8 md:gap-10">
-            <div class="flex flex-col gap-2 sm:gap-3">
-                <h3 class="sectionTitle">{SERVICES_TITLE}</h3>
+        <div class="flex flex-col gap-8 sm:gap-10 md:gap-12">
+            <div class="flex flex-col gap-3 sm:gap-4">
+                <h2 class="sectionTitle text-4xl md:text-5xl">
+                    {SERVICES_TITLE}
+                </h2>
                 <p
-                    class="text-sm sm:text-base font-medium leading-5 sm:leading-6 text-text-primary"
+                    class="text-base sm:text-lg font-medium leading-relaxed text-text-secondary max-w-3xl"
                 >
                     {SERVICES_SUBTITLE}
                 </p>
             </div>
 
             <div
-                class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2 sm:gap-4"
+                class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 sm:gap-5"
             >
                 {
                     services.slice(0, 7).map((service) => {
@@ -57,25 +59,27 @@ const services = (await getCollection("services")).sort((a, b) => {
                         return (
                             <a
                                 href={`/services/${slug}`}
-                                class={`bg-background-card  border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out relative ${available ? "hover:border-primary hover:-translate-y-1 border" : "pointer-events-none"} 
+                                class={`card-elegant flex flex-col gap-4 relative group ${available ? "" : "pointer-events-none"} 
                                 timeline-view animate-zoom-in animate-range-[entry_10%_cover_40%]`}
                             >
-                                {Icon ? (
-                                    <Icon
-                                        width={24}
-                                        height={24}
-                                        color="#FFFFFF"
-                                    />
-                                ) : (
-                                    <span class="text-red-500 text-xs">
-                                        Icono no encontrado: {data.icon}
-                                    </span>
-                                )}
-                                <div class="flex flex-col gap-1">
-                                    <h4 class="text-base font-bold leading-5 text-text-primary">
+                                <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    {Icon ? (
+                                        <Icon
+                                            width={22}
+                                            height={22}
+                                            color="#00a8e8"
+                                        />
+                                    ) : (
+                                        <span class="text-red-500 text-xs">
+                                            Icono no encontrado: {data.icon}
+                                        </span>
+                                    )}
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h4 class="text-base font-bold leading-5 text-text-primary group-hover:text-primary transition-colors duration-300">
                                         {title}
                                     </h4>
-                                    <p class="text-sm font-medium leading-5 text-text-secondary">
+                                    <p class="text-sm font-medium leading-relaxed text-text-secondary">
                                         {cardDescription}
                                     </p>
                                 </div>
@@ -83,14 +87,14 @@ const services = (await getCollection("services")).sort((a, b) => {
                                 {available === false && (
                                     <>
                                         {/* Badge */}
-                                        <div class="p-1.5 rounded-lg absolute bg-[#0090c7] -top-1 -right-1 z-50">
-                                            <p class="text-xs font-semibold">
-                                                PROXIMAMENTE
+                                        <div class="py-1 px-2.5 rounded-full absolute bg-primary -top-2 -right-2 z-50">
+                                            <p class="text-[10px] font-bold uppercase tracking-wide">
+                                                Próximamente
                                             </p>
                                         </div>
 
                                         {/* Overlay que sí bloquea clics */}
-                                        <div class="absolute top-0 left-0 w-full h-full bg-black/50 bg-opacity-50 z-40 rounded-lg" />
+                                        <div class="absolute inset-0 bg-background-dark/60 z-40 rounded-xl" />
                                     </>
                                 )}
                             </a>
@@ -100,24 +104,28 @@ const services = (await getCollection("services")).sort((a, b) => {
 
                 <a
                     href={`/services`}
-                    class={`bg-background-card  border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out relative hover:border-primary hover:-translate-y-1 border
+                    class={`card-elegant flex flex-col gap-4 group
                     timeline-view animate-zoom-in animate-range-[entry_10%_cover_40%]`}
                 >
-                    <Share3Icon width={24} height={24} color="#FFFFFF" />
+                    <div
+                        class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300"
+                    >
+                        <Share3Icon width={22} height={22} color="#00a8e8" />
+                    </div>
 
                     <div
-                        class="flex flex-col justify-between gap-1 w-full flex-1"
+                        class="flex flex-col justify-between gap-2 w-full flex-1"
                     >
                         <p
-                            class="text-sm font-medium leading-5 text-text-secondary"
+                            class="text-sm font-medium leading-relaxed text-text-secondary"
                         >
                             Ingresa para ver todos nuestros servicios
                             disponibles.
                         </p>
                         <h4
-                            class="text-base font-bold leading-5 text-primary bottom-0 mt-4"
+                            class="text-base font-bold leading-5 text-primary group-hover:translate-x-1 transition-transform duration-300 mt-2"
                         >
-                            Más Servicios...
+                            Más Servicios →
                         </h4>
                     </div>
                 </a>

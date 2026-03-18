@@ -3,20 +3,22 @@ import { Icon } from "../icons/Icon";
 import { navbar_items, VINCODE_IG } from "../../CONSTANTS";
 
 const pathname = Astro.url.pathname;
-const currentSegment = pathname.replace(/\/$/, '').split('/')[1] ?? '';
+const currentSegment = pathname.replace(/\/$/, "").split("/")[1] ?? "";
 ---
 
-<footer class="py-10 sm:py-12 md:py-15 place-items-center">
-    <div class="max-w-240 w-full px-6">
-        <div class="flex flex-col gap-6 items-center">
+<footer class="py-16 sm:py-20 md:py-24">
+    <div class="section-container">
+        <div class="divider mb-12"></div>
+
+        <div class="flex flex-col gap-10 items-center">
             {
                 pathname !== "/" && (
-                    <div class="grid grid-cols-3 w-full place-items-center gap-1 md:gap-6">
+                    <div class="flex flex-wrap justify-center gap-6 md:gap-10">
                         {navbar_items.map((item) => (
                             <a
                                 href={`/${item.htmlId}`}
-                                class={`md:text-base text-sm font-normal transition-all duration-300 ease-in-out text-center 
-                                    ${currentSegment === item.htmlId ? "text-primary" : "text-text-secondary hover:text-primary"}`}
+                                class={`text-sm md:text-base font-medium transition-all duration-300 ease-out
+                                    ${currentSegment === item.htmlId ? "text-primary" : "text-text-secondary hover:text-primary hover:translate-y-[-2px]"}`}
                             >
                                 {item.name}
                             </a>
@@ -25,24 +27,24 @@ const currentSegment = pathname.replace(/\/$/, '').split('/')[1] ?? '';
                 )
             }
 
-            <div class="flex gap-4 items-center">
+            <div class="flex gap-5 items-center">
                 <a
                     href={VINCODE_IG}
                     target="_blank"
-                    class="flex items-center justify-center transition-all opacity-90 duration-300 ease-in-out hover:opacity-40"
+                    class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-300 ease-out hover:bg-primary/20 hover:scale-110"
                     aria-label="Instagram"
                 >
                     <Icon
                         name="InstagramIcon"
-                        width={24}
-                        height={24}
+                        width={22}
+                        height={22}
                         color="#91B8C9"
                     />
                 </a>
             </div>
 
-            <p class="text-base font-normal text-text-secondary text-center">
-                © 2025 Vincode All rights reserved.
+            <p class="text-sm font-medium text-text-secondary/70 text-center">
+                © 2025 Vincode. Todos los derechos reservados.
             </p>
         </div>
     </div>
