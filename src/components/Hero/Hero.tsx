@@ -1,13 +1,7 @@
-// import styles from './Hero.module.css';
-
-// import { useNavigate } from "react-router-dom";
-import { navigate } from "astro:transitions/client";
 import { HERO_SUBTITLE, HERO_TITLE } from "../../CONSTANTS";
 import { ChevronDownIcon } from "../icons";
 
 export default function Hero() {
-    // const navigate = useNavigate()
-
     return (
         <>
         <header className="sticky-parallax-hero">
@@ -20,40 +14,48 @@ export default function Hero() {
                 className="absolute inset-0 w-full h-full object-cover -z-10"
             />
 
-            {/* Overlay mejorado con gradiente más sofisticado */}
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,26,30,0.4)_0%,rgba(0,0,0,0.7)_50%,rgba(15,26,30,0.5)_100%)] -z-10" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] -z-10" />
+            {/* Overlay oscuro */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/70 to-background-dark -z-10" />
 
-            
             {/* Contenido */}
-            <div className="flex h-full flex-col items-center justify-center text-center px-6 sm:px-10 md:px-16">
-                <div
-                    className="flex items-center gap-2 sm:gap-4 mb-6"
-                >
-                    <p className="text-xl md:text-2xl flex items-center font-black text-text-primary font-Codesaver text-center opacity-90">
-                    Vin<span className="text-primary font-black">{`<0`}</span>de
+            <div className="flex h-full flex-col items-center justify-center text-center px-6">
+                <div className="section-container flex flex-col items-center">
+                    {/* Badge/Pill */}
+                    <div className="badge badge-primary mb-8">
+                        Agencia de Desarrollo Digital
+                    </div>
+
+                    {/* H1 */}
+                    <h1 className="font-extrabold leading-[1.1] tracking-[-2px] text-text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl">
+                        {HERO_TITLE}
+                    </h1>
+
+                    {/* Subtítulo */}
+                    <p className="mt-6 text-base md:text-lg font-normal text-text-secondary max-w-xl leading-relaxed">
+                        {HERO_SUBTITLE}
                     </p>
+
+                    {/* Botones duales */}
+                    <div className="flex flex-col sm:flex-row items-center gap-4 mt-10">
+                        <a
+                            href="/services"
+                            className="btn-primary text-base"
+                        >
+                            Ver Servicios
+                        </a>
+                        <a
+                            href="/projects"
+                            className="btn-secondary text-base"
+                        >
+                            Ver Proyectos
+                        </a>
+                    </div>
                 </div>
-                <h1 className="font-extrabold leading-tight tracking-[-1px] md:tracking-[-2px] text-text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl text-balance">
-                    {HERO_TITLE}
-                </h1>
-
-                <p className="mt-5 text-sm sm:text-base md:text-lg font-medium text-text-primary/90 max-w-2xl leading-relaxed">
-                    {HERO_SUBTITLE}
-                </p>
-
-                <a
-                    href="/services"
-                    className="btn-primary mt-8 text-base md:text-lg"
-                >
-                    Ver Servicios
-                </a>
             </div>
 
         </header>
             
-            <ChevronDownIcon width={28} height={28} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 animate-bounce text-white/70"/>
-            
+        <ChevronDownIcon width={28} height={28} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 animate-bounce text-white/50"/>
 
         </>
 

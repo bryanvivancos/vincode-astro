@@ -20,11 +20,9 @@ const { services, icons, itemCategory } = Astro.props;
 type IconName = keyof typeof icons;
 ---
 
-<div
-    class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 sm:gap-5 mb-10"
->
+<div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
     {
-        services.map((service) => {
+        services.map((service, index) => {
             const { slug, data } = service;
             const { icon, category, title, cardDescription, available } = data;
             const Icon = icons?.[icon as IconName];
@@ -33,48 +31,37 @@ type IconName = keyof typeof icons;
                 return (
                     <a
                         href={`/services/${slug}`}
-                        class={`card-elegant flex flex-col gap-4 relative group 
-                        timeline-view animate-fade-in-up animate-range-[entry_10%_cover_40%]
-                        ${available ? "" : "pointer-events-none"}`}
+                        class={`service-card flex flex-col gap-5 relative group fade-in-up ${available ? "" : "pointer-events-none"}`}
                     >
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                             {Icon ? (
-                                <Icon width={22} height={22} color="#00a8e8" />
+                                <Icon width={24} height={24} color="#00a8e8" />
                             ) : (
-                                <span class="text-red-500 text-xs">
-                                    Icono no encontrado: {data.icon}
-                                </span>
+                                <span class="text-red-500 text-xs">?</span>
                             )}
                         </div>
-                        <div class="flex flex-col justify-between gap-2 flex-1">
-                            <div class="space-y-2">
-                                <h4 class="text-base font-bold leading-5 text-text-primary group-hover:text-primary transition-colors duration-300">
-                                    {title}
-                                </h4>
-                                <p class="text-sm font-medium leading-relaxed text-text-secondary">
-                                    {cardDescription}
-                                </p>
-                            </div>
 
-                            {available && (
-                                <p class="text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1 mt-2">
-                                    Más información{" "}
-                                    <span class="text-lg">→</span>
-                                </p>
-                            )}
+                        <div class="flex flex-col gap-3 flex-1">
+                            <h4 class="text-lg font-bold text-text-primary group-hover:text-primary transition-colors duration-200">
+                                {title}
+                            </h4>
+                            <p class="text-sm font-normal leading-relaxed text-text-secondary">
+                                {cardDescription}
+                            </p>
                         </div>
+
+                        {available && (
+                            <p class="text-sm font-semibold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200">
+                                Más información <span>→</span>
+                            </p>
+                        )}
 
                         {available === false && (
                             <>
-                                {/* Badge */}
-                                <div class="py-1 px-2.5 rounded-full absolute bg-primary -top-2 -right-2 z-50">
-                                    <p class="text-[10px] font-bold uppercase tracking-wide">
-                                        Próximamente
-                                    </p>
+                                <div class="badge badge-primary absolute -top-3 -right-3 z-50">
+                                    Próximamente
                                 </div>
-
-                                {/* Overlay que sí bloquea clics */}
-                                <div class="absolute inset-0 bg-background-dark/60 z-40 rounded-xl" />
+                                <div class="absolute inset-0 bg-background-dark/70 z-40 rounded-2xl" />
                             </>
                         )}
                     </a>

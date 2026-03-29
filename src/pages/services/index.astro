@@ -1,21 +1,15 @@
 ---
 import { icons } from "../../components/icons";
-import type { IconName } from "../../components/icons";
 import ServiceItem from "../../components/Services/ServiceItem.astro";
+import CTABanner from "../../components/CTABanner/CTABanner.astro";
 import { BRAND_NAME, SERVICES_TITLE } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 
 const services = (await getCollection("services")).sort((a, b) => {
-    // (a, b) => a.data.id - b.data.id
-    // 1. Prioridad por disponibilidad (disponibles primero)
-    // Convertimos booleanos a números para restar: true -> 1, false -> 0
-    // Queremos que el 1 (disponible) vaya antes que el 0 (no disponible)
     if (a.data.available !== b.data.available) {
         return a.data.available ? -1 : 1;
     }
-
-    // 2. Si ambos tienen la misma disponibilidad, ordenamos por ID
     return a.data.id - b.data.id;
 });
 
@@ -28,83 +22,74 @@ export const prerender = true;
     url="www.vincode.dev/services"
     keywords="Servicios digitales, Desarrollo web, Desarrollo de software, Vincode, Soluciones digitales"
 >
-    <main
-        class="section-spacing w-full flex flex-col justify-center items-center"
-    >
+    <!-- Hero de página -->
+    <section class="section-spacing">
         <div class="section-container">
-            <div class="flex flex-col gap-8 sm:gap-10 md:gap-12">
-                <div class="flex flex-col gap-4 mb-4">
-                    <p
-                        class="text-sm sm:text-base font-semibold tracking-wider text-primary uppercase"
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="eyebrow">Nuestros Servicios</p>
+                <h1 class="sectionTitle mb-6">{SERVICES_TITLE}</h1>
+                <p class="section-subtitle mx-auto">
+                    Ofrecemos una gama de servicios para satisfacer tus
+                    necesidades digitales, desde la creación de tarjetas
+                    digitales, portfolios hasta el desarrollo de un software a
+                    la medida de tu negocio.
+                    <span class="text-primary font-semibold"
+                        >¡Y pronto... tu propia Web Ecommerce!</span
                     >
-                        Nuestros Servicios
-                    </p>
-                    <h1 class="sectionTitle text-4xl md:text-5xl">
-                        {SERVICES_TITLE}
-                    </h1>
-                    <p
-                        class="text-base sm:text-lg font-medium leading-relaxed text-text-secondary max-w-3xl"
-                    >
-                        Ofrecemos una gama de servicios para satisfacer tus
-                        necesidades digitales, desde la creación de tarjetas
-                        digitales, portfolios hasta el desarrollo de un software
-                        a la medida de tu negocio.<br />
-                        <span class="text-primary font-semibold"
-                            >Y pronto... Tu propia Web Ecommerce!</span
-                        >
-                    </p>
-                </div>
-
-                <div class="space-y-4">
-                    <h2
-                        class="text-2xl md:text-3xl font-bold text-text-primary"
-                    >
-                        Desarrollo Web
-                    </h2>
-                    <p
-                        class="text-base font-medium leading-relaxed text-text-secondary max-w-2xl"
-                    >
-                        Creamos sitios a medida, desde páginas informativas
-                        hasta plataformas complejas. Nos enfocamos en la
-                        usabilidad, el diseño responsivo y la optimización para
-                        motores de búsqueda (SEO).
-                    </p>
-                </div>
-
-                <ServiceItem
-                    services={services}
-                    itemCategory="web"
-                    icons={icons}
-                />
-
-                <div class="space-y-4">
-                    <h2
-                        class="text-2xl md:text-3xl font-bold text-text-primary"
-                    >
-                        Desarrollo de Software
-                    </h2>
-
-                    <p
-                        class="text-base font-medium leading-relaxed text-text-secondary max-w-2xl"
-                    >
-                        Desarrollamos software personalizado para automatizar
-                        procesos o agilizar procedimientos que hagan rendir
-                        mejor y optimizar tu negocio.
-                    </p>
-                </div>
-
-                <ServiceItem
-                    services={services}
-                    itemCategory="software"
-                    icons={icons}
-                />
+                </p>
             </div>
         </div>
+    </section>
 
-        <div class="flex justify-center mt-8">
-            <a href="/contact" class="btn-primary text-base md:text-lg">
-                Solicitar Cotización
-            </a>
+    <!-- Desarrollo Web -->
+    <section class="section-alt xl:rounded-xl">
+        <div class="section-container section-spacing">
+            <div class="mb-12">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-text-primary mb-4"
+                >
+                    Desarrollo Web
+                </h2>
+                <p class="section-subtitle">
+                    Creamos sitios a medida, desde páginas informativas hasta
+                    plataformas complejas. Nos enfocamos en la usabilidad, el
+                    diseño responsivo y la optimización para motores de búsqueda
+                    (SEO).
+                </p>
+            </div>
+
+            <ServiceItem services={services} itemCategory="web" icons={icons} />
         </div>
-    </main>
+    </section>
+
+    <!-- Desarrollo de Software -->
+    <section>
+        <div class="section-container section-spacing">
+            <div class="mb-12">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-text-primary mb-4"
+                >
+                    Desarrollo de Software
+                </h2>
+                <p class="section-subtitle">
+                    Desarrollamos software personalizado para automatizar
+                    procesos o agilizar procedimientos que hagan rendir mejor y
+                    optimizar tu negocio.
+                </p>
+            </div>
+
+            <ServiceItem
+                services={services}
+                itemCategory="software"
+                icons={icons}
+            />
+        </div>
+    </section>
+
+    <CTABanner
+        title="Solicitar Cotización"
+        description="¿Interesado en alguno de nuestros servicios? Contáctanos para obtener una cotización personalizada."
+        buttonText="Solicitar Cotización"
+        buttonHref="/contact"
+    />
 </MainLayout>

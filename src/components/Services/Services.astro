@@ -4,53 +4,32 @@ import { icons, Share3Icon } from "../../components/icons";
 import type { IconName } from "../../components/icons";
 import { getCollection } from "astro:content";
 
-// const services = await getCollection('services')
-
 const services = (await getCollection("services")).sort((a, b) => {
-    // (a, b) => a.data.id - b.data.id
-    // 1. Prioridad por disponibilidad (disponibles primero)
-    // Convertimos booleanos a números para restar: true -> 1, false -> 0
-    // Queremos que el 1 (disponible) vaya antes que el 0 (no disponible)
     if (a.data.available !== b.data.available) {
         return a.data.available ? -1 : 1;
     }
-
-    // 2. Si ambos tienen la misma disponibilidad, ordenamos por ID
     return a.data.id - b.data.id;
 });
-
-// export const prerender= true
 ---
 
-<section
-    id="services"
-    data-scroll="services"
-    class="w-full flex justify-center"
->
+<section id="services" data-scroll="services" class="section-alt">
     <div class="section-container section-spacing">
-        <p
-            class="text-sm sm:text-base font-semibold tracking-wider text-primary uppercase mb-3"
-        >
-            Nuestros Servicios
-        </p>
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <p class="eyebrow">Nuestros Servicios</p>
+            <h2 class="sectionTitle mb-6">{SERVICES_TITLE}</h2>
+            <p class="section-subtitle mx-auto">
+                {SERVICES_SUBTITLE}
+            </p>
+        </div>
 
-        <div class="flex flex-col gap-8 sm:gap-10 md:gap-12">
-            <div class="flex flex-col gap-3 sm:gap-4">
-                <h2 class="sectionTitle text-4xl md:text-5xl">
-                    {SERVICES_TITLE}
-                </h2>
-                <p
-                    class="text-base sm:text-lg font-medium leading-relaxed text-text-secondary max-w-3xl"
-                >
-                    {SERVICES_SUBTITLE}
-                </p>
-            </div>
-
+        <!-- Grid de servicios -->
+        <div class="flex flex-col items-center">
             <div
-                class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 sm:gap-5"
+                class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 mb-8"
             >
                 {
-                    services.slice(0, 7).map((service) => {
+                    services.slice(0, 7).map((service, index) => {
                         const { slug, data } = service;
                         const { icon, title, cardDescription, available } =
                             data;
@@ -59,42 +38,45 @@ const services = (await getCollection("services")).sort((a, b) => {
                         return (
                             <a
                                 href={`/services/${slug}`}
-                                class={`card-elegant flex flex-col gap-4 relative group ${available ? "" : "pointer-events-none"} 
-                                timeline-view animate-zoom-in animate-range-[entry_10%_cover_40%]`}
+                                class={`service-card flex flex-col gap-5 relative group fade-in-up ${available ? "" : "pointer-events-none"}`}
                             >
-                                <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                {/* Icono */}
+                                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                                     {Icon ? (
                                         <Icon
-                                            width={22}
-                                            height={22}
+                                            width={24}
+                                            height={24}
                                             color="#00a8e8"
                                         />
                                     ) : (
                                         <span class="text-red-500 text-xs">
-                                            Icono no encontrado: {data.icon}
+                                            ?
                                         </span>
                                     )}
                                 </div>
-                                <div class="flex flex-col gap-2">
-                                    <h4 class="text-base font-bold leading-5 text-text-primary group-hover:text-primary transition-colors duration-300">
+
+                                {/* Contenido */}
+                                <div class="flex flex-col gap-3 flex-1">
+                                    <h4 class="text-lg font-bold text-text-primary group-hover:text-primary transition-colors duration-200">
                                         {title}
                                     </h4>
-                                    <p class="text-sm font-medium leading-relaxed text-text-secondary">
+                                    <p class="text-sm font-normal leading-relaxed text-text-secondary">
                                         {cardDescription}
                                     </p>
                                 </div>
 
+                                {/* Link */}
+                                <p class="text-sm font-semibold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200">
+                                    Más información <span>→</span>
+                                </p>
+
+                                {/* Badge Próximamente */}
                                 {available === false && (
                                     <>
-                                        {/* Badge */}
-                                        <div class="py-1 px-2.5 rounded-full absolute bg-primary -top-2 -right-2 z-50">
-                                            <p class="text-[10px] font-bold uppercase tracking-wide">
-                                                Próximamente
-                                            </p>
+                                        <div class="badge badge-primary absolute -top-3 -right-3 z-50">
+                                            Próximamente
                                         </div>
-
-                                        {/* Overlay que sí bloquea clics */}
-                                        <div class="absolute inset-0 bg-background-dark/60 z-40 rounded-xl" />
+                                        <div class="absolute inset-0 bg-background-dark/70 z-40 rounded-2xl" />
                                     </>
                                 )}
                             </a>
@@ -102,34 +84,36 @@ const services = (await getCollection("services")).sort((a, b) => {
                     })
                 }
 
-                <a
-                    href={`/services`}
-                    class={`card-elegant flex flex-col gap-4 group
-                    timeline-view animate-zoom-in animate-range-[entry_10%_cover_40%]`}
+                <!-- Card CTA -->
+                <!-- <a
+                href="/services"
+                class="service-card flex flex-col gap-5 group fade-in-up"
+            >
+                <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"
                 >
-                    <div
-                        class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300"
-                    >
-                        <Share3Icon width={22} height={22} color="#00a8e8" />
-                    </div>
+                    <Share3Icon width={24} height={24} color="#00a8e8" />
+                </div>
 
-                    <div
-                        class="flex flex-col justify-between gap-2 w-full flex-1"
+                <div class="flex flex-col gap-3 flex-1">
+                    <p
+                        class="text-sm font-normal leading-relaxed text-text-secondary"
                     >
-                        <p
-                            class="text-sm font-medium leading-relaxed text-text-secondary"
-                        >
-                            Ingresa para ver todos nuestros servicios
-                            disponibles.
-                        </p>
-                        <h4
-                            class="text-base font-bold leading-5 text-primary group-hover:translate-x-1 transition-transform duration-300 mt-2"
-                        >
-                            Más Servicios →
-                        </h4>
-                    </div>
-                </a>
+                        Ingresa para ver todos nuestros servicios disponibles.
+                    </p>
+                </div>
+
+                <p
+                    class="text-lg font-bold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200"
+                >
+                    Más Servicios <span>→</span>
+                </p>
+            </a> -->
             </div>
+
+            <a href={`/services`} class="btn-primary text-sm py-2.5 px-6">
+                Más servicios
+            </a>
         </div>
     </div>
 </section>

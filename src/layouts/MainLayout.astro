@@ -38,9 +38,8 @@ const { title, description, url, keywords } = Astro.props;
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
         <style is:inline>
-            /* Reemplaza #000 con el color exacto de tu variable bg-background-dark */
             html {
-                background-color: #0d0d0d;
+                background-color: #0d0f14;
                 color: #ffffff;
             }
         </style>
@@ -60,5 +59,33 @@ const { title, description, url, keywords } = Astro.props;
             </main>
             <FooterComponent />
         </div>
+
+        <script is:inline>
+            // Intersection Observer para animaciones fade-in-up
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                },
+            );
+
+            document.querySelectorAll(".fade-in-up").forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Re-observe después de navegación con View Transitions
+            document.addEventListener("astro:page-load", () => {
+                document.querySelectorAll(".fade-in-up").forEach((el) => {
+                    observer.observe(el);
+                });
+            });
+        </script>
     </body>
 </html>

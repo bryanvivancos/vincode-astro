@@ -1,0 +1,28 @@
+---
+interface Props {
+    eyebrow?: string;
+    title: string;
+    description?: string;
+    buttonText: string;
+    buttonHref: string;
+}
+
+const { eyebrow, title, description, buttonText, buttonHref } = Astro.props;
+---
+
+<section class="section-alt xl:rounded-xl w-full">
+    <div class="section-container section-spacing">
+        <div class="text-center max-w-2xl mx-auto">
+            {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+            <h2 class="sectionTitle mb-6">{title}</h2>
+            {
+                description && (
+                    <p class="section-subtitle mx-auto mb-10">{description}</p>
+                )
+            }
+            <a href={buttonHref} class="btn-primary text-base md:text-lg">
+                {buttonText}
+            </a>
+        </div>
+    </div>
+</section>

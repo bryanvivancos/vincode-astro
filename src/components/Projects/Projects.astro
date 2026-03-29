@@ -1,62 +1,69 @@
 ---
 import { projects } from "../../CONSTANTS";
 import GalleryReact from "../atoms/Gallery";
-
-// export const prerender = true;
 ---
 
-<section id="projects" class="w-full flex justify-center">
+<section id="projects">
     <div class="section-container section-spacing">
-        <p
-            class="text-sm sm:text-base font-semibold tracking-wider text-primary uppercase mb-3"
-        >
-            Nuestro Trabajo
-        </p>
-        <h2 class="sectionTitle text-4xl md:text-5xl">Proyectos de Clientes</h2>
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <p class="eyebrow">Nuestro Trabajo</p>
+            <h2 class="sectionTitle mb-6">Proyectos de Clientes</h2>
+            <p class="section-subtitle mx-auto">
+                Explora algunos de nuestro proyectos recientes y mira como
+                podemos ayudarte a alcanzar tus metas con soluciones
+                innovadoras.
+            </p>
+        </div>
 
-        <p
-            class="text-base sm:text-lg font-medium leading-relaxed text-text-secondary max-w-3xl mb-10"
-        >
-            Explora algunos de nuestro proyectos recientes y mira como podemos
-            ayudarte a alcanzar tus metas con soluciones innovadoras.
-        </p>
-
-        <div
-            class="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        >
+        <!-- Grid de proyectos -->
+        <div class="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {
                 projects.map((project) => (
-                    <div
-                        class="card-elegant flex flex-col gap-4 group
-                    timeline-view animate-fade-in-up animate-range-[entry_10%_cover_40%]"
-                    >
-                        <div class="flex flex-col gap-3">
-                            <div class="rounded-xl overflow-hidden">
+                    <div class="flex flex-col gap-4 group">
+                        {/* Proyecto */}
+
+                        {/* Etiqueta lateral */}
+                        <div class="flex items-center gap-3">
+                            <div class="w-[2px] h-full bg-border group-hover:bg-primary transition-colors duration-200" />
+                            <span class="text-text-primary group-hover:text-primary group-hover:border-primary transition-colors badge text-center border-[#ffffff0d] border duration-200">
+                                {project.category}
+                            </span>
+                        </div>
+                        {/* Imagen */}
+                        <div class="relative overflow-hidden rounded-md">
+                            <div class="transition-transform duration-300 group-hover:scale-105 aspect-video">
                                 <GalleryReact
                                     galleryID="landing-gallery"
                                     images={project.imgGallery}
                                     client:visible
                                 />
                             </div>
-                            <a
-                                class="pt-2 space-y-3"
-                                href={project.url}
-                                target={project.goToWeb ? "_blank" : "_self"}
-                            >
-                                <div class="space-y-2">
-                                    <h4 class="text-base font-bold leading-5 text-text-primary group-hover:text-primary transition-colors duration-300">
+                        </div>
+                        <a
+                            href={project.url}
+                            target={project.goToWeb ? "_blank" : "_self"}
+                            class="transition-transform duration-300 group-hover:scale-105 flex flex-col"
+                        >
+                            <div class="flex flex-col gap-4 h-full">
+                                {/* Texto */}
+                                <div class="flex flex-col gap-2">
+                                    <h4 class="text-base font-semibold text-text-primary group-hover:text-primary transition-colors duration-200">
                                         {project.title}
                                     </h4>
-                                    <p class="text-sm font-medium leading-relaxed text-text-secondary">
+
+                                    <p class="text-sm text-text-secondary leading-relaxed">
                                         {project.description}
                                     </p>
                                 </div>
-                                <p class="text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
-                                    {`${project.goToWeb ? "Ver proyecto" : "Preguntar por el servicio"}`}
-                                    <span class="text-lg">→</span>
-                                </p>
-                            </a>
-                        </div>
+                                <div class="text-sm font-semibold text-primary flex gap-1 group-hover:gap-2 transition-all duration-200">
+                                    {project.goToWeb
+                                        ? "Echa un Vistazo"
+                                        : "Pregunta por el Servicio"}
+                                    →
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 ))
             }

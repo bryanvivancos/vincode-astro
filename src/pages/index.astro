@@ -3,6 +3,8 @@ import Hero from "../components/Hero/Hero";
 import Services from "../components/Services/Services.astro";
 import Projects from "../components/Projects/Projects.astro";
 import OtherProjects from "../components/OtherProjects/OtherProjects";
+import Stats from "../components/Stats/Stats.astro";
+import CTABanner from "../components/CTABanner/CTABanner.astro";
 import { BRAND_NAME } from "../CONSTANTS";
 import MainLayout from "../layouts/MainLayout.astro";
 
@@ -18,33 +20,15 @@ export const prerender = true;
     <Hero client:load />
     <div class="parallax-offset">
         <Services />
+        <Stats />
         <Projects />
         <OtherProjects client:visible />
-
-        <section class="section-spacing w-full flex justify-center">
-            <div class="section-container text-center">
-                <div
-                    class="card-elegant-contact max-w-3xl mx-auto p-0 py-12 px-6 md:py-16 md:px-12 bg-gradient-to-br from-background-card to-background-dark"
-                >
-                    <p
-                        class="text-primary font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight mb-6"
-                    >
-                        ¿Listo para empezar?
-                    </p>
-                    <p
-                        class="text-text-secondary text-base md:text-lg text-balance max-w-xl mx-auto mb-8 leading-relaxed"
-                    >
-                        Contáctanos hoy para discutir tu proyecto y descubrir
-                        cómo podemos ayudarte con tus metas digitales.
-                    </p>
-                    <a
-                        href="/contact"
-                        class="btn-primary inline-block text-base md:text-lg"
-                    >
-                        Contáctanos
-                    </a>
-                </div>
-            </div>
-        </section>
+        <CTABanner
+            eyebrow="¿Listo para empezar?"
+            title="Contáctanos hoy para discutir tu proyecto"
+            description="Descubre cómo podemos ayudarte a alcanzar tus metas digitales."
+            buttonText="Contáctanos"
+            buttonHref="/contact"
+        />
     </div>
 </MainLayout>

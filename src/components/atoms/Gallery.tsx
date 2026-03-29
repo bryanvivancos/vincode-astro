@@ -39,7 +39,7 @@ export default function GalleryReact({
                         <img
                             src={`/services-imgs/${img}.webp`}
                             alt="Imagen de servicio"
-                            className="md:w-96 rounded-lg object-cover"
+                            className="md:w-96 rounded-md object-cover"
                         />
                     </a>
                 ))}

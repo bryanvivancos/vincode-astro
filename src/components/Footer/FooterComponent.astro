@@ -1,51 +1,101 @@
 ---
 import { Icon } from "../icons/Icon";
 import { navbar_items, VINCODE_IG } from "../../CONSTANTS";
+import { getCollection } from "astro:content";
 
-const pathname = Astro.url.pathname;
-const currentSegment = pathname.replace(/\/$/, "").split("/")[1] ?? "";
+const services = await getCollection("services");
+const availableServices = services.filter((s) => s.data.available).slice(0, 5);
 ---
 
-<footer class="py-16 sm:py-20 md:py-24">
-    <div class="section-container">
-        <div class="divider mb-12"></div>
+<footer class="bg-[#0A0C10]">
+    <div class="section-container py-20 md:py-24">
+        <!-- Divider top -->
+        <div class="w-full h-px bg-white/10 mb-16"></div>
 
-        <div class="flex flex-col gap-10 items-center">
-            {
-                pathname !== "/" && (
-                    <div class="flex flex-wrap justify-center gap-6 md:gap-10">
-                        {navbar_items.map((item) => (
+        <!-- Grid 3 columnas -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
+            <!-- Columna 1: Logo + tagline + redes -->
+            <div class="space-y-6">
+                <a href="/" class="inline-block">
+                    <p
+                        class="text-2xl flex items-center font-black text-text-primary font-Codesaver"
+                    >
+                        Vin<span class="text-primary font-black">{`<0`}</span>de
+                    </p>
+                </a>
+                <p class="text-sm text-text-secondary leading-relaxed">
+                    Convertimos código en impacto real para tu negocio.
+                </p>
+                <div class="flex gap-3">
+                    <a
+                        href={VINCODE_IG}
+                        target="_blank"
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transition-all duration-200 hover:bg-primary/20"
+                        aria-label="Instagram"
+                    >
+                        <Icon
+                            name="InstagramIcon"
+                            width={20}
+                            height={20}
+                            color="#91B8C9"
+                        />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Servicios -->
+            <div class="space-y-5">
+                <h4
+                    class="text-sm font-semibold text-text-primary uppercase tracking-wider"
+                >
+                    Servicios
+                </h4>
+                <nav class="flex flex-col gap-3">
+                    {
+                        availableServices.map((service) => (
+                            <a
+                                href={`/services/${service.slug}`}
+                                class="text-sm text-text-secondary hover:text-primary transition-colors duration-200"
+                            >
+                                {service.data.title}
+                            </a>
+                        ))
+                    }
+                </nav>
+            </div>
+
+            <!-- Columna 3: Compañía -->
+            <div class="space-y-5">
+                <h4
+                    class="text-sm font-semibold text-text-primary uppercase tracking-wider"
+                >
+                    Agencia
+                </h4>
+                <nav class="flex flex-col gap-3">
+                    {
+                        navbar_items.map((item) => (
                             <a
                                 href={`/${item.htmlId}`}
-                                class={`text-sm md:text-base font-medium transition-all duration-300 ease-out
-                                    ${currentSegment === item.htmlId ? "text-primary" : "text-text-secondary hover:text-primary hover:translate-y-[-2px]"}`}
+                                class="text-sm text-text-secondary hover:text-primary transition-colors duration-200"
                             >
                                 {item.name}
                             </a>
-                        ))}
-                    </div>
-                )
-            }
-
-            <div class="flex gap-5 items-center">
-                <a
-                    href={VINCODE_IG}
-                    target="_blank"
-                    class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-300 ease-out hover:bg-primary/20 hover:scale-110"
-                    aria-label="Instagram"
-                >
-                    <Icon
-                        name="InstagramIcon"
-                        width={22}
-                        height={22}
-                        color="#91B8C9"
-                    />
-                </a>
+                        ))
+                    }
+                    <a
+                        href="/contact"
+                        class="text-sm text-text-secondary hover:text-primary transition-colors duration-200"
+                    >
+                        Contacto
+                    </a>
+                </nav>
             </div>
-
-            <p class="text-sm font-medium text-text-secondary/70 text-center">
-                © 2025 Vincode. Todos los derechos reservados.
-            </p>
         </div>
+
+        <!-- Bottom bar -->
+        <div class="w-full h-px bg-white/10 mb-8"></div>
+        <p class="text-sm text-text-secondary/60 text-center">
+            © 2025 Vincode. Todos los derechos reservados.
+        </p>
     </div>
 </footer>

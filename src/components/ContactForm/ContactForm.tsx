@@ -45,73 +45,149 @@ export default function ContactForm() {
     };
 
     return (
-        <section className="section-spacing w-full flex justify-center">
-        <div className="section-container flex items-center flex-col w-full gap-4">
-            <div className="text-center max-w-2xl mb-6">
-                <p className="text-sm sm:text-base font-semibold tracking-wider text-primary uppercase mb-3">Contacto</p>
-                <h2 className="sectionTitle text-4xl md:text-5xl text-center">Contáctanos</h2>
-                <p className='text-base md:text-lg text-text-secondary leading-relaxed'>Si tienes alguna pregunta o necesitas información sobre nuestros servicios, no dudes en contactarnos. Completa el formulario a continuación y te responderemos lo antes posible.</p>
+  <section className="section-spacing">
+    <div className="section-container">
+      
+      {/* Header */}
+      <div className="text-center max-w-2xl mx-auto mb-16">
+        <p className="eyebrow">Contacto</p>
+        <h1 className="sectionTitle mb-6">Contáctanos</h1>
+        <p className="section-subtitle mx-auto">
+          Si tienes alguna pregunta o necesitas información sobre nuestros servicios, no dudes en contactarnos.
+        </p>
+      </div>
+
+      {/* GRID PRINCIPAL */}
+      <div className="grid lg:grid-cols-3 gap-10 items-start">
+
+        {/* FORM */}
+        <form 
+          onSubmit={onSubmit}
+          className="lg:col-span-2 space-y-6"
+        >
+          {/* Nombre */}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium text-text-primary">
+              Nombre
+            </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Tu nombre completo"
+              required
+              className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-300 focus:border-primary focus:bg-white/10 focus:ring-2 focus:ring-primary/20"
+            />
+          </div>
+
+          {/* Email */}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium text-text-primary">
+              Correo
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Tu correo electrónico"
+              required
+              className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-300 focus:border-primary focus:bg-white/10 focus:ring-2 focus:ring-primary/20"
+            />
+          </div>
+
+          {/* Mensaje */}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium text-text-primary">
+              Mensaje
+            </label>
+            <textarea
+              name="message"
+              placeholder="Cuéntanos sobre tu proyecto..."
+              required
+              className="w-full min-h-[160px] resize-none bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-300 focus:border-primary focus:bg-white/10 focus:ring-2 focus:ring-primary/20"
+            />
+          </div>
+
+          {/* BOTÓN */}
+          <div className="pt-4">
+            <button
+              type="submit"
+              className={`
+                w-full btn-primary py-4 text-base
+                transition-all duration-300 flex items-center justify-center gap-2
+                ${btnText !== "Enviar" 
+                  ? "cursor-not-allowed opacity-70 pointer-events-none" 
+                  : "hover:scale-[1.02]"}
+              `}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+              <span>{btnText}</span>
+            </button>
+          </div>
+        </form>
+
+        {/* SIDEBAR */}
+        <div className="space-y-6">
+
+          {/* CONTACT CARD */}
+          {/* <div className="rounded-2xl p-8 bg-white/10 border border-white/10 backdrop-blur-xl shadow-xl"> */}
+          <div className="
+            relative rounded-2xl p-8
+            bg-white/5
+            backdrop-blur-2xl
+            border border-white/10
+            shadow-[0_8px_32px_rgba(0,0,0,0.37)]
+            overflow-hidden
+          ">
+
+            <h3 className="text-xl font-semibold text-text-primary mb-6">
+              Información de Contacto
+            </h3>
+
+            <div className="space-y-5 text-text-secondary">
+              <p>
+                <span className="block text-sm text-text-secondary/70">
+                  Teléfono
+                </span>
+                <span className="text-text-primary font-medium">
+                  {phone}
+                </span>
+              </p>
+
+              <p>
+                <span className="block text-sm text-text-secondary/70">
+                  Instagram
+                </span>
+                <a href="https://www.instagram.com/vincodedev/" target="_blank" rel="noopener noreferrer" className="text-text-primary font-medium">
+                  @vincodedev
+                </a>
+              </p>
+
+              <p>
+                <div className="block text-sm text-text-secondary/70">
+                  Correo
+                </div>
+                <a href={`mailto:${email}`} className="text-text-primary font-medium">
+                  {email}
+                </a>
+              </p>
             </div>
+          </div>
 
-            <form className="flex flex-col gap-6 w-full md:max-w-xl my-6" onSubmit={onSubmit}>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="name" className="text-sm font-semibold text-text-primary">Nombre</label>
-                    <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Tu nombre completo"
-                    className="bg-input-background border border-border rounded-xl py-4 px-5 text-base font-normal text-text-primary outline-none transition-all duration-300 ease-out placeholder:text-text-secondary/60 focus:border-primary focus:bg-[#2a4a56] focus:shadow-[0_0_0_3px_rgba(0,168,232,0.15)]"
-                    required
-                    />
-                </div>
+          {/* EXTRA CARD (tipo "Service Area") */}
+          <div className="rounded-2xl p-8 bg-gradient-to-br from-primary/30 to-primary/10 border border-primary/20 shadow-xl">
+            <h3 className="text-lg font-semibold text-text-primary mb-4">
+              ¿Por qué elegirnos?
+            </h3>
 
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="email" className="text-sm font-semibold text-text-primary">Correo</label>
-                    <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Tu correo electrónico"
-                    className="bg-input-background border border-border rounded-xl py-4 px-5 text-base font-normal text-text-primary outline-none transition-all duration-300 ease-out placeholder:text-text-secondary/60 focus:border-primary focus:bg-[#2a4a56] focus:shadow-[0_0_0_3px_rgba(0,168,232,0.15)]"
-                    required
-                    />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="message" className="text-sm font-semibold text-text-primary">Mensaje</label>
-                    <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Deja tu mensaje..."
-                    className="bg-input-background border border-border rounded-xl py-4 px-5 text-base font-normal text-text-primary outline-none transition-all duration-300 ease-out placeholder:text-text-secondary/60 focus:border-primary focus:bg-[#2a4a56] focus:shadow-[0_0_0_3px_rgba(0,168,232,0.15)] min-h-40 resize-y"
-                    required
-                    />
-                </div>
-
-                <button type="submit" 
-                    className={`btn-primary self-center mt-2
-                    ${btnText !== "Enviar" ? "cursor-not-allowed opacity-70 pointer-events-none" : ""}
-                    `}>
-                    {btnText}
-                </button>
-            </form>
-                        
-            <div className="divider my-8"></div>
-            
-            <div className='flex flex-col gap-4 text-center'>
-                <h3 className='text-xl text-primary font-bold'>Información de Contacto</h3>
-                <div className="flex flex-col gap-2 text-text-secondary">
-                    <p className="flex items-center justify-center gap-2">
-                        <span className="font-semibold text-text-primary">Teléfono:</span> {phone}
-                    </p>
-                    <p className="flex items-center justify-center gap-2">
-                        <span className="font-semibold text-text-primary">Correo:</span> {email}
-                    </p>
-                </div>
-            </div>
+            <ul className="space-y-2 text-sm text-text-secondary">
+              <li>• Desarrollo moderno y optimizado</li>
+              <li>• Enfoque en rendimiento y SEO</li>
+              <li>• Experiencia UI/UX premium</li>
+            </ul>
+          </div>
 
         </div>
-        </section>
-    );
+      </div>
+    </div>
+  </section>
+);
 }
