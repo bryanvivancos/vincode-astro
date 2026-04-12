@@ -3,7 +3,6 @@ import Hero from "../components/Hero/Hero";
 import Services from "../components/Services/Services.astro";
 import Projects from "../components/Projects/Projects.astro";
 import OtherProjects from "../components/OtherProjects/OtherProjects";
-import Stats from "../components/Stats/Stats.astro";
 import CTABanner from "../components/CTABanner/CTABanner.astro";
 import { BRAND_NAME } from "../CONSTANTS";
 import MainLayout from "../layouts/MainLayout.astro";
@@ -18,17 +17,14 @@ export const prerender = true;
     keywords="Desarrollo web, Diseño web, Soluciones digitales, Emprendimientos, Startups, Autónomos, Vincode, Presencia digital, Servicios web"
 >
     <Hero client:load />
-    <div class="parallax-offset">
-        <Services />
-        <Stats />
-        <Projects />
-        <OtherProjects client:visible />
-        <CTABanner
-            eyebrow="¿Listo para empezar?"
-            title="Contáctanos hoy para discutir tu proyecto"
-            description="Descubre cómo podemos ayudarte a alcanzar tus metas digitales."
-            buttonText="Contáctanos"
-            buttonHref="/contact"
-        />
-    </div>
+    <Services />
+    <Projects />
+    <OtherProjects client:visible />
+    <CTABanner
+        eyebrow="¿Listo para empezar?"
+        title="Contáctanos hoy para discutir tu proyecto"
+        description="Descubre cómo podemos ayudarte a alcanzar tus metas digitales."
+        buttonText="Contáctanos"
+        buttonHref="/contact"
+    />
 </MainLayout>

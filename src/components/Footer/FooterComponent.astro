@@ -7,67 +7,114 @@ const services = await getCollection("services");
 const availableServices = services.filter((s) => s.data.available).slice(0, 5);
 ---
 
-<footer class="bg-[#0A0C10]">
-    <div class="section-container py-20 md:py-24">
-        <!-- Divider top -->
-        <div class="w-full h-px bg-white/10 mb-16"></div>
+<footer class="relative bg-gray-900 overflow-hidden">
+    {/* Patrón de fondo sutil */}
+    <div class="absolute inset-0 opacity-5">
+        <div
+            class="absolute inset-0"
+            style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"
+        >
+        </div>
+    </div>
 
-        <!-- Grid 3 columnas -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
-            <!-- Columna 1: Logo + tagline + redes -->
+    <div class="section-container py-16 md:py-20 relative z-10">
+        <!-- Grid principal con 3 columnas -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8 mb-12"
+        >
+            <!-- Columna 1: Logo + Info de contacto -->
             <div class="space-y-6">
-                <a href="/" class="inline-block">
+                <a href="/" class="inline-block mb-6">
                     <p
-                        class="text-2xl flex items-center font-black text-text-primary font-Codesaver"
+                        class="text-2xl flex items-center font-black text-white font-Codesaver"
                     >
                         Vin<span class="text-primary font-black">{`<0`}</span>de
                     </p>
                 </a>
-                <p class="text-sm text-text-secondary leading-relaxed">
-                    Convertimos código en impacto real para tu negocio.
-                </p>
-                <div class="flex gap-3">
+
+                <div class="space-y-4 text-sm text-gray-300">
+                    <div class="flex items-start gap-3">
+                        <svg
+                            class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            ></path>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span>Perú</span>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg
+                            class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                            ></path>
+                        </svg>
+                        <span>Agencia de Desarrollo Digital</span>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg
+                            class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                        <a
+                            href="mailto:info@vincode.dev"
+                            class="hover:text-primary transition-colors"
+                            >vincode.dev@gmail.com</a
+                        >
+                    </div>
+                </div>
+
+                <div class="flex gap-3 pt-2">
                     <a
                         href={VINCODE_IG}
                         target="_blank"
-                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transition-all duration-200 hover:bg-primary/20"
+                        class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-all duration-200 hover:bg-primary text-white"
                         aria-label="Instagram"
                     >
                         <Icon
                             name="InstagramIcon"
                             width={20}
                             height={20}
-                            color="#91B8C9"
+                            color="currentColor"
                         />
                     </a>
                 </div>
             </div>
 
-            <!-- Columna 2: Servicios -->
+            <!-- Columna 2: Agencia -->
             <div class="space-y-5">
                 <h4
-                    class="text-sm font-semibold text-text-primary uppercase tracking-wider"
-                >
-                    Servicios
-                </h4>
-                <nav class="flex flex-col gap-3">
-                    {
-                        availableServices.map((service) => (
-                            <a
-                                href={`/services/${service.slug}`}
-                                class="text-sm text-text-secondary hover:text-primary transition-colors duration-200"
-                            >
-                                {service.data.title}
-                            </a>
-                        ))
-                    }
-                </nav>
-            </div>
-
-            <!-- Columna 3: Compañía -->
-            <div class="space-y-5">
-                <h4
-                    class="text-sm font-semibold text-text-primary uppercase tracking-wider"
+                    class="text-sm font-bold text-white uppercase tracking-wider mb-6"
                 >
                     Agencia
                 </h4>
@@ -76,17 +123,94 @@ const availableServices = services.filter((s) => s.data.available).slice(0, 5);
                         navbar_items.map((item) => (
                             <a
                                 href={`/${item.htmlId}`}
-                                class="text-sm text-text-secondary hover:text-primary transition-colors duration-200"
+                                class="text-sm text-gray-300 hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                             >
+                                <svg
+                                    class="w-4 h-4 text-primary opacity-100 group-hover:opacity-100 transition-opacity"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    />
+                                </svg>
                                 {item.name}
                             </a>
                         ))
                     }
                     <a
                         href="/contact"
-                        class="text-sm text-text-secondary hover:text-primary transition-colors duration-200"
+                        class="text-sm text-gray-300 hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                     >
+                        <svg
+                            class="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"></path>
+                        </svg>
                         Contacto
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Columna 3: Servicios -->
+            <div class="space-y-5">
+                <h4
+                    class="text-sm font-bold text-white uppercase tracking-wider mb-6"
+                >
+                    Servicios
+                </h4>
+                <nav class="flex flex-col gap-3">
+                    {
+                        availableServices.map((service) => (
+                            <a
+                                href={`/services/${service.slug}`}
+                                class="text-sm text-gray-300 hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
+                            >
+                                <svg
+                                    class="w-4 h-4 text-primary opacity-100 group-hover:opacity-100 transition-opacity"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    />
+                                </svg>
+                                {service.data.title}
+                            </a>
+                        ))
+                    }
+                    <a
+                        href="/services"
+                        class="text-sm text-primary font-semibold hover:text-primary-hover transition-colors duration-200 flex items-center gap-2 mt-2"
+                    >
+                        Ver todos los servicios
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
                     </a>
                 </nav>
             </div>
@@ -94,7 +218,7 @@ const availableServices = services.filter((s) => s.data.available).slice(0, 5);
 
         <!-- Bottom bar -->
         <div class="w-full h-px bg-white/10 mb-8"></div>
-        <p class="text-sm text-text-secondary/60 text-center">
+        <p class="text-sm text-gray-400 text-center">
             © 2025 Vincode. Todos los derechos reservados.
         </p>
     </div>

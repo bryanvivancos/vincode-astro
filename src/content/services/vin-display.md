@@ -3,10 +3,10 @@ id: 4
 category: "software"
 title: VIN DISPLAY - Software de Cartelería Digital y Menús Dinámicos
 icon: UserScreenIcon
-cardDescription: Controla en tiempo real los sabores disponibles, menús, precios, promociones y contenido visual.
+cardDescription: Actualiza tu menú en segundos desde cualquier lugar. Se acabó el 'no hay'.
 available: true
-subtitle: Software de cartelería digital diseñado para restaurantes, locales comerciales y negocios que desean gestionar su publicidad, menús y promociones de forma dinámica, moderna y totalmente personalizable desde pantallas digitales.
-description: Controla en tiempo real los sabores disponibles, menús, precios, promociones y contenido visual que se muestra en tus pantallas, adaptándolo fácilmente a la identidad de tu marca y a las necesidades de tu negocio.
+subtitle: "Menús que se actualizan sin que te preocupes"
+description: "Se acabó el 'no hay'. Actualiza tu menú en segundos desde tu portatil o dispositivo movil: productos agotados, nuevos platos, promociones flash. Pantallas digitales que venden por ti mientras atiendes a tus clientes. Control total desde cualquier lugar, diseño que refleja tu marca. Tecnología que hace que tu negocio se vea profesional y siempre actualizado."
 demosTitle: "Demo"
 benefits:
     [

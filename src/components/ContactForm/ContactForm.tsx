@@ -49,77 +49,108 @@ export default function ContactForm() {
     <div className="section-container">
       
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-16">
-        <p className="eyebrow">Contacto</p>
-        <h1 className="sectionTitle mb-6">Contáctanos</h1>
-        <p className="section-subtitle mx-auto">
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <p className="text-sm font-semibold tracking-widest text-primary uppercase mb-4">Contacto</p>
+        <h1 className="text-4xl md:text-5xl font-black text-text-primary mb-6">Contáctanos</h1>
+        <p className="text-base md:text-lg text-text-secondary leading-relaxed">
           Si tienes alguna pregunta o necesitas información sobre nuestros servicios, no dudes en contactarnos.
         </p>
       </div>
 
       {/* GRID PRINCIPAL */}
-      <div className="grid lg:grid-cols-3 gap-10 items-start">
+      <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
 
         {/* FORM */}
-        <form 
-          onSubmit={onSubmit}
-          className="lg:col-span-2 space-y-6"
-        >
-          {/* Nombre */}
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-text-primary">
-              Nombre
-            </label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Tu nombre completo"
-              required
-              className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-300 focus:border-primary focus:bg-white/10 focus:ring-2 focus:ring-primary/20"
-            />
+        <form className="bg-white rounded-2xl shadow-xl p-8 md:p-10 space-y-6 border border-gray-100" onSubmit={onSubmit}>
+          
+          {/* Grid 2 columnas para nombre y email */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-semibold text-text-primary">
+                Nombre <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-semibold text-text-primary">
+                Correo Electrónico <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@mail.com"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                required
+              />
+            </div>
           </div>
 
-          {/* Email */}
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-text-primary">
-              Correo
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Tu correo electrónico"
-              required
-              className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-300 focus:border-primary focus:bg-white/10 focus:ring-2 focus:ring-primary/20"
-            />
+          {/* Grid 2 columnas para teléfono y empresa */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label htmlFor="phone" className="text-sm font-semibold text-text-primary">
+                Teléfono
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="555-555-5555"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="company" className="text-sm font-semibold text-text-primary">
+                Empresa
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Tu Empresa"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+              />
+            </div>
           </div>
 
-          {/* Mensaje */}
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-medium text-text-primary">
-              Mensaje
+          {/* Mensaje full width */}
+          <div className="space-y-2">
+            <label htmlFor="message" className="text-sm font-semibold text-text-primary">
+              Mensaje del Proyecto <span className="text-red-500">*</span>
             </label>
             <textarea
+              id="message"
               name="message"
               placeholder="Cuéntanos sobre tu proyecto..."
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-32 resize-y"
               required
-              className="w-full min-h-[160px] resize-none bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-text-primary placeholder:text-text-secondary/50 outline-none transition-all duration-300 focus:border-primary focus:bg-white/10 focus:ring-2 focus:ring-primary/20"
             />
           </div>
 
-          {/* BOTÓN */}
-          <div className="pt-4">
+          <div className="pt-2">
             <button
               type="submit"
               className={`
-                w-full btn-primary py-4 text-base
-                transition-all duration-300 flex items-center justify-center gap-2
+                w-full bg-primary text-white font-semibold rounded-lg py-4 text-base
+                transition-all duration-200 flex items-center justify-center gap-2
                 ${btnText !== "Enviar" 
-                  ? "cursor-not-allowed opacity-70 pointer-events-none" 
-                  : "hover:scale-[1.02]"}
+                  ? "cursor-not-allowed opacity-70" 
+                  : "hover:bg-primary-hover hover:shadow-lg"}
               `}
+              disabled={btnText !== "Enviar"}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
               <span>{btnText}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path></svg>
             </button>
           </div>
         </form>
@@ -173,12 +204,12 @@ export default function ContactForm() {
           </div>
 
           {/* EXTRA CARD (tipo "Service Area") */}
-          <div className="rounded-2xl p-8 bg-gradient-to-br from-primary/30 to-primary/10 border border-primary/20 shadow-xl">
-            <h3 className="text-lg font-semibold text-text-primary mb-4">
+          <div className="rounded-2xl p-8 bg-gray-900 border border-gray-800 shadow-xl">
+            <h3 className="text-xl font-bold text-white mb-5">
               ¿Por qué elegirnos?
             </h3>
 
-            <ul className="space-y-2 text-sm text-text-secondary">
+            <ul className="space-y-3 text-base font-medium text-gray-200">
               <li>• Desarrollo moderno y optimizado</li>
               <li>• Enfoque en rendimiento y SEO</li>
               <li>• Experiencia UI/UX premium</li>

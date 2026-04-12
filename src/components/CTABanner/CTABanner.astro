@@ -14,7 +14,9 @@ const { eyebrow, title, description, buttonText, buttonHref } = Astro.props;
     <div class="section-container section-spacing">
         <div class="text-center max-w-2xl mx-auto">
             {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-            <h2 class="sectionTitle mb-6">{title}</h2>
+            <h2 class="sectionTitle mb-6">
+                {title}
+            </h2>
             {
                 description && (
                     <p class="section-subtitle mx-auto mb-10">{description}</p>

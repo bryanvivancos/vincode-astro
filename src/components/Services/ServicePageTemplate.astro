@@ -1,9 +1,18 @@
 ---
 import GalleryReact from "../atoms/Gallery";
-// import Gallery from "../atoms/Gallery.astro";
-import { SlideItems } from "../atoms/SlideItems";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
-import { type IconName } from "../icons";
+import { icons, type IconName } from "../icons";
+import {
+    PortfolioIllustration,
+    DigitalCardIllustration,
+    LinkBioIllustration,
+    CustomSoftwareIllustration,
+    VinDisplayIllustration,
+    EcommerceIllustration,
+    TechniqueSupportIllustration,
+    PointOfServiceIllustration,
+    VinRestIllustration,
+} from "./ServiceHeroIllustrations";
 
 type Profits = {
     icon: IconName;
@@ -27,6 +36,8 @@ interface ServicesPageProps {
     profits: Profits[];
     projects: Project[];
     faqsItems: FaqData[];
+    heroImage?: string;
+    serviceSlug?: string;
 }
 
 const {
@@ -37,87 +48,292 @@ const {
     projects,
     faqsItems,
     demos,
+    heroImage,
+    serviceSlug,
 } = Astro.props as ServicesPageProps;
 
-// export const prerender= true
+const illustrationMap: Record<string, any> = {
+    portfolio: PortfolioIllustration,
+    "digital-card": DigitalCardIllustration,
+    "link-bio": LinkBioIllustration,
+    "custom-software": CustomSoftwareIllustration,
+    "vin-display": VinDisplayIllustration,
+    ecommerce: EcommerceIllustration,
+    "technique-support": TechniqueSupportIllustration,
+    "point-of-service": PointOfServiceIllustration,
+    "vin-rest": VinRestIllustration,
+};
+
+const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
 ---
 
-<section class="mt-16 py-9 max-w-240 px-4 space-y-8">
-    <!-- <a
-        href="/services"
-        class="text-slate-400 hover:text-slate-300 transition-all ease-in-out duration-300 flex items-center gap-4"
-        ><ChevronLeftIcon width={20} height={20} />
-        <span>Ir a Servicios</span>
-    </a> -->
-    <h1
-        class="text-base md:text-xl font-bold leading-15 md:leading-13 -tracking-[0.5px] text-text-primary"
-    >
-        {serviceTitle}
-    </h1>
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-gray-50 to-white py-20 md:py-28">
+    <div class="section-container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Contenido izquierda -->
+            <div class="space-y-6">
+                <p
+                    class="text-xs md:text-sm font-semibold tracking-widest text-primary uppercase"
+                >
+                    {subtitles}
+                </p>
 
-    <p class="text-sm md:text-base font-medium leading-5 text-text-secondary">
-        {subtitles}
-    </p>
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-black text-text-primary leading-tight"
+                >
+                    {serviceTitle}
+                </h1>
 
-    <p class="text-base md:text-lg font-medium leading-6 text-text-primary">
-        {description}
-    </p>
+                <p
+                    class="text-base md:text-lg text-text-secondary leading-relaxed"
+                >
+                    {description}
+                </p>
 
-    <div
-        class={`${profits.length == 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"} grid gap-2 sm:grid-cols-1 grid-cols-1`}
-    >
-        {
-            profits.map((profit) => (
-                <SlideItems
-                    icon={profit.icon}
-                    title={profit.title}
-                    description={profit.description}
-                    classNames="cursor-default animate-slide-in-top"
-                />
-            ))
-        }
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a
+                        href="/contact"
+                        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
+                    >
+                        Solicitar Cotización
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                    <a
+                        href="/projects"
+                        class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-gray-200 text-text-primary font-semibold rounded-full transition-all duration-200 hover:border-primary hover:text-primary"
+                    >
+                        Ver Proyectos
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ilustración del servicio -->
+            <div class="hidden lg:flex items-center justify-center">
+                <div class="w-full max-w-lg">
+                    {IllustrationComponent && <IllustrationComponent />}
+                    {
+                        !IllustrationComponent && (
+                            <div class="space-y-4">
+                                <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+                                    <svg
+                                        class="w-8 h-8 text-primary"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-4 bg-gray-200 rounded w-3/4" />
+                                    <div class="h-3 bg-gray-100 rounded w-full" />
+                                    <div class="h-3 bg-gray-100 rounded w-5/6" />
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <h3 class="text-xl md:text-2xl -mb-1 font-bold text-center">{demos}</h3>
-    {
-        projects.map(
-            (project) =>
-                project.img && (
-                    <>
-                        <div class="flex gap-4 items-center justify-center">
-                            <div class="p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1">
-                                <div class="flex flex-col gap-1">
-                                    {/* <img
-                                        src={project.img}
-                                        alt="project image"
-                                        class="w-full h-auto rounded-lg"
-                                    /> */}
-                                    <GalleryReact
-                                        galleryID="landing-gallery"
-                                        images={project.imgGallery}
-                                        client:visible
-                                    />
-                                    <div class="pt-4 space-y-3">
-                                        <h4 class="text-lg font-bold leading-5 text-text-primary text-balance">
-                                            {project.title}
-                                        </h4>
-                                        <p class="text-base font-medium leading-5 text-text-secondary">
-                                            {project.description}
-                                        </p>
-                                    </div>
+<!-- Sección: Nuestro Enfoque / Beneficios -->
+<section class="py-20 md:py-24 bg-white">
+    <div class="section-container">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <p
+                class="text-xs md:text-sm font-semibold tracking-widest text-primary uppercase mb-4"
+            >
+                Nuestro Enfoque
+            </p>
+            <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+                Cómo Transformamos Tu Visión en Realidad
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {
+                profits.map((profit) => {
+                    const IconComponent = icons[profit.icon];
+                    return (
+                        <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-200">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    {IconComponent && (
+                                        <IconComponent
+                                            width={24}
+                                            height={24}
+                                            color="#00a8e8"
+                                        />
+                                    )}
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-xl font-bold text-text-primary">
+                                        {profit.title}
+                                    </h3>
+                                    <p class="text-base text-text-secondary leading-relaxed">
+                                        {profit.description}
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </>
-                ),
-        )
-    }
+                    );
+                })
+            }
+        </div>
+    </div>
+</section>
 
-    <h3 class="text-2xl md:text-3xl font-bold">Preguntas Frecuentes</h3>
+<!-- Sección: Ejemplos / Demos -->
+{
+    projects.length > 0 && (
+        <section class="py-20 md:py-24 bg-gray-50">
+            <div class="section-container">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+                        {demos}
+                    </h2>
+                </div>
 
-    <FAQAccordion faqs={faqsItems} />
+                <div class="space-y-16">
+                    {projects.map(
+                        (project, index) =>
+                            project.img && (
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                    <div
+                                        class={
+                                            index % 2 === 0
+                                                ? "order-1"
+                                                : "order-1 lg:order-2"
+                                        }
+                                    >
+                                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                                            <GalleryReact
+                                                galleryID={`demo-${index}`}
+                                                images={project.imgGallery}
+                                                client:visible
+                                            />
+                                        </div>
+                                    </div>
+                                    <div
+                                        class={
+                                            index % 2 === 0
+                                                ? "order-2"
+                                                : "order-2 lg:order-1"
+                                        }
+                                    >
+                                        <div class="space-y-4">
+                                            <h3 class="text-2xl md:text-3xl font-bold text-text-primary">
+                                                {project.title}
+                                            </h3>
+                                            <p class="text-base md:text-lg text-text-secondary leading-relaxed">
+                                                {project.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ),
+                    )}
+                </div>
+            </div>
+        </section>
+    )
+}
 
-    <div class="flex justify-center">
-        <a href="/contact" class="btn-primary">Solicitar Cotización</a>
+<!-- Sección: FAQs -->
+<section class="py-20 md:py-24 bg-gray-50">
+    <div class="section-container max-w-4xl">
+        <div class="text-center mb-16">
+            <h2
+                class="text-4xl md:text-5xl font-black text-text-primary leading-tight"
+            >
+                Tus Preguntas,<br />Respondidas
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            {
+                faqsItems.map((faq) => (
+                    <details class="group bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md transition-all duration-200">
+                        <summary class="flex items-center justify-between cursor-pointer list-none">
+                            <h3 class="text-lg font-semibold text-text-primary pr-4">
+                                {faq.question}
+                            </h3>
+                            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 group-open:bg-primary group-open:text-white transition-colors duration-200">
+                                <svg
+                                    class="w-5 h-5 group-open:rotate-45 transition-transform duration-200"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 4v16m8-8H4"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <p class="text-base text-text-secondary leading-relaxed">
+                                {faq.answer}
+                            </p>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="py-16 md:py-20 bg-gray-50">
+    <div class="section-container text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+            ¿Listo para Empezar tu Proyecto?
+        </h2>
+        <p
+            class="text-base md:text-lg text-text-secondary mb-8 max-w-2xl mx-auto"
+        >
+            Contáctanos hoy y descubre cómo podemos ayudarte a alcanzar tus
+            objetivos digitales.
+        </p>
+        <a
+            href="/contact"
+            class="inline-flex items-center gap-2 px-10 py-5 bg-primary text-white font-semibold rounded-full text-lg transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
+        >
+            Solicitar Cotización
+            <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+        </a>
     </div>
 </section>

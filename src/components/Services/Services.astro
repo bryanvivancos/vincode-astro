@@ -1,118 +1,165 @@
 ---
 import { SERVICES_SUBTITLE, SERVICES_TITLE } from "../../CONSTANTS";
-import { icons, Share3Icon } from "../../components/icons";
+import { icons } from "../../components/icons";
 import type { IconName } from "../../components/icons";
 import { getCollection } from "astro:content";
 
-const services = (await getCollection("services")).sort((a, b) => {
-    if (a.data.available !== b.data.available) {
-        return a.data.available ? -1 : 1;
-    }
-    return a.data.id - b.data.id;
-});
+const metrics = [
+    { number: "9+", label: "Servicios y productos digitales" },
+    { number: "100%", label: "Proyectos entregados a tiempo" },
+    { number: "<24h", label: "Soporte Técnico" },
+    { number: "4★+", label: "Satisfacción promedio de clientes" },
+];
+
+const allServices = await getCollection("services");
+
+const mainServices = allServices
+    .filter(
+        (service) =>
+            service.data.available &&
+            [
+                "custom-software",
+                "portfolio",
+                "digital-card",
+                "vin-display",
+                "link-bio",
+            ].includes(service.slug),
+    )
+    .sort((a, b) => a.data.id - b.data.id)
+    .map((service) => ({
+        icon: service.data.icon as IconName,
+        title: service.data.title,
+        description: service.data.cardDescription,
+        slug: service.slug,
+    }));
 ---
 
-<section id="services" data-scroll="services" class="section-alt">
-    <div class="section-container section-spacing">
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <p class="eyebrow">Nuestros Servicios</p>
-            <h2 class="sectionTitle mb-6">{SERVICES_TITLE}</h2>
-            <p class="section-subtitle mx-auto">
-                {SERVICES_SUBTITLE}
-            </p>
+<section id="services" class="relative bg-white py-32 md:py-40 lg:py-48">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Header con título gigante y descripción lateral -->
+        <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-24 md:mb-32"
+        >
+            <div>
+                <h2
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight text-text-primary"
+                >
+                    {SERVICES_TITLE}
+                </h2>
+            </div>
+            <div class="flex items-end lg:border-l lg:border-gray-200 lg:pl-12">
+                <p
+                    class="text-base md:text-lg font-normal leading-relaxed text-text-secondary"
+                >
+                    {SERVICES_SUBTITLE}
+                </p>
+            </div>
         </div>
 
-        <!-- Grid de servicios -->
-        <div class="flex flex-col items-center">
-            <div
-                class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 mb-8"
-            >
-                {
-                    services.slice(0, 7).map((service, index) => {
-                        const { slug, data } = service;
-                        const { icon, title, cardDescription, available } =
-                            data;
-                        const Icon = icons?.[icon as IconName];
+        <!-- Grid de Métricas - 4 columnas -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24 md:mb-32">
+            {
+                metrics.map((metric) => (
+                    <div class="bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-md hover:shadow-xl transition-all duration-200">
+                        <div class="text-4xl md:text-5xl font-black text-primary mb-3">
+                            {metric.number}
+                        </div>
+                        <div class="text-sm md:text-base font-medium text-text-secondary">
+                            {metric.label}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
 
-                        return (
-                            <a
-                                href={`/services/${slug}`}
-                                class={`service-card flex flex-col gap-5 relative group fade-in-up ${available ? "" : "pointer-events-none"}`}
-                            >
-                                {/* Icono */}
-                                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                    {Icon ? (
+        <!-- Título de Servicios con separador -->
+        <div class="mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+                Nuestros Servicios
+            </h3>
+            <div class="w-full h-px bg-gray-200"></div>
+        </div>
+
+        <!-- Grid de Servicios - 2 columnas simétricas -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            {
+                mainServices.map((service) => {
+                    const Icon = icons[service.icon];
+
+                    return (
+                        <a
+                            href={`/services/${service.slug}`}
+                            class="block bg-white rounded-2xl border border-gray-200 p-10 md:p-12 shadow-md hover:shadow-xl transition-all duration-200 group cursor-pointer hover:border-primary/30 grid grid-cols-[auto_1fr] gap-6"
+                        >
+                            {/* Icono */}
+                            <div class="mb-6">
+                                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200">
+                                    {Icon && (
                                         <Icon
-                                            width={24}
-                                            height={24}
+                                            width={28}
+                                            height={28}
                                             color="#00a8e8"
                                         />
-                                    ) : (
-                                        <span class="text-red-500 text-xs">
-                                            ?
-                                        </span>
                                     )}
                                 </div>
+                            </div>
 
-                                {/* Contenido */}
-                                <div class="flex flex-col gap-3 flex-1">
-                                    <h4 class="text-lg font-bold text-text-primary group-hover:text-primary transition-colors duration-200">
-                                        {title}
-                                    </h4>
-                                    <p class="text-sm font-normal leading-relaxed text-text-secondary">
-                                        {cardDescription}
+                            <div class="flex flex-col gap-4">
+                                {/* Título */}
+                                <h3 class="text-2xl md:text-3xl font-bold text-text-primary mb-4 leading-tight group-hover:text-primary transition-colors duration-200">
+                                    {service.title}
+                                </h3>
+
+                                <div>
+                                    {/* Descripción */}
+                                    <p class="text-base md:text-lg font-normal leading-relaxed text-text-secondary mb-4">
+                                        {service.description}
                                     </p>
+
+                                    {/* Indicador de acción */}
+                                    <div class="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                                        Ver detalles
+                                        <svg
+                                            class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
+                                    </div>
                                 </div>
+                            </div>
+                        </a>
+                    );
+                })
+            }
+        </div>
 
-                                {/* Link */}
-                                <p class="text-sm font-semibold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200">
-                                    Más información <span>→</span>
-                                </p>
-
-                                {/* Badge Próximamente */}
-                                {available === false && (
-                                    <>
-                                        <div class="badge badge-primary absolute -top-3 -right-3 z-50">
-                                            Próximamente
-                                        </div>
-                                        <div class="absolute inset-0 bg-background-dark/70 z-40 rounded-2xl" />
-                                    </>
-                                )}
-                            </a>
-                        );
-                    })
-                }
-
-                <!-- Card CTA -->
-                <!-- <a
+        <!-- CTA para ver más -->
+        <div class="mt-20 text-center">
+            <a
                 href="/services"
-                class="service-card flex flex-col gap-5 group fade-in-up"
+                class="inline-flex items-center gap-3 px-10 py-5 bg-gray-50 border-2 border-gray-200 text-text-primary font-semibold rounded-full text-lg transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:scale-105"
             >
-                <div
-                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"
+                Ver todos los servicios
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                 >
-                    <Share3Icon width={24} height={24} color="#00a8e8" />
-                </div>
-
-                <div class="flex flex-col gap-3 flex-1">
-                    <p
-                        class="text-sm font-normal leading-relaxed text-text-secondary"
-                    >
-                        Ingresa para ver todos nuestros servicios disponibles.
-                    </p>
-                </div>
-
-                <p
-                    class="text-lg font-bold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200"
-                >
-                    Más Servicios <span>→</span>
-                </p>
-            </a> -->
-            </div>
-
-            <a href={`/services`} class="btn-primary text-sm py-2.5 px-6">
-                Más servicios
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
             </a>
         </div>
     </div>

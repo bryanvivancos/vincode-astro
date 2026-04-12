@@ -1,12 +1,12 @@
 ---
 id: 2
 category: "web"
-title: Links in Bio
+title: Desarrollo de Links in Bio
 icon: LinkIcon
-cardDescription: Crea un centro para todos tus enlaces importantes.
+cardDescription: "Un solo link para todo: redes, tienda, contacto. Simple, rápido, profesional."
 available: true
-subtitle: "Nuestro servicio de creación de Links in Bio está pensado para profesionales, emprendedores, creadores de contenido y empresas que buscan centralizar toda su presencia digital en un solo enlace. Sabemos que en la era de las redes sociales, tu link en la biografía es tu carta de presentación: debe ser atractivo, funcional y reflejar tu identidad de marca."
-description: "Diseñamos tu Links in Bio con una estética moderna, adaptable a tu marca y optimizada para convertir visitas en acciones concretas — ya sea dirigir tráfico a tus redes, ventas, servicios o contenido destacado."
+subtitle: "Todo tu negocio en un solo link"
+description: "Un link que lo conecta todo: redes sociales, tienda, portfolio, contacto y más. Diseño que convierte visitantes en clientes desde el primer clic. Olvídate de elegir qué enlace poner en tu bio. Ahora todos caben en uno solo, y se ve increíble."
 demosTitle: "Links in Bio"
 benefits:
     [

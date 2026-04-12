@@ -3,10 +3,10 @@ id: 5
 category: "software"
 title: Desarrollo Software Personalizado
 icon: CustomSoftwareIcon
-cardDescription: "Impulsa tu negocio con una plataforma personalizada, diseñada para optimizar tus flujos de trabajo."
+cardDescription: Software a medida que automatiza procesos y escala con tu negocio.
 available: true
-subtitle: "Nuestro servicio de desarrollo de plataformas personalizadas está dirigido a empresas, emprendedores y proyectos que requieren soluciones tecnológicas diseñadas exactamente a la medida de sus procesos, operaciones y objetivos."
-description: "Entendemos que cada negocio es único, por eso creamos plataformas robustas, escalables y totalmente adaptadas a tus necesidades, ya sea para gestión interna, automatización, ventas, reservas, educación, logística, administración de usuarios, dashboards y mucho más."
+subtitle: "Software que se adapta a tu negocio, no al revés"
+description: "Deja de forzar tu negocio a encajar en software genérico. Creamos plataformas a medida que automatizan tus procesos exactos, eliminan tareas repetitivas y escalan contigo. Desde dashboards inteligentes hasta sistemas completos de gestión. Tecnología que trabaja para ti, no tú para ella."
 demosTitle: ""
 benefits:
     [

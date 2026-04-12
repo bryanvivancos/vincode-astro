@@ -7,28 +7,45 @@ html {
 }
 
 @theme {
+    /* Paleta Wibify-inspired - Limpia y moderna */
     --color-primary: #00a8e8;
     --color-primary-hover: #0090c7;
-    /* --color-background-dark: #0D0F14; */
-    --color-background-dark: #0a0c10;
-    --color-background-section: #12141A;
-    --color-background-card: #181B23;
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-hover: rgba(0, 168, 232, 0.5);
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #91b8c9;
-    --color-input-background: #1A1D26;
+    --color-primary-light: rgba(0, 168, 232, 0.1);
+    
+    /* Fondos - Con más contraste */
+    --color-background-dark: #ffffff;
+    --color-background-section: #f5f7fa;
+    --color-background-card: #ffffff;
+    
+    /* Bordes con más contraste */
+    --color-border: #d1d5db;
+    --color-border-hover: rgba(0, 168, 232, 0.4);
+    
+    /* Textos - Contraste mejorado */
+    --color-text-primary: #0a0e1a;
+    --color-text-secondary: #475569;
+    --color-text-muted: #64748b;
+    
+    /* Inputs */
+    --color-input-background: #ffffff;
+    --color-input-border: #e5e7eb;
 
-    --font-Manrope: "Manrope", system-ui, sans-serif;
+    /* Tipografías */
+    --font-Manrope: "Manrope", system-ui, -apple-system, sans-serif;
     --font-Codesaver: "Codesaver", system-ui, sans-serif;
 
-    /* Sombras */
-    --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px -4px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 32px -8px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 32px rgba(0, 168, 232, 0.2);
-    --shadow-card: 0 4px 24px -8px rgba(0, 0, 0, 0.3);
-    --shadow-card-hover: 0 12px 40px -12px rgba(0, 168, 232, 0.15);
+    /* Sombras mejoradas con más profundidad */
+    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.18);
+    --shadow-glow: 0 0 0 3px rgba(0, 168, 232, 0.15);
+    --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+    --shadow-card-hover: 0 12px 24px -5px rgba(0, 168, 232, 0.2);
+    
+    /* Espaciado generoso */
+    --spacing-section: 6rem;
+    --spacing-section-sm: 4rem;
 }
 
 @font-face {
@@ -95,16 +112,20 @@ html {
 }
 
 .section-subtitle {
-    @apply text-base md:text-lg font-normal leading-relaxed text-text-secondary max-w-2xl;
+    @apply text-base md:text-lg font-normal leading-relaxed text-text-secondary w-full;
 }
 
 .navbar-glass {
-    background: rgba(13, 15, 20, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
 }
 
-
+.navbar-glass.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-sm);
+}
 
 .fade-in-up {
     opacity: 0;
@@ -139,26 +160,31 @@ html {
 
 .service-card {
     @apply bg-background-card rounded-2xl p-7 md:p-8 transition-all duration-200 ease-out;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
 }
 
 .service-card:hover {
-    border-color: var(--color-primary);
+    border-color: var(--color-border-hover);
     transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .project-card {
     @apply bg-background-card rounded-2xl overflow-hidden transition-all duration-200 ease-out;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
 }
 
 .project-card:hover {
     transform: scale(1.02);
     box-shadow: var(--shadow-lg);
+    border-color: var(--color-border-hover);
 }
 
 .btn-primary {
-    @apply py-3 px-7 bg-primary rounded-full text-base font-semibold text-text-primary transition-all duration-200 ease-out;
+    @apply py-3 px-7 bg-primary rounded-full text-base font-semibold transition-all duration-200 ease-out;
+    color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -168,14 +194,16 @@ html {
 }
 
 .btn-secondary {
-    @apply py-3 px-7 rounded-full text-base font-semibold text-text-primary transition-all duration-200 ease-out;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    @apply py-3 px-7 rounded-full text-base font-semibold transition-all duration-200 ease-out;
+    border: 1px solid var(--color-border);
     background: transparent;
+    color: var(--color-text-primary);
 }
 
 .btn-secondary:hover {
     border-color: var(--color-primary);
-    background: rgba(0, 168, 232, 0.1);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
 }
 
 .badge {

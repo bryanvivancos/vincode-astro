@@ -1,12 +1,12 @@
 ---
 id: 1
 category: "web"
-title: Creación de Portfolios
+title: Desarrollo de Portfolios
 icon: BriefcaseIcon
-cardDescription: Muestra tu trabajo con un portfolio profesional en línea.
+cardDescription: Portfolio profesional que convierte visitas en oportunidades de negocio.
 available: true
-subtitle: "Entendemos que su portfolio suele ser la primera impresión que causa a clientes o empleadores potenciales, por lo que nos centramos en crear una experiencia visualmente atractiva e intuitiva que destaque sus talentos y logros únicos."
-description: "Realza tu presencia profesional con un portfolio impactante y personalizado que muestre tus mejores trabajos y habilidades. Juntos crearemos un portfolio que no solo lucirá impecable, sino que también comunicará eficazmente tu valor a clientes y empleadores potenciales."
+subtitle: "Tu trabajo merece brillar en la web"
+description: "Un portfolio que no solo muestra proyectos, sino que cuenta tu historia profesional. Diseño que captura la atención de reclutadores y clientes desde el primer segundo. Optimizado para aparecer en Google y convertir visitas en oportunidades reales. Porque tu talento merece una vitrina digital a su altura."
 demosTitle: "Portfolios"
 benefits:
     [

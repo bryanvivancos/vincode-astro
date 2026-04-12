@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { navbar_items } from "../../CONSTANTS";
-import { isMenuOpen, toggleMenu } from "../../store/menuStore";
-import { CloseXIcon, Menu2Icon } from "../icons";
+import { toggleMenu } from "../../store/menuStore";
+import { Menu2Icon } from "../icons";
 
 export default function Header({ currentPath }: { currentPath: string }) {
     const path = currentPath.replace(/\/$/, "").split("/")[1] ?? "";
@@ -9,56 +9,74 @@ export default function Header({ currentPath }: { currentPath: string }) {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 10);
+            setScrolled(window.scrollY > 50);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <header
-            className={`sticky-scroll-navbar navbar-glass z-100 flex items-center justify-center transition-all duration-500 ease-out ${scrolled ? "backdrop-blur-lg bg-white/5 border-b border-white/10 shadow-lg" : ""}`}
-        >
-            <div className="section-container flex justify-between items-center h-20 w-full">
-                <a href="/" className="flex items-center gap-2 group">
-                    <p className="text-2xl md:text-3xl flex items-center font-black text-text-primary font-Codesaver transition-all duration-200 group-hover:opacity-80">
-                        Vin
-                        <span className="text-primary font-black">{`<0`}</span>
-                        de
-                    </p>
-                </a>
+        <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+            <div className="max-w-7xl mx-auto px-6 py-6">
+                {/* Navbar flotante tipo píldora */}
+                <nav className={`
+                    flex items-center justify-between
+                    px-8 py-4 rounded-full
+                    transition-all duration-300
+                    ${scrolled 
+                        ? 'bg-white/95 backdrop-blur-xl shadow-lg border border-gray-100' 
+                        : 'bg-white/60 backdrop-blur-md border border-white/20'}
+                `}>
+                    {/* Logo minimalista */}
+                    <a href="/" className="group">
+                        <span className="text-xl md:text-2xl font-black text-text-primary font-bold font-Codesaver transition-colors duration-200 group-hover:text-primary">
+                            Vin<span className="text-primary">&lt;0</span>de
+                        </span>
+                    </a>
 
-                <nav className="flex items-center gap-8">
-                    <div className="hidden md:flex items-center gap-8">
+                    {/* Links centrados - solo desktop */}
+                    <div className="hidden lg:flex items-center gap-10">
                         {navbar_items.map((item) => (
                             <a
                                 key={item.id}
                                 href={`/${item.htmlId}`}
-                                className={`text-sm font-medium transition-all duration-200 ease-out
+                                className={`
+                                    text-base font-bold tracking-wide
+                                    transition-all duration-200
+                                    relative
                                     ${path === item.htmlId 
                                         ? "text-primary" 
-                                        : "text-text-secondary hover:text-text-primary"}`}
+                                        : "text-text-secondary hover:text-text-primary"}
+                                `}
                             >
                                 {item.name}
+                                {path === item.htmlId && (
+                                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                                )}
                             </a>
                         ))}
                     </div>
 
-                    {path !== "contact" && (
-                        <a
-                            href={`/contact`}
-                            className="btn-primary hidden sm:block text-sm py-2.5 px-6"
-                        >
-                            Empecemos
-                        </a>
-                    )}
+                    {/* CTA Button */}
+                    <div className="flex items-center gap-4">
+                        {path !== "contact" && (
+                            <a
+                                href="/contact"
+                                className="hidden sm:block px-6 py-2.5 bg-primary text-white font-semibold rounded-full text-sm transition-all duration-200 hover:bg-primary-hover hover:scale-105"
+                            >
+                                Empecemos
+                            </a>
+                        )}
 
-                    <button
-                        className="md:hidden cursor-pointer p-2 rounded-lg transition-all duration-200 hover:bg-white/10"
-                        onClick={() => toggleMenu()}
-                    >
-                        {isMenuOpen ? <Menu2Icon /> : <CloseXIcon />}
-                    </button>
+                        {/* Menu móvil */}
+                        <button
+                            className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors"
+                            onClick={() => toggleMenu()}
+                            aria-label="Abrir menú"
+                        >
+                            <Menu2Icon />
+                        </button>
+                    </div>
                 </nav>
             </div>
         </header>

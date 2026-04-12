@@ -20,7 +20,7 @@ const { services, icons, itemCategory } = Astro.props;
 type IconName = keyof typeof icons;
 ---
 
-<div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+<div class="grid md:grid-cols-2 grid-cols-1 gap-8 lg:gap-10">
     {
         services.map((service, index) => {
             const { slug, data } = service;
@@ -29,42 +29,64 @@ type IconName = keyof typeof icons;
 
             if (category === itemCategory) {
                 return (
-                    <a
-                        href={`/services/${slug}`}
-                        class={`service-card flex flex-col gap-5 relative group fade-in-up ${available ? "" : "pointer-events-none"}`}
+                    <div
+                        class={`bg-white rounded-2xl border border-gray-200 p-10 md:p-12 shadow-md hover:shadow-xl transition-all duration-200 relative group fade-in-up ${!available ? "opacity-60" : ""}`}
                     >
-                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                            {Icon ? (
-                                <Icon width={24} height={24} color="#00a8e8" />
-                            ) : (
-                                <span class="text-red-500 text-xs">?</span>
-                            )}
+                        {/* Icono */}
+                        <div class="mb-6">
+                            <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                {Icon ? (
+                                    <Icon
+                                        width={28}
+                                        height={28}
+                                        color="#00a8e8"
+                                    />
+                                ) : (
+                                    <span class="text-red-500 text-xs">?</span>
+                                )}
+                            </div>
                         </div>
 
-                        <div class="flex flex-col gap-3 flex-1">
-                            <h4 class="text-lg font-bold text-text-primary group-hover:text-primary transition-colors duration-200">
-                                {title}
-                            </h4>
-                            <p class="text-sm font-normal leading-relaxed text-text-secondary">
-                                {cardDescription}
-                            </p>
-                        </div>
+                        {/* Título */}
+                        <h3 class="text-2xl md:text-3xl font-bold text-text-primary mb-4 leading-tight">
+                            {title}
+                        </h3>
 
-                        {available && (
-                            <p class="text-sm font-semibold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200">
-                                Más información <span>→</span>
-                            </p>
-                        )}
+                        {/* Descripción */}
+                        <p class="text-base md:text-lg font-normal leading-relaxed text-text-secondary mb-6">
+                            {cardDescription}
+                        </p>
 
-                        {available === false && (
-                            <>
-                                <div class="badge badge-primary absolute -top-3 -right-3 z-50">
+                        {/* Botón de acción */}
+                        <a
+                            href={`/services/${slug}`}
+                            class={`inline-flex items-center gap-2 px-6 py-3 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary ${!available ? "pointer-events-none opacity-30" : ""}`}
+                        >
+                            Ver detalles
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                />
+                            </svg>
+                        </a>
+
+                        {/* Badge próximamente */}
+                        {!available && (
+                            <div class="absolute top-6 right-6 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200">
+                                <span class="text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Próximamente
-                                </div>
-                                <div class="absolute inset-0 bg-background-dark/70 z-40 rounded-2xl" />
-                            </>
+                                </span>
+                            </div>
                         )}
-                    </a>
+                    </div>
                 );
             }
         })

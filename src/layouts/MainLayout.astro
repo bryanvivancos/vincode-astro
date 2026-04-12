@@ -39,8 +39,8 @@ const { title, description, url, keywords } = Astro.props;
         <meta property="og:url" content={url} />
         <style is:inline>
             html {
-                background-color: #0d0f14;
-                color: #ffffff;
+                background-color: #ffffff;
+                color: #0f172a;
             }
         </style>
         <Analytics />
@@ -48,17 +48,16 @@ const { title, description, url, keywords } = Astro.props;
     </head>
 
     <body
-        class="mx-auto min-w-80 min-h-dvh bg-background-dark text-text-primary font-Manrope"
+        class="mx-auto min-w-80 min-h-dvh bg-white text-text-primary font-Manrope antialiased"
     >
-        <div id="home" class="grid grid-rows-[1fr_auto] min-h-dvh">
-            <Header currentPath={pathname} client:load />
-            <MobileNav currentPath={pathname} client:load />
+        <Header currentPath={pathname} client:load />
+        <MobileNav currentPath={pathname} client:load />
 
-            <main class="w-dvw md:w-full place-items-center">
-                <slot />
-            </main>
-            <FooterComponent />
-        </div>
+        <main class="w-full">
+            <slot />
+        </main>
+
+        <FooterComponent />
 
         <script is:inline>
             // Intersection Observer para animaciones fade-in-up

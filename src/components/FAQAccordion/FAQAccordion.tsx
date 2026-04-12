@@ -33,7 +33,7 @@ export const FAQAccordion = ({faqs}: { faqs: FaqData[]}) => {
                     </span>
                   </summary>
 
-                  <div className="px-6 pb-5 text-gray-300">
+                  <div className="px-6 pb-5 text-text-secondary">
                     {faq.answer}
                   </div>
               </details>

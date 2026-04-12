@@ -3,10 +3,10 @@ id: 3
 category: "web"
 title: Tarjeta de Presentación Digital
 icon: CardIcon
-cardDescription: Deja una impresión duradera con una tarjeta de presentación digital.'
+cardDescription: "Olvida el papel y haz que tu primera impresión sea inolvidable. Comparte tus datos, enlaces y portfolio con un solo toque."
 available: true
-subtitle: "Nuestro servicio de creación de tarjetas digitales está diseñado para profesionales, empresas y emprendedores que desean compartir su información de manera moderna, práctica y profesional. Una tarjeta digital no solo reemplaza la tarjeta física, sino que la transforma en una experiencia interactiva que proyecta innovación y credibilidad."
-description: "Impulsa tu presencia profesional con una tarjeta digital personalizada que reúne todos tus datos de contacto, redes sociales, enlaces y servicios en un solo lugar. Juntos crearemos una tarjeta impactante que refleje tu marca y te permita conectar fácilmente con clientes, socios o colaboradores."
+subtitle: "Tu primera impresión nunca fue tan poderosa"
+description: "Olvídate del papel. Comparte tu negocio con un simple toque o escaneo QR: contacto directo, redes sociales, portfolio y servicios al instante. Una tarjeta digital que tus clientes guardarán en su teléfono, no en la basura. Actualizable en tiempo real, siempre lista para impresionar."
 demosTitle: "Tarjetas Digitales"
 benefits:
     [

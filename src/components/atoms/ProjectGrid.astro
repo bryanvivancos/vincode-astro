@@ -17,13 +17,11 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<div
-    class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center mt-6"
->
+<div class="grid gap-6 mt-6" style="grid-template-columns: repeat(2, 1fr);">
     {
         projects.map((project: Project) => (
             <div
-                class="bg-background-card border border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out w-full hover:border-primary hover:-translate-y-1 max-w-72 h-full group
+                class="bg-background-card border border-border rounded-lg p-6 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 h-full group
             timeline-view animate-fade-in-up animate-range-[entry_10%_cover_40%]
             "
             >
@@ -53,7 +51,7 @@ const { projects } = Astro.props;
                         </div>
                         <div
                             class={`text-sm group-hover:text-base transition-all duration-300 ease-in-out
-                                ${project.goToWeb === true ? "text-primary font-bold" : "text-slate-300 font-bold pointer-events-none"}`}
+                                ${project.goToWeb === true ? "text-primary font-bold" : "text-text-secondary font-bold pointer-events-none"}`}
                         >
                             {project.goToWeb ? (
                                 <>Echa un Vistazo →</>

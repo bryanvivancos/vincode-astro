@@ -48,7 +48,7 @@ export const navbar_items = [
 export const projects = [
   {
     title: 'Portfolio',
-    description: 'Portfolio profesional para Ingeniero.',
+    description: 'Un portfolio que no solo muestra proyectos, sino que cuenta una historia profesional. Diseño interactivo y responsive que captura la atención de reclutadores y clientes, optimizado para aparecer en las primeras búsquedas de Google.',
     category: 'Web',
     img: '/portfolio-web.webp',
     imgGallery: ['portfolio-web'],
@@ -57,11 +57,11 @@ export const projects = [
   },
   {
     title: 'Links in Bio',
-    description: 'Web para centralizar los links más importantes de una empresa de Joyas.',
+    description: 'Todo tu negocio en un solo link. Solución elegante que centraliza redes sociales, catálogos y contacto directo. Navegación instantánea que convierte visitantes en clientes potenciales desde el primer clic.',
     category: 'Web',
     img: '/cq-link-bio.webp',
     imgGallery: ['cq-link-bio'],
-    url: 'https://catquizpe.vercel.app/',
+    url: 'https://bio.catquiz.pe',
     goToWeb: true
   },
   // {
@@ -72,20 +72,20 @@ export const projects = [
   // },
   {
     title: 'Tarjeta de presentación digital',
-    description: 'Impresión duradera con una tarjeta de presentación digital negocio de joyas.',
+    description: 'Olvídate de las tarjetas de papel. Comparte tu negocio con un simple escaneo QR: contacto directo, galería de productos y redes sociales al instante. Una primera impresión digital que tus clientes nunca olvidarán.',
     category: 'Web',
     img: '/catquiz-digital-card.webp',
     imgGallery: ['catquiz-digital-card'],
-    url: 'https://catquiz-card.vercel.app/',
+    url: 'https://card.catquiz.pe',
     goToWeb: true
   },
   {
     title: "VIN DISPLAY - Software de Cartelera Digital y Menús Dinámicos",
-    description: 'Software de Cartelera Digital para mostrar publicidad y tus menus o sabores disponibles de tu restaurante',
+    description: 'Transforma la experiencia de tus clientes con menús que se actualizan en segundos. Gestiona promociones en tiempo real, muestra tus platos más vendidos y controla todo desde tu teléfono. Tecnología que vende mientras tú cocinas.',
     category: 'Software',
     img: "/vin-display-img.webp",
     imgGallery: ["vin-display-img"],
-    url: `/contact`,
+    url: `/services/vin-display`,
     goToWeb: false
   },
 ];
