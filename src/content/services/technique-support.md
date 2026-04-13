@@ -3,11 +3,11 @@ id: 8
 category: "software"
 title: Software Licenciado e Instalación Profesional
 icon: ServerIcon
-cardDescription: "Instalación y configuración profesional de software original y licenciado."
+cardDescription: "Software original con licencia verificada. Instalación profesional sin complicaciones."
 available: true
-subtitle: "Ofrecemos una amplia gama de programas esenciales como Microsoft Office, antivirus, suites creativas, herramientas de productividad y más con licencia verificada y soporte de instalación en cualquier sistema operativo."
-description: "Asegura el rendimiento y la seguridad de tu equipo con software original, optimizado y correctamente instalado. Nos encargamos de todo el proceso: desde la asesoría hasta la configuración, para que puedas trabajar con total tranquilidad y eficiencia."
-demosTitle: ""
+subtitle: "Software original que impulsa tu productividad"
+description: "Microsoft Office, antivirus, suites creativas y más — siempre 100% original y licenciado. Instalación profesional, configuración optimizada y activación garantizada. Nos encargamos de todo: desde elegir el software correcto hasta dejarlo funcionando al máximo rendimiento. Trabaja con tranquilidad sabiendo que tu equipo está protegido y listo para rendir."
+demosTitle: "Instalaciones Realizadas"
 benefits:
     [
         {
@@ -25,14 +25,14 @@ benefits:
         {
             id: 3,
             icon: "CogIcon",
-            title: Optimización y Configuración Profesional,
-            description: No solo instalamos el software lo dejamos funcionando al máximo rendimiento ajustado a las necesidades específicas de tu equipo o negocio.,
+            title: "Optimización y Configuración Profesional",
+            description: "No solo instalamos el software, lo dejamos funcionando al máximo rendimiento ajustado a las necesidades específicas de tu equipo o negocio.",
         },
         {
             id: 4,
             icon: "ExclamationIcon",
-            title: Ahorra Tiempo y Evita Problemas Técnicos,
-            description: Olvídate de configuraciones complejas o incompatibilidades. Nosotros nos encargamos de todo para que te enfoques en tus tareas.,
+            title: "Ahorra Tiempo y Evita Problemas Técnicos",
+            description: "Olvídate de configuraciones complejas o incompatibilidades. Nosotros nos encargamos de todo para que te enfoques en tus tareas.",
         },
     ]
 projects: []
@@ -57,6 +57,34 @@ faqData:
             id: 4,
             question: "¿La licencia es permanente o por suscripción?",
             answer: "Depende del software. Tenemos opciones de licencia perpetua, anual o mensual.",
+        },
+    ]
+pricing:
+    [
+        {
+            id: 1,
+            name: "Básico",
+            description: "Office, antivirus y más, instalados y configurados sin dolores de cabeza",
+            price: 120,
+            originalPrice: 160,
+            discount: "-25%",
+            deliveryTime: "1–2 días",
+            isPopular: true,
+            includes: ["Instalación profesional", "Configuración optimizada", "Activación de licencia", "Soporte para Windows, macOS, Linux"],
+            finalNote: "Licencia aparte",
+            color: "gray",
+        },
+        {
+            id: 2,
+            name: "Empresa Lista",
+            description: "Para PYMEs que necesitan arrancar con imagen seria y herramientas reales",
+            price: 1499,
+            originalPrice: 1630,
+            discount: "Ahorras S/ 131",
+            isPopular: false,
+            includes: ["Setup & Arquitectura Web", "Portfolio / Web Corporativa", "Instalación de Software (Puede haber un cambio en el precio dependiendo del software a instalar)"],
+            finalNote: "Web + correos + herramientas instaladas. Listos para operar desde el día uno.",
+            color: "primary",
         },
     ]
 ---

@@ -67,4 +67,43 @@ faqData:
             answer: "Claro. Puedes solicitar cambios cuando lo necesites o, según el plan, acceder a un panel de edición.",
         },
     ]
+pricing:
+    [
+        {
+            id: 1,
+            name: "Básico",
+            description: "Tu contacto completo en un toque o QR, personalizada con tu marca",
+            price: 249,
+            originalPrice: 320,
+            discount: "-22%",
+            deliveryTime: "3–5 días",
+            isPopular: false,
+            includes: ["Diseño personalizado con tu marca", "QR personalizado incluido", "Datos de contacto completos", "Enlaces a redes sociales", "Responsive y compatible con todos los dispositivos"],
+            color: "gray",
+        },
+        {
+            id: 2,
+            name: "Presencia Pro",
+            description: "La imagen completa que un profesional independiente necesita",
+            price: 1499,
+            originalPrice: 1759,
+            discount: "Ahorras S/ 260",
+            isPopular: true,
+            includes: ["Setup & Arquitectura Web", "Portfolio Profesional", "Tarjeta Digital"],
+            finalNote: "Dominio, correos, web con SEO y tarjeta para compartir. Todo en uno.",
+            color: "primary",
+        },
+        {
+            id: 3,
+            name: "Creador de Contenido",
+            description: "Para influencers, artistas y creadores que viven de su marca personal",
+            price: 1149,
+            originalPrice: 1438,
+            discount: "Ahorras S/ 289",
+            isPopular: false,
+            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio básico"],
+            finalNote: "Todo lo que necesitas para convertir seguidores en clientes reales.",
+            color: "purple",
+        },
+    ]
 ---

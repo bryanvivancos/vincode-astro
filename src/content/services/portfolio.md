@@ -61,4 +61,43 @@ faqData:
             answer: "Trabajamos con tecnologías modernas como React, Tailwind, HTML/CSS, y generamos sitios altamente optimizados, rápidos y compatibles con cualquier dispositivo. Elegimos la mejor opción según tus necesidades y objetivos.",
         },
     ]
+pricing:
+    [
+        {
+            id: 1,
+            name: "Básico",
+            description: "Web personalizada con SEO para aparecer en Google y atraer clientes",
+            price: 1290,
+            originalPrice: 1600,
+            discount: "-19%",
+            deliveryTime: "10–15 días",
+            isPopular: false,
+            includes: ["Diseño profesional personalizado", "Optimización SEO", "Sección de proyectos", "Datos de contacto", "Responsive"],
+            color: "gray",
+        },
+        {
+            id: 2,
+            name: "Presencia Pro",
+            description: "La imagen completa que un profesional independiente necesita",
+            price: 1499,
+            originalPrice: 1759,
+            discount: "Ahorras S/ 260",
+            isPopular: true,
+            includes: ["Setup & Arquitectura Web", "Portfolio Profesional", "Tarjeta Digital"],
+            finalNote: "Dominio, correos, web con SEO y tarjeta para compartir. Todo en uno.",
+            color: "primary",
+        },
+        {
+            id: 3,
+            name: "Creador de Contenido",
+            description: "Para influencers, artistas y creadores que viven de su marca personal",
+            price: 1149,
+            originalPrice: 1438,
+            discount: "Ahorras S/ 289",
+            isPopular: false,
+            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio básico"],
+            finalNote: "Todo lo que necesitas para convertir seguidores en clientes reales.",
+            color: "purple",
+        },
+    ]
 ---

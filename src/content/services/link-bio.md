@@ -67,4 +67,43 @@ faqData:
             answer: "Usualmente entre 3 y 5 días, dependiendo del diseño y la cantidad de enlaces.",
         },
     ]
+pricing:
+    [
+        {
+            id: 1,
+            name: "Básico",
+            description: "Un solo enlace con todo lo tuyo, listo para tus redes",
+            price: 199,
+            originalPrice: 260,
+            discount: "-23%",
+            deliveryTime: "3–5 días",
+            isPopular: false,
+            includes: ["Diseño personalizado", "Enlaces ilimitados organizados", "Botones de acción", "Integración con redes sociales", "Responsive"],
+            color: "gray",
+        },
+        {
+            id: 2,
+            name: "Presencia Pro",
+            description: "La imagen completa que un profesional independiente necesita",
+            price: 1499,
+            originalPrice: 1759,
+            discount: "Ahorras S/ 260",
+            isPopular: true,
+            includes: ["Setup & Arquitectura Web", "Portfolio Profesional", "Tarjeta Digital"],
+            finalNote: "Dominio, correos, web con SEO y tarjeta para compartir. Todo en uno.",
+            color: "primary",
+        },
+        {
+            id: 3,
+            name: "Creador de Contenido",
+            description: "Para influencers, artistas y creadores que viven de su marca personal",
+            price: 1149,
+            originalPrice: 1438,
+            discount: "Ahorras S/ 289",
+            isPopular: false,
+            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio básico"],
+            finalNote: "Todo lo que necesitas para convertir seguidores en clientes reales.",
+            color: "purple",
+        },
+    ]
 ---

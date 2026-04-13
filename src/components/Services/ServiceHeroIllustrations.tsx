@@ -123,18 +123,63 @@ export const EcommerceIllustration = () => (
 
 export const TechniqueSupportIllustration = () => (
   <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="200" cy="150" r="80" fill="#F3F4F6" />
-    <circle cx="200" cy="150" r="60" fill="white" stroke="#00a8e8" strokeWidth="3" />
-    <path d="M180 140 Q200 120 220 140" stroke="#00a8e8" strokeWidth="3" fill="none" strokeLinecap="round" />
-    <rect x="185" y="155" width="30" height="20" rx="10" fill="#00a8e8" />
-    <rect x="170" y="165" width="10" height="30" rx="5" fill="#00a8e8" />
-    <rect x="220" y="165" width="10" height="30" rx="5" fill="#00a8e8" />
-    <circle cx="185" cy="135" r="4" fill="#00a8e8" />
-    <circle cx="215" cy="135" r="4" fill="#00a8e8" />
-    <path d="M140 100 L160 120" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
-    <path d="M260 100 L240 120" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
-    <circle cx="200" cy="80" r="12" fill="#10B981" />
-    <path d="M195 80 L198 83 L205 76" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Fondo decorativo con formas orgánicas */}
+    <ellipse cx="200" cy="150" rx="180" ry="120" fill="#F0F4FF" opacity="0.5" />
+    
+    {/* Forma orgánica púrpura derecha */}
+    <path d="M320 100 Q340 120 330 150 Q320 180 340 200 Q350 220 330 240 Q310 250 300 230 Q290 200 310 170 Q320 140 300 120 Q290 100 320 100 Z" fill="#A78BFA" opacity="0.6" />
+    
+    {/* Engranaje rosa grande (izquierda arriba) */}
+    <g transform="translate(120, 80)">
+      <circle cx="0" cy="0" r="35" fill="#FCA5A5" />
+      <circle cx="0" cy="0" r="28" fill="white" />
+      <circle cx="0" cy="0" r="15" fill="#FCA5A5" />
+      {/* Dientes del engranaje */}
+      <rect x="-5" y="-45" width="10" height="15" rx="2" fill="#FCA5A5" />
+      <rect x="-5" y="30" width="10" height="15" rx="2" fill="#FCA5A5" />
+      <rect x="-45" y="-5" width="15" height="10" rx="2" fill="#FCA5A5" />
+      <rect x="30" y="-5" width="15" height="10" rx="2" fill="#FCA5A5" />
+      <rect x="-32" y="-32" width="12" height="10" rx="2" fill="#FCA5A5" transform="rotate(-45 -26 -27)" />
+      <rect x="20" y="-32" width="12" height="10" rx="2" fill="#FCA5A5" transform="rotate(45 26 -27)" />
+      <rect x="-32" y="22" width="12" height="10" rx="2" fill="#FCA5A5" transform="rotate(45 -26 27)" />
+      <rect x="20" y="22" width="12" height="10" rx="2" fill="#FCA5A5" transform="rotate(-45 26 27)" />
+    </g>
+    
+    {/* Engranaje rosa pequeño (derecha arriba) */}
+    <g transform="translate(280, 100)">
+      <circle cx="0" cy="0" r="28" fill="#FCA5A5" />
+      <circle cx="0" cy="0" r="22" fill="white" />
+      <circle cx="0" cy="0" r="12" fill="#FCA5A5" />
+      {/* Dientes del engranaje */}
+      <rect x="-4" y="-35" width="8" height="12" rx="2" fill="#FCA5A5" />
+      <rect x="-4" y="23" width="8" height="12" rx="2" fill="#FCA5A5" />
+      <rect x="-35" y="-4" width="12" height="8" rx="2" fill="#FCA5A5" />
+      <rect x="23" y="-4" width="12" height="8" rx="2" fill="#FCA5A5" />
+    </g>
+    
+    {/* Laptop base */}
+    <g transform="translate(200, 200)">
+      {/* Base del laptop */}
+      <ellipse cx="0" cy="35" rx="120" ry="8" fill="#CBD5E1" opacity="0.4" />
+      <path d="M -110 25 L -100 30 L 100 30 L 110 25 Z" fill="#E2E8F0" />
+      
+      {/* Pantalla del laptop */}
+      <rect x="-90" y="-80" width="180" height="105" rx="4" fill="#F1F5F9" stroke="#CBD5E1" strokeWidth="3" />
+      
+      {/* Contenido de la pantalla - fondo */}
+      <rect x="-80" y="-70" width="160" height="85" rx="2" fill="#E0E7FF" />
+      
+      {/* Líneas de código simuladas */}
+      <rect x="-70" y="-60" width="60" height="4" rx="2" fill="#94A3B8" opacity="0.3" />
+      <rect x="-70" y="-50" width="80" height="4" rx="2" fill="#94A3B8" opacity="0.3" />
+      <rect x="-70" y="-40" width="50" height="4" rx="2" fill="#94A3B8" opacity="0.3" />
+      <rect x="20" y="-60" width="50" height="4" rx="2" fill="#94A3B8" opacity="0.3" />
+      <rect x="20" y="-50" width="40" height="4" rx="2" fill="#94A3B8" opacity="0.3" />
+      
+    </g>
+    
+    {/* Forma orgánica púrpura abajo derecha */}
+    <path d="M350 220 Q360 240 350 260 Q340 270 330 260 Q325 250 335 240 Q345 230 350 220 Z" fill="#C4B5FD" opacity="0.5" />
   </svg>
 );
 

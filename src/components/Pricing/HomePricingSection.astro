@@ -1,0 +1,429 @@
+---
+// Componente de Pricing específico para la página Home
+import { WHATSAPP_NUMBER } from "../../CONSTANTS";
+
+const generateWhatsAppLink = (packageName: string) => {
+    const message = `Hola, quiero solicitar el paquete ${packageName}`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
+---
+
+<!-- Sección: Precios -->
+<section class="py-20 md:py-24 bg-white">
+    <div class="section-container">
+        <div class="text-center mb-16">
+            <h2
+                class="text-4xl md:text-5xl font-black text-text-primary leading-tight mb-4"
+            >
+                Precios y Paquetes
+            </h2>
+            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                Paquetes diseñados para cada etapa de tu negocio
+            </p>
+        </div>
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
+        >
+            <!-- Paquete 1: Starter Digital -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 flex flex-col"
+            >
+                <div class="bg-gray-100 px-6 py-5 text-center">
+                    <h3
+                        class="text-xl font-bold text-gray-700 uppercase tracking-wide"
+                    >
+                        Starter Digital
+                    </h3>
+                </div>
+                <div class="bg-gray-700 px-6 py-6 text-center">
+                    <div class="text-white">
+                        <div class="text-sm line-through opacity-70 mb-1">
+                            Antes S/ 469
+                        </div>
+                        <div>
+                            <span class="text-4xl md:text-5xl font-black"
+                                >S/ 369</span
+                            >
+                        </div>
+                        <div
+                            class="text-xs mt-2 bg-green-500 inline-block px-3 py-1 rounded-full font-semibold"
+                        >
+                            Ahorras S/ 100
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-6 flex-grow flex flex-col">
+                    <p
+                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                    >
+                        Para el que está arrancando y quiere presencia real
+                        desde el día uno
+                    </p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Setup & Arquitectura Web</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Links in Bio o Tarjeta Digital</span
+                            >
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 text-center mb-4 italic">
+                        Dominio propio + presencia digital lista en menos de 1
+                        semana.
+                    </p>
+                    <a
+                        href={generateWhatsAppLink("Starter Digital")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
+                    >
+                        Solicitar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paquete 2: Presencia Pro (Más Popular) -->
+            <div
+                class="bg-white rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 relative flex flex-col"
+            >
+                <div
+                    class="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg z-10"
+                >
+                    MÁS POPULAR
+                </div>
+                <div class="bg-gray-100 px-6 py-5 text-center">
+                    <h3
+                        class="text-xl font-bold text-primary uppercase tracking-wide"
+                    >
+                        Presencia Pro
+                    </h3>
+                </div>
+                <div class="bg-primary px-6 py-6 text-center">
+                    <div class="text-white">
+                        <div class="text-sm line-through opacity-70 mb-1">
+                            Antes S/ 1,759
+                        </div>
+                        <div>
+                            <span class="text-4xl md:text-5xl font-black"
+                                >S/ 1,499</span
+                            >
+                        </div>
+                        <div
+                            class="text-xs mt-2 bg-white text-primary inline-block px-3 py-1 rounded-full font-semibold"
+                        >
+                            Ahorras S/ 260
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-6 flex-grow flex flex-col">
+                    <p
+                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                    >
+                        La imagen completa que un profesional independiente
+                        necesita
+                    </p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Setup & Arquitectura Web</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Portfolio Profesional</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Tarjeta Digital</span
+                            >
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 text-center mb-4 italic">
+                        Dominio, correos, web con SEO y tarjeta para compartir.
+                        Todo en uno.
+                    </p>
+                    <a
+                        href={generateWhatsAppLink("Presencia Pro")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-lg text-sm"
+                    >
+                        Solicitar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paquete 3: Negocio Digital -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 flex flex-col"
+            >
+                <div class="bg-gray-100 px-6 py-5 text-center">
+                    <h3
+                        class="text-xl font-bold text-teal-600 uppercase tracking-wide"
+                    >
+                        Negocio Digital
+                    </h3>
+                </div>
+                <div class="bg-teal-500 px-6 py-6 text-center">
+                    <div class="text-white">
+                        <div class="text-sm line-through opacity-70 mb-1">
+                            Antes S/ 1918
+                        </div>
+                        <div>
+                            <span class="text-4xl md:text-5xl font-black"
+                                >S/ 1,719</span
+                            >
+                        </div>
+                        <div
+                            class="text-xs mt-2 bg-white text-teal-600 inline-block px-3 py-1 rounded-full font-semibold"
+                        >
+                            Ahorras S/ 199
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-6 flex-grow flex flex-col">
+                    <p
+                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                    >
+                        Para restaurantes, cafeterías o heladerías que quieren
+                        modernizarse
+                    </p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Setup & Arquitectura Web</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >VIN DISPLAY — cartelería digital</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Links in Bio</span
+                            >
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 text-center mb-4 italic">
+                        Correos corporativos + pantallas digitales + enlace en
+                        redes. Imagen premium.
+                    </p>
+                    <a
+                        href={generateWhatsAppLink("Negocio Digital")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
+                    >
+                        Solicitar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paquete 4: Creador de Contenido -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 flex flex-col"
+            >
+                <div class="bg-gray-100 px-6 py-5 text-center">
+                    <h3
+                        class="text-xl font-bold text-purple-600 uppercase tracking-wide"
+                    >
+                        Creador de Contenido
+                    </h3>
+                </div>
+                <div class="bg-purple-500 px-6 py-6 text-center">
+                    <div class="text-white">
+                        <div class="text-sm line-through opacity-70 mb-1">
+                            Antes S/ 1,438
+                        </div>
+                        <div>
+                            <span class="text-4xl md:text-5xl font-black"
+                                >S/ 1,149</span
+                            >
+                        </div>
+                        <div
+                            class="text-xs mt-2 bg-white text-purple-600 inline-block px-3 py-1 rounded-full font-semibold"
+                        >
+                            Ahorras S/ 289
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-6 flex-grow flex flex-col">
+                    <p
+                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                    >
+                        Para influencers, artistas y creadores que viven de su
+                        marca personal
+                    </p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Links in Bio</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Tarjeta Digital</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Portfolio básico</span
+                            >
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 text-center mb-4 italic">
+                        Todo lo que necesitas para convertir seguidores en
+                        clientes reales.
+                    </p>
+                    <a
+                        href={generateWhatsAppLink("Creador de Contenido")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
+                    >
+                        Solicitar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

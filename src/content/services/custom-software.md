@@ -64,4 +64,19 @@ faqData:
             answer: "Depende del alcance y complejidad del proyecto. Las plataformas pequeñas pueden tardar de 2 a 4 semanas, mientras que proyectos más completos pueden tomar de 1 a 3 meses.",
         },
     ]
+pricing:
+    [
+        {
+            id: 1,
+            name: "Básico",
+            description: "Sistema a tu medida: CRM, dashboards, automatizaciones y más",
+            price: 3500,
+            originalPrice: 3500,
+            discount: "Desde",
+            isPopular: false,
+            includes: ["Desarrollo desde cero", "Arquitectura escalable", "Integraciones con APIs", "Dashboard administrativo", "Soporte y mantenimiento"],
+            finalNote: "Cotización según alcance",
+            color: "primary",
+        },
+    ]
 ---

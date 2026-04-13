@@ -73,4 +73,31 @@ faqData:
             answer: "No. Funciona en pantallas, Smart TV, PC o dispositivos conectados a una pantalla con navegador web.",
         },
     ]
+pricing:
+    [
+        {
+            id: 1,
+            name: "Básico",
+            description: "Menú digital para tus pantallas, actualizable desde el celular",
+            price: 1499,
+            originalPrice: 1900,
+            discount: "-21%",
+            deliveryTime: "15–20 días",
+            isPopular: false,
+            includes: ["Panel de administración", "Actualización en tiempo real", "Diseño personalizable", "Control de múltiples pantallas", "Compatible con Smart TV y PC"],
+            color: "gray",
+        },
+        {
+            id: 2,
+            name: "Negocio Digital",
+            description: "Para restaurantes, cafeterías o heladerías que quieren modernizarse",
+            price: 1719,
+            originalPrice: 1918,
+            discount: "Ahorras S/ 199",
+            isPopular: true,
+            includes: ["Setup & Arquitectura Web", "VIN DISPLAY — cartelería digital", "Links in Bio"],
+            finalNote: "Correos corporativos + pantallas digitales + enlace en redes. Imagen premium.",
+            color: "teal",
+        },
+    ]
 ---

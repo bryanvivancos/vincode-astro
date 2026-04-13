@@ -24,6 +24,7 @@ const {
     benefits,
     projects,
     faqData,
+    pricing,
 } = data;
 
 export const prerender = true;
@@ -44,5 +45,6 @@ export const prerender = true;
         projects={projects}
         faqsItems={faqData}
         serviceSlug={service.slug}
+        pricing={pricing}
     />
 </MainLayout>

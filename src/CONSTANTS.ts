@@ -1,8 +1,8 @@
-
 export const BRAND_NAME = "VINCODE"
 export const VINCODE_IG = "https://www.instagram.com/vincodedev/"
 export const email = 'vincodedev@gmail.com'
 export const phone = '+51 956023028'
+export const WHATSAPP_NUMBER = '51956023028'
 
 export const HERO_TITLE = "Eleva Tu Presencia En Línea con Servicios Digitales"
 export const HERO_SUBTITLE = "Desde tarjetas digitales intuitivas, portfolios impresionantes hasta potentes plataformas de comercio electrónico, creamos soluciones digitales que impulsan el éxito."

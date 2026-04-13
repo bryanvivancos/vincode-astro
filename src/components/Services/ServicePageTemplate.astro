@@ -2,6 +2,7 @@
 import GalleryReact from "../atoms/Gallery";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
 import { icons, type IconName } from "../icons";
+import PricingSection from "../Pricing/PricingSection.astro";
 import {
     PortfolioIllustration,
     DigitalCardIllustration,
@@ -28,6 +29,20 @@ type Project = {
     imgGallery: Array<string>;
 };
 
+type PricingPackage = {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    originalPrice: number;
+    discount: string;
+    deliveryTime?: string;
+    isPopular?: boolean;
+    includes: string[];
+    finalNote?: string;
+    color?: "gray" | "primary" | "teal" | "purple" | "green";
+};
+
 interface ServicesPageProps {
     serviceTitle: string;
     subtitles: string;
@@ -38,6 +53,7 @@ interface ServicesPageProps {
     faqsItems: FaqData[];
     heroImage?: string;
     serviceSlug?: string;
+    pricing?: PricingPackage[];
 }
 
 const {
@@ -50,6 +66,7 @@ const {
     demos,
     heroImage,
     serviceSlug,
+    pricing = [],
 } = Astro.props as ServicesPageProps;
 
 const illustrationMap: Record<string, any> = {
@@ -255,6 +272,12 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                 </div>
             </div>
         </section>
+    )
+}
+
+{
+    pricing && pricing.length > 0 && (
+        <PricingSection packages={pricing} serviceName={serviceTitle} />
     )
 }
 
