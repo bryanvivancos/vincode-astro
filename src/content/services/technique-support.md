@@ -63,7 +63,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Básico",
+            name: "Éste Servicio",
             description: "Office, antivirus y más, instalados y configurados sin dolores de cabeza",
             price: 119,
             originalPrice: 160,

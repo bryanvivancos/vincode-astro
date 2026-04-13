@@ -77,7 +77,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Básico",
+            name: "Éste Servicio",
             description: "Menú digital para tus pantallas, actualizable desde el celular",
             price: 1499,
             originalPrice: 1900,

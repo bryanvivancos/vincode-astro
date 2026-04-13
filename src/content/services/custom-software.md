@@ -68,7 +68,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Básico",
+            name: "Éste Servicio",
             description: "Sistema a tu medida: CRM, dashboards, automatizaciones y más",
             price: 3490,
             originalPrice: 3490,

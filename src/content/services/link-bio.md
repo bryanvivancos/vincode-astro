@@ -71,7 +71,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Básico",
+            name: "Éste Servicio",
             description: "Un solo enlace con todo lo tuyo, listo para tus redes",
             price: 199,
             originalPrice: 260,
@@ -101,7 +101,7 @@ pricing:
             originalPrice: 1297,
             discount: "Ahorras S/ 298",
             isPopular: false,
-            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio básico"],
+            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio Éste Servicio"],
             finalNote: "Todo lo que necesitas para convertir seguidores en clientes reales.",
             color: "purple",
         },

@@ -71,7 +71,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Básico",
+            name: "Éste Servicio",
             description: "Dominio propio + correos corporativos listos en 48h",
             price: 219,
             originalPrice: 290,

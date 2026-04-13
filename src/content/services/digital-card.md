@@ -71,7 +71,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Básico",
+            name: "Éste Servicio",
             description: "Tu contacto completo en un toque o QR, personalizada con tu marca",
             price: 249,
             originalPrice: 320,
@@ -101,7 +101,7 @@ pricing:
             originalPrice: 1297,
             discount: "Ahorras S/ 298",
             isPopular: false,
-            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio básico"],
+            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio Éste Servicio"],
             finalNote: "Todo lo que necesitas para convertir seguidores en clientes reales.",
             color: "purple",
         },

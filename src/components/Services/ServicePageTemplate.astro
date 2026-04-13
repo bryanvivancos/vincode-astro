@@ -99,13 +99,13 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                 </p>
 
                 <h1
-                    class="text-4xl md:text-5xl lg:text-6xl font-black text-text-primary leading-tight"
+                    class="!text-4xl md:!text-5xl font-black text-text-primary leading-tight"
                 >
                     {serviceTitle}
                 </h1>
 
                 <p
-                    class="text-base md:text-lg text-text-secondary leading-relaxed"
+                    class="text-sm md:text-base text-text-secondary leading-relaxed"
                 >
                     {description}
                 </p>
@@ -115,8 +115,8 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                         href="/contact"
                         class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
                     >
-                        Solicitar Cotización
-                        <svg
+                        Solicitar una reunión
+                        <!-- <svg
                             class="w-5 h-5"
                             fill="none"
                             stroke="currentColor"
@@ -127,13 +127,13 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                                 stroke-linejoin="round"
                                 stroke-width="2"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
+                        </svg> -->
                     </a>
                     <a
-                        href="/projects"
+                        href="#pricing"
                         class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-gray-200 text-text-primary font-semibold rounded-full transition-all duration-200 hover:border-primary hover:text-primary"
                     >
-                        Ver Proyectos
+                        Ver Precios
                     </a>
                 </div>
             </div>
@@ -175,15 +175,15 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
 </section>
 
 <!-- Sección: Nuestro Enfoque / Beneficios -->
-<section class="py-20 md:py-24 bg-white">
+<section class="py-4 md:py-14 bg-white">
     <div class="section-container">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-12">
             <p
                 class="text-xs md:text-sm font-semibold tracking-widest text-primary uppercase mb-4"
             >
                 Nuestro Enfoque
             </p>
-            <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+            <h2 class="!text-2xl md:!text-3xl font-bold text-text-primary mb-6">
                 Cómo Transformamos Tu Visión en Realidad
             </h2>
         </div>
@@ -220,6 +220,12 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
         </div>
     </div>
 </section>
+
+{
+    pricing && pricing.length > 0 && (
+        <PricingSection packages={pricing} serviceName={serviceTitle} />
+    )
+}
 
 <!-- Sección: Ejemplos / Demos -->
 {
@@ -263,7 +269,7 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                                             <h3 class="text-2xl md:text-3xl font-bold text-text-primary">
                                                 {project.title}
                                             </h3>
-                                            <p class="text-base md:text-lg text-text-secondary leading-relaxed">
+                                            <p class="text-sm md:text-xl text-gray-500 max-w-2xl leading-relaxed">
                                                 {project.description}
                                             </p>
                                         </div>
@@ -277,18 +283,12 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
     )
 }
 
-{
-    pricing && pricing.length > 0 && (
-        <PricingSection packages={pricing} serviceName={serviceTitle} />
-    )
-}
-
 <!-- Sección: FAQs -->
 <section class="py-20 md:py-24 bg-gray-50">
     <div class="section-container max-w-4xl">
         <div class="text-center mb-16">
             <h2
-                class="text-4xl md:text-5xl font-black text-text-primary leading-tight"
+                class="text-3xl md:text-4xl font-bold text-text-primary leading-tight"
             >
                 Tus Preguntas,<br />Respondidas
             </h2>
@@ -299,7 +299,7 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                 faqsItems.map((faq) => (
                     <details class="group bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md transition-all duration-200">
                         <summary class="flex items-center justify-between cursor-pointer list-none">
-                            <h3 class="text-lg font-semibold text-text-primary pr-4">
+                            <h3 class="text-base font-semibold text-text-primary pr-4">
                                 {faq.question}
                             </h3>
                             <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 group-open:bg-primary group-open:text-white transition-colors duration-200">
@@ -319,7 +319,7 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                             </span>
                         </summary>
                         <div class="mt-4 pt-4 border-t border-gray-100">
-                            <p class="text-base text-text-secondary leading-relaxed">
+                            <p class="text-sm text-text-secondary leading-relaxed">
                                 {faq.answer}
                             </p>
                         </div>

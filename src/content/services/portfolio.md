@@ -65,7 +65,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Básico",
+            name: "Éste Servicio",
             description: "Web personalizada con SEO para aparecer en Google y atraer clientes",
             price: 899,
             originalPrice: 1150,
@@ -95,7 +95,7 @@ pricing:
             originalPrice: 1297,
             discount: "Ahorras S/ 298",
             isPopular: false,
-            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio básico"],
+            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio Éste Servicio"],
             finalNote: "Todo lo que necesitas para convertir seguidores en clientes reales.",
             color: "purple",
         },
