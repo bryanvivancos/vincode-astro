@@ -90,7 +90,7 @@ const mainServices = allServices
                     return (
                         <a
                             href={`/services/${service.slug}`}
-                            class="block bg-white rounded-2xl border border-gray-200 p-8 md:p-12 shadow-md hover:shadow-xl transition-all duration-200 group cursor-pointer hover:border-primary/30 grid grid-cols-[auto_1fr] gap-6"
+                            class="block bg-white rounded-2xl border border-gray-200 py-8 px-6 md:py-12 md:px-10 shadow-md hover:shadow-xl transition-all duration-200 group cursor-pointer hover:border-primary/30 grid grid-cols-[auto_1fr] gap-6"
                         >
                             {/* Icono */}
                             <div class="mb-6">
@@ -105,7 +105,7 @@ const mainServices = allServices
                                 </div>
                             </div>
 
-                            <div class="flex flex-col gap-4">
+                            <div class="flex flex-col gap-2">
                                 {/* Título */}
                                 <h3 class="text-2xl md:text-3xl font-bold text-text-primary mb-4 leading-tight group-hover:text-primary transition-colors duration-200">
                                     {service.title}

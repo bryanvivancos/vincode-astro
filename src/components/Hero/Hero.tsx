@@ -2,7 +2,7 @@ import { HERO_SUBTITLE, HERO_TITLE } from "../../CONSTANTS";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
             {/* Imagen de fondo aesthetic */}
             <div className="absolute inset-0">
                 <img 
@@ -15,7 +15,7 @@ export default function Hero() {
             </div>
             
             {/* Contenido centrado con whitespace masivo */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-16 md:py-20">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 pb-20 md:py-20">
                 <div className="flex flex-col items-center text-center">
                     
                     {/* Badge minimalista */}
@@ -36,21 +36,21 @@ export default function Hero() {
                     </h1>
 
                     {/* Subtítulo limpio y espaciado */}
-                    <p className="text-base md:text-lg font-normal text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
+                    <p className=" text-xs md:text-lg font-normal text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
                         {HERO_SUBTITLE}
                     </p>
 
                     {/* Botones con mucho espacio */}
-                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                    <div className="pt-4 md:pt-0 flex flex-col sm:flex-row items-center gap-4">
                         <a
                             href="/services"
-                            className="px-10 py-5 bg-primary text-white font-semibold rounded-full text-lg transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
+                            className="px-4 py-3 md:px-10 md:py-5 border-2 border-primary/30 bg-primary text-white font-semibold rounded-full text-base md:text-lg transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
                         >
                             Ver Servicios
                         </a>
                         <a
                             href="/projects"
-                            className="px-10 py-5 border-2 border-white/30 text-white font-semibold rounded-full text-lg transition-all duration-200 hover:border-white hover:bg-white/10 hover:scale-105 backdrop-blur-sm"
+                            className="px-4 py-3 md:px-10 md:py-5  border-2 border-white/30 text-white font-semibold rounded-full text-base md:text-lg transition-all duration-200 hover:border-white hover:bg-white/10 hover:scale-105 backdrop-blur-sm"
                         >
                             Ver Proyectos
                         </a>
