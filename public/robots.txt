@@ -1,6 +1,56 @@
+# Robots.txt - vincode.dev
+# Proyecto Astro - Optimizado para SEO
+
+# Rastreadores principales
+User-agent: Googlebot
+Allow: /
+Allow: /_astro/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.ico$
+
+User-agent: Bingbot
+Allow: /
+Allow: /_astro/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.ico$
+
+# Resto de bots
 User-agent: *
 Allow: /
-Disallow: /private/ # Opcional: carpetas que no quieres indexar
+Allow: /_astro/
 
-# Indica la ubicación de tu mapa del sitio
+# Páginas principales permitidas explícitamente
+Allow: /about-us/
+Allow: /contact/
+Allow: /projects/
+Allow: /services/
+
+# Páginas de servicios dinámicos
+Allow: /services/custom-software/
+Allow: /services/digital-card/
+Allow: /services/ecommerce/
+Allow: /services/link-bio/
+Allow: /services/point-of-service/
+Allow: /services/portfolio/
+Allow: /services/setup-web/
+Allow: /services/technique-support/
+Allow: /services/vin-display/
+Allow: /services/vin-rest/
+
+# Bloquear carpetas sensibles (descomentar si existen)
+# Disallow: /private/
+# Disallow: /admin/
+# Disallow: /api/
+
+# Sitemap
 Sitemap: https://www.vincode.dev/sitemap-index.xml
