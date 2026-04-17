@@ -38,14 +38,14 @@ Allow: /services/
 # Páginas de servicios dinámicos
 Allow: /services/custom-software/
 Allow: /services/digital-card/
-Allow: /services/ecommerce/
 Allow: /services/link-bio/
-Allow: /services/point-of-service/
 Allow: /services/portfolio/
 Allow: /services/setup-web/
 Allow: /services/technique-support/
 Allow: /services/vin-display/
-Allow: /services/vin-rest/
+# Allow: /services/point-of-service/
+# Allow: /services/ecommerce/
+# Allow: /services/vin-rest/
 
 # Bloquear carpetas sensibles (descomentar si existen)
 # Disallow: /private/
