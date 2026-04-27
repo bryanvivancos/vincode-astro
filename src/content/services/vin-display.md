@@ -77,7 +77,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Éste Servicio",
+            name: "Básico",
             description: "Menú digital para tus pantallas, actualizable desde el celular",
             price: 1499,
             originalPrice: 1900,
@@ -85,6 +85,7 @@ pricing:
             deliveryTime: "15–20 días",
             isPopular: false,
             includes: ["Panel de administración", "Actualización en tiempo real", "Diseño personalizable", "Control de múltiples pantallas", "Compatible con Smart TV y PC"],
+            finalNote: "Mantenimiento: S/ 99/mes (soporte técnico, actualizaciones) | Cambio puntual: S/ 129",
             color: "gray",
         },
         {

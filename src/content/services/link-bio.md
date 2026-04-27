@@ -71,14 +71,15 @@ pricing:
     [
         {
             id: 1,
-            name: "Éste Servicio",
+            name: "Básico",
             description: "Un solo enlace con todo lo tuyo, listo para tus redes",
             price: 199,
             originalPrice: 260,
-            discount: "-23%",
+            discount: "Desde",
             deliveryTime: "3–5 días",
             isPopular: false,
             includes: ["Diseño personalizado", "Enlaces ilimitados organizados", "Botones de acción", "Integración con redes sociales", "Responsive"],
+            finalNote: "Mantenimiento: S/ 29/mes (hasta 2 cambios) | Cambio puntual: S/ 49",
             color: "gray",
         },
         {

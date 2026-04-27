@@ -41,7 +41,7 @@ projects:
             title: "Tarjeta de Presentación Digital",
             description: "Muestra tus datos relevantes y de contacto en una Tarjeta Profesional de Presentación Digital",
             img: "/catquiz-digital-card.webp",
-            imgGallery: ["catquiz-digital-card"],
+            imgGallery: ["catquiz-digital-card","vincode-card"],
         },
     ]
 faqData:
@@ -71,18 +71,32 @@ pricing:
     [
         {
             id: 1,
-            name: "Éste Servicio",
-            description: "Tu contacto completo en un toque o QR, personalizada con tu marca",
+            name: "Básico",
+            description: "Vincode gestiona tus cambios",
             price: 249,
             originalPrice: 320,
             discount: "-22%",
             deliveryTime: "3–5 días",
             isPopular: false,
-            includes: ["Diseño personalizado con tu marca", "QR personalizado incluido", "Datos de contacto completos", "Enlaces a redes sociales", "Responsive y compatible con todos los dispositivos"],
+            includes: ["Diseño personalizado con tu marca", "QR personalizado", "Botones WhatsApp y llamada directa", "Compatible con todos los dispositivos", "Cambios gestionados por Vincode"],
+            finalNote: "Cambio puntual: S/ 49 c/u | Sin panel de administración propio",
             color: "gray",
         },
         {
             id: 2,
+            name: "Básico + Admin",
+            description: "Tú controlas tu tarjeta",
+            price: 299,
+            originalPrice: 299,
+            discount: "+ S/ 19/mes",
+            deliveryTime: "3–5 días",
+            isPopular: true,
+            includes: ["Todo lo del plan Sin Admin", "Panel para editar textos y datos", "Cambiar enlaces y redes sociales", "Cambiar foto de perfil", "Cambios ilimitados desde tu panel", "Sin depender de Vincode para editar"],
+            finalNote: "Acceso mensual: S/ 19/mes | Cambios ilimitados",
+            color: "green",
+        },
+        {
+            id: 3,
             name: "Presencia Pro",
             description: "La imagen completa que un profesional independiente necesita",
             price: 1199,
@@ -94,7 +108,7 @@ pricing:
             color: "primary",
         },
         {
-            id: 3,
+            id: 4,
             name: "Creador de Contenido",
             description: "Para influencers, artistas y creadores que viven de su marca personal",
             price: 999,

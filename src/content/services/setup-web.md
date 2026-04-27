@@ -71,7 +71,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Éste Servicio",
+            name: "Básico",
             description: "Dominio propio + correos corporativos listos en 48h",
             price: 219,
             originalPrice: 290,
@@ -79,6 +79,7 @@ pricing:
             deliveryTime: "24–48 h",
             isPopular: false,
             includes: ["Dominio propio", "Correos corporativos", "Configuración DNS completa", "Soporte técnico"],
+            finalNote: "Mantenimiento: S/ 39/mes (renovación dominio, soporte correos, DNS) | Cambio puntual: S/ 69",
             color: "gray",
         },
         {

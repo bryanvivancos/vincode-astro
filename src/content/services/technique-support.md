@@ -63,15 +63,15 @@ pricing:
     [
         {
             id: 1,
-            name: "Éste Servicio",
+            name: "Básico",
             description: "Office, antivirus y más, instalados y configurados sin dolores de cabeza",
             price: 119,
             originalPrice: 160,
-            discount: "-26%",
+            discount: "Depende del software",
             deliveryTime: "1–2 días",
             isPopular: true,
             includes: ["Instalación profesional", "Configuración optimizada", "Activación de licencia", "Soporte para Windows, macOS, Linux"],
-            finalNote: "Licencia aparte",
+            finalNote: "Licencia aparte | Mantenimiento: S/ 39/mes | Cambio puntual: S/ 59",
             color: "gray",
         },
         {

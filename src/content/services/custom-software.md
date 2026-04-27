@@ -68,14 +68,14 @@ pricing:
     [
         {
             id: 1,
-            name: "Éste Servicio",
+            name: "Básico",
             description: "Sistema a tu medida: CRM, dashboards, automatizaciones y más",
             price: 3490,
             originalPrice: 3490,
             discount: "Desde",
             isPopular: false,
             includes: ["Desarrollo desde cero", "Arquitectura escalable", "Integraciones con APIs", "Dashboard administrativo", "Soporte y mantenimiento"],
-            finalNote: "Cotización según alcance",
+            finalNote: "Cotización según alcance | Mantenimiento: S/ 199-399/mes (SLA) | Cambio puntual: S/ 199+",
             color: "primary",
         },
     ]

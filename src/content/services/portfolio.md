@@ -65,7 +65,7 @@ pricing:
     [
         {
             id: 1,
-            name: "Éste Servicio",
+            name: "Básico",
             description: "Web personalizada con SEO para aparecer en Google y atraer clientes",
             price: 899,
             originalPrice: 1150,
@@ -73,6 +73,7 @@ pricing:
             deliveryTime: "10–15 días",
             isPopular: false,
             includes: ["Diseño profesional personalizado", "Optimización SEO", "Sección de proyectos", "Datos de contacto", "Responsive"],
+            finalNote: "Mantenimiento: S/ 79/mes (hasta 4 cambios) | Cambio puntual: S/ 99",
             color: "gray",
         },
         {
