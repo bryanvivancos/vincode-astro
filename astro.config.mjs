@@ -20,7 +20,12 @@ export default defineConfig({
 
    integrations: [
       react(),
-      sitemap(),
+      sitemap({
+         serialize(item) {
+            return item;
+         },
+         filter: (page) => !page.includes('/404'),
+      }),
 ],
 
    env: {

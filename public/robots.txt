@@ -53,4 +53,4 @@ Allow: /services/vin-display/
 # Disallow: /api/
 
 # Sitemap
-Sitemap: https://www.vincode.dev/sitemap-index.xml
+Sitemap: https://www.vincode.dev/sitemap.xml
