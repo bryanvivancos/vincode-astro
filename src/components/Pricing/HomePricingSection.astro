@@ -23,7 +23,7 @@ const generateWhatsAppLink = (packageName: string) => {
         </div>
 
         <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
         >
             <!-- Paquete 1: Starter Digital -->
             <div
@@ -112,14 +112,123 @@ const generateWhatsAppLink = (packageName: string) => {
                 </div>
             </div>
 
-            <!-- Paquete 2: Presencia Pro (Más Popular) -->
+            <!-- Paquete 0: Lanzamiento Digital (Más Popular) -->
+            <div
+                class="bg-white rounded-3xl shadow-2xl border-2 border-orange-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 relative flex flex-col"
+            >
+                <div
+                    class="absolute top-0 right-0 bg-orange-600 text-white px-3 py-1 text-xs font-bold rounded-bl-lg z-10"
+                >
+                    POPULAR
+                </div>
+                <div class="bg-gray-100 px-6 py-5 text-center">
+                    <h3
+                        class="text-xl font-bold text-orange-600 uppercase tracking-wide"
+                    >
+                        Lanzamiento Digital
+                    </h3>
+                </div>
+                <div class="bg-orange-500 px-6 py-6 text-center">
+                    <div class="text-white">
+                        <div class="text-sm line-through opacity-70 mb-1">
+                            Antes S/ 1,667
+                        </div>
+                        <div>
+                            <span class="text-3xl md:text-5xl font-black"
+                                >S/ 1,399</span
+                            >
+                            <span class="text-xs opacity-80 ml-1">+ IGV</span>
+                        </div>
+                        <div
+                            class="text-xs mt-2 bg-white text-orange-600 inline-block px-3 py-1 rounded-full font-semibold"
+                        >
+                            Ahorras S/ 268
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-6 flex-grow flex flex-col">
+                    <p
+                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                    >
+                        Para negocios que lanzan un producto o servicio y
+                        necesitan convertir desde el primer día
+                    </p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Setup & Arquitectura Web</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Landing Page</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Tarjeta Digital</span
+                            >
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 text-center mb-4 italic">
+                        Dominio, correos, landing page optimizada y tarjeta
+                        digital. Listo para lanzar.
+                    </p>
+                    <a
+                        href={generateWhatsAppLink("Presencia Pro")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-lg text-sm"
+                    >
+                        Solicitar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paquete 2: Presencia Pro  -->
             <div
                 class="bg-white rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 relative flex flex-col"
             >
                 <div
                     class="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg z-10"
                 >
-                    MÁS POPULAR
+                    POPULAR
                 </div>
                 <div class="bg-gray-100 px-6 py-5 text-center">
                     <h3

@@ -56,7 +56,7 @@ const services = defineCollection({
                 isPopular: z.boolean().optional(),
                 includes: z.array(z.string()),
                 finalNote: z.string().optional(),
-                color: z.enum(['gray', 'primary', 'teal', 'purple', 'green']).optional(),
+                color: z.enum(['gray', 'primary', 'teal', 'purple', 'green', 'orange']).optional(),
             })
         ).optional(),
     }),
@@ -116,7 +116,7 @@ const servicios = defineCollection({
                 isPopular: z.boolean().optional(),
                 includes: z.array(z.string()),
                 finalNote: z.string().optional(),
-                color: z.enum(['gray', 'primary', 'teal', 'purple', 'green']).optional(),
+                color: z.enum(['gray', 'primary', 'teal', 'purple', 'green', 'orange']).optional(),
             })
         ).optional(),
     }),

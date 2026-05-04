@@ -104,7 +104,7 @@ pricing:
             isPopular: true,
             includes: ["Setup & Arquitectura Web", "Landing Page", "Tarjeta Digital"],
             finalNote: "Dominio, correos, landing page optimizada y tarjeta digital. Listo para lanzar.",
-            color: "primary",
+            color: "orange",
         },
     ]
 ---
