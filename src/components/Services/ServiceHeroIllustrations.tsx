@@ -209,13 +209,65 @@ export const VinRestIllustration = () => (
     <text x="120" y="105" fill="white" fontSize="12" fontWeight="bold">GET</text>
     <rect x="160" y="90" width="120" height="20" rx="4" fill="#4B5563" />
     <rect x="100" y="140" width="200" height="100" rx="8" fill="#111827" />
-    <text x="110" y="160" fill="#10B981" fontSize="10" fontFamily="monospace">{"{"}</text>
+    <text x="110" y="160" fill="#10B981" fontSize="10" fontFamily="monospace">{'{'}</text>
     <text x="120" y="175" fill="#60A5FA" fontSize="10" fontFamily="monospace">"status":</text>
     <text x="170" y="175" fill="#F59E0B" fontSize="10" fontFamily="monospace">"success"</text>
     <text x="120" y="190" fill="#60A5FA" fontSize="10" fontFamily="monospace">"data":</text>
     <text x="160" y="190" fill="#E5E7EB" fontSize="10" fontFamily="monospace">[...]</text>
-    <text x="110" y="205" fill="#10B981" fontSize="10" fontFamily="monospace">{"}"}</text>
+    <text x="110" y="205" fill="#10B981" fontSize="10" fontFamily="monospace">{'}'}</text>
     <circle cx="290" cy="100" r="8" fill="#10B981" />
     <path d="M286 100 L289 103 L294 98" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const LandingPageIllustration = () => (
+  <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Fondo con gradiente */}
+    <rect x="40" y="40" width="320" height="220" rx="12" fill="url(#landingGradient)" />
+    <defs>
+      <linearGradient id="landingGradient" x1="40" y1="40" x2="360" y2="260" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#F0F9FF" />
+        <stop offset="1" stopColor="#E0F2FE" />
+      </linearGradient>
+    </defs>
+    
+    {/* Header */}
+    <rect x="60" y="60" width="280" height="30" rx="8" fill="white" />
+    <rect x="70" y="70" width="60" height="10" rx="4" fill="#00a8e8" />
+    <rect x="250" y="70" width="80" height="10" rx="4" fill="#E5E7EB" />
+    
+    {/* Hero Section */}
+    <rect x="60" y="105" width="280" height="60" rx="8" fill="white" />
+    <rect x="80" y="115" width="120" height="12" rx="4" fill="#1F2937" />
+    <rect x="80" y="133" width="180" height="8" rx="4" fill="#9CA3AF" />
+    <rect x="80" y="145" width="140" height="8" rx="4" fill="#9CA3AF" />
+    
+    {/* CTA Button */}
+    <rect x="140" y="175" width="120" height="35" rx="18" fill="url(#ctaGradient)" />
+    <defs>
+      <linearGradient id="ctaGradient" x1="140" y1="175" x2="260" y2="210" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#00a8e8" />
+        <stop offset="1" stopColor="#0077b6" />
+      </linearGradient>
+    </defs>
+    <rect x="165" y="185" width="70" height="15" rx="4" fill="white" fillOpacity="0.3" />
+    
+    {/* Form Section */}
+    <rect x="60" y="225" width="130" height="25" rx="6" fill="white" stroke="#E5E7EB" strokeWidth="1" />
+    <rect x="70" y="232" width="80" height="10" rx="3" fill="#F3F4F6" />
+    
+    <rect x="210" y="225" width="130" height="25" rx="6" fill="white" stroke="#E5E7EB" strokeWidth="1" />
+    <rect x="220" y="232" width="80" height="10" rx="3" fill="#F3F4F6" />
+    
+    {/* WhatsApp Icon */}
+    <circle cx="320" cy="240" r="15" fill="#25D366" />
+    <path d="M315 235 Q315 232 318 232 Q321 232 321 235 L321 240 Q321 243 318 243 Q315 243 315 240 Z" fill="white" />
+    <path d="M318 243 L318 246 L321 244" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    
+    {/* Conversion indicators */}
+    <circle cx="90" cy="190" r="4" fill="#10B981" />
+    <circle cx="310" cy="190" r="4" fill="#10B981" />
+    <path d="M88 188 L90 190 L92 186" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M308 188 L310 190 L312 186" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );

@@ -11,27 +11,28 @@ const metrics = [
     { number: "4★+", label: "Satisfacción promedio de clientes" },
 ];
 
-const allServices = await getCollection("services");
+const allServices = await getCollection("servicios");
 
 const mainServices = allServices
     .filter(
-        (service) =>
-            service.data.available &&
+        (servicio) =>
+            servicio.data.available &&
             [
-                "setup-web",
-                "custom-software",
-                "portfolio",
-                "digital-card",
-                "vin-display",
-                "link-bio",
-            ].includes(service.slug),
+                "desarrollo-pagina-web",
+                "setup-web-y-asesoria-seo",
+                "desarrollo-software-a-medida",
+                "diseño-portfolio-profesional",
+                "diseño-tarjeta-de-presentacion",
+                "sistema-carteleria-digital",
+                "desarrollo-links-bio",
+            ].includes(servicio.slug),
     )
     .sort((a, b) => a.data.id - b.data.id)
-    .map((service) => ({
-        icon: service.data.icon as IconName,
-        title: service.data.title,
-        description: service.data.cardDescription,
-        slug: service.slug,
+    .map((servicio) => ({
+        icon: servicio.data.icon as IconName,
+        title: servicio.data.title,
+        description: servicio.data.cardDescription,
+        slug: servicio.slug,
     }));
 ---
 
@@ -43,17 +44,17 @@ const mainServices = allServices
         >
             <div>
                 <h2
-                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight text-text-primary"
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1] tracking-tight text-text-primary"
                 >
                     {SERVICES_TITLE}
                 </h2>
             </div>
             <div class="flex items-end lg:border-l lg:border-gray-200 lg:pl-12">
-                <p
+                <h3
                     class="text-base md:text-lg font-normal leading-relaxed text-text-secondary"
                 >
                     {SERVICES_SUBTITLE}
-                </p>
+                </h3>
             </div>
         </div>
 
@@ -75,9 +76,9 @@ const mainServices = allServices
 
         <!-- Título de Servicios con separador -->
         <div class="mb-16">
-            <h3 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">
                 Nuestros Servicios
-            </h3>
+            </h2>
             <div class="w-full h-px bg-gray-200"></div>
         </div>
 
@@ -89,7 +90,7 @@ const mainServices = allServices
 
                     return (
                         <a
-                            href={`/services/${service.slug}`}
+                            href={`/servicios/${service.slug}`}
                             class="block bg-white rounded-2xl border border-gray-200 py-8 px-6 md:py-12 md:px-10 shadow-md hover:shadow-xl transition-all duration-200 group cursor-pointer hover:border-primary/30 grid grid-cols-[auto_1fr] gap-6"
                         >
                             {/* Icono */}
@@ -145,7 +146,7 @@ const mainServices = allServices
         <!-- CTA para ver más -->
         <div class="mt-20 text-center">
             <a
-                href="/services"
+                href="/servicios"
                 class="inline-flex items-center gap-3 px-10 py-5 bg-gray-50 border-2 border-gray-200 text-text-primary font-semibold rounded-full text-lg transition-all duration-200 hover:border-primary hover:bg-primary/5 hover:scale-105"
             >
                 Ver todos los servicios

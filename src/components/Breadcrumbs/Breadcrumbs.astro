@@ -1,0 +1,73 @@
+---
+interface BreadcrumbItem {
+    label: string;
+    href: string;
+}
+
+interface Props {
+    items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="py-4 flex justify-end">
+    <ol
+        class="flex items-center gap-2 text-sm text-text-secondary flex-wrap"
+        itemscope
+        itemtype="https://schema.org/BreadcrumbList"
+    >
+        {
+            items.map((item, index) => (
+                <li
+                    class="flex items-center gap-2"
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                >
+                    {index < items.length - 1 ? (
+                        <>
+                            <a
+                                href={item.href}
+                                class="hover:text-primary transition-colors duration-200 font-medium"
+                                itemprop="item"
+                            >
+                                <span itemprop="name">{item.label}</span>
+                            </a>
+                            <meta
+                                itemprop="position"
+                                content={String(index + 1)}
+                            />
+                            <svg
+                                class="w-4 h-4 text-gray-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </>
+                    ) : (
+                        <>
+                            <span
+                                class="text-text-primary font-semibold"
+                                itemprop="name"
+                            >
+                                {item.label}
+                            </span>
+                            <meta
+                                itemprop="position"
+                                content={String(index + 1)}
+                            />
+                        </>
+                    )}
+                </li>
+            ))
+        }
+    </ol>
+</nav>

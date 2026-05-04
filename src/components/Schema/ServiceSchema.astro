@@ -1,0 +1,106 @@
+---
+interface PricingPackage {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    originalPrice: number;
+    discount: string;
+    deliveryTime?: string;
+    isPopular?: boolean;
+    includes: string[];
+    finalNote?: string;
+    color?: "gray" | "primary" | "teal" | "purple" | "green";
+}
+
+interface Props {
+    serviceName: string;
+    serviceDescription: string;
+    serviceCategory: string;
+    canonicalUrl: string;
+    pricing?: PricingPackage[];
+}
+
+const { serviceName, serviceDescription, serviceCategory, canonicalUrl, pricing = [] } = Astro.props;
+
+const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vincode",
+    "url": "https://www.vincode.dev",
+    "logo": "https://www.vincode.dev/vincode-icon.ico",
+    "sameAs": [
+        "https://www.instagram.com/vincodedev/"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+51-956-023-028",
+        "contactType": "customer service",
+        "areaServed": "PE",
+        "availableLanguage": ["es", "en"]
+    }
+};
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": serviceName,
+    "description": serviceDescription,
+    "provider": {
+        "@type": "Organization",
+        "name": "Vincode",
+        "url": "https://www.vincode.dev"
+    },
+    "areaServed": {
+        "@type": "Country",
+        "name": "Perú",
+        "identifier": "PE"
+    },
+    "serviceType": serviceCategory,
+    "url": canonicalUrl,
+    "offers": pricing.map((pkg) => ({
+        "@type": "Offer",
+        "name": pkg.name,
+        "description": pkg.description,
+        "price": pkg.price.toString(),
+        "priceCurrency": "PEN",
+        "availability": "https://schema.org/InStock",
+        "validFrom": new Date().toISOString().split('T')[0],
+        "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+        "itemOffered": {
+            "@type": "Service",
+            "name": `${serviceName} - ${pkg.name}`,
+            "description": pkg.includes.join(", ")
+        }
+    }))
+};
+
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.vincode.dev/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Servicios",
+            "item": "https://www.vincode.dev/servicios"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": serviceName,
+            "item": canonicalUrl
+        }
+    ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

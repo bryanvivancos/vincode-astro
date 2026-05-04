@@ -1,0 +1,75 @@
+---
+import { getCollection, render } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import ServicesPageTemplate from "../../components/Services/ServicePageTemplate.astro";
+import ServiceSchema from "../../components/Schema/ServiceSchema.astro";
+import { BRAND_NAME } from "../../CONSTANTS";
+
+export async function getStaticPaths() {
+    const servicios = await getCollection("servicios");
+
+    return servicios.map((servicio) => ({
+        params: { id: servicio.slug },
+        props: { servicio },
+    }));
+}
+
+const { servicio } = Astro.props;
+const { data } = servicio;
+const {
+    title,
+    subtitle,
+    cardDescription,
+    description,
+    demosTitle,
+    benefits,
+    projects,
+    faqData,
+    pricing,
+    category,
+    heroImage,
+} = data;
+
+const categoryMap: Record<string, string> = {
+    web: "Desarrollo Web",
+    software: "Desarrollo de Software",
+    design: "Diseño Digital",
+    marketing: "Marketing Digital",
+};
+
+const serviceCategory = categoryMap[category] || "Servicios Digitales";
+
+const pathname = Astro.url.pathname;
+const siteUrl =
+    Astro.site?.toString().replace(/\/$/, "") || "https://www.vincode.dev";
+const canonicalURL = new URL(pathname, siteUrl).toString();
+
+export const prerender = true;
+---
+
+<MainLayout
+    title={`${title} | ${BRAND_NAME}`}
+    description={cardDescription}
+    keywords={`${title}, Servicios digitales, Desarrollo web, Vincode`}
+>
+    <ServiceSchema
+        slot="schema"
+        serviceName={title}
+        serviceDescription={description}
+        serviceCategory={serviceCategory}
+        canonicalUrl={canonicalURL}
+        pricing={pricing}
+    />
+    <ServicesPageTemplate
+        serviceTitle={title}
+        subtitles={subtitle}
+        description={description}
+        profits={benefits}
+        demos={demosTitle}
+        projects={projects}
+        faqsItems={faqData}
+        serviceSlug={servicio.slug}
+        pricing={pricing}
+        heroImage={heroImage}
+    />
+</MainLayout>

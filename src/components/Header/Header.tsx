@@ -59,9 +59,9 @@ export default function Header({ currentPath }: { currentPath: string }) {
 
                     {/* CTA Button */}
                     <div className="flex items-center gap-4">
-                        {path !== "contact" && (
+                        {path !== "contacto" && (
                             <a
-                                href="/contact"
+                                href="/contacto"
                                 className="hidden sm:block px-6 py-2.5 bg-primary text-white font-semibold rounded-full text-sm transition-all duration-200 hover:bg-primary-hover hover:scale-105"
                             >
                                 Empecemos

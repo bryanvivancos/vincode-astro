@@ -30,22 +30,42 @@ Allow: /
 Allow: /_astro/
 
 # Páginas principales permitidas explícitamente
+Allow: /sobre-nosotros/
+Allow: /contacto/
+Allow: /nuestros-proyectos/
+Allow: /servicios/
+
+
 Allow: /about-us/
 Allow: /contact/
 Allow: /projects/
 Allow: /services/
 
 # Páginas de servicios dinámicos
-Allow: /services/custom-software/
-Allow: /services/digital-card/
-Allow: /services/link-bio/
-Allow: /services/portfolio/
-Allow: /services/setup-web/
-Allow: /services/technique-support/
-Allow: /services/vin-display/
-# Allow: /services/point-of-service/
-# Allow: /services/ecommerce/
-# Allow: /services/vin-rest/
+Allow: /servicios/desarrollo-pagina-web/ 
+Allow: /servicios/desarrollo-software-a-medida/
+Allow: /servicios/diseño-tarjeta-de-presentacion/
+Allow: /servicios/desarrollo-links-bio/
+Allow: /servicios/diseño-portafolio-profesional/
+Allow: /servicios/setup-web-y-asesoria-seo/
+Allow: /servicios/software-licenciado/
+Allow: /servicios/sistema-carteleria-digital/
+
+Disallow: /servicios/punto-de-venta/
+Disallow: /servicios/creación-paginas-web-e-commerce/
+Disallow: /servicios/sistema-para-restaurante/
+
+
+# Allow: /services/custom-software/
+# Allow: /services/digital-card/
+# Allow: /services/link-bio/
+# Allow: /services/portfolio/
+# Allow: /services/setup-web/
+# Allow: /services/technique-support/
+# Allow: /services/vin-display/
+Disallow: /services/point-of-service/
+Disallow: /services/ecommerce/
+Disallow: /services/vin-rest/
 
 # Bloquear carpetas sensibles (descomentar si existen)
 # Disallow: /private/

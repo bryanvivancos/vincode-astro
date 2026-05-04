@@ -50,7 +50,7 @@ export default function MobileNav( {currentPath} : {currentPath: string}) {
           ))}
         </nav>
 
-        <a href={`/contact`} 
+        <a href={`/contacto`} 
           className="btn-primary text-2xl hover:scale-105 transition-transform"
           onClick={() => toggleMenu()}
         >

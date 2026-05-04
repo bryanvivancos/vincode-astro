@@ -5,27 +5,27 @@ export const phone = '+51 956023028'
 export const WHATSAPP_NUMBER = '51956023028'
 
 export const HERO_TITLE = "Eleva Tu Presencia En Línea con Servicios Digitales"
-export const HERO_SUBTITLE = "Desde tarjetas digitales intuitivas, portfolios impresionantes hasta potentes plataformas de comercio electrónico, creamos soluciones digitales que impulsan el éxito."
+export const HERO_SUBTITLE = "Desde tarjetas de presentación digitales intuitivas, portfolios impresionantes hasta potentes plataformas de comercio electrónico, creamos soluciones digitales que impulsan el éxito."
 
-export const SERVICES_TITLE = "Soluciones Digitales"
-export const SERVICES_SUBTITLE = "Ofrecemos una gama de servicios para satisfacer tus necesidades digitales, desde la creación de tarjetas digitales, portfolios hasta el desarrollo de un software a la medida de tu negocio."
+export const SERVICES_TITLE = "Desarrollo Multiplataforma"
+export const SERVICES_SUBTITLE = "Ofrecemos una gama de servicios para satisfacer tus necesidades digitales, desde el desarrollo de páginas web multiplataforma, diseño de tarjetas de presentación, links bio hasta el desarrollo de un software a la medida de tu negocio."
 
 // NAVBAR ITEMS
 export const navbar_items = [
   {
     id: 1,
     name: "Servicios",
-    htmlId: "services"
+    htmlId: "servicios"
   },
   {
     id: 2,
     name: "Proyectos",
-    htmlId: "projects"
+    htmlId: "nuestros-proyectos"
   },
   {
     id: 4,
     name: "Sobre Nosotros",
-    htmlId: "about-us"
+    htmlId: "sobre-nosotros"
   },
   // {
   //   id: 3,

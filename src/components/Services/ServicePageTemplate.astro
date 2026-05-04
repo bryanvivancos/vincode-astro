@@ -3,6 +3,7 @@ import GalleryReact from "../atoms/Gallery";
 import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
 import { icons, type IconName } from "../icons";
 import PricingSection from "../Pricing/PricingSection.astro";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs.astro";
 import {
     PortfolioIllustration,
     DigitalCardIllustration,
@@ -13,6 +14,7 @@ import {
     TechniqueSupportIllustration,
     PointOfServiceIllustration,
     VinRestIllustration,
+    LandingPageIllustration,
 } from "./ServiceHeroIllustrations";
 
 type Profits = {
@@ -79,9 +81,27 @@ const illustrationMap: Record<string, any> = {
     "technique-support": TechniqueSupportIllustration,
     "point-of-service": PointOfServiceIllustration,
     "vin-rest": VinRestIllustration,
+    "landing-page": LandingPageIllustration,
+
+    "diseño-portafolio-profesional": PortfolioIllustration,
+    "diseño-tarjeta-de-presentacion": DigitalCardIllustration,
+    "desarrollo-links-bio": LinkBioIllustration,
+    "desarrollo-software-a-medida": CustomSoftwareIllustration,
+    "sistema-carteleria-digital": VinDisplayIllustration,
+    "creación-paginas-web-ecommerce": EcommerceIllustration,
+    "software-licenciado": TechniqueSupportIllustration,
+    "punto-de-venta": PointOfServiceIllustration,
+    "sistema-para-restaurante": VinRestIllustration,
+    "desarrollo-pagina-web": LandingPageIllustration,
 };
 
 const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
+
+const breadcrumbItems = [
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios" },
+    { label: serviceTitle, href: "#" },
+];
 ---
 
 <!-- Hero Section -->
@@ -89,14 +109,15 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
     class="bg-gradient-to-br from-gray-50 to-white pt-28 pb-20 md:pt-32 md:pb-28"
 >
     <div class="section-container">
+        <Breadcrumbs items={breadcrumbItems} />
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <!-- Contenido izquierda -->
             <div class="space-y-6">
-                <p
+                <h2
                     class="text-xs md:text-sm font-semibold tracking-widest text-primary uppercase"
                 >
                     {subtitles}
-                </p>
+                </h2>
 
                 <h1
                     class="!text-4xl md:!text-5xl font-black text-text-primary leading-tight"
@@ -104,11 +125,11 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
                     {serviceTitle}
                 </h1>
 
-                <p
+                <h2
                     class="text-sm md:text-base text-text-secondary leading-relaxed"
                 >
                     {description}
-                </p>
+                </h2>
 
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
                     <a
@@ -141,9 +162,22 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
             <!-- Ilustración del servicio -->
             <div class="hidden lg:flex items-center justify-center">
                 <div class="w-full max-w-lg">
-                    {IllustrationComponent && <IllustrationComponent />}
                     {
-                        !IllustrationComponent && (
+                        heroImage && (
+                            <img
+                                src={heroImage}
+                                alt={serviceTitle}
+                                class="w-full h-auto"
+                            />
+                        )
+                    }
+                    {
+                        !heroImage && IllustrationComponent && (
+                            <IllustrationComponent />
+                        )
+                    }
+                    {
+                        !heroImage && !IllustrationComponent && (
                             <div class="space-y-4">
                                 <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
                                     <svg
@@ -183,9 +217,9 @@ const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
             >
                 Nuestro Enfoque
             </p>
-            <h2 class="!text-2xl md:!text-3xl font-bold text-text-primary mb-6">
+            <p class="!text-2xl md:!text-3xl font-bold text-text-primary mb-6">
                 Cómo Transformamos Tu Visión en Realidad
-            </h2>
+            </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

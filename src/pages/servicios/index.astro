@@ -6,7 +6,7 @@ import { BRAND_NAME, SERVICES_TITLE } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 
-const services = (await getCollection("services")).sort((a, b) => {
+const services = (await getCollection("servicios")).sort((a, b) => {
     if (a.data.available !== b.data.available) {
         return a.data.available ? -1 : 1;
     }
@@ -25,7 +25,9 @@ export const prerender = true;
     <section class="section-spacing">
         <div class="section-container">
             <div class="text-center max-w-3xl mx-auto">
-                <p class="eyebrow">Transforma tu Negocio</p>
+                <p class="eyebrow">
+                    Transforma tu Negocio con Nuestros Servicios de Desarrollo
+                </p>
                 <h1 class="sectionTitle mb-6">{SERVICES_TITLE}</h1>
                 <p class="section-subtitle mx-auto">
                     De la idea al lanzamiento. Creamos soluciones digitales que
@@ -46,7 +48,7 @@ export const prerender = true;
                 <h2
                     class="text-3xl md:text-4xl font-bold text-text-primary mb-4"
                 >
-                    Desarrollo Web
+                    Desarrollo y Diseño Web
                 </h2>
                 <p class="section-subtitle">
                     Tu presencia digital empieza aquí. Diseñamos sitios web que
@@ -68,7 +70,7 @@ export const prerender = true;
                 <h2
                     class="text-3xl md:text-4xl font-bold text-text-primary mb-4"
                 >
-                    Desarrollo de Software
+                    Desarrollo de Software A Medida
                 </h2>
                 <p class="section-subtitle">
                     Automatiza lo repetitivo, enfócate en crecer. Construimos
@@ -88,9 +90,9 @@ export const prerender = true;
     </section>
 
     <CTABanner
-        title="¿Listo para Despegar?"
+        title="¿Listo para Despegar? Contáctanos"
         description="Cuéntanos tu idea y te mostramos cómo hacerla realidad. Cotización sin compromiso en menos de 24 horas."
         buttonText="Empecemos Ahora"
-        buttonHref="/contact"
+        buttonHref="/contacto"
     />
 </MainLayout>

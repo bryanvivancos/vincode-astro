@@ -19,40 +19,40 @@ export default function Hero() {
                 <div className="flex flex-col items-center text-center">
                     
                     {/* Badge minimalista */}
-                    <div className="inline-flex items-center px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md mb-8">
+                    <h1 className="inline-flex items-center px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md mb-8">
                         <span className="text-xs font-semibold tracking-wider uppercase text-white">
-                            Agencia de Desarrollo Digital
+                            Agencia de Desarrollo y Diseño Web
                         </span>
-                    </div>
+                    </h1>
 
                     {/* Título MASIVO - Tipografía Brutalista */}
-                    <h1 className="font-black leading-[0.9] tracking-[-0.04em] text-white mb-6">
+                    <p className="font-black leading-[0.9] tracking-[-0.04em] text-white mb-6">
                         <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                             {HERO_TITLE.split(' ')[0]}
                         </span>
                         <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-1">
                             {HERO_TITLE.split(' ').slice(1).join(' ')}
                         </span>
-                    </h1>
+                    </p>
 
                     {/* Subtítulo limpio y espaciado */}
-                    <p className=" text-xs md:text-lg font-normal text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
+                    <h2 className=" text-xs md:text-lg font-normal text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
                         {HERO_SUBTITLE}
-                    </p>
+                    </h2>
 
                     {/* Botones con mucho espacio */}
                     <div className="pt-4 md:pt-0 flex flex-col sm:flex-row items-center gap-4">
                         <a
-                            href="/services"
+                            href="/servicios"
                             className="px-4 py-3 md:px-10 md:py-5 border-2 border-primary/30 bg-primary text-white font-semibold rounded-full text-base md:text-lg transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
                         >
                             Ver Servicios
                         </a>
                         <a
-                            href="/projects"
+                            href="/contacto"
                             className="px-4 py-3 md:px-10 md:py-5  border-2 border-white/30 text-white font-semibold rounded-full text-base md:text-lg transition-all duration-200 hover:border-white hover:bg-white/10 hover:scale-105 backdrop-blur-sm"
                         >
-                            Ver Proyectos
+                            Contáctanos
                         </a>
                     </div>
 
