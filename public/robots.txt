@@ -50,6 +50,7 @@ Allow: /servicios/diseño-portafolio-profesional/
 Allow: /servicios/setup-web-y-asesoria-seo/
 Allow: /servicios/software-licenciado/
 Allow: /servicios/sistema-carteleria-digital/
+Allow: /servicios/pagina-web-de-reservas/
 
 Disallow: /servicios/punto-de-venta/
 Disallow: /servicios/creación-paginas-web-e-commerce/
@@ -63,6 +64,7 @@ Disallow: /servicios/sistema-para-restaurante/
 # Allow: /services/setup-web/
 # Allow: /services/technique-support/
 # Allow: /services/vin-display/
+# Allow: /services/pagina-web-de-reservas/
 Disallow: /services/point-of-service/
 Disallow: /services/ecommerce/
 Disallow: /services/vin-rest/
