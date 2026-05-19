@@ -6,8 +6,7 @@ icon: RocketIcon
 cardDescription: Página web diseñada para convertir visitas en clientes o ventas con SEO optimizado.
 available: true
 subtitle: "Página web de reservas personalizada y optimizada para convertir visitas en reservas reales"
-description: `Nuestro servicio de creación de páginas de reservas está diseñado para barberías, lashistas, spa, salones de belleza y profesionales que desean ofrecer a sus clientes una forma moderna, rápida y profesional de agendar citas online. 
-Inspirados en la experiencia de uso de páginas como Booking, desarrollamos plataformas intuitivas y modernas donde tus clientes puedan descubrir y reservar una cita de forma rápida, cómoda y profesional.`
+description: "Nuestro servicio de creación de páginas de reservas está diseñado para barberías, lashistas, spa, salones de belleza y profesionales que desean ofrecer a sus clientes una forma moderna, rápida y profesional de agendar citas online. Inspirados en la experiencia de uso de páginas como Booking, desarrollamos plataformas intuitivas y modernas donde tus clientes puedan descubrir y reservar una cita de forma rápida, cómoda y profesional."
 demosTitle: "Como se vería tu página"
 heroImage: "/pagina-reservas.svg"
 benefits:
