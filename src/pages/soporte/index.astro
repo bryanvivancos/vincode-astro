@@ -1,0 +1,19 @@
+---
+import { Toaster } from "react-hot-toast";
+import SupportForm from "../../components/SupportForm/SupportForm";
+import { BRAND_NAME } from "../../CONSTANTS";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+export const prerender = false;
+---
+
+<MainLayout
+    title={`Soporte Técnico | ${BRAND_NAME}`}
+    description="¿Necesitas ayuda con alguno de nuestros servicios? Completa el formulario de soporte y nuestro equipo se pondrá en contacto contigo."
+    keywords="Soporte, Ayuda, Asistencia técnica, Vincode, Soporte técnico"
+>
+    <section class="py-10 px-4">
+        <SupportForm client:visible />
+    </section>
+    <Toaster client:visible />
+</MainLayout>
