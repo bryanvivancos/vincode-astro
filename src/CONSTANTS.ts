@@ -47,7 +47,7 @@ export const navbar_items = [
 // PROYECTOS
 export const projects = [
   {
-    title: 'Portfolio',
+    title: 'Portfolio Profesional',
     description: 'Un portfolio que no solo muestra proyectos, sino que cuenta una historia profesional. Diseño interactivo y responsive que captura la atención de reclutadores y clientes, optimizado para aparecer en las primeras búsquedas de Google.',
     category: 'Web',
     img: '/portfolio-web.webp',
@@ -77,6 +77,15 @@ export const projects = [
     img: '/catquiz-digital-card.webp',
     imgGallery: ['catquiz-digital-card'],
     url: 'https://card.catquiz.pe',
+    goToWeb: true
+  },
+  {
+    title: 'Página de reservas Demo',
+    description: 'Reservas en línea para tu negocio. Gestiona citas, horarios y disponibilidad de manera simple y eficiente. Una solución que optimiza tu tiempo y mejora la experiencia de tus clientes.',
+    category: 'Web',
+    img: '/reservas-img2.webp',
+    imgGallery: ['reservas-img1', 'reservas-img2'],
+    url: 'https://vin-book-template.vercel.app/',
     goToWeb: true
   },
   {
