@@ -67,7 +67,7 @@ ${message.trim()}`;
 
     return (
   <section className="section-spacing">
-    <div className="section-container">
+    <div className="section-container max-md:!px-2">
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
@@ -120,7 +120,7 @@ ${message.trim()}`;
             </button>
           </div>
 
-          <form className="p-8 md:p-10 space-y-6" onSubmit={onSubmit}>
+          <form className="py-8 px-4 md:px-8 md:py-10 space-y-6" onSubmit={onSubmit}>
           
           {/* Grid 2 columnas para nombre y email */}
           <div className="flex flex-col gap-6">
