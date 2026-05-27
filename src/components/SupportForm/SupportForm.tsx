@@ -93,7 +93,7 @@ export default function SupportForm() {
                 <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
 
                     {/* FORM */}
-                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                    <div className="bg-[#f8f8fa] rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
                         <div className="bg-primary px-6 py-5 text-center">
                             <h3 className="text-xl font-bold text-white uppercase tracking-wide">
                                 Formulario de Soporte
@@ -112,7 +112,7 @@ export default function SupportForm() {
                                     id="name"
                                     name="name"
                                     placeholder="John Doe"
-                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                                     required
                                 />
                             </div>
@@ -127,7 +127,7 @@ export default function SupportForm() {
                                     id="company"
                                     name="company"
                                     placeholder="Tu Empresa"
-                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                                     required
                                 />
                             </div>
@@ -140,7 +140,7 @@ export default function SupportForm() {
                                 <select
                                     id="service"
                                     name="service"
-                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                                     required
                                 >
                                     <option value="">Selecciona un servicio</option>
@@ -163,7 +163,7 @@ export default function SupportForm() {
                                         id="phone"
                                         name="phone"
                                         placeholder="+51 999 999 999"
-                                        className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                                         required
                                     />
                                 </div>
@@ -177,7 +177,7 @@ export default function SupportForm() {
                                         id="email"
                                         name="email"
                                         placeholder="john@mail.com"
-                                        className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                                         required
                                     />
                                 </div>
@@ -192,7 +192,7 @@ export default function SupportForm() {
                                     id="message"
                                     name="message"
                                     placeholder="Describe tu consulta o problema..."
-                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-32 resize-y"
+                                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-32 resize-y"
                                     required
                                 />
                             </div>
@@ -250,7 +250,7 @@ export default function SupportForm() {
                     <div className="space-y-6">
 
                         {/* INFO CARD */}
-                        <div className="relative rounded-2xl p-8 bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.37)] overflow-hidden">
+                        <div className="relative rounded-2xl p-8 bg-[#f8f8fa]/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.37)] overflow-hidden">
                             <h3 className="text-xl font-semibold text-text-primary mb-6">
                                 Información de Contacto
                             </h3>

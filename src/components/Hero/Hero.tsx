@@ -19,7 +19,7 @@ export default function Hero() {
                 <div className="flex flex-col items-center text-center">
                     
                     {/* Badge minimalista */}
-                    <h1 className="inline-flex items-center px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md mb-8">
+                    <h1 className="inline-flex items-center px-4 py-2 rounded-full border border-white/30 bg-[#f8f8fa]/10 backdrop-blur-md mb-8">
                         <span className="text-xs font-semibold tracking-wider uppercase text-white">
                             Agencia de Desarrollo y Diseño Web
                         </span>
@@ -50,7 +50,7 @@ export default function Hero() {
                         </a>
                         <a
                             href="/contacto"
-                            className="px-4 py-3 md:px-10 md:py-5  border-2 border-white/30 text-white font-semibold rounded-full text-base md:text-lg transition-all duration-200 hover:border-white hover:bg-white/10 hover:scale-105 backdrop-blur-sm"
+                            className="px-4 py-3 md:px-10 md:py-5  border-2 border-white/30 text-white font-semibold rounded-full text-base md:text-lg transition-all duration-200 hover:border-white hover:bg-[#f8f8fa]/10 hover:scale-105 backdrop-blur-sm"
                         >
                             Contáctanos
                         </a>

@@ -51,7 +51,7 @@ const Carrousel: React.FC<CarrouselProps> = ({
         className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 group ${items.length <= 4 ? "hidden" : ""}`}
         aria-label="anterior"
       >
-        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+        <div className="w-10 h-10 rounded-xl bg-[#f8f8fa]/5 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
           <Icon
             name="ChevronLeftIcon"
             className="w-6 h-6 text-white"
@@ -89,7 +89,7 @@ const Carrousel: React.FC<CarrouselProps> = ({
         className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 group ${items.length <= 4 ? "hidden" : ""}`}
         aria-label="siguiente"
       >
-        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+        <div className="w-10 h-10 rounded-xl bg-[#f8f8fa]/5 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
           <Icon
             name="ChevronRightIcon"
             className="w-6 h-6 text-white"

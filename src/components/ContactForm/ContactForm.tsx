@@ -82,7 +82,7 @@ ${message.trim()}`;
       <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
 
         {/* FORM */}
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+        <div className="bg-[#f8f8fa] rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
           {/* Pestañas WhatsApp / Email */}
           <div className="flex border-b border-gray-200">
             <button
@@ -133,7 +133,7 @@ ${message.trim()}`;
                 id="name"
                 name="name"
                 placeholder="John Doe"
-                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                 required
               />
             </div>
@@ -149,7 +149,7 @@ ${message.trim()}`;
                     id="email"
                     name="email"
                     placeholder="john@mail.com"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                     required
                   />
                 </div>
@@ -169,7 +169,7 @@ ${message.trim()}`;
                 id="phone"
                 name="phone"
                 placeholder="555-555-5555"
-                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                 required
               />
             </div>
@@ -183,7 +183,7 @@ ${message.trim()}`;
                 id="company"
                 name="company"
                 placeholder="Tu Empresa"
-                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
               />
             </div>
           </div>
@@ -197,7 +197,7 @@ ${message.trim()}`;
               id="message"
               name="message"
               placeholder="Cuéntanos sobre tu proyecto..."
-              className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-32 resize-y"
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-32 resize-y"
               required
             />
           </div>
@@ -236,7 +236,7 @@ ${message.trim()}`;
           {/* CONTACT CARD */}
           <div className="
             relative rounded-2xl p-8
-            bg-white/5
+            bg-[#f8f8fa]/5
             backdrop-blur-2xl
             border border-white/10
             shadow-[0_8px_32px_rgba(0,0,0,0.37)]

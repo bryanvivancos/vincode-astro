@@ -30,7 +30,7 @@ type IconName = keyof typeof icons;
             if (category === itemCategory) {
                 return (
                     <div
-                        class={`bg-white rounded-2xl border border-gray-200 p-6 py-8 md:p-12 shadow-md hover:shadow-xl transition-all duration-200 relative group fade-in-up ${!available ? "opacity-60" : ""}`}
+                        class={`bg-[#f8f8fa] rounded-2xl border border-gray-200 p-6 py-8 md:p-12 shadow-card-mobile md:shadow-md hover:shadow-card-hover-xl transition-all duration-200 relative group fade-in-up ${!available ? "opacity-60" : ""}`}
                     >
                         {/* Icono */}
                         <div class="mb-6">
@@ -80,7 +80,7 @@ type IconName = keyof typeof icons;
 
                         {/* Badge próximamente */}
                         {!available && (
-                            <div class="absolute top-6 right-6 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200">
+                            <div class="absolute top-6 right-6 px-3 py-1.5 rounded-full bg-[#f8f8fa]/90 backdrop-blur-sm border border-gray-200">
                                 <span class="text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Próximamente
                                 </span>

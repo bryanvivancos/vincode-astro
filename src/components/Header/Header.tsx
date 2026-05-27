@@ -24,8 +24,8 @@ export default function Header({ currentPath }: { currentPath: string }) {
                     px-8 py-4 rounded-full
                     transition-all duration-300
                     ${scrolled 
-                        ? 'bg-white/95 backdrop-blur-xl shadow-lg border border-gray-100' 
-                        : 'bg-white/60 backdrop-blur-md border border-white/20'}
+                        ? 'bg-[#f8f8fa]/95 backdrop-blur-xl shadow-lg border border-gray-100' 
+                        : 'bg-[#f8f8fa]/60 backdrop-blur-md border border-white/20'}
                 `}>
                     {/* Logo minimalista */}
                     <a href="/" className="group">

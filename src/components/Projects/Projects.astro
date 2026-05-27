@@ -20,13 +20,13 @@ import GalleryReact from "../atoms/Gallery";
         <div class="grid gap-10 grid-cols-1 md:grid-cols-2">
             {
                 projects.map((project) => (
-                    <div class="flex flex-col gap-4 group hover:shadow-lg rounded-2xl p-12">
+                    <div class="flex flex-col gap-4 group hover:shadow-lg rounded-2xl md:p-12 p-4">
                         {/* Proyecto */}
 
                         {/* Etiqueta lateral */}
                         <div class="flex items-center gap-3">
                             <div class="w-[2px] h-full bg-border group-hover:bg-primary transition-colors duration-200" />
-                            <span class="text-text-primary group-hover:text-primary group-hover:border-primary transition-colors badge text-center border-[#ffffff0d] border duration-200">
+                            <span class="text-text-primary group-hover:text-primary group-hover:border-primary transition-colors badge text-center border-[#f8f8fa0d] border duration-200">
                                 {project.category}
                             </span>
                         </div>
@@ -35,7 +35,7 @@ import GalleryReact from "../atoms/Gallery";
                             <div class="transition-transform duration-300 group-hover:scale-105 aspect-video">
                                 <GalleryReact
                                     galleryID="landing-gallery"
-                                    images={project.imgGallery}
+                                    images={[project.imgGallery[0]]}
                                     client:visible
                                 />
                             </div>
@@ -43,12 +43,12 @@ import GalleryReact from "../atoms/Gallery";
                         <a
                             href={project.url}
                             target={project.goToWeb ? "_blank" : "_self"}
-                            class="transition-transform duration-300 group-hover:scale-105 flex flex-col"
+                            class="transition-transform duration-300 group-hover:scale-105 flex flex-col mt-4"
                         >
                             <div class="flex flex-col gap-4 h-full">
                                 {/* Texto */}
                                 <div class="flex flex-col gap-2">
-                                    <h2 class="text-xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 group-hover:text-primary transition-colors duration-200">
+                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-text-primary group-hover:text-primary transition-colors duration-200">
                                         {project.title}
                                     </h2>
 

@@ -13,9 +13,10 @@ html {
     --color-primary-light: rgba(0, 168, 232, 0.1);
     
     /* Fondos - Con más contraste */
-    --color-background-dark: #ffffff;
-    --color-background-section: #f5f7fa;
-    --color-background-card: #ffffff;
+    --color-background-dark: #f8f8fa;
+    /* --color-background-section: #f5f7fa; */
+    --color-background-section: #f1f1f1;
+    --color-background-card: #f8f8fa;
     
     /* Bordes con más contraste */
     --color-border: #d1d5db;
@@ -27,7 +28,7 @@ html {
     --color-text-muted: #64748b;
     
     /* Inputs */
-    --color-input-background: #ffffff;
+    --color-input-background: #f8f8fa;
     --color-input-border: #e5e7eb;
 
     /* Tipografías */
@@ -41,7 +42,9 @@ html {
     --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.18);
     --shadow-glow: 0 0 0 3px rgba(0, 168, 232, 0.15);
     --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+    --shadow-card-mobile: 0 2px 8px 0 rgba(0, 168, 232, 0.15);
     --shadow-card-hover: 0 12px 24px -5px rgba(0, 168, 232, 0.2);
+    --shadow-card-hover-xl: 0 20px 30px -5px rgba(0, 168, 232, 0.3);
     
     /* Espaciado generoso */
     --spacing-section: 6rem;
@@ -184,7 +187,7 @@ html {
 
 .btn-primary {
     @apply py-3 px-7 bg-primary rounded-full text-base font-semibold transition-all duration-200 ease-out;
-    color: #ffffff;
+    color: #f8f8fa;
 }
 
 .btn-primary:hover {
@@ -208,7 +211,7 @@ html {
 
 .badge {
     @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold;
-    background: #ffffff0d;
+    background: #f8f8fa0d;
 }
 
 .badge-primary {

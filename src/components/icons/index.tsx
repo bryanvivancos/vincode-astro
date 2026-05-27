@@ -18,7 +18,7 @@ export const ChevronDownIcon = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       d="M6 9L12 15L18 9"
-      // Se reemplaza el color fijo (#ffffff) por `#00a8e8`.
+      // Se reemplaza el color fijo (#f8f8fa) por `#00a8e8`.
       // Esto permite que el color del stroke se controle con la clase `text-*` de Tailwind.
       stroke="#00a8e8" 
       strokeWidth="2"
@@ -49,7 +49,7 @@ export const ChevronUpIcon = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       d="M6 15L12 9L18 15"
-      // Cambiado de color fijo (#ffffff) a `#00a8e8`.
+      // Cambiado de color fijo (#f8f8fa) a `#00a8e8`.
       // El color del trazo (stroke) se controla con la clase `text-*` de Tailwind.
       stroke="#00a8e8" 
       strokeWidth="2"
