@@ -44,7 +44,7 @@ html {
     --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
     --shadow-card-mobile: 0 2px 8px 0 rgba(0, 168, 232, 0.15);
     --shadow-card-hover: 0 12px 24px -5px rgba(0, 168, 232, 0.2);
-    --shadow-card-hover-xl: 0 20px 30px -5px rgba(0, 168, 232, 0.3);
+    --shadow-card-hover-xl: 0 20px 30px -5px rgba(0, 168, 232, 0.2);
     
     /* Espaciado generoso */
     --spacing-section: 6rem;
