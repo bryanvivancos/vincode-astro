@@ -36,33 +36,45 @@ ${message.trim()}`;
             setBtnText("Enviar");
             form.reset();
         } else {
-            // Enviar por Email (Web3Forms)
-            formData.append("access_key", FORM_ACCESS_KEY);
+          // Enviar por Email (Resend vía /api/contact)
+          const data = {
+            name: formData.get('name') as string,
+            email: formData.get('email') as string,
+            phone: formData.get('phone') as string,
+            company: (formData.get('company') as string) || 'No especificada',
+            message: formData.get('message') as string,
+          };
 
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData,
-                });
+          try {
+            const response = await fetch('/api/contact', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
 
-                const data: { success: boolean } = await response.json();
-                if (data.success) {
-                    toast.success("Mensaje enviado satisfactoriamente, pronto nos pondremos en contacto contigo", {
-                    position: 'bottom-right',
-                    });
-                    setBtnText("Enviar");
-                    form.reset();
-                } else {
-                    toast.error("Error al enviar el mensaje, inténtelo más tarde", {
-                    position: 'bottom-right',
-                    });
-                    setBtnText("Enviar");
-                }
-            } catch (error) {
-                toast.error("Error al enviar el mensaje, inténtelo más tarde");
-                setBtnText("Enviar");
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+              toast.success('Mensaje enviado satisfactoriamente, pronto nos pondremos en contacto contigo', {
+                position: 'bottom-right',
+              });
+              setBtnText('Enviar');
+              form.reset();
+            } else {
+              toast.error(result.error || 'Error al enviar el mensaje, inténtelo más tarde', {
+                position: 'bottom-right',
+              });
+              setBtnText('Enviar');
             }
+          } catch (error) {
+            console.error('Error:', error);
+            toast.error('Error al enviar el mensaje, inténtelo más tarde');
+            setBtnText('Enviar');
+          }
         }
+        
     };
 
     return (
