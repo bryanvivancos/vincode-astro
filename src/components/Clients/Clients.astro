@@ -1,0 +1,113 @@
+---
+export interface Client {
+    name: string;
+    logo?: string;
+    url?: string;
+}
+
+interface Props {
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+    clients?: Client[];
+}
+
+const {
+    eyebrow = "Prueba social",
+    title = "Ellos ya confiaron en nosotros",
+    subtitle = "Marcas y negocios que eligieron Vincode para impulsar su presencia digital.",
+    clients = [
+        {
+            name: "Catquiz - Joyería y Accesorios",
+            logo: "/clients-img/CATQUIZ_Logo_metatags.webp",
+            url: "https://bio.catquiz.pe",
+        },
+        {
+            name: "El Chalan - Heladería",
+            logo: "/clients-img/el_chalan.webp",
+            url: "https://elchalan.com.pe",
+        },
+    ],
+} = Astro.props;
+
+function getInitials(name: string): string {
+    return name
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((word) => word[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2);
+}
+
+const cardClass =
+    "group flex flex-col items-center justify-center gap-4 min-h-[160px] md:min-h-[180px] text-center no-underline";
+
+const gridClass =
+    clients.length <= 2
+        ? "grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto list-none p-0 m-0"
+        : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto list-none p-0 m-0";
+---
+
+<section id="clients" class="bg-white">
+    <div class="section-container section-spacing">
+        <div class="text-center mb-12 md:mb-16 fade-in-up">
+            <h2 class="sectionTitle mb-6">{title}</h2>
+            <p class="section-subtitle mx-auto max-w-2xl">{subtitle}</p>
+        </div>
+
+        <ul class={gridClass} role="list">
+            {
+                clients.map((client, index) => {
+                    const initials = getInitials(client.name);
+                    const logoOrInitials = client.logo ? (
+                        <img
+                            src={client.logo}
+                            alt={`Logo de ${client.name}`}
+                            class="max-h-20 md:max-h-24 w-auto max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    ) : (
+                        <span
+                            class="flex items-center justify-center size-16 md:size-20 rounded-2xl bg-primary-light text-primary text-xl md:text-2xl font-bold tracking-wide transition-transform duration-300 group-hover:scale-105"
+                            aria-hidden="true"
+                        >
+                            {initials}
+                        </span>
+                    );
+
+                    const label = (
+                        <span class="text-sm md:text-base font-semibold text-text-secondary group-hover:text-primary transition-colors duration-200">
+                            {client.name}
+                        </span>
+                    );
+
+                    return (
+                        <li
+                            class={`fade-in-up stagger-${Math.min(index + 1, 8)}`}
+                        >
+                            {client.url ? (
+                                <a
+                                    href={client.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class={cardClass}
+                                    aria-label={client.name}
+                                >
+                                    {logoOrInitials}
+                                    {label}
+                                </a>
+                            ) : (
+                                <div class={cardClass} aria-label={client.name}>
+                                    {logoOrInitials}
+                                    {label}
+                                </div>
+                            )}
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
+</section>

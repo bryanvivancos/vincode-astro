@@ -4,6 +4,7 @@ import Services from "../components/Services/Services.astro";
 import HomePricingSection from "../components/Pricing/HomePricingSection.astro";
 import Projects from "../components/Projects/Projects.astro";
 import OtherProjects from "../components/OtherProjects/OtherProjects";
+import Clients from "../components/Clients/Clients.astro";
 import CTABanner from "../components/CTABanner/CTABanner.astro";
 import { BRAND_NAME } from "../CONSTANTS";
 import MainLayout from "../layouts/MainLayout.astro";
@@ -18,8 +19,9 @@ export const prerender = true;
 >
     <Hero client:load />
     <Services />
-    <HomePricingSection />
+    <Clients />
     <Projects />
+    <HomePricingSection />
     <OtherProjects client:visible />
     <CTABanner
         eyebrow="¿Listo para empezar?"
