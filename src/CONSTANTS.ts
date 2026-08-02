@@ -128,7 +128,7 @@ export const testimonials = [
 //Urls OTROS PROYECTOS
 export const QUIZTER_APP = "https://quizter-web.vercel.app/"
 export const RANDOMIZER_APP = "https://randomizer-app-psi.vercel.app/"
-export const VINBOOK_APP = "https://vin-book-template.vercel.app/"
+export const VINBOOK_APP = "https://vinbook.vincode.dev/"
 
 export const others_projects = [
   {
