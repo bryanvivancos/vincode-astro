@@ -128,8 +128,17 @@ export const testimonials = [
 //Urls OTROS PROYECTOS
 export const QUIZTER_APP = "https://quizter-web.vercel.app/"
 export const RANDOMIZER_APP = "https://randomizer-app-psi.vercel.app/"
+export const VINBOOK_APP = "https://vin-book-template.vercel.app/"
 
 export const others_projects = [
+  {
+    img: "/services-imgs/vinbook-shot.webp",
+    imgGallery: ['vinbook-shot'],
+    title: "VINBOOK",
+    url: `${VINBOOK_APP}`,
+    description: 'Página de reservas en línea para barberías, spas y profesionales',
+    goToWeb: true
+  },
   {
     img: "/services-imgs/quizter-img.webp",
     imgGallery: ['quizter-img'],
