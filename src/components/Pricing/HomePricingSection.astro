@@ -1,11 +1,14 @@
 ---
 // Componente de Pricing específico para la página Home
 import { WHATSAPP_NUMBER } from "../../CONSTANTS";
+import PricingCardsLayout from "./PricingCardsLayout.astro";
 
 const generateWhatsAppLink = (packageName: string) => {
     const message = `Hola, quiero solicitar el paquete ${packageName}`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
+
+const homePackageCount = 7;
 ---
 
 <!-- Sección: Precios -->
@@ -22,40 +25,43 @@ const generateWhatsAppLink = (packageName: string) => {
             </p>
         </div>
 
-        <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
-        >
-            <!-- Paquete 1: Starter Digital -->
+        <PricingCardsLayout count={homePackageCount} interval={5000}>
+            <!-- Paquete: Presencia Digital (Más elegido) -->
             <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 flex flex-col"
+                class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative flex flex-col h-full"
             >
+                <div
+                    class="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg z-10"
+                >
+                    MÁS ELEGIDO
+                </div>
                 <div class="bg-gray-100 px-6 py-5 text-center">
                     <h3
-                        class="text-xl font-bold text-gray-700 uppercase tracking-wide"
+                        class="text-xl font-bold text-primary uppercase tracking-wide"
                     >
-                        Starter Digital
+                        Presencia Digital
                     </h3>
                 </div>
-                <div class="bg-gray-700 px-6 py-6 text-center">
+                <div class="bg-primary px-6 py-6 text-center">
                     <div class="text-white">
                         <div class="text-sm line-through opacity-70 mb-1">
-                            Antes S/ 469
+                            Antes S/ 348
                         </div>
+                        <p
+                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                        >
+                            Precio referencial. El precio se adecua
+                            tu negocio.
+                        </p>
                         <div>
                             <span class="text-3xl md:text-5xl font-black"
-                                >S/ 369</span
+                                >S/ 299</span
                             >
-                            <!-- <span class="text-xs opacity-80 ml-1">+ IGV</span> -->
                         </div>
                         <div
-                            class="text-xs mt-2 bg-green-500 inline-block px-3 py-1 rounded-full font-semibold"
+                            class="text-xs mt-2 bg-[#f8f8fa] text-primary inline-block px-3 py-1 rounded-full font-semibold"
                         >
-                            Ahorras S/ 100
-                        </div>
-                        <div
-                            class="text-[8px] mt-2.5 inline-block px-2.5 py-0.5 rounded-full font-medium bg-white/20 uppercase tracking-wider"
-                        >
-                            Precio referencial
+                            Ahorras S/ 49
                         </div>
                     </div>
                 </div>
@@ -63,8 +69,8 @@ const generateWhatsAppLink = (packageName: string) => {
                     <p
                         class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
                     >
-                        Para el que está arrancando y quiere presencia real
-                        desde el día uno
+                        Todo lo que necesitas para empezar a mostrar tu negocio
+                        profesionalmente en internet
                     </p>
                     <ul class="space-y-2 mb-6 flex-grow">
                         <li class="flex items-start gap-2">
@@ -81,7 +87,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Setup & Arquitectura Web</span
+                                >Tarjeta Digital Básico</span
                             >
                         </li>
                         <li class="flex items-start gap-2">
@@ -98,13 +104,262 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Links in Bio o Tarjeta Digital</span
+                                >Link Bio Básico</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >QR, configuración e implementación</span
                             >
                         </li>
                     </ul>
                     <p class="text-xs text-gray-500 text-center mb-4 italic">
-                        Dominio propio + presencia digital lista en menos de 1
-                        semana.
+                        Tarjeta Digital Básico + Link Bio. No incluye panel
+                        Admin.
+                    </p>
+                    <a
+                        href={generateWhatsAppLink("Presencia Digital")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-lg text-sm"
+                    >
+                        Solicitar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paquete: Presencia Digital Pro -->
+            <div
+                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-green-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
+            >
+                <div class="bg-gray-100 px-6 py-5 text-center">
+                    <h3
+                        class="text-xl font-bold text-green-600 uppercase tracking-wide"
+                    >
+                        Presencia Digital Pro
+                    </h3>
+                </div>
+                <div class="bg-green-500 px-6 py-6 text-center">
+                    <div class="text-white">
+                        <div class="text-sm line-through opacity-70 mb-1">
+                            Antes S/ 448
+                        </div>
+                        <p
+                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                        >
+                            Precio referencial. El precio se adecua
+                            tu negocio.
+                        </p>
+                        <div>
+                            <span class="text-3xl md:text-5xl font-black"
+                                >S/ 399</span
+                            >
+                        </div>
+                        <div
+                            class="text-xs mt-2 bg-[#f8f8fa] text-green-600 inline-block px-3 py-1 rounded-full font-semibold"
+                        >
+                            + S/ 19/mes
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-6 flex-grow flex flex-col">
+                    <p
+                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                    >
+                        Presencia completa con tarjeta administrable y Link Bio
+                        personalizado
+                    </p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Tarjeta Digital + Admin</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm">Link Bio</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Panel Admin de la Tarjeta Digital</span
+                            >
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 text-center mb-4 italic">
+                        Ahorras S/ 49 al inicio. El S/ 19/mes es solo el panel
+                        Admin.
+                    </p>
+                    <a
+                        href={generateWhatsAppLink("Presencia Digital Pro")}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
+                    >
+                        Solicitar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paquete 1: Starter Digital -->
+            <div
+                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
+            >
+                <div class="bg-gray-100 px-6 py-5 text-center">
+                    <h3
+                        class="text-xl font-bold text-gray-700 uppercase tracking-wide"
+                    >
+                        Starter Digital
+                    </h3>
+                </div>
+                <div class="bg-gray-700 px-6 py-6 text-center">
+                    <div class="text-white">
+                        <div class="text-sm line-through opacity-70 mb-1">
+                            Antes S/ 448
+                        </div>
+                        <p
+                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                        >
+                            Precio referencial. El precio se adecua
+                            tu negocio.
+                        </p>
+                        <div>
+                            <span class="text-3xl md:text-5xl font-black"
+                                >S/ 369</span
+                            >
+                            <!-- <span class="text-xs opacity-80 ml-1">+ IGV</span> -->
+                        </div>
+                        <div
+                            class="text-xs mt-2 bg-green-500 inline-block px-3 py-1 rounded-full font-semibold"
+                        >
+                            Combo de entrada
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-6 flex-grow flex flex-col">
+                    <p
+                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                    >
+                        Tu negocio listo para empezar a mostrarse online
+                    </p>
+                    <ul class="space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm">Setup Web</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Link Bio o Tarjeta Digital Básico</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >Perfil de Negocio de Google + SEO inicial</span
+                            >
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700 text-sm"
+                                >QR, configuración e implementación</span
+                            >
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-500 text-center mb-4 italic">
+                        Dominio, correo profesional, presencia en Google y una
+                        herramienta digital para compartir tu negocio. Listo
+                        para empezar.
                     </p>
                     <a
                         href={generateWhatsAppLink("Starter Digital")}
@@ -119,7 +374,7 @@ const generateWhatsAppLink = (packageName: string) => {
 
             <!-- Paquete 0: Lanzamiento Digital (Más Popular) -->
             <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-orange-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 relative flex flex-col"
+                class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-orange-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative flex flex-col h-full"
             >
                 <div
                     class="absolute top-0 right-0 bg-orange-600 text-white px-3 py-1 text-xs font-bold rounded-bl-lg z-10"
@@ -138,6 +393,12 @@ const generateWhatsAppLink = (packageName: string) => {
                         <div class="text-sm line-through opacity-70 mb-1">
                             Antes S/ 1,667
                         </div>
+                        <p
+                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                        >
+                            Precio referencial. El precio se adecua
+                            tu negocio.
+                        </p>
                         <div>
                             <span class="text-3xl md:text-5xl font-black"
                                 >S/ 1,399</span
@@ -148,11 +409,6 @@ const generateWhatsAppLink = (packageName: string) => {
                             class="text-xs mt-2 bg-[#f8f8fa] text-orange-600 inline-block px-3 py-1 rounded-full font-semibold"
                         >
                             Ahorras S/ 268
-                        </div>
-                        <div
-                            class="text-[8px] mt-2.5 inline-block px-2.5 py-0.5 rounded-full font-medium bg-white/20 uppercase tracking-wider"
-                        >
-                            Precio referencial
                         </div>
                     </div>
                 </div>
@@ -178,7 +434,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Setup & Arquitectura Web</span
+                                >Setup Web</span
                             >
                         </li>
                         <li class="flex items-start gap-2">
@@ -212,7 +468,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Tarjeta Digital</span
+                                >Tarjeta Digital Básico</span
                             >
                         </li>
                     </ul>
@@ -233,7 +489,7 @@ const generateWhatsAppLink = (packageName: string) => {
 
             <!-- Paquete 2: Presencia Pro  -->
             <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 relative flex flex-col"
+                class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative flex flex-col h-full"
             >
                 <div
                     class="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg z-10"
@@ -252,6 +508,12 @@ const generateWhatsAppLink = (packageName: string) => {
                         <div class="text-sm line-through opacity-70 mb-1">
                             Antes S/ 1,467
                         </div>
+                        <p
+                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                        >
+                            Precio referencial. El precio se adecua
+                            tu negocio.
+                        </p>
                         <div>
                             <span class="text-3xl md:text-5xl font-black"
                                 >S/ 1,199</span
@@ -262,11 +524,6 @@ const generateWhatsAppLink = (packageName: string) => {
                             class="text-xs mt-2 bg-[#f8f8fa] text-primary inline-block px-3 py-1 rounded-full font-semibold"
                         >
                             Ahorras S/ 268
-                        </div>
-                        <div
-                            class="text-[8px] mt-2.5 inline-block px-2.5 py-0.5 rounded-full font-medium bg-white/20 uppercase tracking-wider"
-                        >
-                            Precio referencial
                         </div>
                     </div>
                 </div>
@@ -292,7 +549,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Setup & Arquitectura Web</span
+                                >Setup Web</span
                             >
                         </li>
                         <li class="flex items-start gap-2">
@@ -326,7 +583,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Tarjeta Digital</span
+                                >Tarjeta Digital Básico</span
                             >
                         </li>
                     </ul>
@@ -347,7 +604,7 @@ const generateWhatsAppLink = (packageName: string) => {
 
             <!-- Paquete 3: Negocio Digital -->
             <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 flex flex-col"
+                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
             >
                 <div class="bg-gray-100 px-6 py-5 text-center">
                     <h3
@@ -361,6 +618,12 @@ const generateWhatsAppLink = (packageName: string) => {
                         <div class="text-sm line-through opacity-70 mb-1">
                             Antes S/ 1918
                         </div>
+                        <p
+                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                        >
+                            Precio referencial. El precio se adecua
+                            tu negocio.
+                        </p>
                         <div>
                             <span class="text-3xl md:text-5xl font-black"
                                 >S/ 1,719</span
@@ -371,11 +634,6 @@ const generateWhatsAppLink = (packageName: string) => {
                             class="text-xs mt-2 bg-[#f8f8fa] text-teal-600 inline-block px-3 py-1 rounded-full font-semibold"
                         >
                             Ahorras S/ 199
-                        </div>
-                        <div
-                            class="text-[8px] mt-2.5 inline-block px-2.5 py-0.5 rounded-full font-medium bg-white/20 uppercase tracking-wider"
-                        >
-                            Precio referencial
                         </div>
                     </div>
                 </div>
@@ -401,7 +659,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Setup & Arquitectura Web</span
+                                >Setup Web</span
                             >
                         </li>
                         <li class="flex items-start gap-2">
@@ -434,9 +692,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Links in Bio</span
-                            >
+                            <span class="text-gray-700 text-sm">Link Bio</span>
                         </li>
                     </ul>
                     <p class="text-xs text-gray-500 text-center mb-4 italic">
@@ -456,7 +712,7 @@ const generateWhatsAppLink = (packageName: string) => {
 
             <!-- Paquete 4: Creador de Contenido -->
             <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 flex flex-col"
+                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
             >
                 <div class="bg-gray-100 px-6 py-5 text-center">
                     <h3
@@ -470,6 +726,12 @@ const generateWhatsAppLink = (packageName: string) => {
                         <div class="text-sm line-through opacity-70 mb-1">
                             Antes S/ 1,297
                         </div>
+                        <p
+                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                        >
+                            Precio referencial. El precio se adecua
+                            tu negocio.
+                        </p>
                         <div>
                             <span class="text-3xl md:text-5xl font-black"
                                 >S/ 999</span
@@ -480,11 +742,6 @@ const generateWhatsAppLink = (packageName: string) => {
                             class="text-xs mt-2 bg-[#f8f8fa] text-purple-600 inline-block px-3 py-1 rounded-full font-semibold"
                         >
                             Ahorras S/ 298
-                        </div>
-                        <div
-                            class="text-[8px] mt-2.5 inline-block px-2.5 py-0.5 rounded-full font-medium bg-white/20 uppercase tracking-wider"
-                        >
-                            Precio referencial
                         </div>
                     </div>
                 </div>
@@ -509,9 +766,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Links in Bio</span
-                            >
+                            <span class="text-gray-700 text-sm">Link Bio</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <svg
@@ -527,7 +782,7 @@ const generateWhatsAppLink = (packageName: string) => {
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-gray-700 text-sm"
-                                >Tarjeta Digital</span
+                                >Tarjeta Digital Básico</span
                             >
                         </li>
                         <li class="flex items-start gap-2">
@@ -563,6 +818,6 @@ const generateWhatsAppLink = (packageName: string) => {
                     </a>
                 </div>
             </div>
-        </div>
+        </PricingCardsLayout>
     </div>
 </section>

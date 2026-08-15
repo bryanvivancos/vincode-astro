@@ -8,7 +8,7 @@ export const HERO_TITLE = "Eleva Tu Presencia En Línea con Servicios Digitales"
 export const HERO_SUBTITLE = "Desde tarjetas de presentación digitales intuitivas, portfolios impresionantes hasta potentes plataformas de comercio electrónico, creamos soluciones digitales que impulsan el éxito."
 
 export const SERVICES_TITLE = "Desarrollo Multiplataforma"
-export const SERVICES_SUBTITLE = "Ofrecemos una gama de servicios para satisfacer tus necesidades digitales, desde el desarrollo de páginas web multiplataforma, diseño de tarjetas de presentación, links bio hasta el desarrollo de un software a la medida de tu negocio."
+export const SERVICES_SUBTITLE = "Ofrecemos una gama de servicios para satisfacer tus necesidades digitales, desde el desarrollo de páginas web multiplataforma, diseño de tarjetas de presentación, Link Bio hasta el desarrollo de un software a la medida de tu negocio."
 
 // NAVBAR ITEMS
 export const navbar_items = [
@@ -56,8 +56,8 @@ export const projects = [
     goToWeb: true
   },
   {
-    title: 'Links in Bio',
-    description: 'Todo tu negocio en un solo link. Solución elegante que centraliza redes sociales, catálogos y contacto directo. Navegación instantánea que convierte visitantes en clientes potenciales desde el primer clic.',
+    title: 'Link Bio',
+    description: 'Tu negocio en un solo enlace. Reúne WhatsApp, redes sociales, catálogo y contacto en una página personalizada y lista para compartir.',
     category: 'Web',
     img: '/cq-link-bio.webp',
     imgGallery: ['cq-link-bio'],
@@ -71,8 +71,8 @@ export const projects = [
   //   url: '#'
   // },
   {
-    title: 'Tarjeta de presentación digital',
-    description: 'Olvídate de las tarjetas de papel. Comparte tu negocio con un simple escaneo QR: contacto directo, galería de productos y redes sociales al instante. Una primera impresión digital que tus clientes nunca olvidarán.',
+    title: 'Tarjeta Digital',
+    description: 'Tu tarjeta de presentación digital, siempre disponible para compartir. Formato profesional adaptado a los colores de tu marca, con QR y accesos a tus datos y redes.',
     category: 'Web',
     img: '/catquiz-digital-card.webp',
     imgGallery: ['catquiz-digital-card'],

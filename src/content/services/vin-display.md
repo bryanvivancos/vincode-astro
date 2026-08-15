@@ -96,7 +96,7 @@ pricing:
             originalPrice: 1918,
             discount: "Ahorras S/ 199",
             isPopular: true,
-            includes: ["Setup & Arquitectura Web", "VIN DISPLAY — cartelería digital", "Links in Bio"],
+            includes: ["Setup Web", "VIN DISPLAY — cartelería digital", "Link Bio"],
             finalNote: "Correos corporativos + pantallas digitales + enlace en redes. Imagen premium.",
             color: "teal",
         },

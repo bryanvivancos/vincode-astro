@@ -1,6 +1,7 @@
 ---
 // Componente de Pricing reutilizable con datos dinámicos
 import { WHATSAPP_NUMBER } from "../../CONSTANTS";
+import PricingCardsLayout from "./PricingCardsLayout.astro";
 
 interface PricingPackage {
     id: number;
@@ -89,9 +90,7 @@ const colorMap = {
             </p>
         </div>
 
-        <div
-            class={`grid grid-cols-1 gap-6 max-w-7xl mx-auto ${packages.length === 1 ? "md:grid-cols-1 max-w-md" : packages.length === 2 ? "md:grid-cols-2 max-w-4xl" : packages.length === 3 ? "md:grid-cols-3 max-w-6xl" : "md:grid-cols-2 lg:grid-cols-4"}`}
-        >
+        <PricingCardsLayout count={packages.length} interval={5000}>
             {
                 packages.map((pkg) => {
                     const colors = colorMap[pkg.color || "gray"];
@@ -102,7 +101,7 @@ const colorMap = {
 
                     return (
                         <div
-                            class={`bg-[#f8f8fa] rounded-3xl shadow-lg border-2 ${borderClass} overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 relative flex flex-col`}
+                            class={`bg-[#f8f8fa] rounded-3xl shadow-lg border-2 ${borderClass} overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] relative flex flex-col h-full`}
                         >
                             {pkg.isPopular && (
                                 <div
@@ -126,6 +125,12 @@ const colorMap = {
                                         Antes S/{" "}
                                         {pkg.originalPrice.toLocaleString()}
                                     </div>
+                                    <p
+                                        class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                                    >
+                                        Precio referencial. El precio se adecua
+                                        tu negocio.
+                                    </p>
                                     <div>
                                         <span class="text-3xl md:text-5xl font-black">
                                             S/ {pkg.price.toLocaleString()}
@@ -138,11 +143,6 @@ const colorMap = {
                                         class={`text-xs mt-2 ${colors.badge} inline-block px-3 py-1 rounded-full font-semibold`}
                                     >
                                         {pkg.discount}
-                                    </div>
-                                    <div
-                                        class="text-[8px] mt-2.5 inline-block px-2.5 py-0.5 rounded-full font-medium bg-white/20 uppercase tracking-wider"
-                                    >
-                                        Precio referencial
                                     </div>
                                 </div>
                             </div>
@@ -200,6 +200,6 @@ const colorMap = {
                     );
                 })
             }
-        </div>
+        </PricingCardsLayout>
     </div>
 </section>

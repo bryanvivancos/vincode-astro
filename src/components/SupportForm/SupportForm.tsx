@@ -2,10 +2,10 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const SERVICES = [
-    'Setup & Arquitectura Web',
+    'Setup Web',
     'Landing Page - Pagina web',
-    'Tarjeta de Presentación Digital',
-    'Links in Bio',
+    'Tarjeta Digital',
+    'Link Bio',
     'Portfolio Profesional',
     'Página Web de Reservas',
     'VIN DISPLAY - Cartelería Digital',

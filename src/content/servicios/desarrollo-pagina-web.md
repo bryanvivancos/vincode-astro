@@ -102,7 +102,7 @@ pricing:
             originalPrice: 1667,
             discount: "Ahorras S/ 268",
             isPopular: true,
-            includes: ["Setup & Arquitectura Web", "Landing Page", "Tarjeta Digital"],
+            includes: ["Setup Web", "Landing Page", "Tarjeta Digital Básico"],
             finalNote: "Dominio, correos, landing page optimizada y tarjeta digital. Listo para lanzar.",
             color: "orange",
         },

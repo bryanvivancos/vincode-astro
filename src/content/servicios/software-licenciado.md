@@ -82,7 +82,7 @@ pricing:
             originalPrice: 1629,
             discount: "Ahorras S/ 131",
             isPopular: false,
-            includes: ["Setup & Arquitectura Web", "Portfolio / Web Corporativa", "Instalación de Software (Puede haber un cambio en el precio dependiendo del software a instalar)"],
+            includes: ["Setup Web", "Portfolio / Web Corporativa", "Instalación de Software (Puede haber un cambio en el precio dependiendo del software a instalar)"],
             finalNote: "Web + correos + herramientas instaladas. Listos para operar desde el día uno.",
             color: "primary",
         },

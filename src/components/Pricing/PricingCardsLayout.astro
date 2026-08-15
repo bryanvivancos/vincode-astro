@@ -1,0 +1,398 @@
+---
+interface Props {
+    count: number;
+    /** Auto-slide interval in ms when carousel is active */
+    interval?: number;
+}
+
+const { count, interval = 5000 } = Astro.props;
+const useCarousel = count >= 3;
+const centeredClass =
+    count === 1
+        ? "flex justify-center max-w-md mx-auto"
+        : "grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto";
+---
+
+{
+    useCarousel ? (
+        <div
+            class="pricing-carousel relative max-w-7xl mx-auto px-10 md:px-12"
+            data-interval={interval}
+            data-pricing-carousel
+        >
+            <button
+                type="button"
+                class="pricing-carousel__nav pricing-carousel__nav--prev"
+                aria-label="Paquete anterior"
+            >
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+
+            <div
+                class="pricing-carousel__track flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide py-2"
+                tabindex="0"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="Paquetes de precios"
+            >
+                <slot />
+            </div>
+
+            <button
+                type="button"
+                class="pricing-carousel__nav pricing-carousel__nav--next"
+                aria-label="Paquete siguiente"
+            >
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+            <div
+                class="pricing-carousel__dots flex justify-center gap-2 mt-6"
+                role="tablist"
+                aria-label="Indicadores de paquetes"
+            >
+            </div>
+        </div>
+    ) : (
+        <div class={centeredClass}>
+            <slot />
+        </div>
+    )
+}
+
+<style>
+    /* Card width = track / visible count, so nothing clips */
+    .pricing-carousel__track > :global(*) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        height: auto;
+        align-self: stretch;
+        /* Keep hover scale inside the slot (no overflow clip) */
+        transform-origin: center center;
+    }
+
+    @media (min-width: 768px) {
+        .pricing-carousel__track > :global(*) {
+            /* 2 cards + 1 gap (1.5rem) */
+            flex-basis: calc((100% - 1.5rem) / 2);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .pricing-carousel__track > :global(*) {
+            /* 3 cards + 2 gaps (1.5rem each) — always fully visible */
+            flex-basis: calc((100% - 3rem) / 3);
+        }
+    }
+
+    .pricing-carousel__nav {
+        position: absolute;
+        top: 50%;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 9999px;
+        border: 1px solid rgb(229 231 235);
+        background: #f8f8fa;
+        color: #374151;
+        box-shadow: 0 4px 14px rgb(0 0 0 / 0.08);
+        transform: translateY(-50%);
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            box-shadow 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .pricing-carousel__nav:hover {
+        background: var(--color-primary, #00a8e8);
+        color: white;
+        box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
+    }
+
+    .pricing-carousel__nav:active {
+        transform: translateY(-50%) scale(0.96);
+    }
+
+    .pricing-carousel__nav:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        pointer-events: none;
+        box-shadow: none;
+    }
+
+    .pricing-carousel__nav:disabled:hover {
+        background: #f8f8fa;
+        color: #374151;
+    }
+
+    .pricing-carousel__nav--prev {
+        left: 0;
+    }
+
+    .pricing-carousel__nav--next {
+        right: 0;
+    }
+
+    :global(.pricing-carousel__dot) {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 9999px;
+        background: #d1d5db;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition:
+            width 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+    :global(.pricing-carousel__dot[aria-selected="true"]) {
+        width: 1.5rem;
+        background: var(--color-primary, #00a8e8);
+    }
+</style>
+
+<script>
+    function initPricingCarousel(root: HTMLElement) {
+        if (root.dataset.carouselReady === "true") return;
+        root.dataset.carouselReady = "true";
+
+        const track = root.querySelector<HTMLElement>(".pricing-carousel__track");
+        const prevBtn = root.querySelector<HTMLButtonElement>(
+            ".pricing-carousel__nav--prev",
+        );
+        const nextBtn = root.querySelector<HTMLButtonElement>(
+            ".pricing-carousel__nav--next",
+        );
+        const dotsWrap = root.querySelector<HTMLElement>(".pricing-carousel__dots");
+        if (!track || !prevBtn || !nextBtn || !dotsWrap) return;
+
+        const cards = Array.from(track.children) as HTMLElement[];
+        if (cards.length === 0) return;
+
+        const intervalMs = Number(root.dataset.interval) || 5000;
+        let timer: ReturnType<typeof setInterval> | null = null;
+        let resumeTimer: ReturnType<typeof setTimeout> | null = null;
+        let isPointerDown = false;
+        let dots: HTMLButtonElement[] = [];
+
+        function getStep() {
+            const first = cards[0];
+            if (!first) return track!.clientWidth * 0.85;
+            const styles = getComputedStyle(track!);
+            const gap = Number.parseFloat(styles.columnGap || styles.gap) || 24;
+            return first.getBoundingClientRect().width + gap;
+        }
+
+        function getVisibleCount() {
+            const step = getStep();
+            if (step <= 0) return 1;
+            return Math.max(1, Math.round(track!.clientWidth / step));
+        }
+
+        function getMaxIndex() {
+            return Math.max(0, cards.length - getVisibleCount());
+        }
+
+        function getMaxScroll() {
+            return Math.max(0, track!.scrollWidth - track!.clientWidth);
+        }
+
+        function isAtStart() {
+            return track!.scrollLeft <= 8;
+        }
+
+        function isAtEnd() {
+            const maxScroll = getMaxScroll();
+            return maxScroll <= 8 || track!.scrollLeft >= maxScroll - 8;
+        }
+
+        function getActiveIndex() {
+            const step = getStep();
+            if (step <= 0) return 0;
+            return Math.min(
+                Math.max(0, Math.round(track!.scrollLeft / step)),
+                getMaxIndex(),
+            );
+        }
+
+        function rebuildDots() {
+            const pages = getMaxIndex() + 1;
+            dotsWrap!.replaceChildren();
+            dots = [];
+
+            for (let index = 0; index < pages; index++) {
+                const dot = document.createElement("button");
+                dot.type = "button";
+                dot.className = "pricing-carousel__dot";
+                dot.setAttribute("role", "tab");
+                dot.setAttribute("aria-label", `Ir al grupo ${index + 1}`);
+                dot.addEventListener("click", () => {
+                    scrollToIndex(index);
+                    pauseThenResume();
+                });
+                dotsWrap!.appendChild(dot);
+                dots.push(dot);
+            }
+            updateUI();
+        }
+
+        function updateUI() {
+            const active = getActiveIndex();
+            dots.forEach((dot, index) => {
+                dot.setAttribute(
+                    "aria-selected",
+                    index === active ? "true" : "false",
+                );
+            });
+
+            const start = isAtStart();
+            const end = isAtEnd();
+            prevBtn!.disabled = start;
+            nextBtn!.disabled = end;
+            prevBtn!.setAttribute("aria-disabled", String(start));
+            nextBtn!.setAttribute("aria-disabled", String(end));
+        }
+
+        function scrollByDir(dir: "left" | "right", loop = false) {
+            const step = getStep();
+            const start = isAtStart();
+            const end = isAtEnd();
+
+            if (dir === "right") {
+                if (end) {
+                    if (loop) track!.scrollTo({ left: 0, behavior: "smooth" });
+                    return;
+                }
+                track!.scrollBy({ left: step, behavior: "smooth" });
+                return;
+            }
+
+            if (start) {
+                if (loop) {
+                    track!.scrollTo({ left: getMaxScroll(), behavior: "smooth" });
+                }
+                return;
+            }
+            track!.scrollBy({ left: -step, behavior: "smooth" });
+        }
+
+        function scrollToIndex(index: number) {
+            const step = getStep();
+            const clamped = Math.min(Math.max(0, index), getMaxIndex());
+            track!.scrollTo({ left: step * clamped, behavior: "smooth" });
+        }
+
+        function stopAutoplay() {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+            if (resumeTimer) {
+                clearTimeout(resumeTimer);
+                resumeTimer = null;
+            }
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            timer = setInterval(() => scrollByDir("right", true), intervalMs);
+        }
+
+        function pauseThenResume() {
+            stopAutoplay();
+            resumeTimer = setTimeout(startAutoplay, intervalMs * 1.5);
+        }
+
+        prevBtn.addEventListener("click", () => {
+            if (prevBtn.disabled) return;
+            scrollByDir("left");
+            pauseThenResume();
+        });
+        nextBtn.addEventListener("click", () => {
+            if (nextBtn.disabled) return;
+            scrollByDir("right");
+            pauseThenResume();
+        });
+
+        track.addEventListener("scroll", () => {
+            window.requestAnimationFrame(updateUI);
+        });
+
+        track.addEventListener("pointerdown", () => {
+            isPointerDown = true;
+            stopAutoplay();
+        });
+        track.addEventListener("pointerup", () => {
+            if (!isPointerDown) return;
+            isPointerDown = false;
+            pauseThenResume();
+        });
+        track.addEventListener("pointercancel", () => {
+            isPointerDown = false;
+            pauseThenResume();
+        });
+
+        root.addEventListener("mouseenter", stopAutoplay);
+        root.addEventListener("mouseleave", startAutoplay);
+        root.addEventListener("focusin", stopAutoplay);
+        root.addEventListener("focusout", (event) => {
+            if (!root.contains(event.relatedTarget as Node | null)) {
+                startAutoplay();
+            }
+        });
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) stopAutoplay();
+            else startAutoplay();
+        });
+
+        window.addEventListener("resize", () => {
+            rebuildDots();
+        });
+
+        rebuildDots();
+        startAutoplay();
+    }
+
+    function boot() {
+        document
+            .querySelectorAll<HTMLElement>(
+                "[data-pricing-carousel]:not([data-carousel-ready='true'])",
+            )
+            .forEach(initPricingCarousel);
+    }
+
+    boot();
+    document.addEventListener("astro:page-load", boot);
+</script>

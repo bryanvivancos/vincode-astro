@@ -1,44 +1,44 @@
 ---
 id: 3
 category: "web"
-title: Tarjeta de Presentación Digital
+title: Tarjeta Digital
 icon: CardIcon
-cardDescription: "Olvida el papel y haz que tu primera impresión sea inolvidable. Comparte tus datos, enlaces y portfolio con un solo toque."
+cardDescription: "Tu tarjeta de presentación digital, siempre disponible para compartir. Con QR y accesos a tus datos y redes."
 available: true
-subtitle: "Tu primera impresión nunca fue tan poderosa"
-description: "Olvídate del papel. Comparte tu negocio con un simple toque o escaneo QR: contacto directo, redes sociales, portfolio y servicios al instante. Una tarjeta digital que tus clientes guardarán en su teléfono, no en la basura. Actualizable en tiempo real, siempre lista para impresionar."
+subtitle: "Tu primera impresión, siempre lista para compartir"
+description: "Tu tarjeta de presentación digital, siempre disponible para compartir. Un formato profesional adaptado a los colores de tu marca, con QR y accesos directos a tus datos y redes. Ideal para presentar tu negocio de forma clara y facilitar que te contacten, sin aprender nuevas herramientas ni diseñar todo por tu cuenta."
 demosTitle: "Tarjetas Digitales"
 benefits:
     [
         {
             id: 1,
             icon: "SuitcaseIcon",
-            title: "Presencia Moderna e Innovadora",
-            description: "Destaque entre la competencia con una presentación digital elegante, interactiva y siempre disponible desde cualquier dispositivo.",
+            title: "Imagen más profesional",
+            description: "Presenta tu negocio con un formato digital claro y cuidado, adaptado a los colores de tu marca y listo para compartir en cualquier momento.",
         },
         {
             id: 2,
             icon: "PeopleIcon",
-            title: "Comparte Sin Límites",
-            description: "Comparte tu tarjeta al instante mediante QR o enlace directo. Olvídate de reimprimir — actualiza tu información en tiempo real y mantén siempre tu versión más reciente.",
+            title: "Comparte con un QR o enlace",
+            description: "Comparte tu tarjeta al instante mediante QR o link. Facilita que tus clientes encuentren tus datos, WhatsApp y redes en un solo lugar.",
         },
         {
             id: 3,
             icon: "TrendingUpIcon",
-            title: "Potencia Tu Marca Personal o Empresarial",
-            description: "Tu tarjeta digital será una extensión de tu marca: diseño profesional, colores personalizados, logo y enlaces estratégicos que fortalecen tu imagen.",
+            title: "Rápida y económica",
+            description: "En el plan Básico usamos una estructura predeterminada con adaptación de colores y elementos básicos a tu branding. Profesional, sin partir de cero.",
         },
         {
             id: 4,
             icon: "MoneyIcon",
-            title: "Ahorra Tiempo y Recursos",
-            description: "Digitaliza tu red de contactos y simplifica la forma en que compartes tu información, reduciendo costos y cuidando el medio ambiente.",
+            title: "Ahorra tiempo de gestión",
+            description: "Reduce el tiempo necesario para gestionar tu presencia digital. Con el plan + Admin, actualizas textos, redes y foto desde tu propio panel.",
         },
     ]
 projects:
     [
         {
-            title: "Tarjeta de Presentación Digital",
+            title: "Tarjeta Digital",
             description: "Muestra tus datos relevantes y de contacto en una Tarjeta Profesional de Presentación Digital",
             img: "/catquiz-digital-card.webp",
             imgGallery: ["catquiz-digital-card","vincode-card"],
@@ -49,22 +49,27 @@ faqData:
         {
             id: 1,
             question: "¿Qué información puedo incluir en mi tarjeta digital?",
-            answer: "Todo lo que desees: datos de contacto, redes sociales, enlaces, portfolio, servicios, ubicación, botones de WhatsApp, e incluso una versión descargable.",
+            answer: "Logo, foto, nombre y datos del negocio, WhatsApp, redes sociales, datos de contacto y accesos directos. También incluye QR personalizado y link para compartir.",
         },
         {
             id: 2,
-            question: "¿La tarjeta digital se puede compartir por QR?",
-            answer: "Sí. Podemos generar un QR personalizado.",
+            question: "¿La Tarjeta Digital Básico es un diseño 100% personalizado?",
+            answer: "No. El plan Básico usa una estructura/plantilla predeterminada. Se adaptan colores y elementos básicos al branding del cliente para ofrecer una tarjeta profesional, rápida y económica.",
         },
         {
             id: 3,
-            question: "¿Mi tarjeta digital funciona en cualquier dispositivo?",
-            answer: "Sí, es totalmente compatible con cualquier smartphone, tablet o PC, sin necesidad de instalar apps.",
+            question: "¿La tarjeta digital se puede compartir por QR?",
+            answer: "Sí. Incluye un QR personalizado y un link para compartir, compatible con celulares y otros dispositivos.",
         },
         {
             id: 4,
             question: "¿Puedo actualizar mi información después?",
-            answer: "Claro. Puedes solicitar cambios cuando lo necesites o, según el plan, acceder a un panel de edición.",
+            answer: "En el plan Básico puedes solicitar un cambio puntual por S/ 49. En el plan Básico + Admin, administras textos, datos, enlaces, redes y foto desde tu panel (S/ 19/mes), con cambios ilimitados.",
+        },
+        {
+            id: 5,
+            question: "¿El plan Básico incluye panel de administración?",
+            answer: "No. El panel Admin solo está incluido en el plan Básico + Admin y en el bundle Presencia Digital Pro. El S/ 19/mes corresponde exclusivamente al acceso del panel.",
         },
     ]
 pricing:
@@ -72,52 +77,54 @@ pricing:
         {
             id: 1,
             name: "Básico",
-            description: "Vincode gestiona tus cambios",
-            price: 249,
-            originalPrice: 320,
-            discount: "-22%",
+            description: "Tu tarjeta de presentación digital, siempre disponible para compartir. Formato profesional adaptado a los colores de tu marca.",
+            price: 149,
+            originalPrice: 249,
+            discount: "Ahorras S/ 100",
             deliveryTime: "3–5 días",
             isPopular: false,
-            includes: ["Diseño personalizado con tu marca", "QR personalizado", "Botones WhatsApp y llamada directa", "Compatible con todos los dispositivos", "Cambios gestionados por Vincode"],
-            finalNote: "Cambio puntual: S/ 49 c/u | Sin panel de administración propio",
+            includes: ["Tarjeta digital personalizada", "Diseño basado en una estructura/plantilla definida", "Adaptación de colores al branding del negocio", "Logo", "Foto", "Nombre y datos del negocio", "WhatsApp", "Redes sociales", "Datos de contacto", "QR personalizado", "Link para compartir", "Compatible con celulares y otros dispositivos"],
+            finalNote: "Sin mantenimiento mensual obligatorio | Cambio puntual: S/ 49 | Sin panel Admin",
             color: "gray",
         },
         {
             id: 2,
             name: "Básico + Admin",
-            description: "Tú controlas tu tarjeta",
-            price: 299,
+            description: "Ten el control de tu tarjeta. Actualiza datos, redes, enlaces y contenido cuando quieras desde tu panel.",
+            price: 249,
             originalPrice: 299,
             discount: "+ S/ 19/mes",
             deliveryTime: "3–5 días",
-            isPopular: true,
-            includes: ["Todo lo del plan Sin Admin", "Panel para editar textos y datos", "Cambiar enlaces y redes sociales", "Cambiar foto de perfil", "Cambios ilimitados desde tu panel", "Sin depender de Vincode para editar"],
-            finalNote: "Acceso mensual: S/ 19/mes | Cambios ilimitados",
+            isPopular: false,
+            includes: ["Todo lo incluido en Tarjeta Digital Básico", "Panel de administración", "Gestión de textos y datos", "Gestión de enlaces y redes sociales", "Cambio de foto", "Actualización de información del negocio", "Cambios ilimitados mediante el panel", "El cliente puede administrar su tarjeta sin depender de VINCODE"],
+            finalNote: "S/ 19/mes = acceso/mantenimiento del panel Admin | Cambio puntual: S/ 49",
             color: "green",
         },
         {
             id: 3,
-            name: "Presencia Pro",
-            description: "La imagen completa que un profesional independiente necesita",
-            price: 1199,
-            originalPrice: 1467,
-            discount: "Ahorras S/ 268",
+            name: "Presencia Digital",
+            description: "Todo lo que necesitas para empezar a mostrar tu negocio profesionalmente en internet.",
+            price: 299,
+            originalPrice: 348,
+            discount: "Ahorras S/ 49",
+            deliveryTime: "3–5 días",
             isPopular: true,
-            includes: ["Setup & Arquitectura Web", "Portfolio Profesional", "Tarjeta Digital"],
-            finalNote: "Dominio, correos, web con SEO y tarjeta para compartir. Todo en uno.",
+            includes: ["Tarjeta Digital Básico", "Link Bio Básico", "QR para compartir", "Configuración inicial", "Adaptación de identidad visual", "Implementación de ambos servicios"],
+            finalNote: "Tarjeta Digital Básico + Link Bio. No incluye panel Admin.",
             color: "primary",
         },
         {
             id: 4,
-            name: "Creador de Contenido",
-            description: "Para influencers, artistas y creadores que viven de su marca personal",
-            price: 999,
-            originalPrice: 1297,
-            discount: "Ahorras S/ 298",
+            name: "Presencia Digital Pro",
+            description: "Tu presencia digital completa con una tarjeta que puedes administrar y un Link Bio personalizado.",
+            price: 399,
+            originalPrice: 448,
+            discount: "Ahorras S/ 49",
+            deliveryTime: "3–5 días",
             isPopular: false,
-            includes: ["Links in Bio", "Tarjeta Digital", "Portfolio Éste Servicio"],
-            finalNote: "Todo lo que necesitas para convertir seguidores en clientes reales.",
-            color: "purple",
+            includes: ["Tarjeta Digital + Admin", "Link Bio", "QR", "Configuración inicial", "Adaptación de identidad visual", "Implementación de ambos servicios", "Panel administrativo para gestionar la Tarjeta Digital"],
+            finalNote: "+ S/ 19/mes (panel Admin de la Tarjeta Digital). El Link Bio no genera cobro mensual adicional.",
+            color: "teal",
         },
     ]
 ---
