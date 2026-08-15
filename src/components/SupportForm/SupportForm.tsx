@@ -7,6 +7,7 @@ const SERVICES = [
     'Tarjeta Digital',
     'Link Bio',
     'Portfolio Profesional',
+    'Vinbook - Sistema de Gestión de Reservas',
     'Página Web de Reservas',
     'VIN DISPLAY - Cartelería Digital',
     'Software a Medida',
