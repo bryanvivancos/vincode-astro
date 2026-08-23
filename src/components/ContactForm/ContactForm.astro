@@ -1,5 +1,5 @@
 ---
-import { WEB3FORMS_KEY } from "astro:env/server"
+import { WEB3FORMS_KEY } from "astro:env/client"
 ---
 
 <section id="contact" class="py-10 sm:py-12 md:py-15 place-items-center">
@@ -54,7 +54,7 @@ import { WEB3FORMS_KEY } from "astro:env/server"
     </div>
 </section>
 
-<script is:inline>
+<script is:inline define:vars={{ WEB3FORMS_KEY }}>
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
 

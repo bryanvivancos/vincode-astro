@@ -4,6 +4,11 @@
 html {
     scroll-padding-top: 5rem;
     scroll-behavior: smooth;
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
 }
 
 @theme {
@@ -103,7 +108,32 @@ html {
 }
 
 .sectionTitle {
-  @apply text-4xl md:text-5xl font-bold text-text-primary tracking-tight;
+  @apply text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-relaxed [overflow-wrap:anywhere] min-w-0;
+}
+
+@keyframes landing-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.landing-float {
+    animation: landing-float 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landing-float {
+        animation: none;
+    }
+
+    .fade-in-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 .about-text {
@@ -225,7 +255,7 @@ html {
 }
 
 .section-spacing {
-    @apply pt-24 pb-10 md:pt-32 md:pb-16 lg:pt-36 lg:pb-24;
+    @apply pt-16 pb-12 md:pt-28 md:pb-16 lg:pt-36 lg:pb-24;
 }
 
 .section-alt {

@@ -1,6 +1,6 @@
 ---
 import { Icon } from "../icons/Icon";
-import { navbar_items, VINCODE_IG } from "../../CONSTANTS";
+import { navbar_items, VINCODE_IG, VINCODE_TIKTOK } from "../../CONSTANTS";
 import { getCollection } from "astro:content";
 
 const services = await getCollection("servicios");
@@ -98,11 +98,26 @@ const availableServices = services.filter((s) => s.data.available).slice(0, 5);
                     <a
                         href={VINCODE_IG}
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="w-10 h-10 rounded-full bg-[#f8f8fa]/10 flex items-center justify-center transition-all duration-200 hover:bg-primary text-white"
                         aria-label="Instagram"
                     >
                         <Icon
                             name="InstagramIcon"
+                            width={20}
+                            height={20}
+                            color="currentColor"
+                        />
+                    </a>
+                    <a
+                        href={VINCODE_TIKTOK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full bg-[#f8f8fa]/10 flex items-center justify-center transition-all duration-200 hover:bg-primary text-white"
+                        aria-label="TikTok"
+                    >
+                        <Icon
+                            name="TikTokIcon"
                             width={20}
                             height={20}
                             color="currentColor"

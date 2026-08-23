@@ -1,0 +1,80 @@
+---
+import { icons } from "../icons";
+import type { IconName } from "../icons";
+import { getCollection } from "astro:content";
+
+const allServices = await getCollection("servicios");
+
+/** Servicios destacados en Home — “qué puedes contratar” */
+const featuredSlugs = [
+    "desarrollo-pagina-web",
+    "pagina-web-de-reservas",
+    "sistema-carteleria-digital",
+    "desarrollo-software-a-medida",
+    "diseno-portafolio-profesional",
+    "desarrollo-links-bio",
+    "setup-web-y-asesoria-seo",
+];
+
+const services = allServices
+    .filter((s) => s.data.available && featuredSlugs.includes(s.slug))
+    .sort(
+        (a, b) =>
+            featuredSlugs.indexOf(a.slug) - featuredSlugs.indexOf(b.slug),
+    )
+    .map((s) => ({
+        icon: s.data.icon as IconName,
+        title: s.data.title,
+        description: s.data.cardDescription,
+        slug: s.slug,
+    }));
+---
+
+<section id="servicios-landing" aria-labelledby="services-landing-heading">
+    <div class="section-container section-spacing">
+        <div class="fade-in-up mb-12 flex flex-col gap-6 md:mb-16 lg:flex-row lg:items-end lg:justify-between">
+            <div class="max-w-2xl">
+                <p class="eyebrow">Servicios</p>
+                <h2 id="services-landing-heading" class="sectionTitle mb-4">
+                    Qué puedes contratar
+                </h2>
+                <p class="section-subtitle">
+                    Servicios y productos listos para empezar. Si tu caso es más
+                    específico, lo construimos contigo.
+                </p>
+            </div>
+            <a href="/servicios" class="btn-secondary shrink-0 self-start lg:self-auto">
+                Ver todos los servicios →
+            </a>
+        </div>
+
+        <div class="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {
+                services.map((service, index) => {
+                    const Icon = icons[service.icon];
+                    return (
+                        <a
+                            href={`/servicios/${service.slug}`}
+                            class={`fade-in-up stagger-${Math.min(index + 1, 8)} group flex min-w-0 flex-col rounded-2xl border border-border bg-background-card p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md md:p-8`}
+                        >
+                            <div class="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary-light transition-colors duration-200 group-hover:bg-primary/15">
+                                {Icon && (
+                                    <Icon width={24} height={24} color="var(--color-primary)" />
+                                )}
+                            </div>
+                            <h3 class="mb-2 text-base font-bold text-text-primary transition-colors duration-200 group-hover:text-primary md:text-lg">
+                                {service.title}
+                            </h3>
+                            <p class="mb-4 flex-1 text-sm leading-relaxed text-text-secondary">
+                                {service.description}
+                            </p>
+                            <span class="text-sm font-semibold text-primary">
+                                Ver detalles →
+                            </span>
+                        </a>
+                    );
+                })
+            }
+        </div>
+    </div>
+</section>

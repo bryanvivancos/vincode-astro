@@ -16,17 +16,19 @@ export default function Header({ currentPath }: { currentPath: string }) {
     }, []);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-            <div className="max-w-7xl mx-auto px-6 py-6">
-                {/* Navbar flotante tipo píldora */}
-                <nav className={`
+        <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 md:py-6">
+                <nav
+                    className={`
                     flex items-center justify-between
-                    px-8 py-4 rounded-full
+                    px-5 py-3.5 md:px-8 md:py-4 rounded-full
                     transition-all duration-300
-                    ${scrolled 
-                        ? 'bg-[#f8f8fa]/95 backdrop-blur-xl shadow-lg border border-gray-100' 
-                        : 'bg-[#f8f8fa]/60 backdrop-blur-md border border-white/20'}
-                `}>
+                    ${scrolled
+                        ? "bg-[#f8f8fa]/95 backdrop-blur-xl shadow-lg border border-gray-100"
+                        : "bg-[#f8f8fa]/70 backdrop-blur-md border border-border/60"}
+                `}
+                    aria-label="Navegación principal"
+                >
                     {/* Logo minimalista */}
                     <a href="/" className="group">
                         <span className="text-xl md:text-2xl font-black text-text-primary font-bold font-Codesaver transition-colors duration-200 group-hover:text-primary">

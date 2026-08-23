@@ -44,16 +44,16 @@ Allow: /services/
 # Páginas de servicios dinámicos
 Allow: /servicios/desarrollo-pagina-web/ 
 Allow: /servicios/desarrollo-software-a-medida/
-Allow: /servicios/diseño-tarjeta-de-presentacion/
+Allow: /servicios/diseno-tarjeta-de-presentacion/
 Allow: /servicios/desarrollo-links-bio/
-Allow: /servicios/diseño-portafolio-profesional/
+Allow: /servicios/diseno-portafolio-profesional/
 Allow: /servicios/setup-web-y-asesoria-seo/
 Allow: /servicios/software-licenciado/
 Allow: /servicios/sistema-carteleria-digital/
 Allow: /servicios/pagina-web-de-reservas/
 
 Disallow: /servicios/punto-de-venta/
-Disallow: /servicios/creación-paginas-web-e-commerce/
+Disallow: /servicios/creacion-paginas-web-e-commerce/
 Disallow: /servicios/sistema-para-restaurante/
 
 

@@ -8,25 +8,29 @@ const generateWhatsAppLink = (packageName: string) => {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
-const homePackageCount = 7;
+const homePackageCount = 4;
 ---
 
 <!-- Sección: Precios -->
-<section class="py-20 md:py-24 bg-[#f8f8fa]">
+<section id="precios" class="py-20 md:py-24 bg-[#f8f8fa]" aria-labelledby="pricing-heading">
     <div class="section-container">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 fade-in-up">
+            <p class="eyebrow">Inversión</p>
             <h2
+                id="pricing-heading"
                 class="sectionTitle font-bold text-text-primary leading-tight mb-4"
             >
-                Precios y Paquetes
+                Soluciones para diferentes etapas de tu negocio
             </h2>
             <p class="text-lg text-text-secondary max-w-2xl mx-auto">
-                Paquetes diseñados para cada etapa de tu negocio
+                Estas son algunas formas de empezar con VINCODE. Elige el punto
+                de partida que mejor se adapte a lo que necesitas. Si tu
+                proyecto requiere algo más específico, lo construimos contigo.
             </p>
         </div>
 
         <PricingCardsLayout count={homePackageCount} interval={5000}>
-            <!-- Paquete: Presencia Digital (Más elegido) -->
+            <!-- 1. PRESENCIA DIGITAL -->
             <div
                 class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative flex flex-col h-full"
             >
@@ -140,239 +144,7 @@ const homePackageCount = 7;
                 </div>
             </div>
 
-            <!-- Paquete: Presencia Digital Pro -->
-            <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-green-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
-            >
-                <div class="bg-gray-100 px-6 py-5 text-center">
-                    <h3
-                        class="text-xl font-bold text-green-600 uppercase tracking-wide"
-                    >
-                        Presencia Digital Pro
-                    </h3>
-                </div>
-                <div class="bg-green-500 px-6 py-6 text-center">
-                    <div class="text-white">
-                        <div class="text-sm line-through opacity-70 mb-1">
-                            Antes S/ 448
-                        </div>
-                        <p
-                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
-                        >
-                            Precio referencial. El precio se adecua
-                            tu negocio.
-                        </p>
-                        <div>
-                            <span class="text-3xl md:text-5xl font-black"
-                                >S/ 399</span
-                            >
-                        </div>
-                        <div
-                            class="text-xs mt-2 bg-[#f8f8fa] text-green-600 inline-block px-3 py-1 rounded-full font-semibold"
-                        >
-                            + S/ 19/mes
-                        </div>
-                    </div>
-                </div>
-                <div class="px-6 py-6 flex-grow flex flex-col">
-                    <p
-                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
-                    >
-                        Presencia completa con tarjeta administrable y Link Bio
-                        personalizado
-                    </p>
-                    <ul class="space-y-2 mb-6 flex-grow">
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Tarjeta Digital + Admin</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm">Link Bio</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Panel Admin de la Tarjeta Digital</span
-                            >
-                        </li>
-                    </ul>
-                    <p class="text-xs text-gray-500 text-center mb-4 italic">
-                        Ahorras S/ 49 al inicio. El S/ 19/mes es solo el panel
-                        Admin.
-                    </p>
-                    <a
-                        href={generateWhatsAppLink("Presencia Digital Pro")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="block w-full py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
-                    >
-                        Solicitar
-                    </a>
-                </div>
-            </div>
-
-            <!-- Paquete 1: Starter Digital -->
-            <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
-            >
-                <div class="bg-gray-100 px-6 py-5 text-center">
-                    <h3
-                        class="text-xl font-bold text-gray-700 uppercase tracking-wide"
-                    >
-                        Starter Digital
-                    </h3>
-                </div>
-                <div class="bg-gray-700 px-6 py-6 text-center">
-                    <div class="text-white">
-                        <div class="text-sm line-through opacity-70 mb-1">
-                            Antes S/ 448
-                        </div>
-                        <p
-                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
-                        >
-                            Precio referencial. El precio se adecua
-                            tu negocio.
-                        </p>
-                        <div>
-                            <span class="text-3xl md:text-5xl font-black"
-                                >S/ 369</span
-                            >
-                            <!-- <span class="text-xs opacity-80 ml-1">+ IGV</span> -->
-                        </div>
-                        <div
-                            class="text-xs mt-2 bg-green-500 inline-block px-3 py-1 rounded-full font-semibold"
-                        >
-                            Combo de entrada
-                        </div>
-                    </div>
-                </div>
-                <div class="px-6 py-6 flex-grow flex flex-col">
-                    <p
-                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
-                    >
-                        Tu negocio listo para empezar a mostrarse online
-                    </p>
-                    <ul class="space-y-2 mb-6 flex-grow">
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm">Setup Web</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Link Bio o Tarjeta Digital Básico</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Perfil de Negocio de Google + SEO inicial</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >QR, configuración e implementación</span
-                            >
-                        </li>
-                    </ul>
-                    <p class="text-xs text-gray-500 text-center mb-4 italic">
-                        Dominio, correo profesional, presencia en Google y una
-                        herramienta digital para compartir tu negocio. Listo
-                        para empezar.
-                    </p>
-                    <a
-                        href={generateWhatsAppLink("Starter Digital")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="block w-full py-3 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
-                    >
-                        Solicitar
-                    </a>
-                </div>
-            </div>
-
-            <!-- Paquete 0: Lanzamiento Digital (Más Popular) -->
+            <!-- 2. LANZAMIENTO DIGITAL -->
             <div
                 class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-orange-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative flex flex-col h-full"
             >
@@ -403,7 +175,6 @@ const homePackageCount = 7;
                             <span class="text-3xl md:text-5xl font-black"
                                 >S/ 1,399</span
                             >
-                            <!-- <span class="text-xs opacity-80 ml-1">+ IGV</span> -->
                         </div>
                         <div
                             class="text-xs mt-2 bg-[#f8f8fa] text-orange-600 inline-block px-3 py-1 rounded-full font-semibold"
@@ -477,7 +248,7 @@ const homePackageCount = 7;
                         digital. Listo para lanzar.
                     </p>
                     <a
-                        href={generateWhatsAppLink("Presencia Pro")}
+                        href={generateWhatsAppLink("Lanzamiento Digital")}
                         target="_blank"
                         rel="noopener noreferrer"
                         class="block w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-lg text-sm"
@@ -487,7 +258,7 @@ const homePackageCount = 7;
                 </div>
             </div>
 
-            <!-- Paquete 2: Presencia Pro  -->
+            <!-- 3. PRESENCIA PROFESIONAL (paquete Presencia Pro) -->
             <div
                 class="bg-[#f8f8fa] rounded-3xl shadow-2xl border-2 border-primary overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative flex flex-col h-full"
             >
@@ -518,7 +289,6 @@ const homePackageCount = 7;
                             <span class="text-3xl md:text-5xl font-black"
                                 >S/ 1,199</span
                             >
-                            <!-- <span class="text-xs opacity-80 ml-1">+ IGV</span> -->
                         </div>
                         <div
                             class="text-xs mt-2 bg-[#f8f8fa] text-primary inline-block px-3 py-1 rounded-full font-semibold"
@@ -602,219 +372,43 @@ const homePackageCount = 7;
                 </div>
             </div>
 
-            <!-- Paquete 3: Negocio Digital -->
+            <!-- 4. SOLUCIÓN A MEDIDA (sin precio inventado) -->
             <div
                 class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
             >
                 <div class="bg-gray-100 px-6 py-5 text-center">
                     <h3
-                        class="text-xl font-bold text-teal-600 uppercase tracking-wide"
+                        class="text-xl font-bold text-gray-700 uppercase tracking-wide"
                     >
-                        Negocio Digital
+                        Solución a medida
                     </h3>
                 </div>
-                <div class="bg-teal-500 px-6 py-6 text-center">
+                <div class="bg-gray-700 px-6 py-6 text-center">
                     <div class="text-white">
-                        <div class="text-sm line-through opacity-70 mb-1">
-                            Antes S/ 1918
-                        </div>
                         <p
-                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
+                            class="text-xs mb-3 opacity-90 leading-snug px-1"
                         >
-                            Precio referencial. El precio se adecua
-                            tu negocio.
+                            Sin precio fijo. Se define según tu proyecto.
                         </p>
                         <div>
-                            <span class="text-3xl md:text-5xl font-black"
-                                >S/ 1,719</span
+                            <span class="text-2xl md:text-3xl font-black leading-tight"
+                                >A medida</span
                             >
-                            <!-- <span class="text-xs opacity-80 ml-1">+ IGV</span> -->
-                        </div>
-                        <div
-                            class="text-xs mt-2 bg-[#f8f8fa] text-teal-600 inline-block px-3 py-1 rounded-full font-semibold"
-                        >
-                            Ahorras S/ 199
                         </div>
                     </div>
                 </div>
                 <div class="px-6 py-6 flex-grow flex flex-col">
                     <p
-                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
+                        class="text-gray-600 text-center mb-6 text-sm leading-relaxed flex-grow"
                     >
-                        Para restaurantes, cafeterías o heladerías que quieren
-                        modernizarse
-                    </p>
-                    <ul class="space-y-2 mb-6 flex-grow">
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Setup Web</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >VIN DISPLAY — cartelería digital</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm">Link Bio</span>
-                        </li>
-                    </ul>
-                    <p class="text-xs text-gray-500 text-center mb-4 italic">
-                        Correos corporativos + pantallas digitales + enlace en
-                        redes. Imagen premium.
+                        Software, automatización e integraciones diseñadas
+                        alrededor de las necesidades de tu negocio.
                     </p>
                     <a
-                        href={generateWhatsAppLink("Negocio Digital")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="block w-full py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
+                        href="/contacto"
+                        class="block w-full py-3 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
                     >
-                        Solicitar
-                    </a>
-                </div>
-            </div>
-
-            <!-- Paquete 4: Creador de Contenido -->
-            <div
-                class="bg-[#f8f8fa] rounded-3xl shadow-lg border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full"
-            >
-                <div class="bg-gray-100 px-6 py-5 text-center">
-                    <h3
-                        class="text-xl font-bold text-purple-600 uppercase tracking-wide"
-                    >
-                        Creador de Contenido
-                    </h3>
-                </div>
-                <div class="bg-purple-500 px-6 py-6 text-center">
-                    <div class="text-white">
-                        <div class="text-sm line-through opacity-70 mb-1">
-                            Antes S/ 1,297
-                        </div>
-                        <p
-                            class="text-xs mb-1.5 opacity-90 leading-snug px-1"
-                        >
-                            Precio referencial. El precio se adecua
-                            tu negocio.
-                        </p>
-                        <div>
-                            <span class="text-3xl md:text-5xl font-black"
-                                >S/ 999</span
-                            >
-                            <!-- <span class="text-xs opacity-80 ml-1">+ IGV</span> -->
-                        </div>
-                        <div
-                            class="text-xs mt-2 bg-[#f8f8fa] text-purple-600 inline-block px-3 py-1 rounded-full font-semibold"
-                        >
-                            Ahorras S/ 298
-                        </div>
-                    </div>
-                </div>
-                <div class="px-6 py-6 flex-grow flex flex-col">
-                    <p
-                        class="text-gray-600 text-center mb-4 text-sm leading-relaxed"
-                    >
-                        Para influencers, artistas y creadores que viven de su
-                        marca personal
-                    </p>
-                    <ul class="space-y-2 mb-6 flex-grow">
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm">Link Bio</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Tarjeta Digital Básico</span
-                            >
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg
-                                class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700 text-sm"
-                                >Portfolio Básico - Precio solo por el Servicio
-                                actual</span
-                            >
-                        </li>
-                    </ul>
-                    <p class="text-xs text-gray-500 text-center mb-4 italic">
-                        Todo lo que necesitas para convertir seguidores en
-                        clientes reales.
-                    </p>
-                    <a
-                        href={generateWhatsAppLink("Creador de Contenido")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="block w-full py-3 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
-                    >
-                        Solicitar
+                        Cuéntanos tu proyecto
                     </a>
                 </div>
             </div>

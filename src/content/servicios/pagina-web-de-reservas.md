@@ -1,7 +1,7 @@
 ---
 id: 12
 category: "web"
-title: Vin Book - Página Web de Reservas para Barberías, Spa y Profesionales
+title: Página Web de Reservas para Barberías, Spa y Profesionales
 icon: RocketIcon
 cardDescription: Página web diseñada para convertir visitas en clientes o ventas con SEO optimizado.
 available: true

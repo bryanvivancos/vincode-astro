@@ -16,7 +16,7 @@ export default function Projects() {
           className="grid gap-3 grid-cols-[repeat(auto-fit,minmax(210px,1fr))] place-items-center"
         >
           {projects.map((project, index) => (
-            <a href={project.link} target="_blank" key={index} className="bg-background-card border-1 border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top h-full">
+            <a href={project.url} target="_blank" key={index} className="bg-background-card border-1 border-border rounded-lg p-4 flex flex-col gap-3 transition-all transform duration-300 ease-in-out hover:border-primary hover:-translate-y-1 animate-slide-in-top h-full">
               <div className="flex flex-col gap-1">
                 <img src={project.img} alt="project image" className="w-full h-auto rounded-lg" />
                 <div className="pt-4 space-y-2">

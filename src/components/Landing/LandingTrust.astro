@@ -1,0 +1,29 @@
+---
+import { LANDING_TRUST } from "../../data/landing";
+---
+
+<section id="confianza" class="border-y border-border bg-white" aria-label="Indicadores de confianza">
+    <div class="section-container py-8 md:py-16">
+        <p
+            class="fade-in-up mb-6 max-w-2xl text-center text-sm text-text-secondary md:mx-auto md:mb-10 md:text-lg"
+        >
+            {LANDING_TRUST.title}
+        </p>
+        <div class="grid min-w-0 grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
+            {
+                LANDING_TRUST.metrics.map((metric, index) => (
+                    <div
+                        class={`fade-in-up stagger-${Math.min(index + 1, 8)} rounded-xl border border-border bg-background-dark p-4 text-center transition-all duration-200 hover:border-primary/30 hover:shadow-md md:rounded-2xl md:p-6`}
+                    >
+                        <p class="mb-1 text-2xl font-bold text-primary md:mb-2 md:text-4xl">
+                            {metric.value}
+                        </p>
+                        <p class="text-xs font-medium text-text-secondary md:text-sm">
+                            {metric.label}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

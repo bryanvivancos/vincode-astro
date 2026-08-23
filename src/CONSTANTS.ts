@@ -1,11 +1,12 @@
 export const BRAND_NAME = "VINCODE"
 export const VINCODE_IG = "https://www.instagram.com/vincodedev/"
+export const VINCODE_TIKTOK = "https://www.tiktok.com/@vincodedev"
 export const email = 'vincodedev@gmail.com'
 export const phone = '+51 956023028'
 export const WHATSAPP_NUMBER = '51956023028'
 
-export const HERO_TITLE = "Eleva Tu Presencia En Línea con Servicios Digitales"
-export const HERO_SUBTITLE = "Desde tarjetas de presentación digitales intuitivas, portfolios impresionantes hasta potentes plataformas de comercio electrónico, creamos soluciones digitales que impulsan el éxito."
+export const HERO_TITLE = "Convertimos problemas de negocio en soluciones digitales"
+export const HERO_SUBTITLE = "Diseñamos y desarrollamos sitios web, software y automatizaciones que ayudan a tu negocio a vender mejor, trabajar más rápido y crecer."
 
 export const SERVICES_TITLE = "Desarrollo Multiplataforma"
 export const SERVICES_SUBTITLE = "Ofrecemos una gama de servicios para satisfacer tus necesidades digitales, desde el desarrollo de páginas web multiplataforma, diseño de tarjetas de presentación, Link Bio hasta el desarrollo de un software a la medida de tu negocio."

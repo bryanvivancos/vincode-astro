@@ -112,6 +112,14 @@ export const GlobeIcon = (props: SVGProps<SVGSVGElement>) => (
 export const InstagramIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}><path xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" d="M12 7.5c-2.485 0-4.5 2.01-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.01 4.5-4.5A4.506 4.506 0 0 0 12 7.5m0 7.5c-1.657 0-3-1.34-3-3s1.343-3 3-3 3 1.34 3 3-1.343 3-3 3m4.5-12.75h-9A5.253 5.253 0 0 0 2.25 7.5v9a5.253 5.253 0 0 0 5.25 5.25h9a5.253 5.253 0 0 0 5.25-5.25v-9a5.253 5.253 0 0 0-5.25-5.25m3.75 14.25a3.75 3.75 0 0 1-3.75 3.75h-9a3.75 3.75 0 0 1-3.75-3.75v-9A3.75 3.75 0 0 1 7.5 3.75h9a3.75 3.75 0 0 1 3.75 3.75zM18 7.12a1.124 1.124 0 1 1-2.25 0c0-.62.504-1.12 1.125-1.12S18 6.5 18 7.12" clipRule="evenodd" /></svg>
 );
+export const TikTokIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+    />
+  </svg>
+);
 export const LinkIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}><path xmlns="http://www.w3.org/2000/svg" fill="#00a8e8" fillRule="evenodd" d="M12.894 17.471a.75.75 0 0 1 0 1.061l-.932.937a5.253 5.253 0 1 1-7.426-7.431l2.261-2.262a5.25 5.25 0 0 1 7.201-.214c.31.276.339.751.064 1.062a.754.754 0 0 1-1.062.064 3.75 3.75 0 0 0-5.142.152l-2.261 2.259a3.75 3.75 0 1 0 5.304 5.304l.932-.932a.75.75 0 0 1 1.061 0m6.57-12.937a5.256 5.256 0 0 0-7.426 0l-.932.933a.749.749 0 1 0 1.061 1.06l.932-.932a3.75 3.75 0 1 1 5.304 5.304l-2.261 2.264a3.75 3.75 0 0 1-5.142.149.753.753 0 0 0-.998 1.126 5.25 5.25 0 0 0 7.201-.212l2.261-2.262a5.256 5.256 0 0 0 0-7.428z" clipRule="evenodd" /></svg>
 );
@@ -275,6 +283,7 @@ export const icons = {
   FacebookIcon,
   GlobeIcon,
   InstagramIcon,
+  TikTokIcon,
   LinkIcon,
   LogoIcon,
   MobileIcon,

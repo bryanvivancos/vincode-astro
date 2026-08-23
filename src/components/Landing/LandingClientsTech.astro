@@ -1,0 +1,90 @@
+---
+import { LANDING_TECH, LANDING_CLIENTS } from "../../data/landing";
+
+interface Client {
+    name: string;
+    logo?: string;
+    url?: string;
+}
+
+const clients: Client[] = [
+    {
+        name: "Catquiz — Joyería y Accesorios",
+        logo: "/clients-img/CATQUIZ_Logo_metatags.webp",
+        url: "https://bio.catquiz.pe",
+    },
+    {
+        name: "El Chalan — Heladería",
+        logo: "/clients-img/el_chalan.webp",
+        url: "https://elchalan.com.pe",
+    },
+];
+---
+
+<section id="clientes" class="section-alt" aria-labelledby="clients-heading">
+    <div class="section-container section-spacing">
+        <div class="fade-in-up mb-12 text-center md:mb-16">
+            <p class="eyebrow">{LANDING_CLIENTS.eyebrow}</p>
+            <h2 id="clients-heading" class="sectionTitle mb-6">
+                {LANDING_CLIENTS.title}
+            </h2>
+            <p class="section-subtitle mx-auto max-w-2xl">
+                {LANDING_CLIENTS.subtitle}
+            </p>
+        </div>
+
+        <ul
+            class="fade-in-up mb-16 grid min-w-0 list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 md:mx-auto md:max-w-2xl"
+            role="list"
+        >
+            {
+                clients.map((client) => (
+                    <li>
+                        <a
+                            href={client.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="group flex min-h-[140px] flex-col items-center justify-center gap-4 rounded-2xl border border-border bg-background-card p-8 text-center transition-all duration-200 hover:border-primary/30 hover:shadow-md"
+                            aria-label={client.name}
+                        >
+                            {
+                                client.logo ? (
+                                    <img
+                                        src={client.logo}
+                                        alt={`Logo de ${client.name}`}
+                                        class="max-h-16 w-auto max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-105"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                ) : null
+                            }
+                            <span class="text-sm font-semibold text-text-secondary transition-colors duration-200 group-hover:text-primary">
+                                {client.name}
+                            </span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <div class="fade-in-up text-center">
+            <p class="mb-6 text-sm font-semibold uppercase tracking-wider text-text-muted">
+                {LANDING_CLIENTS.techLabel}
+            </p>
+            <!-- <ul
+                class="flex flex-wrap items-center justify-center gap-3"
+                role="list"
+            >
+                {
+                    LANDING_TECH.map((tech) => (
+                        <li>
+                            <span class="inline-flex rounded-full border border-border bg-background-card px-4 py-2 text-sm font-medium text-text-secondary">
+                                {tech}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul> -->
+        </div>
+    </div>
+</section>

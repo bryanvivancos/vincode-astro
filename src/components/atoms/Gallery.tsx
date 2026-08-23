@@ -19,7 +19,6 @@ export default function GalleryReact({
 
         return () => {
             lightbox.destroy();
-            lightbox = null;
         };
     }, []);
 

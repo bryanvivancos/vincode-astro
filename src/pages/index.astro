@@ -1,33 +1,76 @@
 ---
-import Hero from "../components/Hero/Hero";
-import Services from "../components/Services/Services.astro";
+import LandingHero from "../components/Landing/LandingHero.astro";
+import LandingTrust from "../components/Landing/LandingTrust.astro";
+import LandingSolutions from "../components/Landing/LandingSolutions.astro";
+import LandingFeaturedProjects from "../components/Landing/LandingFeaturedProjects.astro";
+import LandingProblems from "../components/Landing/LandingProblems.astro";
+import LandingProcess from "../components/Landing/LandingProcess.astro";
+import LandingServices from "../components/Landing/LandingServices.astro";
+import LandingClientsTech from "../components/Landing/LandingClientsTech.astro";
 import HomePricingSection from "../components/Pricing/HomePricingSection.astro";
-import Projects from "../components/Projects/Projects.astro";
-import OtherProjects from "../components/OtherProjects/OtherProjects";
-import Clients from "../components/Clients/Clients.astro";
-import CTABanner from "../components/CTABanner/CTABanner.astro";
-import { BRAND_NAME } from "../CONSTANTS";
+import LandingFinalCTA from "../components/Landing/LandingFinalCTA.astro";
+import { BRAND_NAME, email, phone, VINCODE_IG, VINCODE_TIKTOK } from "../CONSTANTS";
 import MainLayout from "../layouts/MainLayout.astro";
 
 export const prerender = true;
+
+const siteUrl = "https://www.vincode.dev";
+const pageTitle = `${BRAND_NAME} | Soluciones digitales para negocios`;
+const pageDescription =
+  "VINCODE convierte problemas de negocio en soluciones digitales: sitios web, software a medida, automatización e IA. Diseñamos y construimos lo que tu operación necesita.";
+const pageKeywords =
+  "soluciones digitales, desarrollo web, software a medida, automatización, inteligencia artificial, VINCODE, VINBOOK, VIN DISPLAY, estudio digital";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: BRAND_NAME,
+  url: siteUrl,
+  logo: `${siteUrl}/cover-page.webp`,
+  description: pageDescription,
+  email,
+  telephone: phone,
+  sameAs: [VINCODE_IG, VINCODE_TIKTOK],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: phone,
+    contactType: "customer service",
+    email,
+    availableLanguage: ["Spanish", "English"],
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: BRAND_NAME,
+  url: siteUrl,
+  description: pageDescription,
+  publisher: {
+    "@type": "Organization",
+    name: BRAND_NAME,
+  },
+};
 ---
 
 <MainLayout
-    title={`${BRAND_NAME} | Agencia de Desarrollo y Diseño Web`}
-    description={`Eleva tu presencia digital con nuestras soluciones personalizadas para emprendimientos, startups y autónomos.`}
-    keywords="Desarrollo web, Diseño web, agencia diseño y desarrollo web, creacion de software, Emprendimientos, desarrollo multiplataforma, Autónomos, Vincode, desarrollo web servicios, pagina web multiplataforma"
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
 >
-    <Hero client:load />
-    <Services />
-    <Clients />
-    <Projects />
-    <HomePricingSection />
-    <OtherProjects client:visible />
-    <CTABanner
-        eyebrow="¿Listo para empezar?"
-        title="Contáctanos hoy para discutir tu proyecto"
-        description="Descubre cómo podemos ayudarte a alcanzar tus metas digitales."
-        buttonText="Contáctanos"
-        buttonHref="/contacto"
-    />
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  </Fragment>
+
+  <LandingHero />
+  <LandingTrust />
+  <LandingProblems />
+  <LandingSolutions />
+  <LandingFeaturedProjects />
+  <LandingProcess />
+  <LandingServices />
+  <LandingClientsTech />
+  <HomePricingSection />
+  <LandingFinalCTA />
 </MainLayout>

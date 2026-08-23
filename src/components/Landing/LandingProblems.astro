@@ -1,0 +1,94 @@
+---
+import { LANDING_PROBLEMS } from "../../data/landing";
+---
+
+<section id="resolver" class="section-alt" aria-labelledby="problems-heading">
+    <div class="section-container section-spacing">
+        <div class="fade-in-up mx-auto mb-10 max-w-3xl text-center md:mb-16 lg:mb-20">
+            <p class="eyebrow">Enfoque</p>
+            <h2 id="problems-heading" class="sectionTitle mb-4 md:mb-6">
+                {LANDING_PROBLEMS.title}
+            </h2>
+            <p class="section-subtitle mx-auto text-sm md:text-base lg:text-lg">
+                {LANDING_PROBLEMS.subtitle}
+            </p>
+        </div>
+
+        <!-- Mobile: lista simple -->
+        <ul
+            class="fade-in-up mx-auto max-w-3xl divide-y divide-border overflow-hidden rounded-2xl border border-border bg-background-card md:hidden"
+            role="list"
+        >
+            {
+                LANDING_PROBLEMS.items.map((item) => (
+                    <li class="flex flex-col gap-1.5 px-5 py-4">
+                        <span class="text-sm font-semibold text-text-primary">
+                            {item.problem}
+                        </span>
+                        {
+                            item.question && (
+                                <span class="text-xs text-text-muted">
+                                    {item.question}
+                                </span>
+                            )
+                        }
+                        <span class="text-sm text-text-secondary">
+                            <span class="text-primary" aria-hidden="true">→ </span>
+                            {item.solution}
+                        </span>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <!-- Desktop: grid de cards -->
+        <div
+            class="fade-in-up hidden min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 md:grid lg:grid-cols-3 lg:gap-6"
+        >
+            {
+                LANDING_PROBLEMS.items.map((item, index) => (
+                    <article
+                        class={`stagger-${Math.min(index + 1, 8)} group rounded-2xl border border-border bg-background-card p-6 transition-all duration-200 hover:border-primary/30 hover:shadow-md md:p-8`}
+                    >
+                        <h3 class="mb-2 text-lg font-bold text-text-primary">
+                            {item.problem}
+                        </h3>
+                        {
+                            item.question && (
+                                <p class="mb-3 text-sm text-text-muted">
+                                    {item.question}
+                                </p>
+                            )
+                        }
+                        <p class="text-sm leading-relaxed text-text-secondary md:text-base">
+                            <span class="font-medium text-primary">→ </span>
+                            {item.solution}
+                        </p>
+                    </article>
+                ))
+            }
+        </div>
+
+        <!-- Mobile CTA -->
+        <div class="fade-in-up mt-10 text-center md:hidden">
+            <p class="mb-5 text-base text-text-secondary">
+                ¿No sabes por dónde empezar? Cuéntanos tu caso.
+            </p>
+            <a href="/contacto" class="btn-primary">
+                Conversemos
+            </a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <div
+            class="fade-in-up mt-16 hidden rounded-2xl border border-primary/20 bg-primary-light p-8 text-center md:block md:p-12"
+        >
+            <p class="mb-6 text-lg font-medium text-text-primary md:text-xl">
+                ¿No estás seguro de qué tipo de solución necesitas?
+            </p>
+            <a href="/contacto" class="btn-primary">
+                Conversemos sobre tu caso
+            </a>
+        </div>
+    </div>
+</section>
