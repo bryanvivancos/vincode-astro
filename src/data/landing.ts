@@ -11,7 +11,7 @@ export const LANDING_VINBOOK_STRIP = {
   eyebrow: "Nuevo · VINBOOK",
   title: "Deja de gestionar reservas por WhatsApp.",
   subtitle: "Tu propia agenda online, disponible 24/7.",
-  cta: { label: "Empezar gratis →", href: "/vinbook" },
+  cta: { label: "Empezar ahora →", href: "https://vinbook.vincode.dev" },
 };
 
 export const LANDING_TRUST = {
