@@ -254,5 +254,23 @@ const availableServices = services.filter((s) => s.data.available).slice(0, 5);
         <p class="text-sm text-gray-400 text-center">
             © 2025 Vincode. Todos los derechos reservados.
         </p>
+        <nav
+            aria-label="Información legal"
+            class="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-gray-400"
+        >
+            <a
+                href="/politica-de-privacidad"
+                class="rounded-sm transition-colors duration-200 hover:text-primary focus-visible:text-primary focus-visible:underline focus-visible:outline-none"
+            >
+                Política de privacidad
+            </a>
+            <span aria-hidden="true">·</span>
+            <a
+                href="/terminos-y-condiciones"
+                class="rounded-sm transition-colors duration-200 hover:text-primary focus-visible:text-primary focus-visible:underline focus-visible:outline-none"
+            >
+                Términos y condiciones
+            </a>
+        </nav>
     </div>
 </footer>

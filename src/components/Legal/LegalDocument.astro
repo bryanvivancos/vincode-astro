@@ -1,0 +1,75 @@
+---
+interface Props {
+    eyebrow: string;
+    title: string;
+    updated: string;
+}
+
+const { eyebrow, title, updated } = Astro.props;
+---
+
+<article class="section-spacing">
+    <div class="section-container">
+        <header class="mx-auto mb-10 max-w-3xl">
+            <p class="eyebrow">{eyebrow}</p>
+            <h1 class="sectionTitle mb-4">{title}</h1>
+            <p class="text-sm text-text-muted">Última actualización: {updated}</p>
+        </header>
+        <div class="legal-doc mx-auto max-w-3xl">
+            <slot />
+        </div>
+    </div>
+</article>
+
+<style>
+    .legal-doc :global(h2) {
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        font-weight: 700;
+        color: var(--color-text-primary);
+    }
+
+    .legal-doc :global(h2:first-child) {
+        margin-top: 0;
+    }
+
+    .legal-doc :global(p),
+    .legal-doc :global(li) {
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--color-text-secondary);
+    }
+
+    .legal-doc :global(p + p) {
+        margin-top: 1rem;
+    }
+
+    .legal-doc :global(ul) {
+        margin-top: 0.75rem;
+        margin-bottom: 0.25rem;
+        padding-left: 1.25rem;
+        list-style: disc;
+    }
+
+    .legal-doc :global(li + li) {
+        margin-top: 0.5rem;
+    }
+
+    .legal-doc :global(a) {
+        color: var(--color-primary);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .legal-doc :global(a:hover) {
+        color: var(--color-primary-hover);
+    }
+
+    .legal-doc :global(a:focus-visible) {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
+</style>

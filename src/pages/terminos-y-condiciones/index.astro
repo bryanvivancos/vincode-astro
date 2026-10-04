@@ -1,0 +1,183 @@
+---
+import { BRAND_NAME, email, phone, WHATSAPP_NUMBER } from "../../CONSTANTS";
+import LegalDocument from "../../components/Legal/LegalDocument.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+export const prerender = true;
+
+const updated = "4 de octubre de 2026";
+---
+
+<MainLayout
+    title={`Términos y Condiciones | ${BRAND_NAME}`}
+    description="Condiciones de uso del sitio VINCODE: servicios, precios referenciales, propiedad intelectual y límites de lo que este sitio compromete."
+>
+    <LegalDocument
+        eyebrow="Información legal"
+        title="Términos y condiciones"
+        updated={updated}
+    >
+        <h2>Términos y condiciones</h2>
+        <p>
+            Estas condiciones regulan el uso del sitio vincode.dev. Un proyecto
+            contratado puede tener un acuerdo aparte. Si ese acuerdo dice otra
+            cosa sobre el trabajo encargado, prevalece el acuerdo.
+        </p>
+
+        <h2>Identificación del titular</h2>
+        <p>
+            El sitio se presenta como {BRAND_NAME}, agencia de desarrollo y diseño
+            web. El titular es:
+        </p>
+        <ul>
+            <li>Titular: Bryan Vivanco Silva</li>
+            <li>RUC: 10728652255</li>
+            <li>Domicilio: Piura, Perú</li>
+        </ul>
+        <p>
+            Contacto publicado: <a href={`mailto:${email}`}>{email}</a>, {phone},
+            WhatsApp{" "}
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} rel="noopener noreferrer">
+                wa.me/{WHATSAPP_NUMBER}
+            </a>.
+        </p>
+
+        <h2>Aceptación de los términos</h2>
+        <p>
+            Si navegas este sitio, aceptas estas condiciones para ese uso. Pedir
+            información por <a href="/contacto">/contacto</a>, por{" "}
+            <a href="/soporte">/soporte</a> o por WhatsApp no equivale, por sí
+            solo, a contratar un servicio.
+        </p>
+
+        <h2>Descripción de los servicios</h2>
+        <p>
+            {BRAND_NAME} ofrece diseño y desarrollo de sitios web, software,
+            automatizaciones y piezas digitales relacionadas, como se describen en
+            la home y en <a href="/servicios">/servicios</a>. La oferta concreta
+            de cada ficha es la que esa página publica.
+        </p>
+        <p>
+            VINBOOK es un producto distinto, en vinbook.vincode.dev. Estas
+            condiciones no regulan el alta ni el uso de VINBOOK.
+        </p>
+
+        <h2>Uso del sitio web</h2>
+        <p>Puedes usar el sitio para informarte y para contactarnos. No está permitido:</p>
+        <ul>
+            <li>Usarlo para enviar malware, spam o contenido ilegal.</li>
+            <li>Intentar acceder a zonas que no son públicas, como las rutas de API.</li>
+            <li>Copiar el sitio o sus materiales para presentarlos como propios.</li>
+        </ul>
+
+        <h2>Solicitud y contratación de servicios</h2>
+        <p>
+            Una solicitud se inicia en <a href="/contacto">/contacto</a> o por
+            WhatsApp. El sitio no cierra el contrato: el alcance, los plazos y el
+            precio se confirman en la conversación posterior. Hasta esa
+            confirmación no hay obligación de ejecutar un trabajo.
+        </p>
+        <p>
+            El soporte en <a href="/soporte">/soporte</a> es un canal de consulta
+            sobre un servicio. No publica un acuerdo de nivel de servicio.
+        </p>
+
+        <h2>Precios y condiciones comerciales</h2>
+        <p>
+            Los precios de la home y de las fichas son referenciales. El propio
+            sitio indica que el precio se adecúa al negocio. No son una oferta
+            cerrada ni incluyen condiciones que la página no muestre.
+        </p>
+        <p>
+            Pedir un paquete por WhatsApp abre una conversación con el nombre del
+            paquete. No reserva el precio ni inicia un cobro.
+        </p>
+
+        <h2>Pagos</h2>
+        <p>
+            Este sitio no cobra con tarjeta ni con pasarela de pago. No publica
+            medios de pago, facturación, anticipos, reembolsos ni suscripciones.
+            Esas condiciones, si aplican a un proyecto, se acuerdan fuera de estas
+            páginas y no deben inferirse de aquí.
+        </p>
+
+        <h2>Propiedad intelectual</h2>
+        <p>
+            Los textos, el diseño y el código de vincode.dev pertenecen a{" "}
+            {BRAND_NAME}, salvo el material de terceros que se identifica como tal
+            (por ejemplo proyectos de clientes enlazados o herramientas de
+            terceros).
+        </p>
+        <p>
+            Contratar un proyecto no transfiere, por estas condiciones generales,
+            la propiedad del trabajo. Esa cesión, si existe, tiene que constar en
+            el acuerdo de ese proyecto.
+        </p>
+
+        <h2>Contenido proporcionado por clientes</h2>
+        <p>
+            Si nos envías textos, marcas, imágenes o accesos para un proyecto,
+            confirmas que puedes usarlos para ese encargo. {BRAND_NAME} puede
+            mostrar trabajos realizados como referencia en el sitio, salvo que el
+            acuerdo de ese proyecto diga lo contrario.
+        </p>
+
+        <h2>Responsabilidades del usuario</h2>
+        <p>
+            Debes dar datos de contacto veraces en los formularios y usar el sitio
+            de forma lícita. Eres responsable de lo que envías por correo,
+            soporte o WhatsApp.
+        </p>
+
+        <h2>Disponibilidad del sitio y servicios</h2>
+        <p>
+            Procuramos que el sitio esté disponible, pero no hay un compromiso de
+            disponibilidad continua. El mantenimiento, el alojamiento o un fallo
+            de un proveedor pueden interrumpir el acceso. No hay un plazo de
+            respuesta garantizado más allá de lo que una página concreta diga, si
+            es que lo dice.
+        </p>
+
+        <h2>Enlaces externos</h2>
+        <p>
+            Los enlaces a sitios de clientes, Instagram, TikTok, WhatsApp y
+            VINBOOK salen de este sitio. {BRAND_NAME} no controla su contenido ni
+            su disponibilidad.
+        </p>
+
+        <h2>Limitación de responsabilidad</h2>
+        <p>
+            La información del sitio es orientativa. Una decisión de compra no
+            debe basarse solo en un precio referencial o en un texto de marketing.
+            {BRAND_NAME} no responde por daños derivados del uso de sitios de
+            terceros ni por interrupciones del alojamiento que no controle.
+        </p>
+        <p>
+            Estas condiciones no inventan un tope de indemnización, una garantía
+            comercial ni una renuncia de derechos que la ley no permita.
+        </p>
+
+        <h2>Modificaciones de los términos</h2>
+        <p>
+            Podemos actualizar esta página. La fecha de arriba indica la versión
+            vigente en <a href="/terminos-y-condiciones">/terminos-y-condiciones</a>.
+            Seguir usando el sitio después de un cambio implica aceptar la versión
+            publicada para ese uso. Un contrato ya cerrado no cambia por la sola
+            edición de esta página.
+        </p>
+
+        <h2>Legislación aplicable</h2>
+        <p>
+            El contacto público usa un teléfono de Perú y el sitio está en
+            español (Perú). En ese marco, estas condiciones se interpretan según
+            la legislación de la República del Perú, salvo que el acuerdo de un
+            proyecto diga otra cosa.
+        </p>
+
+        <h2>Contacto</h2>
+        <p>
+            Para estas condiciones: <a href={`mailto:${email}`}>{email}</a>,{" "}
+            {phone}, o <a href="/contacto">/contacto</a>.
+        </p>
+    </LegalDocument>
+</MainLayout>

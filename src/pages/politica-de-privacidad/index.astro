@@ -1,0 +1,209 @@
+---
+import { BRAND_NAME, email, phone, WHATSAPP_NUMBER } from "../../CONSTANTS";
+import LegalDocument from "../../components/Legal/LegalDocument.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+export const prerender = true;
+
+const updated = "4 de octubre de 2026";
+---
+
+<MainLayout
+    title={`Política de Privacidad | ${BRAND_NAME}`}
+    description="Cómo VINCODE trata los datos que envías por contacto, soporte o WhatsApp, y qué herramientas de terceros usa este sitio."
+>
+    <LegalDocument
+        eyebrow="Información legal"
+        title="Política de privacidad"
+        updated={updated}
+    >
+        <h2>Política de privacidad</h2>
+        <p>
+            Esta política explica qué información puede tratar {BRAND_NAME} cuando
+            usas el sitio vincode.dev. Describe solo lo que este sitio hace hoy.
+            No sustituye un contrato de un proyecto concreto.
+        </p>
+
+        <h2>Responsable del tratamiento</h2>
+        <p>
+            La marca pública del sitio es {BRAND_NAME}. El titular es:
+        </p>
+        <ul>
+            <li>Titular: Bryan Vivanco Silva</li>
+            <li>RUC: 10728652255</li>
+            <li>Domicilio: Piura, Perú</li>
+        </ul>
+        <p>
+            Contacto: <a href={`mailto:${email}`}>{email}</a>, teléfono {phone} y
+            WhatsApp{" "}
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} rel="noopener noreferrer">
+                wa.me/{WHATSAPP_NUMBER}
+            </a>.
+        </p>
+
+        <h2>Información que recopilamos</h2>
+        <p>
+            Recopilamos la información que tú envías por los canales de este sitio
+            y los datos técnicos que el alojamiento y la analítica necesitan para
+            mostrar las páginas y medir visitas. No hay una cuenta de usuario en
+            vincode.dev ni un registro público de clientes.
+        </p>
+
+        <h2>Información proporcionada por el usuario</h2>
+        <p>En <a href="/contacto">/contacto</a>, la pestaña de correo envía a VINCODE:</p>
+        <ul>
+            <li>Nombre</li>
+            <li>Correo</li>
+            <li>Teléfono</li>
+            <li>Empresa, si la indicas</li>
+            <li>Mensaje</li>
+        </ul>
+        <p>
+            Si eliges WhatsApp, el sitio abre un enlace externo con un texto ya
+            escrito. Ese mensaje lo recibimos en WhatsApp, no lo guardamos en un
+            formulario de este sitio.
+        </p>
+        <p>En <a href="/soporte">/soporte</a> el envío incluye:</p>
+        <ul>
+            <li>Nombre</li>
+            <li>Empresa</li>
+            <li>Servicio</li>
+            <li>Teléfono</li>
+            <li>Correo</li>
+            <li>Mensaje</li>
+        </ul>
+        <p>
+            El formulario de soporte muestra un campo de imagen, pero el envío
+            actual no transmite ese archivo.
+        </p>
+
+        <h2>Información recopilada automáticamente</h2>
+        <p>
+            El sitio se publica en Vercel. El alojamiento puede tratar datos
+            técnicos de la conexión (por ejemplo dirección IP, navegador y URL
+            solicitada) para entregar las páginas. Este sitio no publica el
+            detalle ni el plazo de esos registros.
+        </p>
+        <p>
+            El layout carga Vercel Analytics. Esa herramienta registra visitas:
+            página vista, referencia, país aproximado, dispositivo y navegador.
+            No hay un inventario de cookies publicado ni un aviso de consentimiento
+            de cookies en el sitio.
+        </p>
+
+        <h2>Finalidad del tratamiento de datos</h2>
+        <p>Usamos los datos que nos envías para:</p>
+        <ul>
+            <li>Responder consultas de contacto y de soporte.</li>
+            <li>Dar seguimiento a una posible contratación o a un proyecto en curso.</li>
+            <li>Entender, de forma agregada, cómo se usa el sitio.</li>
+        </ul>
+        <p>
+            No vendemos listas de contactos. No hay en este sitio un programa de
+            publicidad comportamental ni un píxel de redes sociales.
+        </p>
+
+        <h2>Formularios de contacto</h2>
+        <p>
+            El correo de <a href="/contacto">/contacto</a> se envía a{" "}
+            <code>/api/contact</code> y el de <a href="/soporte">/soporte</a> a{" "}
+            <code>/api/support</code>. Ambos usan Resend para entregar el mensaje
+            a {email}. El remitente técnico del envío es{" "}
+            leads@notificaciones.vincode.dev (contacto) o
+            soporte@notificaciones.vincode.dev (soporte). Esas direcciones no se
+            muestran como correo de atención.
+        </p>
+        <p>
+            WhatsApp no pasa por esos formularios. El parámetro{" "}
+            <code>?servicio=</code> de <a href="/contacto">/contacto</a> solo cambia
+            el texto sugerido si el valor está permitido en el sitio. No crea una
+            cuenta ni guarda el borrador en un servidor.
+        </p>
+
+        <h2>Comunicaciones con el usuario</h2>
+        <p>
+            Te escribimos para responder lo que nos enviaste, por el correo o el
+            WhatsApp que usaste. No hay un boletín ni una casilla de suscripción
+            en este sitio.
+        </p>
+
+        <h2>Cookies y tecnologías similares</h2>
+        <p>
+            Este sitio no muestra un banner de cookies ni publica qué cookies
+            instala. No afirmamos un mecanismo de consentimiento que no está
+            implementado. Si un navegador guarda datos técnicos por el alojamiento
+            o por la analítica, ese detalle no está documentado aquí y no debe
+            darse por cierto hasta revisarlo.
+        </p>
+
+        <h2>Analítica y herramientas de terceros</h2>
+        <p>
+            La analítica del sitio es Vercel Analytics, incluida en el layout
+            global. No usamos, en el código publicado, Google Analytics, Meta
+            Pixel ni herramientas equivalentes.
+        </p>
+
+        <h2>Servicios y proveedores externos</h2>
+        <p>Los proveedores que este sitio usa de forma directa son:</p>
+        <ul>
+            <li>Vercel: alojamiento del sitio y analítica de visitas.</li>
+            <li>Resend: envío de los correos de contacto y de soporte.</li>
+            <li>
+                WhatsApp: solo cuando tú abres el enlace. El tratamiento posterior
+                ocurre en esa aplicación.
+            </li>
+        </ul>
+        <p>
+            Instagram y TikTok aparecen como enlaces externos. Entrar en ellos
+            sale de este sitio. VINBOOK (<a
+                href="https://vinbook.vincode.dev"
+                rel="noopener noreferrer">vinbook.vincode.dev</a
+            >) es un producto aparte y no está cubierto por esta política.
+        </p>
+
+        <h2>Conservación de los datos</h2>
+        <p>
+            No hay un plazo de conservación publicado. Los mensajes de contacto y
+            de soporte se mantienen el tiempo necesario para responder y para el
+            seguimiento de esa conversación. No existe en este sitio una política
+            de borrado automático.
+        </p>
+
+        <h2>Seguridad de la información</h2>
+        <p>
+            El sitio se sirve por HTTPS y los formularios se envían al propio
+            dominio. No publicamos certificaciones de seguridad ni un protocolo
+            adicional. Ningún envío por internet es completamente seguro.
+        </p>
+
+        <h2>Derechos del usuario</h2>
+        <p>
+            Puedes pedir acceso, corrección o eliminación de los datos que nos
+            enviaste por los formularios escribiendo a{" "}
+            <a href={`mailto:${email}`}>{email}</a>. No hay un formulario
+            automático para ejercer esos derechos. Esta página no fija plazos
+            legales de respuesta.
+        </p>
+
+        <h2>Enlaces a sitios externos</h2>
+        <p>
+            El sitio enlaza proyectos de clientes, redes, WhatsApp y VINBOOK.
+            Esas páginas tienen sus propias condiciones. VINCODE no controla lo
+            que hacen con tu información después de que sales de vincode.dev.
+        </p>
+
+        <h2>Cambios en esta política</h2>
+        <p>
+            Si cambia la forma en que el sitio trata datos, actualizaremos esta
+            página y la fecha de arriba. La versión publicada en{" "}
+            <a href="/politica-de-privacidad">/politica-de-privacidad</a> es la vigente.
+        </p>
+
+        <h2>Contacto</h2>
+        <p>
+            Para preguntas sobre esta política:{" "}
+            <a href={`mailto:${email}`}>{email}</a>, teléfono {phone}, o la página{" "}
+            <a href="/contacto">/contacto</a>.
+        </p>
+    </LegalDocument>
+</MainLayout>

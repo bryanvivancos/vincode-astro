@@ -34,6 +34,8 @@ Allow: /sobre-nosotros/
 Allow: /contacto/
 Allow: /nuestros-proyectos/
 Allow: /servicios/
+Allow: /politica-de-privacidad/
+Allow: /terminos-y-condiciones/
 
 
 Allow: /about-us/
