@@ -4,6 +4,8 @@ Referencia oficial para landing, navegación, CTAs, pricing y formularios de [vi
 
 Auditoría de origen: octubre 2026. El funnel descrito abajo es el que el sitio implementa a partir de esa fecha. El mapeo de servicios permitidos vive en `src/data/contactContext.ts`.
 
+Historial fechado (agosto 2026 y notas posteriores, sin sustituir este documento): [HISTORY.md](./HISTORY.md).
+
 ## Objetivo principal
 
 La conversión principal de VINCODE es una conversación comercial sobre un proyecto.
@@ -218,13 +220,25 @@ Campos del correo: nombre, teléfono, empresa (opcional), mensaje y correo. No a
 
 `?servicio=` solo cambia el mensaje si el valor está en `src/data/contactContext.ts`. Cualquier otro valor se ignora y se usa el mensaje general: `Hola, quiero hablar sobre un proyecto para mi negocio.`
 
-El teléfono del sidebar (`+51 986966477`) sigue siendo texto, sin `tel:`.
-
 Placeholders en español, con ejemplo de negocio real.
 
 No hay página de confirmación. Tras el correo, el mensaje de éxito dice qué sigue y en qué plazo. Tras WhatsApp, el usuario debe ver el hilo abierto con el texto ya armado.
 
-El correo visible y el `mailto:` salen de `CONSTANTS.email`: `vincodedev@gmail.com`. Footer, `/contacto` y `/soporte` usan esa constante.
+### Datos de contacto
+
+Una sola identidad. Footer, `/contacto`, `/soporte`, WhatsApp y el schema de la home leen `src/CONSTANTS.ts`. No hardcodear otro teléfono ni otro correo en la UI.
+
+| Dato | Valor | Constante |
+| --- | --- | --- |
+| Teléfono visible | `+51 986966477` | `phone` |
+| WhatsApp | `51986966477` → `https://wa.me/51986966477` | `WHATSAPP_NUMBER` |
+| Correo visible y `mailto:` | `vincodedev@gmail.com` | `email` |
+
+`ServiceSchema.astro` repite el teléfono como `+51-986-966-477`. Si cambia `phone`, hay que actualizar ese schema en el mismo cambio.
+
+El teléfono del sidebar de `/contacto` sigue siendo texto, sin `tel:`.
+
+Los formularios llegan a `vincodedev@gmail.com`. El remitente del envío sigue siendo `leads@notificaciones.vincode.dev` (contacto) y `soporte@notificaciones.vincode.dev` (soporte). Esas direcciones no se muestran al visitante.
 
 ## Reglas mobile
 
@@ -279,4 +293,4 @@ Si alguna respuesta empeora el funnel, el cambio no se publica así.
 - `/contacto`: pestaña WhatsApp abre `wa.me` con un `<a>`. Pestaña Email envía el formulario a `/api/contact`.
 - No existe `/vinbook` ni página de confirmación.
 - Siguen publicadas `/services`, `/projects` y `/about-us`. Sus CTAs de contacto apuntan a `/contacto`.
-- Footer, contacto y soporte muestran `vincodedev@gmail.com`. El teléfono del sidebar de contacto no es un enlace `tel:`.
+- Contacto público: teléfono `+51 986966477`, WhatsApp `51986966477`, correo `vincodedev@gmail.com`, definidos en `src/CONSTANTS.ts`. Footer, `/contacto` y `/soporte` usan esas constantes. El teléfono del sidebar no es un enlace `tel:`.

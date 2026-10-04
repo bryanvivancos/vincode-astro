@@ -65,7 +65,7 @@ pricing:
             id: 1,
             name: "Básico",
             description: "Office, antivirus y más, instalados y configurados sin dolores de cabeza",
-            price: 119,
+            price: 49,
             originalPrice: 160,
             discount: "Depende del software",
             deliveryTime: "1–2 días",
