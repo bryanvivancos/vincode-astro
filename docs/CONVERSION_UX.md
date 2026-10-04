@@ -224,7 +224,7 @@ Placeholders en español, con ejemplo de negocio real.
 
 No hay página de confirmación. Tras el correo, el mensaje de éxito dice qué sigue y en qué plazo. Tras WhatsApp, el usuario debe ver el hilo abierto con el texto ya armado.
 
-El correo visible, el `mailto:` y `CONSTANTS.email` tienen que ser el mismo. Hoy el footer muestra `vincode.dev@gmail.com`, el `href` es `mailto:info@vincode.dev` y la constante es `vincodedev@gmail.com`.
+El correo visible y el `mailto:` salen de `CONSTANTS.email`: `vincodedev@gmail.com`. Footer, `/contacto` y `/soporte` usan esa constante.
 
 ## Reglas mobile
 
@@ -279,4 +279,4 @@ Si alguna respuesta empeora el funnel, el cambio no se publica así.
 - `/contacto`: pestaña WhatsApp abre `wa.me` con un `<a>`. Pestaña Email envía el formulario a `/api/contact`.
 - No existe `/vinbook` ni página de confirmación.
 - Siguen publicadas `/services`, `/projects` y `/about-us`. Sus CTAs de contacto apuntan a `/contacto`.
-- El footer sigue mostrando un correo distinto del `mailto` y de `CONSTANTS.email`. El teléfono del sidebar de contacto no es un enlace `tel:`.
+- Footer, contacto y soporte muestran `vincodedev@gmail.com`. El teléfono del sidebar de contacto no es un enlace `tel:`.

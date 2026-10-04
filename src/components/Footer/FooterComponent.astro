@@ -1,6 +1,6 @@
 ---
 import { Icon } from "../icons/Icon";
-import { navbar_items, VINCODE_IG, VINCODE_TIKTOK } from "../../CONSTANTS";
+import { email, navbar_items, VINCODE_IG, VINCODE_TIKTOK } from "../../CONSTANTS";
 import { getCollection } from "astro:content";
 
 const services = await getCollection("servicios");
@@ -87,9 +87,9 @@ const availableServices = services.filter((s) => s.data.available).slice(0, 5);
                             ></path>
                         </svg>
                         <a
-                            href="mailto:info@vincode.dev"
+                            href={`mailto:${email}`}
                             class="hover:text-primary transition-colors"
-                            >vincode.dev@gmail.com</a
+                            >{email}</a
                         >
                     </div>
                 </div>

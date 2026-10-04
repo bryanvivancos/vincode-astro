@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { email } from '../../CONSTANTS';
 
 const SERVICES = [
     'Setup Web',
@@ -261,8 +262,8 @@ export default function SupportForm() {
                                     <span className="block text-sm text-text-secondary/70">
                                         Email de Soporte
                                     </span>
-                                    <a href="mailto:vincode.dev@gmail.com" className="text-text-primary font-medium">
-                                        vincode.dev@gmail.com
+                                    <a href={`mailto:${email}`} className="text-text-primary font-medium">
+                                        {email}
                                     </a>
                                 </p>
 
