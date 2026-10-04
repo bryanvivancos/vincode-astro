@@ -4,6 +4,7 @@ import { FAQAccordion, type FaqData } from "../FAQAccordion/FAQAccordion";
 import { icons, type IconName } from "../icons";
 import PricingSection from "../Pricing/PricingSection.astro";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs.astro";
+import { contactPath } from "../../data/contactContext";
 import {
     PortfolioIllustration,
     DigitalCardIllustration,
@@ -96,6 +97,7 @@ const illustrationMap: Record<string, any> = {
 };
 
 const IllustrationComponent = serviceSlug ? illustrationMap[serviceSlug] : null;
+const contactHref = contactPath(serviceSlug);
 
 const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -133,10 +135,10 @@ const breadcrumbItems = [
 
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
                     <a
-                        href="/contact"
+                        href={contactHref}
                         class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
                     >
-                        Solicitar una reunión
+                        Hablemos de tu proyecto
                         <!-- <svg
                             class="w-5 h-5"
                             fill="none"
@@ -377,10 +379,10 @@ const breadcrumbItems = [
             objetivos digitales.
         </p>
         <a
-            href="/contact"
+            href={contactHref}
             class="inline-flex items-center gap-2 px-10 py-5 bg-primary text-white font-semibold rounded-full text-lg transition-all duration-200 hover:bg-primary-hover hover:scale-105 hover:shadow-xl"
         >
-            Solicitar Cotización
+            Hablemos de tu proyecto
             <svg
                 class="w-5 h-5"
                 fill="none"

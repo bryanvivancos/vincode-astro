@@ -64,9 +64,9 @@ export default function Header({ currentPath }: { currentPath: string }) {
                         {path !== "contacto" && (
                             <a
                                 href="/contacto"
-                                className="hidden sm:block px-6 py-2.5 bg-primary text-white font-semibold rounded-full text-sm transition-all duration-200 hover:bg-primary-hover hover:scale-105"
+                                className="hidden sm:block whitespace-nowrap px-6 py-2.5 bg-primary text-white font-semibold rounded-full text-sm transition-all duration-200 hover:bg-primary-hover hover:scale-105"
                             >
-                                Empecemos
+                                Hablemos de tu proyecto
                             </a>
                         )}
 

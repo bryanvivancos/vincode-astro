@@ -9,6 +9,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
    site: "https://www.vincode.dev", 
    output: "static",
+   redirects: {
+      "/contact": "/contacto",
+   },
    
    build: {
       inlineStylesheets: "always",

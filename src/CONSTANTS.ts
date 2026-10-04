@@ -2,8 +2,8 @@ export const BRAND_NAME = "VINCODE"
 export const VINCODE_IG = "https://www.instagram.com/vincodedev/"
 export const VINCODE_TIKTOK = "https://www.tiktok.com/@vincodedev"
 export const email = 'vincodedev@gmail.com'
-export const phone = '+51 956023028'
-export const WHATSAPP_NUMBER = '51956023028'
+export const phone = '+51 986966477'
+export const WHATSAPP_NUMBER = '51986966477'
 
 export const HERO_TITLE = "Convertimos problemas de negocio en soluciones digitales"
 export const HERO_SUBTITLE = "Diseñamos y desarrollamos sitios web, software y automatizaciones que ayudan a tu negocio a vender mejor, trabajar más rápido y crecer."
@@ -95,7 +95,7 @@ export const projects = [
     category: 'Software',
     img: "/vin-display-img.webp",
     imgGallery: ["vin-display-img"],
-    url: `/services/vin-display`,
+    url: `/servicios/sistema-carteleria-digital`,
     goToWeb: false
   },
 ];

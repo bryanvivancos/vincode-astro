@@ -1,13 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { email, phone, WHATSAPP_NUMBER } from '../../CONSTANTS';
-
-const FORM_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+import { email, phone } from '../../CONSTANTS';
+import {
+    DEFAULT_WHATSAPP_MESSAGE,
+    resolveContactService,
+    whatsappUrl,
+    type ContactService,
+} from '../../data/contactContext';
 
 export default function ContactForm() {
 
-    const [btnText, setBtnText] = useState("Enviar");
+    const [btnText, setBtnText] = useState("Enviar por correo");
     const [activeTab, setActiveTab] = useState<'whatsapp' | 'email'>('whatsapp');
+    const [service, setService] = useState<ContactService | null>(null);
+    const [draft, setDraft] = useState("");
+
+    useEffect(() => {
+        const resolved = resolveContactService(
+            new URLSearchParams(window.location.search).get("servicio"),
+        );
+        setService(resolved);
+        if (resolved) {
+            setDraft((current) => current || resolved.message);
+        }
+    }, []);
+
+    const whatsappHref = whatsappUrl(service?.message ?? DEFAULT_WHATSAPP_MESSAGE);
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -16,65 +34,43 @@ export default function ContactForm() {
         const form = event.currentTarget;
         const formData = new FormData(form);
 
-        if (activeTab === 'whatsapp') {
-            // Enviar por WhatsApp
-            const name = formData.get('name') as string;
-            const phoneValue = formData.get('phone') as string;
-            const company = formData.get('company') as string || 'No especificada';
-            const message = formData.get('message') as string;
-
-            const whatsappMessage = `Hola soy ${name.trim()}, 
-Teléfono: ${phoneValue.trim()}, 
-Empresa: ${company.trim()}, 
-${message.trim()}`;
-            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-            
-            window.open(whatsappUrl, '_blank');
-            toast.success("Redirigiendo a WhatsApp...", {
-                position: 'bottom-right',
-            });
-            setBtnText("Enviar");
-            form.reset();
-        } else {
-          // Enviar por Email (Resend vía /api/contact)
-          const data = {
+        const data = {
             name: formData.get('name') as string,
             email: formData.get('email') as string,
             phone: formData.get('phone') as string,
             company: (formData.get('company') as string) || 'No especificada',
             message: formData.get('message') as string,
-          };
+        };
 
-          try {
+        try {
             const response = await fetch('/api/contact', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(data),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
             });
 
             const result = await response.json();
 
             if (response.ok && result.success) {
-              toast.success('Mensaje enviado satisfactoriamente, pronto nos pondremos en contacto contigo', {
-                position: 'bottom-right',
-              });
-              setBtnText('Enviar');
-              form.reset();
+                toast.success('Mensaje enviado satisfactoriamente, pronto nos pondremos en contacto contigo', {
+                    position: 'bottom-right',
+                });
+                setBtnText('Enviar por correo');
+                setDraft(service?.message ?? "");
+                form.reset();
             } else {
-              toast.error(result.error || 'Error al enviar el mensaje, inténtelo más tarde', {
-                position: 'bottom-right',
-              });
-              setBtnText('Enviar');
+                toast.error(result.error || 'Error al enviar el mensaje, inténtelo más tarde', {
+                    position: 'bottom-right',
+                });
+                setBtnText('Enviar por correo');
             }
-          } catch (error) {
+        } catch (error) {
             console.error('Error:', error);
             toast.error('Error al enviar el mensaje, inténtelo más tarde');
-            setBtnText('Enviar');
-          }
+            setBtnText('Enviar por correo');
         }
-        
     };
 
     return (
@@ -84,9 +80,11 @@ ${message.trim()}`;
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <p className="text-sm font-semibold tracking-widest text-primary uppercase mb-4">Contacto</p>
-        <h2 className="sectionTitle font-bold text-text-primary mb-4">Contáctanos</h2>
+        <h2 className="sectionTitle font-bold text-text-primary mb-4">Hablemos de tu proyecto</h2>
         <p className="text-sm md:text-lg text-text-secondary leading-relaxed">
-          Si tienes alguna pregunta o necesitas información sobre nuestros servicios, no dudes en contactarnos.
+          {service
+            ? `Quieres hablar sobre ${service.label}. Sigue por WhatsApp ahora o déjanos tus datos por correo.`
+            : "Cuéntanos qué quieres mejorar. Puedes seguir por WhatsApp ahora o escribirnos por correo."}
         </p>
       </div>
 
@@ -132,6 +130,21 @@ ${message.trim()}`;
             </button>
           </div>
 
+          {activeTab === 'whatsapp' ? (
+            <div className="py-8 px-4 md:px-8 md:py-10 space-y-6">
+              <p className="text-sm md:text-base text-text-secondary leading-relaxed">
+                Se abre WhatsApp con un mensaje listo. No hace falta completar el formulario.
+              </p>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-primary text-white font-semibold rounded-lg py-4 text-base transition-all duration-200 flex items-center justify-center gap-2 hover:bg-primary-hover hover:shadow-lg"
+              >
+                Continuar por WhatsApp
+              </a>
+            </div>
+          ) : (
           <form className="py-8 px-4 md:px-8 md:py-10 space-y-6" onSubmit={onSubmit}>
           
           {/* Grid 2 columnas para nombre y email */}
@@ -144,29 +157,25 @@ ${message.trim()}`;
                 type="text"
                 id="name"
                 name="name"
-                placeholder="John Doe"
+                placeholder="Tu nombre"
                 className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                 required
               />
             </div>
 
-            {
-              activeTab === 'email' && (
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-semibold text-text-primary">
-                    Correo Electrónico <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="john@mail.com"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
-                    required
-                  />
-                </div>
-              )
-            }
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-semibold text-text-primary">
+                Correo Electrónico <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="tu@correo.com"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
+                required
+              />
+            </div>
             
           </div>
 
@@ -180,7 +189,7 @@ ${message.trim()}`;
                 type="tel"
                 id="phone"
                 name="phone"
-                placeholder="555-555-5555"
+                placeholder="987 654 321"
                 className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                 required
               />
@@ -194,7 +203,7 @@ ${message.trim()}`;
                 type="text"
                 id="company"
                 name="company"
-                placeholder="Tu Empresa"
+                placeholder="Tu negocio"
                 className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
               />
             </div>
@@ -208,6 +217,8 @@ ${message.trim()}`;
             <textarea
               id="message"
               name="message"
+              value={draft}
+              onChange={(event) => setDraft(event.target.value)}
               placeholder="Cuéntanos sobre tu proyecto..."
               className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-32 resize-y"
               required
@@ -217,9 +228,7 @@ ${message.trim()}`;
           {/* Nota sobre método de envío */}
           <div className="text-center">
             <p className="text-xs text-gray-600">
-              {activeTab === 'whatsapp' 
-                ? ' Te redirigiremos a WhatsApp para terminar de envíar el mensaje.' 
-                : ' El mensaje será enviado vía Correo Electrónico.'}
+              El mensaje será enviado por correo electrónico.
             </p>
           </div>
 
@@ -229,17 +238,18 @@ ${message.trim()}`;
               className={`
                 w-full bg-primary text-white font-semibold rounded-lg py-4 text-base
                 transition-all duration-200 flex items-center justify-center gap-2
-                ${btnText !== "Enviar" 
+                ${btnText !== "Enviar por correo" 
                   ? "cursor-not-allowed opacity-70" 
                   : "hover:bg-primary-hover hover:shadow-lg"}
               `}
-              disabled={btnText !== "Enviar"}
+              disabled={btnText !== "Enviar por correo"}
             >
               <span>{btnText}</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path></svg>
             </button>
           </div>
         </form>
+          )}
         </div>
 
         {/* SIDEBAR */}

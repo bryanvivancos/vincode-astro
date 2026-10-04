@@ -1,12 +1,10 @@
 ---
 // Componente de Pricing específico para la página Home
-import { WHATSAPP_NUMBER } from "../../CONSTANTS";
+import { contactPath, packageWhatsAppUrl } from "../../data/contactContext";
 import PricingCardsLayout from "./PricingCardsLayout.astro";
 
-const generateWhatsAppLink = (packageName: string) => {
-    const message = `Hola, quiero solicitar el paquete ${packageName}`;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-};
+const generateWhatsAppLink = (packageName: string) =>
+    packageWhatsAppUrl(packageName);
 
 const homePackageCount = 4;
 ---
@@ -139,7 +137,7 @@ const homePackageCount = 4;
                         rel="noopener noreferrer"
                         class="block w-full py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-lg text-sm"
                     >
-                        Solicitar
+                        Solicitar Presencia Digital
                     </a>
                 </div>
             </div>
@@ -253,7 +251,7 @@ const homePackageCount = 4;
                         rel="noopener noreferrer"
                         class="block w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-lg text-sm"
                     >
-                        Solicitar
+                        Solicitar Lanzamiento Digital
                     </a>
                 </div>
             </div>
@@ -367,7 +365,7 @@ const homePackageCount = 4;
                         rel="noopener noreferrer"
                         class="block w-full py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-lg text-sm"
                     >
-                        Solicitar
+                        Solicitar Presencia Pro
                     </a>
                 </div>
             </div>
@@ -405,10 +403,10 @@ const homePackageCount = 4;
                         alrededor de las necesidades de tu negocio.
                     </p>
                     <a
-                        href="/contacto"
+                        href={contactPath("desarrollo-software-a-medida")}
                         class="block w-full py-3 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm"
                     >
-                        Cuéntanos tu proyecto
+                        Hablemos de tu proyecto
                     </a>
                 </div>
             </div>

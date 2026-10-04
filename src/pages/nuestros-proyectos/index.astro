@@ -2,6 +2,7 @@
 import { BRAND_NAME, projects } from "../../CONSTANTS";
 import MainLayout from "../../layouts/MainLayout.astro";
 import GalleryReact from "../../components/atoms/Gallery";
+import CTABanner from "../../components/CTABanner/CTABanner.astro";
 
 export const prerender = true;
 ---
@@ -123,4 +124,11 @@ export const prerender = true;
             </div>
         </div>
     </section>
+
+    <CTABanner
+        title="¿Quieres algo así para tu negocio?"
+        description="Cuéntanos el proyecto y seguimos la conversación."
+        buttonText="Hablemos de tu proyecto"
+        buttonHref="/contacto"
+    />
 </MainLayout>

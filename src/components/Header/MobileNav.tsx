@@ -51,10 +51,10 @@ export default function MobileNav( {currentPath} : {currentPath: string}) {
         </nav>
 
         <a href={`/contacto`} 
-          className="btn-primary text-2xl hover:scale-105 transition-transform"
+          className="btn-primary mx-6 max-w-[calc(100vw-3rem)] whitespace-normal text-center text-2xl leading-tight hover:scale-105 transition-transform"
           onClick={() => toggleMenu()}
         >
-          Empecemos
+          Hablemos de tu proyecto
         </a>
       </div>
     </aside>

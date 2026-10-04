@@ -1,6 +1,6 @@
 ---
 // Componente de Pricing reutilizable con datos dinámicos
-import { WHATSAPP_NUMBER } from "../../CONSTANTS";
+import { packageWhatsAppUrl } from "../../data/contactContext";
 import PricingCardsLayout from "./PricingCardsLayout.astro";
 
 interface PricingPackage {
@@ -24,10 +24,8 @@ interface Props {
 
 const { packages = [], serviceName = "este servicio" } = Astro.props;
 
-const generateWhatsAppLink = (packageName: string) => {
-    const message = `Hola, quiero solicitar el servicio ${serviceName} - ${packageName}`;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-};
+const generateWhatsAppLink = (packageName: string) =>
+    packageWhatsAppUrl(packageName, serviceName);
 
 // Mapeo de colores
 const colorMap = {
@@ -193,7 +191,7 @@ const colorMap = {
                                     rel="noopener noreferrer"
                                     class={`block w-full py-3 ${colors.button} text-white font-bold rounded-full text-center transition-all duration-200 hover:scale-105 shadow-md text-sm mt-auto`}
                                 >
-                                    Solicitar
+                                    Solicitar {pkg.name}
                                 </a>
                             </div>
                         </div>
