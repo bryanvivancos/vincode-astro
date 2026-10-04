@@ -69,3 +69,31 @@ Ese orden se mantiene en la auditoría de octubre 2026.
   - `src/content/servicios/software-licenciado.md` (ES, fuente de la ficha)
   - `src/content/services/technique-support.md` (EN, alineado)
 - No afecta paquetes de home ni el funnel primario de [CONVERSION_UX.md](./CONVERSION_UX.md); el cierre del paquete sigue siendo WhatsApp con el nombre del plan.
+
+---
+
+## 2026-10-04 — Páginas legales
+
+Páginas informativas. No entran al funnel de [CONVERSION_UX.md](./CONVERSION_UX.md): no cambian `/contacto`, la primaria, WhatsApp, precios, VINBOOK ni el header.
+
+### Rutas
+
+- `/politica-de-privacidad` — `src/pages/politica-de-privacidad/index.astro`
+- `/terminos-y-condiciones` — `src/pages/terminos-y-condiciones/index.astro`
+- Plantilla compartida: `src/components/Legal/LegalDocument.astro`
+- SEO por `MainLayout` (canonical, `index, follow`). `robots.txt` las permite. El sitemap las incluye.
+
+### Footer
+
+En `FooterComponent.astro`, debajo del copyright, sin rediseño:
+
+`Política de privacidad · Términos y condiciones`
+
+### Titular publicado
+
+- Titular: Bryan Vivanco Silva
+- RUC: 1072865225
+- Domicilio: Piura, Perú
+- Contacto: los de `src/CONSTANTS.ts` (`vincodedev@gmail.com`, `+51 986966477`)
+
+No hay cláusula de fuero. La legislación aplicable queda como la de la República del Perú. El sitio no publica pagos, reembolsos, plazos de conservación ni banner de cookies: el texto legal no los inventa.

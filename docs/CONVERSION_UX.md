@@ -294,3 +294,4 @@ Si alguna respuesta empeora el funnel, el cambio no se publica así.
 - No existe `/vinbook` ni página de confirmación.
 - Siguen publicadas `/services`, `/projects` y `/about-us`. Sus CTAs de contacto apuntan a `/contacto`.
 - Contacto público: teléfono `+51 986966477`, WhatsApp `51986966477`, correo `vincodedev@gmail.com`, definidos en `src/CONSTANTS.ts`. Footer, `/contacto` y `/soporte` usan esas constantes. El teléfono del sidebar no es un enlace `tel:`.
+- 2026-10-04: `/politica-de-privacidad` y `/terminos-y-condiciones` están en el footer, junto al copyright. Son informativas. No llevan la primaria ni forman parte del funnel. Detalle en [HISTORY.md](./HISTORY.md).
