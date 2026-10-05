@@ -155,6 +155,8 @@ Atajo cuando la ficha ya muestra precio:
 
 La ficha responde tres cosas arriba del fold: qué es, para quién es, cuál es el siguiente paso. `Ver precios` solo aparece si la ficha renderiza `#pricing`.
 
+VINCRM (`/servicios/vincrm-crm-whatsapp-con-ia`) no tiene precio publicado ni `#pricing`. Su primaria sigue siendo `Hablemos de tu proyecto` → `/contacto?servicio=vincrm`. El botón del bloque de precio dice `Consultar por precio` y va al mismo destino. No se inventa un monto, no se emite un `Offer` y no se manda ese lead a VINBOOK. Detalle en [HISTORY.md](./HISTORY.md) (2026-10-04).
+
 ## Funnel proyectos
 
 ```text
@@ -295,3 +297,4 @@ Si alguna respuesta empeora el funnel, el cambio no se publica así.
 - Siguen publicadas `/services`, `/projects` y `/about-us`. Sus CTAs de contacto apuntan a `/contacto`.
 - Contacto público: teléfono `+51 986966477`, WhatsApp `51986966477`, correo `vincodedev@gmail.com`, definidos en `src/CONSTANTS.ts`. Footer, `/contacto` y `/soporte` usan esas constantes. El teléfono del sidebar no es un enlace `tel:`.
 - 2026-10-04: `/politica-de-privacidad` y `/terminos-y-condiciones` están en el footer, junto al copyright. Son informativas. No llevan la primaria ni forman parte del funnel. Detalle en [HISTORY.md](./HISTORY.md).
+- 2026-10-04: VINCRM vive en `/servicios/vincrm-crm-whatsapp-con-ia`. Primaria a `/contacto?servicio=vincrm`. Sin precio público. No es el funnel de VINBOOK. El conocimiento del agente está en [VINI.md](./VINI.md). Detalle en [HISTORY.md](./HISTORY.md).

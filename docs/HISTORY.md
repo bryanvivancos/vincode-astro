@@ -97,3 +97,44 @@ En `FooterComponent.astro`, debajo del copyright, sin rediseño:
 - Contacto: los de `src/CONSTANTS.ts` (`vincodedev@gmail.com`, `+51 986966477`)
 
 No hay cláusula de fuero. La legislación aplicable queda como la de la República del Perú. El sitio no publica pagos, reembolsos, plazos de conservación ni banner de cookies: el texto legal no los inventa.
+
+---
+
+## 2026-10-04 — VINCRM y conocimiento de Vini
+
+Ficha comercial nueva. No es VINBOOK ni la Página Web de Reservas. No publica precio. El funnel primario no cambia: sigue siendo `Hablemos de tu proyecto` → `/contacto`. La excepción de precio está en [CONVERSION_UX.md](./CONVERSION_UX.md).
+
+### Ruta y archivos
+
+- URL: `/servicios/vincrm-crm-whatsapp-con-ia`
+- Ficha: `src/content/servicios/vincrm-crm-whatsapp-con-ia.md` (categoría `software`, id 13)
+- Presentación propia: `src/components/Services/VincrmServicePage.astro`, ramificada en `src/pages/servicios/[id].astro` cuando el slug es `vincrm-crm-whatsapp-con-ia`
+- No usa `ServicePageTemplate`: esa plantilla exige paquetes con precio numérico y un `Ver precios` hacia `#pricing`
+- Schema sin `Offer` y sin `priceCurrency` (`pricing` no se pasa)
+- Alias de contacto: `vincrm` en `src/data/contactContext.ts`
+- Mensaje de WhatsApp: `Hola, estoy interesado en VINCRM, el CRM WhatsApp con IA de VINCODE.`
+
+No existen `/servicios/vincrm` ni `/vincrm-crm-whatsapp-con-ia`.
+
+### Qué dice la ficha
+
+- CRM de WhatsApp: bandeja, pipeline, agenda y agente de IA que responde, califica y ayuda a agendar.
+- El negocio conecta su propio número de WhatsApp Business. VINCRM no entrega un número.
+- El costo de la IA no está incluido: se paga en la cuenta de OpenRouter del negocio.
+- El costo de los mensajes de Meta o WhatsApp no está incluido: lo paga el negocio.
+- No hay alta, checkout ni onboarding en este sitio.
+
+### CTAs
+
+- Hero y cierre: `Hablemos de tu proyecto` → `/contacto?servicio=vincrm`
+- Bloque de precio: botón `Consultar por precio` → el mismo destino. No hay monto ni `S/`.
+- Home: la tarjeta destacada usa el slug completo, así el enlace es `/servicios/vincrm-crm-whatsapp-con-ia`. Archivo: `src/components/Landing/LandingServices.astro`.
+- El footer no se modificó. VINCRM no se metió a la fuerza en esa lista.
+
+### Vini
+
+`docs/VINI.md` es el texto para pegar en el panel del CRM. En esta fecha se añadió VINCRM a instrucciones, agrupación de sistemas, siguiente paso, pase a una persona, tres preguntas (chats perdidos, costos de IA y mensajes, precio), cómo elegir, precios y contacto.
+
+Hechos que el agente debe repetir: sin precio publicado; siguiente paso `https://www.vincode.dev/contacto?servicio=vincrm`; ficha `https://www.vincode.dev/servicios/vincrm-crm-whatsapp-con-ia`; número propio; OpenRouter y Meta los paga el negocio; no mandar ese caso a `https://vinbook.vincode.dev`.
+
+La sección “Pendientes de confirmación” de `VINI.md` no se pega al conocimiento que ve el cliente.
