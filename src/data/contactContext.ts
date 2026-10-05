@@ -64,6 +64,11 @@ const SERVICES: Record<string, Omit<ContactService, "id">> = {
         label: "VIN REST",
         message: "Hola, estoy interesado en el servicio de VIN REST de VINCODE.",
     },
+    vincrm: {
+        label: "VINCRM",
+        message:
+            "Hola, estoy interesado en VINCRM, el CRM WhatsApp con IA de VINCODE.",
+    },
 };
 
 /** Slugs públicos alternos. Solo estos alias se aceptan además de las claves de SERVICES. */

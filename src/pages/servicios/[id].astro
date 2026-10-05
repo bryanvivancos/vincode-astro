@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import ServicesPageTemplate from "../../components/Services/ServicePageTemplate.astro";
+import VincrmServicePage from "../../components/Services/VincrmServicePage.astro";
 import ServiceSchema from "../../components/Schema/ServiceSchema.astro";
 import { BRAND_NAME } from "../../CONSTANTS";
 
@@ -38,6 +39,13 @@ const categoryMap: Record<string, string> = {
 };
 
 const serviceCategory = categoryMap[category] || "Servicios Digitales";
+const isVincrm = servicio.slug === "vincrm-crm-whatsapp-con-ia";
+const pageTitle = isVincrm
+    ? "VINCRM | CRM WhatsApp con IA | VINCODE"
+    : `${title} | ${BRAND_NAME}`;
+const pageDescription = isVincrm
+    ? "Gestiona tus conversaciones, oportunidades y citas desde WhatsApp con VINCRM, el CRM con IA de VINCODE que responde, califica y agenda clientes por ti."
+    : cardDescription;
 
 const pathname = Astro.url.pathname;
 const siteUrl =
@@ -48,28 +56,34 @@ export const prerender = true;
 ---
 
 <MainLayout
-    title={`${title} | ${BRAND_NAME}`}
-    description={cardDescription}
+    title={pageTitle}
+    description={pageDescription}
     keywords={`${title}, Servicios digitales, Desarrollo web, Vincode`}
 >
     <ServiceSchema
         slot="schema"
-        serviceName={title}
-        serviceDescription={description}
+        serviceName={isVincrm ? "VINCRM" : title}
+        serviceDescription={isVincrm ? pageDescription : description}
         serviceCategory={serviceCategory}
         canonicalUrl={canonicalURL}
-        pricing={pricing}
+        pricing={isVincrm ? undefined : pricing}
     />
-    <ServicesPageTemplate
-        serviceTitle={title}
-        subtitles={subtitle}
-        description={description}
-        profits={benefits}
-        demos={demosTitle}
-        projects={projects}
-        faqsItems={faqData}
-        serviceSlug={servicio.slug}
-        pricing={pricing}
-        heroImage={heroImage}
-    />
+    {
+        isVincrm ? (
+            <VincrmServicePage faqs={faqData} />
+        ) : (
+            <ServicesPageTemplate
+                serviceTitle={title}
+                subtitles={subtitle}
+                description={description}
+                profits={benefits}
+                demos={demosTitle}
+                projects={projects}
+                faqsItems={faqData}
+                serviceSlug={servicio.slug}
+                pricing={pricing}
+                heroImage={heroImage}
+            />
+        )
+    }
 </MainLayout>

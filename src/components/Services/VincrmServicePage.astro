@@ -1,0 +1,334 @@
+---
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs.astro";
+import { icons, type IconName } from "../icons";
+import { contactPath } from "../../data/contactContext";
+
+interface Faq {
+    id: number;
+    question: string;
+    answer: string;
+}
+
+interface Props {
+    faqs: Faq[];
+}
+
+const { faqs } = Astro.props;
+const contactHref = contactPath("vincrm");
+
+const problems = [
+    "Conversaciones dispersas en WhatsApp",
+    "Leads que se pierden",
+    "Falta de seguimiento",
+    "Respuestas manuales repetitivas",
+    "Oportunidades fuera del horario de atención",
+    "Dificultad para organizar conversaciones y oportunidades",
+];
+
+const features: { icon: IconName; title: string; description: string }[] = [
+    {
+        icon: "MobileIcon",
+        title: "Bandeja",
+        description: "Todas las conversaciones de WhatsApp en un solo lugar.",
+    },
+    {
+        icon: "Square3StackIcon",
+        title: "Pipeline",
+        description: "Oportunidades ordenadas según el proceso de venta.",
+    },
+    {
+        icon: "CalendarIcon",
+        title: "Agenda",
+        description: "Citas y compromisos organizados.",
+    },
+    {
+        icon: "BoltIcon",
+        title: "Agente de IA",
+        description: "Responde, califica leads y ayuda a agendar citas.",
+    },
+];
+
+const aiSteps = [
+    "Llega la conversación",
+    "La IA responde",
+    "Entiende lo que necesita el cliente",
+    "Califica el lead",
+    "Guía la conversación",
+    "Ayuda a agendar",
+];
+
+const benefits: { icon: IconName; title: string }[] = [
+    { icon: "DashboardIcon", title: "Más organización" },
+    { icon: "ClockIcon", title: "Menos trabajo manual" },
+    { icon: "BoltIcon", title: "Respuestas más rápidas" },
+    { icon: "TargetArrowIcon", title: "Mejor seguimiento" },
+    { icon: "TrendingUpIcon", title: "Más oportunidades gestionadas" },
+    { icon: "CalendarIcon", title: "Más citas" },
+];
+
+const steps = [
+    {
+        number: "01",
+        title: "Conecta tu WhatsApp Business",
+        description: "Usas la cuenta y el número de tu negocio. VINCRM no te entrega un número.",
+    },
+    {
+        number: "02",
+        title: "Configura VINCRM",
+        description: "Dejas listos la bandeja, el pipeline y la agenda para tu operación.",
+    },
+    {
+        number: "03",
+        title: "Define cómo debe trabajar tu agente",
+        description: "Indicas qué debe responder, qué debe preguntar y cuándo pedir una cita.",
+    },
+    {
+        number: "04",
+        title: "Recibe y organiza tus conversaciones",
+        description: "Cada chat queda en la bandeja y cada oportunidad puede seguir el pipeline.",
+    },
+    {
+        number: "05",
+        title: "Deja que la IA atienda, califique y ayude a agendar",
+        description: "El agente acompaña la conversación. Tu equipo sigue las oportunidades que lo necesitan.",
+    },
+];
+---
+
+<article>
+    <section class="bg-gradient-to-br from-gray-50 to-white pt-28 pb-16 md:pt-32 md:pb-24">
+        <div class="section-container">
+            <Breadcrumbs
+                items={[
+                    { label: "Inicio", href: "/" },
+                    { label: "Servicios", href: "/servicios" },
+                    { label: "VINCRM", href: "/servicios/vincrm-crm-whatsapp-con-ia" },
+                ]}
+            />
+            <div class="max-w-3xl">
+                <p class="eyebrow">VINCRM</p>
+                <h1 class="sectionTitle mb-6">CRM WhatsApp con IA para tu negocio</h1>
+                <p class="section-subtitle mb-8 max-w-2xl">
+                    Centraliza tus conversaciones, organiza tus oportunidades y deja
+                    que un agente de IA responda, califique y agende clientes por ti.
+                </p>
+                <a href={contactHref} class="btn-primary inline-flex w-full justify-center sm:w-auto">
+                    Hablemos de tu proyecto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="vincrm-problema">
+        <div class="section-container section-spacing">
+            <div class="mb-10 max-w-2xl md:mb-14">
+                <p class="eyebrow">El problema</p>
+                <h2 id="vincrm-problema" class="sectionTitle">
+                    WhatsApp vende, pero se desordena
+                </h2>
+            </div>
+            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+                {
+                    problems.map((problem) => (
+                        <li class="rounded-2xl border border-border bg-background-card p-6 text-base font-semibold leading-snug text-text-primary">
+                            {problem}
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </section>
+
+    <section aria-labelledby="vincrm-que-es">
+        <div class="section-container section-spacing">
+            <div class="max-w-3xl">
+                <p class="eyebrow">Qué es</p>
+                <h2 id="vincrm-que-es" class="sectionTitle mb-6">
+                    Un CRM para vender y atender por WhatsApp
+                </h2>
+                <p class="section-subtitle">
+                    VINCRM convierte WhatsApp en un canal organizado y automatizado
+                    de ventas y atención. La bandeja, el pipeline y la agenda
+                    trabajan sobre las conversaciones de tu negocio. Cada negocio
+                    conecta su propia cuenta y su propio número de WhatsApp Business.
+                    VINCRM no te asigna un número.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="vincrm-funciones">
+        <div class="section-container section-spacing">
+            <div class="mb-10 max-w-2xl md:mb-14">
+                <p class="eyebrow">Funciones</p>
+                <h2 id="vincrm-funciones" class="sectionTitle">Cuatro piezas</h2>
+            </div>
+            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6" role="list">
+                {
+                    features.map((feature) => {
+                        const Icon = icons[feature.icon];
+                        return (
+                            <li class="rounded-2xl border border-border bg-background-card p-6 md:p-8">
+                                <div class="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary-light">
+                                    <Icon width={24} height={24} color="var(--color-primary)" />
+                                </div>
+                                <h3 class="mb-2 text-lg font-bold text-text-primary">{feature.title}</h3>
+                                <p class="text-sm leading-relaxed text-text-secondary md:text-base">
+                                    {feature.description}
+                                </p>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </div>
+    </section>
+
+    <section aria-labelledby="vincrm-agente">
+        <div class="section-container section-spacing">
+            <div class="mb-10 max-w-2xl md:mb-14">
+                <p class="eyebrow">Agente de IA</p>
+                <h2 id="vincrm-agente" class="sectionTitle mb-4">
+                    Atiende la conversación, no reemplaza a tu equipo
+                </h2>
+                <p class="section-subtitle">
+                    El agente responde, entiende la necesidad, califica y ayuda a
+                    agendar. No vende solo, no cubre cualquier pregunta y no
+                    garantiza una venta.
+                </p>
+            </div>
+            <ol class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {
+                    aiSteps.map((step, index) => (
+                        <li class="flex gap-4 rounded-2xl border border-border bg-background-card p-5">
+                            <span class="font-Codesaver text-2xl font-bold text-primary/40">
+                                {String(index + 1).padStart(2, "0")}
+                            </span>
+                            <p class="pt-1 text-sm font-semibold leading-snug text-text-primary md:text-base">
+                                {step}
+                            </p>
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="vincrm-beneficios">
+        <div class="section-container section-spacing">
+            <div class="mb-10 max-w-2xl md:mb-14">
+                <p class="eyebrow">Beneficios</p>
+                <h2 id="vincrm-beneficios" class="sectionTitle">Qué gana el negocio</h2>
+            </div>
+            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+                {
+                    benefits.map((benefit) => {
+                        const Icon = icons[benefit.icon];
+                        return (
+                            <li class="flex items-center gap-4 rounded-2xl border border-border bg-background-card p-5">
+                                <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary-light">
+                                    <Icon width={22} height={22} color="var(--color-primary)" />
+                                </span>
+                                <span class="text-base font-semibold text-text-primary">{benefit.title}</span>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </div>
+    </section>
+
+    <section aria-labelledby="vincrm-como">
+        <div class="section-container section-spacing">
+            <div class="mb-10 max-w-2xl md:mb-14">
+                <p class="eyebrow">Cómo funciona</p>
+                <h2 id="vincrm-como" class="sectionTitle">De conectar WhatsApp a agendar</h2>
+            </div>
+            <ol class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+                {
+                    steps.map((step) => (
+                        <li class="rounded-2xl border border-border bg-background-card p-6 md:p-8">
+                            <span class="mb-4 block font-Codesaver text-4xl font-bold text-primary/30">
+                                {step.number}
+                            </span>
+                            <h3 class="mb-2 text-lg font-bold text-text-primary">{step.title}</h3>
+                            <p class="text-sm leading-relaxed text-text-secondary md:text-base">
+                                {step.description}
+                            </p>
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="vincrm-precio">
+        <div class="section-container section-spacing">
+            <div class="mx-auto max-w-2xl text-center">
+                <p class="eyebrow">Precio</p>
+                <h2 id="vincrm-precio" class="sectionTitle mb-4">Consultar por precio</h2>
+                <p class="section-subtitle mx-auto mb-8">
+                    VINCRM no publica un precio fijo. Cuéntanos cómo atiendes por
+                    WhatsApp y te indicamos el alcance.
+                </p>
+                <a href={contactHref} class="btn-primary inline-flex w-full justify-center sm:w-auto">
+                    Consultar por precio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section aria-labelledby="vincrm-faq">
+        <div class="section-container section-spacing max-w-4xl">
+            <h2 id="vincrm-faq" class="sectionTitle mb-10 text-center">
+                Preguntas frecuentes
+            </h2>
+            <div class="space-y-4">
+                {
+                    faqs.map((faq) => (
+                        <details class="group rounded-2xl border border-gray-200 bg-[#f8f8fa] p-6 transition-all duration-200 hover:shadow-md">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                                <h3 class="text-base font-semibold text-text-primary">{faq.question}</h3>
+                                <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-gray-100 transition-colors duration-200 group-open:bg-primary group-open:text-white">
+                                    <svg
+                                        class="size-5 transition-transform duration-200 group-open:rotate-45"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M12 4v16m8-8H4"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 border-t border-gray-100 pt-4 text-sm leading-relaxed text-text-secondary">
+                                {faq.answer}
+                            </p>
+                        </details>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden bg-text-primary" aria-labelledby="vincrm-cierre">
+        <div class="section-container section-spacing relative z-10">
+            <div class="mx-auto max-w-3xl text-center">
+                <h2 id="vincrm-cierre" class="mb-6 text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight text-white">
+                    ¿Quieres ver si VINCRM encaja con tu WhatsApp?
+                </h2>
+                <p class="mb-10 text-base leading-relaxed text-gray-300 md:text-lg">
+                    Cuéntanos cómo atiendes hoy. Te respondemos por WhatsApp o por correo.
+                </p>
+                <a href={contactHref} class="btn-primary inline-flex w-full justify-center sm:w-auto">
+                    Hablemos de tu proyecto
+                </a>
+            </div>
+        </div>
+    </section>
+</article>
