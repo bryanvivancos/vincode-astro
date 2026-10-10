@@ -15,5 +15,8 @@ export const prerender = true;
     <section class="py-10 px-4">
         <ContactForm client:visible />
     </section>
-    <Toaster client:visible />
+    <Toaster
+        client:visible
+        containerStyle={{ bottom: "6rem", right: "1.25rem" }}
+    />
 </MainLayout>

@@ -53,7 +53,7 @@ export const projects = [
     category: 'Web',
     img: '/portfolio-web.webp',
     imgGallery: ['portfolio-web'],
-    url: 'https://bryanvivancos.netlify.app/',
+    url: 'https://heybryan.net/',
     goToWeb: true
   },
   {

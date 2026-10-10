@@ -68,6 +68,7 @@ listar docs/
 | Contacto, WhatsApp, `?servicio=` | sección de contacto en `CONVERSION_UX.md` | `src/data/contactContext.ts`, `src/CONSTANTS.ts` |
 | Correo de contacto o soporte | `CONVERSION_UX.md` (canales) | `src/pages/api/contact.ts`, `src/pages/api/support.ts` |
 | Páginas legales | nota del 2026-10-04 en `HISTORY.md` | `src/pages/politica-de-privacidad/`, `src/pages/terminos-y-condiciones/` |
+| Logo, isotipo, favicon | nota del 2026-10-09 en `HISTORY.md`; identidad en este archivo | `public/brand/`, `Header.tsx`, `MobileNav.tsx`, `FooterComponent.astro`, `MainLayout.astro` |
 | Estilo, bug local, refactor sin cambio de comportamiento | ninguno, salvo que el archivo tocado esté citado en `docs/` | solo el código afectado |
 
 Referencias que sí hay que seguir cuando la tarea las cruza:
@@ -166,6 +167,7 @@ src/data/contactContext.ts mensajes y contactPath()
 src/data/landing.ts
 src/CONSTANTS.ts           teléfono, WhatsApp, correo, nav, proyectos
 src/global.css             Tailwind 4
+public/brand/              logo horizontal e isotipo
 ```
 
 Rutas comerciales en español: `/`, `/servicios`, `/servicios/{slug}`, `/contacto`, `/nuestros-proyectos`, `/sobre-nosotros`, `/soporte`. `/contact` redirige a `/contacto` en `astro.config.mjs`. Siguen publicadas `/services`, `/projects` y `/about-us`.
@@ -175,6 +177,15 @@ VINCRM (`vincrm-crm-whatsapp-con-ia`) no usa `ServicePageTemplate`; la página e
 Islas: `client:load` en header y menú móvil; `client:visible` en formularios y bloques bajo el fold. Páginas estáticas declaran `prerender = true`. APIs y `/soporte` declaran `prerender = false` (`output: "static"` + adapter Vercel).
 
 Identidad pública (teléfono, WhatsApp, correo) sale de `src/CONSTANTS.ts`. No hardcodear otra en la UI. `ServiceSchema.astro` repite el teléfono en otro formato: si cambia `phone`, actualizar el schema en el mismo cambio.
+
+Logo horizontal e isotipo (desde 2026-10-09). No volver al wordmark `Vin<0de`.
+
+- `public/brand/logo.png`: navbar y cualquier fondo claro. Lo usa `src/components/Header/Header.tsx`.
+- `public/brand/logo-light.png`: mismo lockup con la palabra en blanco. Footer (`FooterComponent.astro`) y menú móvil (`MobileNav.tsx`).
+- `public/brand/isotipo.png`: origen del favicon. El `<head>` de `MainLayout.astro` enlaza `favicon.ico`, `favicon-32.png`, `favicon-192.png` y `apple-touch-icon.png`.
+- El enlace del logo va a `/`. No es un CTA y no reemplaza `Hablemos de tu proyecto`.
+- `Organization.logo` (home y `ServiceSchema.astro`) apunta a `https://www.vincode.dev/brand/logo.png`.
+- `public/vincode-icon.ico` conserva el isotipo nuevo por si una URL vieja lo pide. El `<head>` ya no lo referencia.
 
 ## Datos, correo, pagos, webhooks
 

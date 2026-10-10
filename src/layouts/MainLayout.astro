@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import MobileNav from "../components/Header/MobileNav";
 import Analytics from "@vercel/analytics/astro";
 import FooterComponent from "../components/Footer/FooterComponent.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat/WhatsAppFloat.astro";
 import { ClientRouter } from "astro:transitions";
 
 const pathname = Astro.url.pathname;
@@ -33,12 +34,20 @@ const ogImageURL = new URL(image, siteUrl).toString();
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href="/vincode-icon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="/vincode-icon.ico"
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32.png"
         />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/favicon-192.png"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <title>{title}</title>
         <meta name="description" content={description} />
         {keywords && <meta name="keywords" content={keywords} />}
@@ -90,6 +99,7 @@ const ogImageURL = new URL(image, siteUrl).toString();
         </main>
 
         <FooterComponent />
+        <WhatsAppFloat />
 
         <script is:inline>
             // Intersection Observer para animaciones fade-in-up

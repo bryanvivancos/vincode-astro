@@ -138,3 +138,41 @@ No existen `/servicios/vincrm` ni `/vincrm-crm-whatsapp-con-ia`.
 Hechos que el agente debe repetir: sin precio publicado; siguiente paso `https://www.vincode.dev/contacto?servicio=vincrm`; ficha `https://www.vincode.dev/servicios/vincrm-crm-whatsapp-con-ia`; número propio; OpenRouter y Meta los paga el negocio; no mandar ese caso a `https://vinbook.vincode.dev`.
 
 La sección “Pendientes de confirmación” de `VINI.md` no se pega al conocimiento que ve el cliente.
+
+---
+
+## 2026-10-09 — Logo e isotipo
+
+El wordmark de texto `Vin<0de` deja de ser la marca en pantalla. Los archivos quedan en `public/brand/`. El enlace del logo va a `/` y no es un CTA.
+
+- Navbar, fondo claro: `public/brand/logo.png` en `src/components/Header/Header.tsx`
+- Footer y menú móvil, fondo oscuro: `public/brand/logo-light.png` (mismo lockup, palabra en blanco) en `src/components/Footer/FooterComponent.astro` y `src/components/Header/MobileNav.tsx`
+- Favicon: isotipo `public/brand/isotipo.png`, servido como `favicon.ico`, `favicon-32.png`, `favicon-192.png`, `apple-touch-icon.png` y `favicon.svg`. Los enlaces están en `src/layouts/MainLayout.astro`
+- `Organization.logo` en `src/pages/index.astro` y en `src/components/Schema/ServiceSchema.astro` apunta a `https://www.vincode.dev/brand/logo.png`
+- `public/vincode-icon.ico` sigue existiendo con el isotipo nuevo, por si algo externo aún pide esa ruta. El `<head>` ya no lo usa.
+
+La regla vigente de navegación (el logo no compite con la primaria) está en [CONVERSION_UX.md](./CONVERSION_UX.md). Dónde viven los archivos, en `AGENTS.md`.
+
+---
+
+## 2026-10-09 — Botón flotante de WhatsApp
+
+Acceso fijo para escribir por WhatsApp sin bajar al footer. No cambia la primaria ni el cierre de paquetes.
+
+- Componente: `src/components/WhatsAppFloat/WhatsAppFloat.astro`, montado en `src/layouts/MainLayout.astro`.
+- Destino: `whatsappUrl(DEFAULT_WHATSAPP_MESSAGE)` → `https://wa.me/51986966477` con el texto `Hola, quiero hablar sobre un proyecto para mi negocio.`
+- Número: `WHATSAPP_NUMBER` en `src/CONSTANTS.ts`. Enlace `<a target="_blank">`, sin `window.open`.
+- Posición: abajo a la derecha, `z-index: 45`. El header queda en `z-50` y el menú móvil en `z-10000`, así el botón no cubre `Hablemos de tu proyecto`.
+- `/politica-de-privacidad` nombra ese botón como otro enlace externo de WhatsApp, con el mismo mensaje general. No entra al funnel.
+
+---
+
+## 2026-10-09 — Carrusel de proyectos en mobile
+
+En home, bajo `md`, `LandingProjectsCarousel` ya rotaba solo y con los puntos. Ahora también se pasa arrastrando la tarjeta, con dedo o con mouse.
+
+- Archivo: `src/components/Landing/LandingProjectsCarousel.tsx`.
+- Un desplazamiento horizontal de al menos 48px cambia de caso. Un gesto vertical sigue haciendo scroll de la página.
+- El clic en el CTA del caso (`Explorar VINBOOK`, `Conocer VIN DISPLAY`, `Ver proyecto`) se conserva si no hubo deslizamiento.
+- Desde `md` los casos siguen apilados en `LandingFeaturedProjects.astro`. No hay carrusel ahí.
+- No cambia la primaria ni `Ver todos los proyectos` → `/nuestros-proyectos`.

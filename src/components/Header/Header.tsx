@@ -29,11 +29,14 @@ export default function Header({ currentPath }: { currentPath: string }) {
                 `}
                     aria-label="Navegación principal"
                 >
-                    {/* Logo minimalista */}
-                    <a href="/" className="group">
-                        <span className="text-xl md:text-2xl font-black text-text-primary font-bold font-Codesaver transition-colors duration-200 group-hover:text-primary">
-                            Vin<span className="text-primary">&lt;0</span>de
-                        </span>
+                    <a href="/" className="group shrink-0">
+                        <img
+                            src="/brand/logo.png"
+                            alt="VINCODE"
+                            width={1024}
+                            height={272}
+                            className="h-7 w-auto transition-opacity duration-200 group-hover:opacity-80 md:h-8"
+                        />
                     </a>
 
                     {/* Links centrados - solo desktop */}

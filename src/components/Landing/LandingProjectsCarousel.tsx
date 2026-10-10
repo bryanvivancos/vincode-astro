@@ -1,10 +1,20 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { MouseEvent, PointerEvent } from "react";
 import {
   LANDING_FEATURED_PROJECTS,
   type FeaturedProject,
 } from "../../data/landing";
 
 const AUTOPLAY_MS = 5500;
+const SWIPE_LOCK_PX = 8;
+const SWIPE_COMMIT_PX = 48;
+
+type Gesture = {
+  id: number | null;
+  startX: number;
+  startY: number;
+  axis: "x" | "y" | null;
+};
 
 function ProjectCard({ project }: { project: FeaturedProject }) {
   return (
@@ -13,7 +23,8 @@ function ProjectCard({ project }: { project: FeaturedProject }) {
         <img
           src={project.image}
           alt={project.imageAlt}
-          className="aspect-video w-full object-cover"
+          className="pointer-events-none aspect-video w-full object-cover"
+          draggable={false}
           loading="lazy"
           decoding="async"
           width={800}
@@ -59,13 +70,30 @@ function ProjectCard({ project }: { project: FeaturedProject }) {
   );
 }
 
+function trackTransform(index: number, px: number) {
+  return `translate3d(calc(-${index * 100}% + ${px}px), 0, 0)`;
+}
+
 export default function LandingProjectsCarousel() {
   const projects = LANDING_FEATURED_PROJECTS;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [dragPx, setDragPx] = useState(0);
+  const [snap, setSnap] = useState(true);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const suppressClick = useRef(false);
+  const reduceMotion = useRef(false);
+  const gesture = useRef<Gesture>({
+    id: null,
+    startX: 0,
+    startY: 0,
+    axis: null,
+  });
 
   const goTo = useCallback(
     (index: number) => {
+      setDragPx(0);
+      setSnap(true);
       setActive((index + projects.length) % projects.length);
     },
     [projects.length],
@@ -74,30 +102,122 @@ export default function LandingProjectsCarousel() {
   const next = useCallback(() => goTo(active + 1), [active, goTo]);
 
   useEffect(() => {
-    if (paused) return;
-    const prefersReduced = window.matchMedia(
+    reduceMotion.current = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (prefersReduced) return;
+  }, []);
+
+  useEffect(() => {
+    if (paused || reduceMotion.current) return;
 
     const timer = window.setInterval(next, AUTOPLAY_MS);
     return () => window.clearInterval(timer);
   }, [next, paused]);
+
+  function resetGesture() {
+    gesture.current = { id: null, startX: 0, startY: 0, axis: null };
+  }
+
+  function onPointerDown(event: PointerEvent<HTMLDivElement>) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    gesture.current = {
+      id: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      axis: null,
+    };
+    setPaused(true);
+    setSnap(false);
+    if (trackRef.current) trackRef.current.style.transitionDuration = "0ms";
+  }
+
+  function onPointerMove(event: PointerEvent<HTMLDivElement>) {
+    const current = gesture.current;
+    if (current.id !== event.pointerId) return;
+
+    const dx = event.clientX - current.startX;
+    const dy = event.clientY - current.startY;
+
+    if (!current.axis) {
+      if (Math.abs(dx) < SWIPE_LOCK_PX && Math.abs(dy) < SWIPE_LOCK_PX) return;
+      current.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      if (current.axis === "y") {
+        setSnap(true);
+        resetGesture();
+        if (event.pointerType !== "mouse") setPaused(false);
+        return;
+      }
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
+
+    if (current.axis !== "x") return;
+    setDragPx(dx);
+  }
+
+  function finishPointer(event: PointerEvent<HTMLDivElement>) {
+    const current = gesture.current;
+    if (current.id !== event.pointerId) return;
+
+    const dx = event.clientX - current.startX;
+    const dy = event.clientY - current.startY;
+    const horizontal =
+      current.axis === "x" ||
+      (current.axis !== "y" &&
+        Math.abs(dx) >= SWIPE_COMMIT_PX &&
+        Math.abs(dx) > Math.abs(dy));
+    resetGesture();
+
+    const commit = horizontal && Math.abs(dx) >= SWIPE_COMMIT_PX;
+    const nextIndex = commit
+      ? (active + (dx < 0 ? 1 : -1) + projects.length) % projects.length
+      : active;
+
+    if (commit) suppressClick.current = true;
+
+    const duration = reduceMotion.current ? "0ms" : "500ms";
+    if (trackRef.current) {
+      trackRef.current.style.transitionDuration = duration;
+      trackRef.current.style.transform = trackTransform(nextIndex, 0);
+    }
+
+    setDragPx(0);
+    setSnap(true);
+    if (nextIndex !== active) setActive(nextIndex);
+    if (event.pointerType !== "mouse") setPaused(false);
+  }
+
+  function onClickCapture(event: MouseEvent<HTMLDivElement>) {
+    if (!suppressClick.current) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressClick.current = false;
+  }
 
   return (
     <div
       className="relative"
       aria-roledescription="carousel"
       aria-label="Proyectos destacados"
-      onTouchStart={() => setPaused(true)}
-      onTouchEnd={() => setPaused(false)}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="overflow-hidden">
+      <div
+        className={`overflow-hidden ${dragPx !== 0 ? "cursor-grabbing select-none" : "cursor-grab"}`}
+        style={{ touchAction: "pan-y", overscrollBehaviorX: "contain" }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={finishPointer}
+        onPointerCancel={finishPointer}
+        onClickCapture={onClickCapture}
+      >
         <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${active * 100}%)` }}
+          ref={trackRef}
+          className="flex ease-out"
+          style={{
+            transform: trackTransform(active, dragPx),
+            transitionProperty: "transform",
+            transitionDuration: snap && !reduceMotion.current ? "500ms" : "0ms",
+          }}
         >
           {projects.map((project) => (
             <div
@@ -119,7 +239,7 @@ export default function LandingProjectsCarousel() {
             key={project.name}
             type="button"
             aria-label={`Ver ${project.name}`}
-            aria-current={active === i}
+            aria-current={active === i ? "true" : undefined}
             onClick={() => goTo(i)}
             className={`h-2 rounded-full transition-all duration-300 ${
               active === i

@@ -31,9 +31,13 @@ export default function MobileNav( {currentPath} : {currentPath: string}) {
           className="flex items-center group"
           onClick={() => toggleMenu()}  
         >
-          <p className="text-5xl flex items-center font-black text-white font-Codesaver transition-all duration-200 group-hover:text-primary">
-            Vin<span className="text-primary font-black">{`<0`}</span>de
-          </p>
+          <img
+            src="/brand/logo-light.png"
+            alt="VINCODE"
+            width={1024}
+            height={272}
+            className="h-12 w-auto transition-opacity duration-200 group-hover:opacity-80"
+          />
         </a>
 
         <nav className='flex flex-col items-center gap-5'>

@@ -184,6 +184,7 @@ Ver un caso externo (`Visitar el sitio`) es exploración. La página `/nuestros-
 - No agregar pasos antes de `/contacto`: quizzes, páginas “elige tu solución”, landings puente.
 - No crear páginas intermedias sin una decisión comercial que el home no pueda resolver.
 - El header muestra `Hablemos de tu proyecto` desde 640px (`sm`). Por debajo de ese ancho el mismo texto y el mismo destino están en el menú móvil (`MobileNav.tsx`). No hace falta un segundo botón en la barra.
+- El logo del header, del menú móvil y del footer enlaza a `/`. Es marca, no CTA: no compite con `Hablemos de tu proyecto`. Archivos en `public/brand/`. Detalle en [HISTORY.md](./HISTORY.md) (2026-10-09).
 - Nav principal: Servicios, Proyectos, Sobre nosotros, más el botón primario. VINBOOK puede ser un ítem de producto, visualmente aparte, hacia el bloque o hacia la app.
 - Soporte (`/soporte`) permanece en el footer. Es postventa, no un CTA de venta.
 - Los enlaces del footer de servicios cubren la oferta que se quiere vender, no los primeros cinco slugs alfabéticos.
@@ -248,9 +249,10 @@ Mobile es un funnel propio.
 
 - Desde 640px la primaria está en el header. Por debajo, está en el menú móvil, con el mismo texto y destino.
 - El botón de header y los CTA de sección usan al menos el tamaño de `.btn-primary` (`py-3 px-7`) y ocupan el ancho útil en pantallas estrechas.
-- WhatsApp es alcanzable sin scroll hasta el footer: header, `/contacto`, o un acceso fijo que no tape la primaria.
+- WhatsApp es alcanzable sin scroll hasta el footer. El acceso fijo es el botón de `src/components/WhatsAppFloat/WhatsAppFloat.astro`: círculo verde abajo a la derecha, en todas las páginas con `MainLayout`. Abre `wa.me` con el mensaje general (`DEFAULT_WHATSAPP_MESSAGE`) mediante `whatsappUrl()`. `z-index: 45`, por debajo del header (`z-50`) y del menú móvil (`z-10000`), así no tapa `Hablemos de tu proyecto`.
 - El menú móvil incluye la primaria como última acción. Desde 640px el header también la muestra.
 - Pricing con 3 o más paquetes usa carrusel (`PricingCardsLayout`). En mobile, el primer paquete visible y el nombre del paquete deben entenderse sin adivinar que hay más slides. Los dots y las flechas no sustituyen un precio legible.
+- En home, bajo `md`, los proyectos destacados son un carrusel (`LandingProjectsCarousel`) que se pasa con el dedo o arrastrando con el mouse. Los puntos siguen eligiendo el caso. El autoplay se pausa durante el gesto. Desde `md`, los casos siguen apilados, sin carrusel.
 - El mockup de VINBOOK puede ocultarse bajo `md`. El texto y el CTA de producto no.
 - Formularios: una columna, teclado adecuado (`type="tel"`, `type="email"`), sin campos extra respecto a desktop.
 - Ninguna página comercial termina en un bloque que solo enlace hacia fuera.
@@ -296,5 +298,8 @@ Si alguna respuesta empeora el funnel, el cambio no se publica así.
 - No existe `/vinbook` ni página de confirmación.
 - Siguen publicadas `/services`, `/projects` y `/about-us`. Sus CTAs de contacto apuntan a `/contacto`.
 - Contacto público: teléfono `+51 986966477`, WhatsApp `51986966477`, correo `vincodedev@gmail.com`, definidos en `src/CONSTANTS.ts`. Footer, `/contacto` y `/soporte` usan esas constantes. El teléfono del sidebar no es un enlace `tel:`.
+- 2026-10-09: botón flotante de WhatsApp en `MainLayout` (`WhatsAppFloat.astro`). Enlace `https://wa.me/51986966477?text=` con `Hola, quiero hablar sobre un proyecto para mi negocio.` No reemplaza la primaria.
+- 2026-10-09: header, menú móvil y footer usan el logo horizontal de `public/brand/`. El isotipo es el favicon. El enlace del logo va a `/` y no sustituye la primaria.
+- 2026-10-09: el carrusel de proyectos de la home, solo bajo `md`, se desliza con dedo o mouse. Los CTAs de cada caso y `Ver todos los proyectos` no cambian.
 - 2026-10-04: `/politica-de-privacidad` y `/terminos-y-condiciones` están en el footer, junto al copyright. Son informativas. No llevan la primaria ni forman parte del funnel. Detalle en [HISTORY.md](./HISTORY.md).
 - 2026-10-04: VINCRM vive en `/servicios/vincrm-crm-whatsapp-con-ia`. Primaria a `/contacto?servicio=vincrm`. Sin precio público. No es el funnel de VINBOOK. El conocimiento del agente está en [VINI.md](./VINI.md). Detalle en [HISTORY.md](./HISTORY.md).
