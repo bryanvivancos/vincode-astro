@@ -65,7 +65,9 @@ listar docs/
 | Por qué existe una decisión o un cambio fechado | `docs/HISTORY.md`, luego el vigente | archivos nombrados en la nota |
 | Conocimiento, precios o límites que dice Vini | `docs/VINI.md` | ficha en `src/content/servicios/` y `CONVERSION_UX.md` |
 | Precio, alcance o ficha de un servicio | la ficha en content; `CONVERSION_UX.md` si cambia el CTA | `src/content/config.ts` si cambia el schema |
-| Contacto, WhatsApp, `?servicio=` | sección de contacto en `CONVERSION_UX.md` | `src/data/contactContext.ts`, `src/CONSTANTS.ts` |
+| Contacto, WhatsApp, `?servicio=` | sección de contacto en `CONVERSION_UX.md` | `src/data/contactContext.ts`, `src/CONSTANTS.ts`, `WhatsAppFloat.astro` |
+| Botón flotante de WhatsApp | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `src/components/WhatsAppFloat/WhatsAppFloat.astro`, `MainLayout.astro` |
+| Carrusel de proyectos en la home (mobile) | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `LandingProjectsCarousel.tsx`, `LandingFeaturedProjects.astro` |
 | Correo de contacto o soporte | `CONVERSION_UX.md` (canales) | `src/pages/api/contact.ts`, `src/pages/api/support.ts` |
 | Páginas legales | nota del 2026-10-04 en `HISTORY.md` | `src/pages/politica-de-privacidad/`, `src/pages/terminos-y-condiciones/` |
 | Logo, isotipo, favicon | nota del 2026-10-09 en `HISTORY.md`; identidad en este archivo | `public/brand/`, `Header.tsx`, `MobileNav.tsx`, `FooterComponent.astro`, `MainLayout.astro` |
@@ -162,8 +164,10 @@ src/content/servicios/     fichas ES (colección servicios)
 src/content/services/      fichas EN (colección services)
 src/content/config.ts      schema Zod de ambas colecciones
 src/components/            UI; React solo donde hay isla
-src/layouts/MainLayout.astro
-src/data/contactContext.ts mensajes y contactPath()
+src/layouts/MainLayout.astro   header, footer y WhatsAppFloat
+src/components/WhatsAppFloat/  botón fijo de WhatsApp
+src/components/Landing/LandingProjectsCarousel.tsx  carrusel de proyectos, solo bajo md
+src/data/contactContext.ts mensajes, contactPath() y whatsappUrl()
 src/data/landing.ts
 src/CONSTANTS.ts           teléfono, WhatsApp, correo, nav, proyectos
 src/global.css             Tailwind 4
@@ -186,6 +190,23 @@ Logo horizontal e isotipo (desde 2026-10-09). No volver al wordmark `Vin<0de`.
 - El enlace del logo va a `/`. No es un CTA y no reemplaza `Hablemos de tu proyecto`.
 - `Organization.logo` (home y `ServiceSchema.astro`) apunta a `https://www.vincode.dev/brand/logo.png`.
 - `public/vincode-icon.ico` conserva el isotipo nuevo por si una URL vieja lo pide. El `<head>` ya no lo referencia.
+
+Botón flotante de WhatsApp (desde 2026-10-09). No sustituye `Hablemos de tu proyecto`.
+
+- Componente: `src/components/WhatsAppFloat/WhatsAppFloat.astro`, montado en `MainLayout.astro`. Sale en todas las páginas que usan ese layout.
+- Enlace: `whatsappUrl(DEFAULT_WHATSAPP_MESSAGE)` en `src/data/contactContext.ts`. Número: `WHATSAPP_NUMBER` en `src/CONSTANTS.ts`. No hardcodear otro `wa.me` ni usar `window.open`.
+- Mensaje general: `Hola, quiero hablar sobre un proyecto para mi negocio.`
+- Posición: abajo a la derecha, `z-index: 45`. El header está en `z-50` y el menú móvil en `z-10000`. No subirlo por encima del menú ni tapar la primaria.
+- Los avisos de envío en `/contacto` y `/soporte` quedan por encima del botón (`containerStyle` del `Toaster`).
+
+Carrusel de proyectos en la home (desde 2026-10-09). Solo bajo `md`.
+
+- Archivo: `src/components/Landing/LandingProjectsCarousel.tsx`, usado en `LandingFeaturedProjects.astro`.
+- Se pasa con el dedo o arrastrando con el mouse. Un desplazamiento horizontal de al menos 48px cambia de caso. Un gesto vertical sigue siendo scroll de la página.
+- Los puntos siguen eligiendo el caso. El autoplay se pausa durante el gesto.
+- El CTA del caso (`Explorar VINBOOK`, `Conocer VIN DISPLAY`, `Ver proyecto`) se conserva si el gesto no fue un deslizamiento.
+- Desde `md` los casos siguen apilados. No convertir ese bloque en carrusel.
+- `Ver todos los proyectos` sigue yendo a `/nuestros-proyectos`.
 
 ## Datos, correo, pagos, webhooks
 
