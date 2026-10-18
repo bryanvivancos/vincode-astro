@@ -213,6 +213,20 @@ La página sigue en `/servicios/vincrm-crm-whatsapp-con-ia` y en `VincrmServiceP
 
 ---
 
+## 2026-10-18 — Mockup animado de VINBOOK en la home
+
+La franja sigue debajo del hero. El CTA sigue siendo `Empezar ahora` → `https://vinbook.vincode.dev`. El mockup no reserva y no sustituye ese CTA.
+
+- Archivo: `src/components/Landing/VinbookHeroMockup.tsx`. Isla `client:visible` en `LandingHero.astro`.
+- Recorre solo Corte, Ana R., día 18, 12:00 PM y Continuar, y muestra `¡Reserva confirmada!`. El ciclo se repite mientras la tarjeta está en pantalla.
+- Arranca sin selección. Especialistas, calendario y horarios ocupan su alto ocultos, con el aviso encima. La altura de la tarjeta no salta.
+- Un clic en el mockup detiene el recorrido y lo deja manual. `Nueva reserva` también lo para.
+- Con `prefers-reduced-motion: reduce` se ve la selección completa y no hay puntero.
+- Sigue oculto bajo `md`. La tarjeta conserva su tamaño y sus dos columnas desde `md`. No se ensanchó la columna del mockup.
+- Estructura de la tarjeta y recorrido: [widget-demo-animacion.md](./widget-demo-animacion.md). Los especialistas no llevan círculo de foto. Los días no llevan anillo; el círculo azul es solo el día elegido.
+
+---
+
 ## 2026-10-18 — Datos confirmados de VINCRM
 
 Cierra los pendientes de la nota anterior, salvo el número de demo. No hay monto ni `Offer`. La primaria no cambia.

@@ -44,12 +44,13 @@ Una discrepancia no se ignora. El agente debe nombrarla, decidir cuál refleja e
 
 ```text
 docs/
-├── CONVERSION_UX.md   vigente: funnel, CTAs, navegación, pricing UX, contacto
-├── HISTORY.md         notas fechadas; contexto, no estado automático
-└── VINI.md            texto del asistente comercial Vini; no es instrucción de Cursor
+├── CONVERSION_UX.md          vigente: funnel, CTAs, navegación, pricing UX, contacto
+├── HISTORY.md                notas fechadas; contexto, no estado automático
+├── VINI.md                   texto del asistente comercial Vini; no es instrucción de Cursor
+└── widget-demo-animacion.md  estructura y recorrido del mockup VINBOOK en la home
 ```
 
-Búsqueda progresiva. No leer los tres archivos en cada tarea.
+Búsqueda progresiva. No leer todos los archivos de `docs/` en cada tarea.
 
 ```text
 listar docs/
@@ -68,6 +69,7 @@ listar docs/
 | Contacto, WhatsApp, `?servicio=` | sección de contacto en `CONVERSION_UX.md` | `src/data/contactContext.ts`, `src/CONSTANTS.ts`, `WhatsAppFloat.astro` |
 | Botón flotante de WhatsApp | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `src/components/WhatsAppFloat/WhatsAppFloat.astro`, `MainLayout.astro` |
 | Carrusel de proyectos en la home (mobile) | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `LandingProjectsCarousel.tsx`, `LandingFeaturedProjects.astro` |
+| Mockup de VINBOOK en la home | `docs/widget-demo-animacion.md`; nota del 2026-10-18 en `HISTORY.md` | `src/components/Landing/VinbookHeroMockup.tsx`, `LandingHero.astro` |
 | Correo de contacto o soporte | `CONVERSION_UX.md` (canales) | `src/pages/api/contact.ts`, `src/pages/api/support.ts` |
 | Páginas legales | nota del 2026-10-04 en `HISTORY.md` | `src/pages/politica-de-privacidad/`, `src/pages/terminos-y-condiciones/` |
 | Logo, isotipo, favicon | nota del 2026-10-09 en `HISTORY.md`; identidad en este archivo | `public/brand/`, `Header.tsx`, `MobileNav.tsx`, `FooterComponent.astro`, `MainLayout.astro` |
@@ -167,6 +169,7 @@ src/components/            UI; React solo donde hay isla
 src/layouts/MainLayout.astro   header, footer y WhatsAppFloat
 src/components/WhatsAppFloat/  botón fijo de WhatsApp
 src/components/Landing/LandingProjectsCarousel.tsx  carrusel de proyectos, solo bajo md
+src/components/Landing/VinbookHeroMockup.tsx        mockup de reservas de la franja VINBOOK
 src/data/contactContext.ts mensajes, contactPath() y whatsappUrl()
 src/data/landing.ts
 src/CONSTANTS.ts           teléfono, WhatsApp, correo, nav, proyectos
