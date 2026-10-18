@@ -155,7 +155,7 @@ Atajo cuando la ficha ya muestra precio:
 
 La ficha responde tres cosas arriba del fold: qué es, para quién es, cuál es el siguiente paso. `Ver precios` solo aparece si la ficha renderiza `#pricing`.
 
-VINCRM (`/servicios/vincrm-crm-whatsapp-con-ia`) no tiene precio publicado ni `#pricing`. Su primaria sigue siendo `Hablemos de tu proyecto` → `/contacto?servicio=vincrm`. El botón del bloque de precio dice `Consultar por precio` y va al mismo destino. No se inventa un monto, no se emite un `Offer` y no se manda ese lead a VINBOOK. Detalle en [HISTORY.md](./HISTORY.md) (2026-10-04).
+VINCRM (`/servicios/vincrm-crm-whatsapp-con-ia`) no tiene monto publicado ni `#pricing`. No hay un «desde» en soles. La frase del bloque es `El precio depende de cuántos chats recibes y cuántas personas atienden. Cuéntanos y te lo damos en menos de 24 horas hábiles.`. Al escribir, la ficha dice que responden en 24 h hábiles. Su primaria sigue siendo `Hablemos de tu proyecto` → `/contacto?servicio=vincrm`. El bloque se titula `Precio según tu operación`. El botón dice `Consultar por precio` y va al mismo destino. El CTA `Pruébalo en WhatsApp` no se publica hasta que exista un número de demo distinto de `WHATSAPP_NUMBER`. No se inventa un monto, no se emite un `Offer` y no se manda ese lead a VINBOOK. Detalle en [HISTORY.md](./HISTORY.md) (2026-10-04 y 2026-10-18).
 
 ## Funnel proyectos
 
@@ -303,3 +303,4 @@ Si alguna respuesta empeora el funnel, el cambio no se publica así.
 - 2026-10-09: el carrusel de proyectos de la home, solo bajo `md`, se desliza con dedo o mouse. Los CTAs de cada caso y `Ver todos los proyectos` no cambian.
 - 2026-10-04: `/politica-de-privacidad` y `/terminos-y-condiciones` están en el footer, junto al copyright. Son informativas. No llevan la primaria ni forman parte del funnel. Detalle en [HISTORY.md](./HISTORY.md).
 - 2026-10-04: VINCRM vive en `/servicios/vincrm-crm-whatsapp-con-ia`. Primaria a `/contacto?servicio=vincrm`. Sin precio público. No es el funnel de VINBOOK. El conocimiento del agente está en [VINI.md](./VINI.md). Detalle en [HISTORY.md](./HISTORY.md).
+- 2026-10-18: la ficha VINCRM reordena el relato. La primaria no cambia. No hay CTA de demo ni monto. Al escribir, responden en 24 h hábiles. FAQPage solo en esa ficha, sin `Offer`. Detalle en [HISTORY.md](./HISTORY.md).

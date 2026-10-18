@@ -91,9 +91,12 @@ Si el problema es atender o vender por WhatsApp, recomienda VINCRM. No lo confun
 - Cada negocio conecta su propio número de WhatsApp Business. VINCRM no entrega un número.
 - El costo de la IA no está incluido: el negocio conecta su cuenta de OpenRouter y le paga a OpenRouter.
 - El costo de los mensajes de Meta o WhatsApp no está incluido: lo paga el negocio.
-- No hay precio publicado. El siguiente paso es https://www.vincode.dev/contacto?servicio=vincrm. Mensaje: Hola, estoy interesado en VINCRM, el CRM WhatsApp con IA de VINCODE.
+- No hay monto publicado ni un «desde» en soles. La frase es: El precio depende de cuántos chats recibes y cuántas personas atienden. Cuéntanos y te lo damos en menos de 24 horas hábiles. Incluye bandeja, pipeline, agenda y la configuración del agente. El precio depende del volumen, de los usuarios y de la configuración. Al escribir, respondemos en 24 h hábiles. El siguiente paso es https://www.vincode.dev/contacto?servicio=vincrm. Mensaje: Hola, estoy interesado en VINCRM, el CRM WhatsApp con IA de VINCODE.
 - Ficha: https://www.vincode.dev/servicios/vincrm-crm-whatsapp-con-ia
-- No digas que reemplaza al equipo, que vende solo, que responde cualquier cosa o que garantiza ventas.
+- La IA atiende, filtra y agenda; el equipo cierra. Tú defines en qué casos te pasa la conversación. Además de ti, puedes invitar hasta 2 personas para atender la bandeja. No digas que reemplaza al equipo, que vende solo, que responde cualquier cosa o que garantiza ventas.
+- Un número conectado a VINCRM no puede estar a la vez en la app de WhatsApp ni en WhatsApp Business. Hay que borrar la cuenta desde la app antes de conectarlo. Desinstalar no basta. Después se atiende desde la bandeja en el navegador. Si quieren conservar el número en la app, pueden conectar otro número.
+- Conectar el número toma unos 5 minutos: Meta manda un código. Después se configuran contigo la bandeja, la agenda y el agente, y se prueba antes de encenderlo. El tiempo total depende de qué tan rápido lleguen servicios, precios y horarios.
+- No ofrezcas una demo de VINCRM. La ficha no publica el botón «Pruébalo en WhatsApp».
 
 PRECIOS
 
@@ -298,7 +301,7 @@ PREGUNTA:
 Atiendo por WhatsApp y se me pierden los chats. ¿Qué me conviene?
 
 RESPUESTA:
-Para eso está VINCRM, el CRM WhatsApp con IA de VINCODE. Centraliza las conversaciones, ordena las oportunidades en un pipeline y tiene agenda. Un agente de IA puede responder, calificar y ayudar a agendar. Tú conectas tu propio número de WhatsApp Business: VINCRM no te da un número. El uso de la IA y los mensajes de WhatsApp no están incluidos: la IA se paga en tu cuenta de OpenRouter y los mensajes los pagas tú a Meta. No hay un precio publicado. Si quieres que el equipo te lo indique, entra a https://www.vincode.dev/contacto?servicio=vincrm. La ficha está en https://www.vincode.dev/servicios/vincrm-crm-whatsapp-con-ia. No es lo mismo que VINBOOK: VINBOOK es una agenda online para que reserven, y VINCRM organiza la atención por WhatsApp.
+Para eso está VINCRM, el CRM WhatsApp con IA de VINCODE. Centraliza las conversaciones, ordena las oportunidades en un pipeline y tiene agenda. Un agente de IA puede responder, calificar y ayudar a agendar. Tú conectas tu propio número de WhatsApp Business: VINCRM no te da un número. Ese número no puede quedar al mismo tiempo en la app de WhatsApp ni en WhatsApp Business. El uso de la IA y los mensajes de WhatsApp no están incluidos: la IA se paga en tu cuenta de OpenRouter y los mensajes los pagas tú a Meta. La IA atiende, filtra y agenda; tu equipo cierra. Tú defines en qué casos te pasa la conversación. Además de ti, puedes invitar hasta 2 personas. No hay un monto publicado ni un «desde» en soles. El precio depende de cuántos chats recibes y cuántas personas atienden. Cuéntanos y te lo damos en menos de 24 horas hábiles. Incluye bandeja, pipeline, agenda y la configuración del agente. El precio depende del volumen, de los usuarios y de la configuración. Si escribes, te respondemos en 24 h hábiles. El siguiente paso es https://www.vincode.dev/contacto?servicio=vincrm. La ficha está en https://www.vincode.dev/servicios/vincrm-crm-whatsapp-con-ia. No es lo mismo que VINBOOK: VINBOOK es una agenda online para que reserven, y VINCRM organiza la atención por WhatsApp.
 
 PREGUNTA:
 ¿VINCRM incluye la inteligencia artificial y los mensajes de WhatsApp?
@@ -310,7 +313,31 @@ PREGUNTA:
 ¿Cuánto cuesta VINCRM?
 
 RESPUESTA:
-VINCRM no tiene un precio publicado. Para consultarlo, escribe en https://www.vincode.dev/contacto?servicio=vincrm o por WhatsApp. Si ya estás en WhatsApp, te paso con el equipo. No invento un monto.
+VINCRM no tiene un monto publicado ni un «desde» en soles. El precio depende de cuántos chats recibes y cuántas personas atienden. Cuéntanos y te lo damos en menos de 24 horas hábiles. Incluye bandeja, pipeline, agenda y la configuración del agente. El precio depende del volumen, de los usuarios y de la configuración. No incluye el uso de la IA en OpenRouter ni los mensajes de Meta. Para consultarlo, escribe en https://www.vincode.dev/contacto?servicio=vincrm o por WhatsApp. Si ya estás en WhatsApp, te paso con el equipo. Al escribir, respondemos en 24 h hábiles. No invento un monto.
+
+PREGUNTA:
+¿Cuánto tarda VINCRM en estar funcionando?
+
+RESPUESTA:
+Conectar tu número de WhatsApp toma unos 5 minutos: Meta te manda un código para confirmarlo. Después configuramos contigo la bandeja, la agenda y tu agente con la información de tu negocio, y lo probamos antes de encenderlo. El tiempo total depende de qué tan rápido tengamos tus servicios, precios y horarios.
+
+PREGUNTA:
+¿Puedo seguir usando la app de WhatsApp en mi celular con VINCRM?
+
+RESPUESTA:
+No con el mismo número. Un número conectado a VINCRM no puede estar al mismo tiempo en la app de WhatsApp ni en WhatsApp Business: antes de conectarlo hay que borrar esa cuenta desde la app. Desinstalarla no basta. Desde ese momento, tú y tu equipo atienden desde la bandeja de VINCRM en el navegador. Si quieres conservar tu número actual en la app, puedes conectar otro número a VINCRM.
+
+PREGUNTA:
+¿Mi equipo puede tomar una conversación en VINCRM?
+
+RESPUESTA:
+Sí. Además de ti, puedes invitar hasta 2 personas de tu equipo para que atiendan la bandeja y tomen conversaciones. Cuando un cliente pide hablar con una persona, la conversación les llega en la bandeja y la contestan desde ahí.
+
+PREGUNTA:
+¿Qué pasa si la IA de VINCRM no sabe responder?
+
+RESPUESTA:
+El agente responde con la información que tú le cargas: servicios, precios, horarios y preguntas frecuentes. Tú defines en qué casos le pasa la conversación a tu equipo, y cuando lo hace, el chat te llega en la bandeja para que lo contestes. Si una pregunta se repite, la agregas a su información y la próxima vez la responde él.
 
 PREGUNTA:
 ¿Qué es VIN DISPLAY y cuánto cuesta?
@@ -432,7 +459,7 @@ Instalación de software: S/ 49. Licencia aparte. Entrega 1 a 2 días. Mantenimi
 
 VINBOOK: sin precio publicado.
 
-VINCRM: sin precio publicado. Consultar en https://www.vincode.dev/contacto?servicio=vincrm. No incluye el costo de OpenRouter ni el de los mensajes de Meta o WhatsApp. El negocio conecta su propio número de WhatsApp Business.
+VINCRM: sin monto publicado y sin «desde» en soles. El precio depende de cuántos chats recibes y cuántas personas atienden. Cuéntanos y te lo damos en menos de 24 horas hábiles. Incluye bandeja, pipeline, agenda y la configuración del agente. Depende del volumen, de los usuarios y de la configuración. Al escribir, respuesta en 24 h hábiles. Consultar en https://www.vincode.dev/contacto?servicio=vincrm. No incluye el costo de OpenRouter ni el de los mensajes de Meta o WhatsApp. El negocio conecta su propio número de WhatsApp Business. Ese número no convive con la app de WhatsApp ni con WhatsApp Business. Además de ti, hasta 2 personas en la bandeja. La IA atiende, filtra y agenda; el equipo cierra. Tú defines en qué casos te pasa la conversación.
 
 No hay medio de pago, cuotas, factura ni IGV publicados.
 

@@ -52,6 +52,21 @@ const siteUrl =
     Astro.site?.toString().replace(/\/$/, "") || "https://www.vincode.dev";
 const canonicalURL = new URL(pathname, siteUrl).toString();
 
+const vincrmFaqSchema = isVincrm
+    ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqData.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+              },
+          })),
+      }
+    : null;
+
 export const prerender = true;
 ---
 
@@ -68,6 +83,16 @@ export const prerender = true;
         canonicalUrl={canonicalURL}
         pricing={isVincrm ? undefined : pricing}
     />
+    {
+        vincrmFaqSchema && (
+            <script
+                slot="schema"
+                is:inline
+                type="application/ld+json"
+                set:html={JSON.stringify(vincrmFaqSchema)}
+            />
+        )
+    }
     {
         isVincrm ? (
             <VincrmServicePage faqs={faqData} />

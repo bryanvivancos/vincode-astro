@@ -176,3 +176,50 @@ En home, bajo `md`, `LandingProjectsCarousel` ya rotaba solo y con los puntos. A
 - El clic en el CTA del caso (`Explorar VINBOOK`, `Conocer VIN DISPLAY`, `Ver proyecto`) se conserva si no hubo deslizamiento.
 - Desde `md` los casos siguen apilados en `LandingFeaturedProjects.astro`. No hay carrusel ahí.
 - No cambia la primaria ni `Ver todos los proyectos` → `/nuestros-proyectos`.
+
+---
+
+## 2026-10-18 — Ficha VINCRM, relato y conversión
+
+La página sigue en `/servicios/vincrm-crm-whatsapp-con-ia` y en `VincrmServicePage.astro`. No usa `ServicePageTemplate`. El slug, el título `VINCRM | CRM WhatsApp con IA | VINCODE` y el schema de servicio sin `Offer` se mantienen.
+
+### Qué cambió en la página
+
+- Hero con mockup HTML/CSS de un chat de ejemplo (centro de masajes) y una tarjeta que se mueve en el pipeline. En móvil el mockup va debajo del texto. Hay un solo `h1`.
+- El problema pasa de seis tarjetas a tres fugas: fuera de horario, respuesta que no avanza, lead sin seguimiento. Sin cifras.
+- Bloque de ejemplo «Así se ve en un centro de masajes y estética», marcado como ejemplo, de la consulta a la cita.
+- «Agente de IA», «Beneficios» y «Cómo funciona» quedan en un solo bloque «Cómo trabaja», de cuatro pasos. El límite «La IA atiende, filtra y agenda; tu equipo cierra» se dice una vez.
+- «VINCRM no te asigna un número» queda solo en la FAQ.
+- Precio: título `Precio según tu operación`. Sin monto y sin «desde». Incluye bandeja, pipeline, agenda y agente. Depende del volumen, de los usuarios y de la configuración. No incluye OpenRouter ni los mensajes de Meta.
+
+### CTAs
+
+- Siguen `Hablemos de tu proyecto` (hero y cierre) y `Consultar por precio` (bloque de precio), ambos a `/contacto?servicio=vincrm`.
+- `Pruébalo en WhatsApp` no se publica. No hay número de demo. No se usa `WHATSAPP_NUMBER`. El hueco está en `VINCRM_DEMO_NUMBER` dentro de `VincrmServicePage.astro`.
+
+### FAQ y schema
+
+- La ficha Markdown conserva las tres preguntas (OpenRouter, Meta, número propio).
+- No se publicaron las cuatro preguntas nuevas: tiempo de puesta en marcha, app de WhatsApp en el celular, toma de la conversación por el equipo, y qué pasa si la IA no sabe. Faltan las respuestas.
+- `[id].astro` emite `FAQPage` solo para este slug, además del `Service` sin `Offer`.
+
+### Pendiente de confirmar
+
+- Número de demo con código de país.
+- Si «incluye» del precio es exactamente bandeja, pipeline, agenda y agente.
+- Plazo de respuesta al escribir (no se publicó «24 h»).
+- Monto «desde», si llega a existir.
+- Respuestas de las cuatro FAQ nuevas.
+
+---
+
+## 2026-10-18 — Datos confirmados de VINCRM
+
+Cierra los pendientes de la nota anterior, salvo el número de demo. No hay monto ni `Offer`. La primaria no cambia.
+
+- Número de demo: sigue sin existir. `Pruébalo en WhatsApp` no se publica. `VINCRM_DEMO_NUMBER` queda en `null`.
+- Al escribir: `Te respondemos en 24 h hábiles`. Está en el bloque de precio y en el cierre.
+- No hay «desde» en soles. La frase publicada es `El precio depende de cuántos chats recibes y cuántas personas atienden. Cuéntanos y te lo damos en menos de 24 horas hábiles.`.
+- El paquete incluye la bandeja, el pipeline, la agenda y la configuración del agente.
+- El límite del agente queda así: tú defines en qué casos te pasa la conversación. No dice que la pase siempre que no sepa.
+- La ficha `vincrm-crm-whatsapp-con-ia.md` suma cuatro FAQ: tiempo de puesta en marcha (conectar el número toma unos 5 minutos; el total depende de los datos del negocio), la app de WhatsApp no convive con el mismo número, hasta 2 personas además de ti, y qué hace el agente cuando no sabe. `FAQPage` las incluye porque salen de `faqData`.

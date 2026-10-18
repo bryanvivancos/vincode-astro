@@ -16,13 +16,28 @@ interface Props {
 const { faqs } = Astro.props;
 const contactHref = contactPath("vincrm");
 
+// TODO(vincrm-demo): no hay número de demo. Cuando exista, poner solo dígitos
+// con código de país (no reutilizar WHATSAPP_NUMBER de VINCODE). El CTA
+// principal pasa a "Pruébalo en WhatsApp" → wa.me/{número}?text=Hola, quiero probar VINCRM
+// y el formulario queda como secundario en hero, precio y cierre.
+const VINCRM_DEMO_NUMBER: string | null = null;
+const demoHref = VINCRM_DEMO_NUMBER
+    ? `https://wa.me/${VINCRM_DEMO_NUMBER}?text=${encodeURIComponent("Hola, quiero probar VINCRM")}`
+    : null;
+
 const problems = [
-    "Conversaciones dispersas en WhatsApp",
-    "Leads que se pierden",
-    "Falta de seguimiento",
-    "Respuestas manuales repetitivas",
-    "Oportunidades fuera del horario de atención",
-    "Dificultad para organizar conversaciones y oportunidades",
+    {
+        title: "Fuera de horario",
+        scene: "A las 11:02 p. m. preguntan por un masaje y nadie responde hasta el día siguiente.",
+    },
+    {
+        title: "Respuesta que no avanza",
+        scene: "Preguntan por el paquete y la respuesta se queda en «te confirmo».",
+    },
+    {
+        title: "Lead sin seguimiento",
+        scene: "El chat queda abierto y nadie vuelve a escribir.",
+    },
 ];
 
 const features: { icon: IconName; title: string; description: string }[] = [
@@ -48,50 +63,56 @@ const features: { icon: IconName; title: string; description: string }[] = [
     },
 ];
 
-const aiSteps = [
-    "Llega la conversación",
-    "La IA responde",
-    "Entiende lo que necesita el cliente",
-    "Califica el lead",
-    "Guía la conversación",
-    "Ayuda a agendar",
-];
-
-const benefits: { icon: IconName; title: string }[] = [
-    { icon: "DashboardIcon", title: "Más organización" },
-    { icon: "ClockIcon", title: "Menos trabajo manual" },
-    { icon: "BoltIcon", title: "Respuestas más rápidas" },
-    { icon: "TargetArrowIcon", title: "Mejor seguimiento" },
-    { icon: "TrendingUpIcon", title: "Más oportunidades gestionadas" },
-    { icon: "CalendarIcon", title: "Más citas" },
-];
-
-const steps = [
+const exampleSteps = [
     {
         number: "01",
-        title: "Conecta tu WhatsApp Business",
-        description: "Usas la cuenta y el número de tu negocio. VINCRM no te entrega un número.",
+        title: "Consulta",
+        description: "A las 11:02 p. m. preguntan por un paquete de masajes.",
     },
     {
         number: "02",
-        title: "Configura VINCRM",
-        description: "Dejas listos la bandeja, el pipeline y la agenda para tu operación.",
+        title: "Opciones",
+        description: "La IA responde con dos opciones y un precio de ejemplo.",
     },
     {
         number: "03",
-        title: "Define cómo debe trabajar tu agente",
-        description: "Indicas qué debe responder, qué debe preguntar y cuándo pedir una cita.",
+        title: "Califica",
+        description: "Pregunta si es para una persona o para dos.",
     },
     {
         number: "04",
-        title: "Recibe y organiza tus conversaciones",
-        description: "Cada chat queda en la bandeja y cada oportunidad puede seguir el pipeline.",
+        title: "Cita",
+        description: "Propone dos horarios. La cita queda agendada.",
+    },
+];
+
+const workSteps = [
+    {
+        number: "01",
+        title: "Conectas tu WhatsApp Business",
+        result: "Las conversaciones entran a una sola bandeja.",
     },
     {
-        number: "05",
-        title: "Deja que la IA atienda, califique y ayude a agendar",
-        description: "El agente acompaña la conversación. Tu equipo sigue las oportunidades que lo necesitan.",
+        number: "02",
+        title: "Ordenas las oportunidades",
+        result: "Cada lead sigue tu pipeline.",
     },
+    {
+        number: "03",
+        title: "La IA responde y califica",
+        result: "La conversación avanza y ayuda a agendar.",
+    },
+    {
+        number: "04",
+        title: "La cita queda en la agenda",
+        result: "Tu equipo sigue solo lo que lo necesita.",
+    },
+];
+
+const pricePoints = [
+    "Incluye la bandeja, el pipeline, la agenda y la configuración del agente.",
+    "Depende del volumen, de los usuarios y de la configuración.",
+    "No incluye el uso de la IA en tu OpenRouter ni los mensajes de Meta.",
 ];
 ---
 
@@ -105,16 +126,115 @@ const steps = [
                     { label: "VINCRM", href: "/servicios/vincrm-crm-whatsapp-con-ia" },
                 ]}
             />
-            <div class="max-w-3xl">
-                <p class="eyebrow">VINCRM</p>
-                <h1 class="sectionTitle mb-6">CRM WhatsApp con IA para tu negocio</h1>
-                <p class="section-subtitle mb-8 max-w-2xl">
-                    Centraliza tus conversaciones, organiza tus oportunidades y deja
-                    que un agente de IA responda, califique y agende clientes por ti.
-                </p>
-                <a href={contactHref} class="btn-primary inline-flex w-full justify-center sm:w-auto">
-                    Hablemos de tu proyecto
-                </a>
+            <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-12">
+                <div class="max-w-xl">
+                    <p class="eyebrow">VINCRM</p>
+                    <h1 class="sectionTitle mb-6">CRM WhatsApp con IA para tu negocio</h1>
+                    <p class="section-subtitle mb-8">
+                        Centraliza tus conversaciones, organiza tus oportunidades y deja
+                        que un agente de IA responda, califique y agende clientes por ti.
+                    </p>
+                    <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                        {
+                            demoHref && (
+                                <a
+                                    href={demoHref}
+                                    class="btn-primary inline-flex w-full justify-center sm:w-auto"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Pruébalo en WhatsApp
+                                </a>
+                            )
+                        }
+                        <a
+                            href={contactHref}
+                            class:list={[
+                                "inline-flex w-full justify-center sm:w-auto",
+                                demoHref ? "btn-secondary" : "btn-primary",
+                            ]}
+                        >
+                            Hablemos de tu proyecto
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mx-auto w-full max-w-lg lg:max-w-none" aria-hidden="true">
+                    <div class="overflow-hidden rounded-2xl border border-border bg-white shadow-xl">
+                        <div class="flex items-center justify-between border-b border-border px-4 py-3">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-primary">Ejemplo</span>
+                            <span class="text-xs text-text-secondary">Centro de masajes</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2">
+                            <div class="bg-[#ece5dd] p-3 sm:p-4">
+                                <div class="mb-3 flex items-center gap-2 rounded-xl bg-[#075e54] px-3 py-2 text-white">
+                                    <span class="flex size-7 items-center justify-center rounded-full bg-white/20 text-[10px] font-bold">M</span>
+                                    <span class="min-w-0">
+                                        <span class="block truncate text-xs font-semibold">Masajes</span>
+                                        <span class="block text-[10px] text-white/70">en línea</span>
+                                    </span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="max-w-[95%] rounded-lg rounded-tl-none bg-white px-2.5 py-2 text-[11px] leading-snug text-gray-800 shadow-sm sm:text-xs">
+                                        Hola, ¿tienen un paquete de masajes?
+                                        <span class="mt-1 block text-right text-[10px] text-gray-400">11:02 p. m.</span>
+                                    </div>
+                                    <div class="ml-auto max-w-[95%] rounded-lg rounded-tr-none bg-[#d9fdd3] px-2.5 py-2 text-[11px] leading-snug text-gray-800 shadow-sm sm:text-xs">
+                                        Sí. Relajante 60 min, S/ 120. Dúo 90 min, S/ 180.
+                                        <span class="mt-1 block text-right text-[10px] text-gray-400">11:02 p. m.</span>
+                                    </div>
+                                    <div class="ml-auto max-w-[95%] rounded-lg rounded-tr-none bg-[#d9fdd3] px-2.5 py-2 text-[11px] leading-snug text-gray-800 shadow-sm sm:text-xs">
+                                        ¿Es para una persona o para dos?
+                                        <span class="mt-1 block text-right text-[10px] text-gray-400">11:03 p. m.</span>
+                                    </div>
+                                    <div class="ml-auto max-w-[95%] rounded-lg rounded-tr-none bg-[#d9fdd3] px-2.5 py-2 text-[11px] leading-snug text-gray-800 shadow-sm sm:text-xs">
+                                        Mañana a las 10:00 a. m. o a las 4:00 p. m. ¿Cuál te queda?
+                                        <span class="mt-1 block text-right text-[10px] text-gray-400">11:03 p. m.</span>
+                                    </div>
+                                </div>
+                                <p class="mt-2 text-[10px] text-gray-500">Chat Demo de VINCRM.</p>
+                            </div>
+                            <div class="flex h-full flex-col border-t border-border bg-white p-3 sm:border-t-0 sm:border-l sm:p-4">
+                                <div class="mb-2 flex items-center justify-between gap-2">
+                                    <p class="text-[10px] font-semibold uppercase tracking-wider text-text-secondary">Pipeline</p>
+                                    <span class="inline-flex whitespace-nowrap rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-white">Cita agendada</span>
+                                </div>
+                                <div class="vincrm-board">
+                                    <div class="vincrm-col">
+                                        <div class="vincrm-col-head">
+                                            <span>Chat</span>
+                                            <span class="vincrm-count vincrm-count-1">
+                                                <span class="vincrm-on">1</span>
+                                                <span class="vincrm-off">0</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="vincrm-col">
+                                        <div class="vincrm-col-head">
+                                            <span>Calificado</span>
+                                            <span class="vincrm-count vincrm-count-2">
+                                                <span class="vincrm-on">1</span>
+                                                <span class="vincrm-off">0</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="vincrm-col">
+                                        <div class="vincrm-col-head">
+                                            <span>Cita</span>
+                                            <span class="vincrm-count vincrm-count-3">
+                                                <span class="vincrm-on">1</span>
+                                                <span class="vincrm-off">0</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="vincrm-deal">
+                                        <span>Paquete dúo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -127,11 +247,12 @@ const steps = [
                     WhatsApp vende, pero se desordena
                 </h2>
             </div>
-            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+            <ul class="grid grid-cols-1 gap-4 md:grid-cols-3" role="list">
                 {
                     problems.map((problem) => (
-                        <li class="rounded-2xl border border-border bg-background-card p-6 text-base font-semibold leading-snug text-text-primary">
-                            {problem}
+                        <li class="rounded-2xl border border-border bg-background-card p-6">
+                            <h3 class="mb-2 text-lg font-bold text-text-primary">{problem.title}</h3>
+                            <p class="text-sm leading-relaxed text-text-secondary md:text-base">{problem.scene}</p>
                         </li>
                     ))
                 }
@@ -147,11 +268,9 @@ const steps = [
                     Un CRM para vender y atender por WhatsApp
                 </h2>
                 <p class="section-subtitle">
-                    VINCRM convierte WhatsApp en un canal organizado y automatizado
-                    de ventas y atención. La bandeja, el pipeline y la agenda
-                    trabajan sobre las conversaciones de tu negocio. Cada negocio
-                    conecta su propia cuenta y su propio número de WhatsApp Business.
-                    VINCRM no te asigna un número.
+                    VINCRM convierte WhatsApp en un canal organizado de ventas y
+                    atención. La bandeja, el pipeline y la agenda trabajan sobre
+                    las conversaciones de tu negocio.
                 </p>
             </div>
         </div>
@@ -184,71 +303,22 @@ const steps = [
         </div>
     </section>
 
-    <section aria-labelledby="vincrm-agente">
+    <section aria-labelledby="vincrm-ejemplo">
         <div class="section-container section-spacing">
             <div class="mb-10 max-w-2xl md:mb-14">
-                <p class="eyebrow">Agente de IA</p>
-                <h2 id="vincrm-agente" class="sectionTitle mb-4">
-                    Atiende la conversación, no reemplaza a tu equipo
+                <p class="eyebrow">Ejemplo</p>
+                <h2 id="vincrm-ejemplo" class="sectionTitle mb-4">
+                    Así se ve en un centro de masajes y estética
                 </h2>
                 <p class="section-subtitle">
-                    El agente responde, entiende la necesidad, califica y ayuda a
-                    agendar. No vende solo, no cubre cualquier pregunta y no
-                    garantiza una venta.
+                    De la consulta a la cita. Es un ejemplo, no un caso de un cliente.
                 </p>
             </div>
-            <ol class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ol class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
                 {
-                    aiSteps.map((step, index) => (
-                        <li class="flex gap-4 rounded-2xl border border-border bg-background-card p-5">
-                            <span class="font-Codesaver text-2xl font-bold text-primary/40">
-                                {String(index + 1).padStart(2, "0")}
-                            </span>
-                            <p class="pt-1 text-sm font-semibold leading-snug text-text-primary md:text-base">
-                                {step}
-                            </p>
-                        </li>
-                    ))
-                }
-            </ol>
-        </div>
-    </section>
-
-    <section class="section-alt" aria-labelledby="vincrm-beneficios">
-        <div class="section-container section-spacing">
-            <div class="mb-10 max-w-2xl md:mb-14">
-                <p class="eyebrow">Beneficios</p>
-                <h2 id="vincrm-beneficios" class="sectionTitle">Qué gana el negocio</h2>
-            </div>
-            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
-                {
-                    benefits.map((benefit) => {
-                        const Icon = icons[benefit.icon];
-                        return (
-                            <li class="flex items-center gap-4 rounded-2xl border border-border bg-background-card p-5">
-                                <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary-light">
-                                    <Icon width={22} height={22} color="var(--color-primary)" />
-                                </span>
-                                <span class="text-base font-semibold text-text-primary">{benefit.title}</span>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
-        </div>
-    </section>
-
-    <section aria-labelledby="vincrm-como">
-        <div class="section-container section-spacing">
-            <div class="mb-10 max-w-2xl md:mb-14">
-                <p class="eyebrow">Cómo funciona</p>
-                <h2 id="vincrm-como" class="sectionTitle">De conectar WhatsApp a agendar</h2>
-            </div>
-            <ol class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-                {
-                    steps.map((step) => (
-                        <li class="rounded-2xl border border-border bg-background-card p-6 md:p-8">
-                            <span class="mb-4 block font-Codesaver text-4xl font-bold text-primary/30">
+                    exampleSteps.map((step) => (
+                        <li class="rounded-2xl border border-border bg-background-card p-6">
+                            <span class="mb-4 block font-Codesaver text-3xl font-bold text-primary/30">
                                 {step.number}
                             </span>
                             <h3 class="mb-2 text-lg font-bold text-text-primary">{step.title}</h3>
@@ -259,26 +329,86 @@ const steps = [
                     ))
                 }
             </ol>
+            <p class="mt-8 text-sm leading-relaxed text-text-secondary md:text-base">
+                También funciona para clínicas, consultorios y negocios que agendan o venden por WhatsApp.
+            </p>
         </div>
     </section>
 
-    <section class="section-alt" aria-labelledby="vincrm-precio">
+    <section class="section-alt" aria-labelledby="vincrm-como">
+        <div class="section-container section-spacing">
+            <div class="mb-10 max-w-2xl md:mb-14">
+                <p class="eyebrow">Cómo trabaja</p>
+                <h2 id="vincrm-como" class="sectionTitle">De la conversación a la cita</h2>
+            </div>
+            <ol class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
+                {
+                    workSteps.map((step) => (
+                        <li class="rounded-2xl border border-border bg-background-card p-6 md:p-8">
+                            <span class="mb-4 block font-Codesaver text-4xl font-bold text-primary/30">
+                                {step.number}
+                            </span>
+                            <h3 class="mb-2 text-lg font-bold text-text-primary">{step.title}</h3>
+                            <p class="text-sm leading-relaxed text-text-secondary md:text-base">
+                                {step.result}
+                            </p>
+                        </li>
+                    ))
+                }
+            </ol>
+            <p class="mt-8 max-w-2xl text-base font-semibold leading-relaxed text-text-primary">
+                La IA atiende, filtra y agenda; tu equipo cierra. Tú defines en qué casos te pasa la conversación.
+            </p>
+        </div>
+    </section>
+
+    <section aria-labelledby="vincrm-precio">
         <div class="section-container section-spacing">
             <div class="mx-auto max-w-2xl text-center">
                 <p class="eyebrow">Precio</p>
-                <h2 id="vincrm-precio" class="sectionTitle mb-4">Consultar por precio</h2>
+                <h2 id="vincrm-precio" class="sectionTitle mb-4">Precio según tu operación</h2>
                 <p class="section-subtitle mx-auto mb-8">
-                    VINCRM no publica un precio fijo. Cuéntanos cómo atiendes por
-                    WhatsApp y te indicamos el alcance.
+                    El precio depende de cuántos chats recibes y cuántas personas atienden.
+                    Cuéntanos cómo atiendes por WhatsApp. Te respondemos en 24 h
+                    hábiles con el alcance y el precio.
                 </p>
-                <a href={contactHref} class="btn-primary inline-flex w-full justify-center sm:w-auto">
-                    Consultar por precio
-                </a>
+                <ul class="mb-8 space-y-3 text-left" role="list">
+                    {
+                        pricePoints.map((point) => (
+                            <li class="rounded-2xl border border-border bg-background-card px-5 py-4 text-sm leading-relaxed text-text-primary md:text-base">
+                                {point}
+                            </li>
+                        ))
+                    }
+                </ul>
+                <div class="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                    {
+                        demoHref && (
+                            <a
+                                href={demoHref}
+                                class="btn-primary inline-flex w-full justify-center sm:w-auto"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Pruébalo en WhatsApp
+                            </a>
+                        )
+                    }
+                    <a
+                        href={contactHref}
+                        class:list={[
+                            "inline-flex w-full justify-center sm:w-auto",
+                            demoHref ? "btn-secondary" : "btn-primary",
+                        ]}
+                    >
+                        Consultar por precio
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section aria-labelledby="vincrm-faq">
+    <section class="section-alt" aria-labelledby="vincrm-faq">
         <div class="section-container section-spacing max-w-4xl">
             <h2 id="vincrm-faq" class="sectionTitle mb-10 text-center">
                 Preguntas frecuentes
@@ -323,12 +453,228 @@ const steps = [
                     ¿Quieres ver si VINCRM encaja con tu WhatsApp?
                 </h2>
                 <p class="mb-10 text-base leading-relaxed text-gray-300 md:text-lg">
-                    Cuéntanos cómo atiendes hoy. Te respondemos por WhatsApp o por correo.
+                    Cuéntanos cómo atiendes hoy. Te respondemos en 24 h hábiles, por WhatsApp o por correo.
                 </p>
-                <a href={contactHref} class="btn-primary inline-flex w-full justify-center sm:w-auto">
-                    Hablemos de tu proyecto
-                </a>
+                <div class="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                    {
+                        demoHref && (
+                            <a
+                                href={demoHref}
+                                class="btn-primary inline-flex w-full justify-center sm:w-auto"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Pruébalo en WhatsApp
+                            </a>
+                        )
+                    }
+                    <a
+                        href={contactHref}
+                        class:list={[
+                            "inline-flex w-full justify-center sm:w-auto",
+                            demoHref ? "vincrm-close-secondary" : "btn-primary",
+                        ]}
+                    >
+                        Hablemos de tu proyecto
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 </article>
+
+<style>
+    .vincrm-board {
+        --gap: 8px;
+        --pad: 6px;
+        position: relative;
+        display: grid;
+        flex: 1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--gap);
+        min-height: 9.5rem;
+    }
+
+    .vincrm-col {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        border-radius: 12px;
+        background: #f3f4f8;
+        padding: var(--pad);
+    }
+
+    .vincrm-col-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2px;
+        min-height: 16px;
+        color: #1c1c1e;
+        font-size: 9px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .vincrm-count {
+        position: relative;
+        display: inline-flex;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        border-radius: 999px;
+        background: #fff;
+        color: #8b909a;
+        font-size: 8px;
+        font-weight: 600;
+    }
+
+    .vincrm-count span {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .vincrm-count .vincrm-on {
+        opacity: 0;
+    }
+
+    .vincrm-count-1 .vincrm-on {
+        animation: vincrm-show-1 8s linear infinite;
+    }
+
+    .vincrm-count-1 .vincrm-off {
+        animation: vincrm-hide-1 8s linear infinite;
+    }
+
+    .vincrm-count-2 .vincrm-on {
+        animation: vincrm-show-2 8s linear infinite;
+    }
+
+    .vincrm-count-2 .vincrm-off {
+        animation: vincrm-hide-2 8s linear infinite;
+    }
+
+    .vincrm-count-3 .vincrm-on {
+        animation: vincrm-show-3 8s linear infinite;
+    }
+
+    .vincrm-count-3 .vincrm-off {
+        animation: vincrm-hide-3 8s linear infinite;
+    }
+
+    @keyframes vincrm-show-1 {
+        0%,
+        18% { opacity: 1; }
+        32%,
+        100% { opacity: 0; }
+    }
+
+    @keyframes vincrm-hide-1 {
+        0%,
+        18% { opacity: 0; }
+        32%,
+        100% { opacity: 1; }
+    }
+
+    @keyframes vincrm-show-2 {
+        0%,
+        28% { opacity: 0; }
+        42%,
+        60% { opacity: 1; }
+        74%,
+        100% { opacity: 0; }
+    }
+
+    @keyframes vincrm-hide-2 {
+        0%,
+        28% { opacity: 1; }
+        42%,
+        60% { opacity: 0; }
+        74%,
+        100% { opacity: 1; }
+    }
+
+    @keyframes vincrm-show-3 {
+        0%,
+        68% { opacity: 0; }
+        82%,
+        100% { opacity: 1; }
+    }
+
+    @keyframes vincrm-hide-3 {
+        0%,
+        68% { opacity: 1; }
+        82%,
+        100% { opacity: 0; }
+    }
+
+    .vincrm-deal {
+        position: absolute;
+        top: calc(var(--pad) + 20px);
+        left: var(--pad);
+        width: calc((100% - 2 * var(--gap)) / 3 - 2 * var(--pad));
+        border-radius: 10px;
+        border: 1px solid rgba(15, 23, 42, 0.06);
+        background: #fff;
+        padding: 6px;
+        color: #1c1c1e;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.2;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+        animation: vincrm-move 8s linear infinite;
+    }
+
+    @keyframes vincrm-move {
+        0%,
+        18% {
+            left: var(--pad);
+        }
+        42%,
+        60% {
+            left: calc((100% - 2 * var(--gap)) / 3 + var(--gap) + var(--pad));
+        }
+        82%,
+        100% {
+            left: calc(2 * ((100% - 2 * var(--gap)) / 3 + var(--gap)) + var(--pad));
+        }
+    }
+
+    .vincrm-close-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: transparent;
+        color: #fff;
+        border-radius: 9999px;
+        padding: 0.75rem 1.75rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .vincrm-close-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .vincrm-deal {
+            animation: none;
+            left: calc(2 * ((100% - 2 * var(--gap)) / 3 + var(--gap)) + var(--pad));
+        }
+
+        .vincrm-count-1 .vincrm-on,
+        .vincrm-count-2 .vincrm-on,
+        .vincrm-count-3 .vincrm-off {
+            animation: none;
+            opacity: 0;
+        }
+
+        .vincrm-count-1 .vincrm-off,
+        .vincrm-count-2 .vincrm-off,
+        .vincrm-count-3 .vincrm-on {
+            animation: none;
+            opacity: 1;
+        }
+    }
+</style>
