@@ -1,4 +1,6 @@
 ---
+import { jsonForScript } from "../../lib/escapeHtml";
+
 interface PricingPackage {
     id: number;
     name: string;
@@ -125,10 +127,10 @@ const breadcrumbSchema = {
 
 <script
     type="application/ld+json"
-    set:html={JSON.stringify(organizationSchema)}
+    set:html={jsonForScript(organizationSchema)}
 />
-<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script type="application/ld+json" set:html={jsonForScript(serviceSchema)} />
 <script
     type="application/ld+json"
-    set:html={JSON.stringify(breadcrumbSchema)}
+    set:html={jsonForScript(breadcrumbSchema)}
 />

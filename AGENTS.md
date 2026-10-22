@@ -2,7 +2,7 @@
 
 Guía de comportamiento para agentes en este repositorio. No reemplaza `docs/`: indica qué leer, en qué orden, y cuándo el código manda sobre un documento.
 
-Sitio comercial de VINCODE (`https://www.vincode.dev`): Astro 5, salida estática, islas React, Tailwind 4, deploy en Vercel. El paquete es `pnpm` (`packageManager` en `package.json`). No hay base de datos, autenticación, RLS, pagos ni webhooks de entrada.
+Sitio comercial de VINCODE (`https://www.vincode.dev`): Astro 7, Node `>=22.12.0`, salida estática, islas React, Tailwind 4, deploy en Vercel. El paquete es `pnpm` (`packageManager` en `package.json`). No hay base de datos, autenticación, RLS, pagos ni webhooks de entrada.
 
 ## Regla fundamental
 
@@ -65,12 +65,12 @@ listar docs/
 | Landing, nav, CTA, pricing, formularios, copy comercial | `docs/CONVERSION_UX.md` | páginas y componentes citados ahí |
 | Por qué existe una decisión o un cambio fechado | `docs/HISTORY.md`, luego el vigente | archivos nombrados en la nota |
 | Conocimiento, precios o límites que dice Vini | `docs/VINI.md` | ficha en `src/content/servicios/` y `CONVERSION_UX.md` |
-| Precio, alcance o ficha de un servicio | la ficha en content; `CONVERSION_UX.md` si cambia el CTA | `src/content/config.ts` si cambia el schema |
+| Precio, alcance o ficha de un servicio | la ficha en content; `CONVERSION_UX.md` si cambia el CTA | `src/content.config.ts` si cambia el schema |
 | Contacto, WhatsApp, `?servicio=` | sección de contacto en `CONVERSION_UX.md` | `src/data/contactContext.ts`, `src/CONSTANTS.ts`, `WhatsAppFloat.astro` |
 | Botón flotante de WhatsApp | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `src/components/WhatsAppFloat/WhatsAppFloat.astro`, `MainLayout.astro` |
 | Carrusel de proyectos en la home (mobile) | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `LandingProjectsCarousel.tsx`, `LandingFeaturedProjects.astro` |
 | Mockup de VINBOOK en la home | `docs/widget-demo-animacion.md`; nota del 2026-10-18 en `HISTORY.md` | `src/components/Landing/VinbookHeroMockup.tsx`, `LandingHero.astro` |
-| Correo de contacto o soporte | `CONVERSION_UX.md` (canales) | `src/pages/api/contact.ts`, `src/pages/api/support.ts` |
+| Correo de contacto o soporte | `CONVERSION_UX.md` (canales) | `src/pages/api/contact.ts`, `src/pages/api/support.ts`, `src/lib/escapeHtml.ts` |
 | Páginas legales | nota del 2026-10-04 en `HISTORY.md` | `src/pages/politica-de-privacidad/`, `src/pages/terminos-y-condiciones/` |
 | Logo, isotipo, favicon | nota del 2026-10-09 en `HISTORY.md`; identidad en este archivo | `public/brand/`, `Header.tsx`, `MobileNav.tsx`, `FooterComponent.astro`, `MainLayout.astro` |
 | Estilo, bug local, refactor sin cambio de comportamiento | ninguno, salvo que el archivo tocado esté citado en `docs/` | solo el código afectado |
@@ -164,7 +164,8 @@ src/pages/                 rutas; español es el canon comercial
 src/pages/api/             POST contact y support (prerender = false)
 src/content/servicios/     fichas ES (colección servicios)
 src/content/services/      fichas EN (colección services)
-src/content/config.ts      schema Zod de ambas colecciones
+src/content.config.ts      schema Zod y loaders glob; el segmento de URL es entry.id
+src/lib/escapeHtml.ts      escape de HTML para correos y JSON-LD
 src/components/            UI; React solo donde hay isla
 src/layouts/MainLayout.astro   header, footer y WhatsAppFloat
 src/components/WhatsAppFloat/  botón fijo de WhatsApp
@@ -181,7 +182,7 @@ Rutas comerciales en español: `/`, `/servicios`, `/servicios/{slug}`, `/contact
 
 VINCRM (`vincrm-crm-whatsapp-con-ia`) no usa `ServicePageTemplate`; la página es `VincrmServicePage.astro`. El schema de `pricing` es opcional a propósito.
 
-Islas: `client:load` en header y menú móvil; `client:visible` en formularios y bloques bajo el fold. Páginas estáticas declaran `prerender = true`. APIs y `/soporte` declaran `prerender = false` (`output: "static"` + adapter Vercel).
+Islas: `client:load` en header y menú móvil; `client:visible` en formularios y bloques bajo el fold. Páginas estáticas declaran `prerender = true`. APIs y `/soporte` declaran `prerender = false` (`output: "static"` + adapter Vercel). El adapter se importa desde `@astrojs/vercel`. `compressHTML: true` en `astro.config.mjs` conserva la compresión de espacios de antes de Astro 7.
 
 Identidad pública (teléfono, WhatsApp, correo) sale de `src/CONSTANTS.ts`. No hardcodear otra en la UI. `ServiceSchema.astro` repite el teléfono en otro formato: si cambia `phone`, actualizar el schema en el mismo cambio.
 
@@ -222,9 +223,11 @@ Antes de modificar `src/pages/api/contact.ts`, `src/pages/api/support.ts`, varia
 - mantener validación de campos en el servidor;
 - no desactivar validaciones para que un envío pase;
 - no loguear el cuerpo del mensaje, correo, teléfono ni la API key;
-- escapar datos de usuario antes de interpolarlos en HTML de correo.
+- escapar datos de usuario antes de interpolarlos en HTML de correo. El helper es `src/lib/escapeHtml.ts`.
 
-Secretos: `RESEND_API_KEY` solo en servidor (`import.meta.env`). No commitear `.env`. El schema de `astro.config.mjs` declara `WEB3FORMS_KEY` (cliente, público). `.env.example` también nombra `PUBLIC_WEB3FORMS_KEY`. Antes de tocar env, leer `astro.config.mjs` y los call sites; no asumir que el example y el schema coinciden.
+Secretos: `RESEND_API_KEY` solo en servidor, leída con `process.env.RESEND_API_KEY` en las rutas de API. No usar `import.meta.env` para ese secreto: Astro 6+ lo inlinea en el build. No commitear `.env`. El schema de `astro.config.mjs` declara `WEB3FORMS_KEY` (cliente, público). `.env.example` también nombra `PUBLIC_WEB3FORMS_KEY`. Antes de tocar env, leer `astro.config.mjs` y los call sites; no asumir que el example y el schema coinciden.
+
+`pnpm.overrides` en `package.json` fija `tar`, `fast-uri` y `source-map-js` en versiones parcheadas. No quitarlos para limpiar el lockfile. `pnpm audit` tiene que seguir en cero.
 
 No hay cobros ni webhooks de entrada. No inventar checkout, cuotas, IGV ni firma de webhook. Si en el futuro se agregan pagos o webhooks, el cambio debe cubrir idempotencia, verificación de firma, reintentos, estados, eventos duplicados, errores, logs sin datos sensibles y consistencia, y documentarse en `docs/`.
 
@@ -268,8 +271,8 @@ Tras cambios en `.astro`, `.ts`, `.tsx` o schema de content, correr `pnpm check`
 
 - TypeScript estricto (`astro/tsconfigs/strict`). JSX React en componentes `.tsx`.
 - Páginas y layout en `.astro`. Interacción en `.tsx` con directiva `client:*`.
-- Fichas como Markdown de content collections, validadas por Zod en `src/content/config.ts`. Colección ES `servicios`, EN `services`.
-- Slug de archivo = segmento de `/servicios/{slug}` o `/services/{slug}`.
+- Fichas como Markdown de content collections, validadas por Zod en `src/content.config.ts`. Colección ES `servicios`, EN `services`. El loader es `glob`.
+- El campo de la entrada es `id` (nombre de archivo, sin extensión). Ese `id` es el segmento de `/servicios/{id}` o `/services/{id}`. No usar `entry.slug`: el content layer ya no lo expone.
 - Alias de `?servicio=` solo si está en `src/data/contactContext.ts`; otro valor cae al mensaje general.
 - Estilos con utilidades Tailwind en `src/global.css` (Tailwind 4 por Vite, sin `tailwind.config`).
 - Estado de menú: nanostores en `src/store/menuStore.ts`.

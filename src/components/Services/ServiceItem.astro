@@ -1,6 +1,6 @@
 ---
 interface Service {
-    slug: string;
+    id: string;
     data: {
         icon: string;
         category: string;
@@ -23,7 +23,7 @@ type IconName = keyof typeof icons;
 <div class="grid md:grid-cols-2 grid-cols-1 gap-8 lg:gap-10">
     {
         services.map((service, index) => {
-            const { slug, data } = service;
+            const { id, data } = service;
             const { icon, category, title, cardDescription, available } = data;
             const Icon = icons?.[icon as IconName];
 
@@ -59,7 +59,7 @@ type IconName = keyof typeof icons;
 
                         {/* Botón de acción */}
                         <a
-                            href={`/servicios/${slug}`}
+                            href={`/servicios/${id}`}
                             class={`inline-flex items-center gap-2 px-6 py-3 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary ${!available ? "pointer-events-none opacity-30" : ""}`}
                         >
                             Ver detalles

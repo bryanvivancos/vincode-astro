@@ -1,16 +1,17 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import ServicesPageTemplate from "../../components/Services/ServicePageTemplate.astro";
 import VincrmServicePage from "../../components/Services/VincrmServicePage.astro";
 import ServiceSchema from "../../components/Schema/ServiceSchema.astro";
+import { jsonForScript } from "../../lib/escapeHtml";
 import { BRAND_NAME } from "../../CONSTANTS";
 
 export async function getStaticPaths() {
     const servicios = await getCollection("servicios");
 
     return servicios.map((servicio) => ({
-        params: { id: servicio.slug },
+        params: { id: servicio.id },
         props: { servicio },
     }));
 }
@@ -39,7 +40,7 @@ const categoryMap: Record<string, string> = {
 };
 
 const serviceCategory = categoryMap[category] || "Servicios Digitales";
-const isVincrm = servicio.slug === "vincrm-crm-whatsapp-con-ia";
+const isVincrm = servicio.id === "vincrm-crm-whatsapp-con-ia";
 const pageTitle = isVincrm
     ? "VINCRM | CRM WhatsApp con IA | VINCODE"
     : `${title} | ${BRAND_NAME}`;
@@ -89,7 +90,7 @@ export const prerender = true;
                 slot="schema"
                 is:inline
                 type="application/ld+json"
-                set:html={JSON.stringify(vincrmFaqSchema)}
+                set:html={jsonForScript(vincrmFaqSchema)}
             />
         )
     }
@@ -105,7 +106,7 @@ export const prerender = true;
                 demos={demosTitle}
                 projects={projects}
                 faqsItems={faqData}
-                serviceSlug={servicio.slug}
+                serviceSlug={servicio.id}
                 pricing={pricing}
                 heroImage={heroImage}
             />

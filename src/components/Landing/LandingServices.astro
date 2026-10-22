@@ -18,16 +18,16 @@ const featuredSlugs = [
 ];
 
 const services = allServices
-    .filter((s) => s.data.available && featuredSlugs.includes(s.slug))
+    .filter((s) => s.data.available && featuredSlugs.includes(s.id))
     .sort(
         (a, b) =>
-            featuredSlugs.indexOf(a.slug) - featuredSlugs.indexOf(b.slug),
+            featuredSlugs.indexOf(a.id) - featuredSlugs.indexOf(b.id),
     )
     .map((s) => ({
         icon: s.data.icon as IconName,
         title: s.data.title,
         description: s.data.cardDescription,
-        slug: s.slug,
+        slug: s.id,
     }));
 ---
 

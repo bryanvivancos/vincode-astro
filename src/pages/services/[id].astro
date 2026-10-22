@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import ServicesPageTemplate from "../../components/Services/ServicePageTemplate.astro";
 import { BRAND_NAME } from "../../CONSTANTS";
@@ -8,7 +8,7 @@ export async function getStaticPaths() {
     const services = await getCollection("services");
 
     return services.map((service) => ({
-        params: { id: service.slug },
+        params: { id: service.id },
         props: { service },
     }));
 }
@@ -43,7 +43,7 @@ export const prerender = true;
         demos={demosTitle}
         projects={projects}
         faqsItems={faqData}
-        serviceSlug={service.slug}
+        serviceSlug={service.id}
         pricing={pricing}
     />
 </MainLayout>

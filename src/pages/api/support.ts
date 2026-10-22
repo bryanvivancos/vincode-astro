@@ -1,16 +1,25 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { escapeHtml, escapeHtmlWithBreaks, singleLine } from '../../lib/escapeHtml';
 
 export const prerender = false;
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+function requiredText(value: unknown): string | null {
+    if (typeof value !== 'string') return null;
+    const trimmed = value.trim();
+    return trimmed.length > 0 ? trimmed : null;
+}
 
 export const POST: APIRoute = async ({ request }) => {
+    const resendApiKey = process.env.RESEND_API_KEY;
     try {
         const body = await request.json();
-        const { name, company, service, phone, email, message } = body;
-
-        // console.log('📧 Datos recibidos:', { name, company, service, phone, email, message });
+        const name = requiredText(body?.name);
+        const company = requiredText(body?.company);
+        const service = requiredText(body?.service);
+        const phone = requiredText(body?.phone);
+        const email = requiredText(body?.email);
+        const message = requiredText(body?.message);
 
         // Validar campos requeridos
         if (!name || !company || !service || !phone || !email || !message) {
@@ -25,7 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
         }
 
         // Verificar que RESEND_API_KEY esté configurada
-        if (!import.meta.env.RESEND_API_KEY) {
+        if (!resendApiKey) {
             console.error('❌ RESEND_API_KEY no está configurada');
             return new Response(
                 JSON.stringify({
@@ -36,13 +45,15 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
+        const resend = new Resend(resendApiKey);
+
         console.log('📤 Enviando email con Resend...');
 
         // Enviar email usando Resend
-        const { data, error } = await resend.emails.send({
+        const { error } = await resend.emails.send({
             from: 'Soporte Vincode <soporte@notificaciones.vincode.dev>',
             to: ['vincodedev@gmail.com'],
-            subject: `Nueva Solicitud de Soporte - ${service}`,
+            subject: `Nueva Solicitud de Soporte - ${singleLine(service)}`,
             html: `
                 <!DOCTYPE html>
                 <html>
@@ -128,38 +139,38 @@ export const POST: APIRoute = async ({ request }) => {
                         <div class="field">
                             <div class="field-label">Servicio</div>
                             <div class="field-value">
-                                <span class="service-badge">${service}</span>
+                                <span class="service-badge">${escapeHtml(service)}</span>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="field-label">Nombre del Cliente</div>
-                            <div class="field-value">${name}</div>
+                            <div class="field-value">${escapeHtml(name)}</div>
                         </div>
 
                         <div class="field">
                             <div class="field-label">Empresa</div>
-                            <div class="field-value">${company}</div>
+                            <div class="field-value">${escapeHtml(company)}</div>
                         </div>
 
                         <div class="field">
                             <div class="field-label">Teléfono</div>
                             <div class="field-value">
-                                <a href="tel:${phone}" style="color: #00a8e8; text-decoration: none;">${phone}</a>
+                                <a href="tel:${escapeHtml(singleLine(phone))}" style="color: #00a8e8; text-decoration: none;">${escapeHtml(phone)}</a>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="field-label">Correo Electrónico</div>
                             <div class="field-value">
-                                <a href="mailto:${email}" style="color: #00a8e8; text-decoration: none;">${email}</a>
+                                <a href="mailto:${escapeHtml(singleLine(email))}" style="color: #00a8e8; text-decoration: none;">${escapeHtml(email)}</a>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="field-label">Mensaje</div>
                             <div class="message-box">
-                                ${message.replace(/\n/g, '<br>')}
+                                ${escapeHtmlWithBreaks(message)}
                             </div>
                         </div>
                     </div>
@@ -193,31 +204,27 @@ Este mensaje fue enviado desde el formulario de soporte de Vincode
             return new Response(
                 JSON.stringify({
                     success: false,
-                    error: 'Error al enviar el email',
-                    details: error.message || 'Error desconocido'
+                    error: 'Error al enviar el email'
                 }),
                 { status: 500, headers: { 'Content-Type': 'application/json' } }
             );
         }
 
-        console.log('✅ Email enviado exitosamente:', data);
+        console.log('✅ Email enviado exitosamente');
 
         return new Response(
             JSON.stringify({
-                success: true,
-                data
+                success: true
             }),
             { status: 200, headers: { 'Content-Type': 'application/json' } }
         );
 
     } catch (error) {
         console.error('❌ Error en API de soporte:', error);
-        const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
         return new Response(
             JSON.stringify({
                 success: false,
-                error: 'Error interno del servidor',
-                details: errorMessage
+                error: 'Error interno del servidor'
             }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
         );

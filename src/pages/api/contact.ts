@@ -1,14 +1,24 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { escapeHtml, escapeHtmlWithBreaks, singleLine } from '../../lib/escapeHtml';
 
 export const prerender = false;
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+function requiredText(value: unknown): string | null {
+    if (typeof value !== 'string') return null;
+    const trimmed = value.trim();
+    return trimmed.length > 0 ? trimmed : null;
+}
 
 export const POST: APIRoute = async ({ request }) => {
+    const resendApiKey = process.env.RESEND_API_KEY;
     try {
         const body = await request.json();
-        const { name, email, phone, company, message } = body;
+        const name = requiredText(body?.name);
+        const email = requiredText(body?.email);
+        const phone = requiredText(body?.phone);
+        const message = requiredText(body?.message);
+        const company = typeof body?.company === 'string' ? body.company.trim() : '';
 
         if (!name || !email || !phone || !message) {
             console.error('❌ Validación fallida - campos faltantes (contact)');
@@ -18,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
-        if (!import.meta.env.RESEND_API_KEY) {
+        if (!resendApiKey) {
             console.error('❌ RESEND_API_KEY no está configurada');
             return new Response(
                 JSON.stringify({ success: false, error: 'Configuración de email no disponible' }),
@@ -26,12 +36,14 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
+        const resend = new Resend(resendApiKey);
+
         console.log('📤 Enviando email de contacto con Resend...');
 
-        const { data, error } = await resend.emails.send({
+        const { error } = await resend.emails.send({
             from: 'Contacto Vincode <leads@notificaciones.vincode.dev>',
             to: ['vincodedev@gmail.com'],
-            subject: `Nuevo Mensaje de Contacto - ${name}`,
+            subject: `Nuevo Mensaje de Contacto - ${singleLine(name)}`,
             html: `
                 <!DOCTYPE html>
                 <html>
@@ -56,27 +68,27 @@ export const POST: APIRoute = async ({ request }) => {
                     <div class="section">
                         <div class="row">
                             <div class="label">Nombre</div>
-                            <div class="value">${name}</div>
+                            <div class="value">${escapeHtml(name)}</div>
                         </div>
 
                         <div class="row">
                             <div class="label">Correo</div>
-                            <div class="value"><a href="mailto:${email}" style="color:#0ea5e9; text-decoration:none">${email}</a></div>
+                            <div class="value"><a href="mailto:${escapeHtml(singleLine(email))}" style="color:#0ea5e9; text-decoration:none">${escapeHtml(email)}</a></div>
                         </div>
 
                         <div class="row">
                             <div class="label">Teléfono</div>
-                            <div class="value"><a href="tel:${phone}" style="color:#0ea5e9; text-decoration:none">${phone}</a></div>
+                            <div class="value"><a href="tel:${escapeHtml(singleLine(phone))}" style="color:#0ea5e9; text-decoration:none">${escapeHtml(phone)}</a></div>
                         </div>
 
                         <div class="row">
                             <div class="label">Empresa</div>
-                            <div class="value">${company || 'No especificada'}</div>
+                            <div class="value">${escapeHtml(company || 'No especificada')}</div>
                         </div>
 
                         <div class="row">
                             <div class="label">Mensaje</div>
-                            <div class="message">${message.replace(/\n/g, '<br>')}</div>
+                            <div class="message">${escapeHtmlWithBreaks(message)}</div>
                         </div>
                     </div>
                     <div class="footer">
@@ -92,18 +104,17 @@ export const POST: APIRoute = async ({ request }) => {
         if (error) {
             console.error('❌ Error enviando email con Resend (contact):', error);
             return new Response(
-                JSON.stringify({ success: false, error: 'Error al enviar el email', details: error.message || 'Error desconocido' }),
+                JSON.stringify({ success: false, error: 'Error al enviar el email' }),
                 { status: 500, headers: { 'Content-Type': 'application/json' } }
             );
         }
 
-        console.log('✅ Email de contacto enviado:', data);
+        console.log('✅ Email de contacto enviado');
 
-        return new Response(JSON.stringify({ success: true, data }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
 
     } catch (err) {
         console.error('❌ Error en API de contacto:', err);
-        const errorMessage = err instanceof Error ? err.message : 'Error desconocido';
-        return new Response(JSON.stringify({ success: false, error: 'Error interno del servidor', details: errorMessage }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify({ success: false, error: 'Error interno del servidor' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
 };

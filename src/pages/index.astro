@@ -9,6 +9,7 @@ import LandingServices from "../components/Landing/LandingServices.astro";
 import LandingClientsTech from "../components/Landing/LandingClientsTech.astro";
 import HomePricingSection from "../components/Pricing/HomePricingSection.astro";
 import LandingFinalCTA from "../components/Landing/LandingFinalCTA.astro";
+import { jsonForScript } from "../lib/escapeHtml";
 import { BRAND_NAME, email, phone, VINCODE_IG, VINCODE_TIKTOK } from "../CONSTANTS";
 import MainLayout from "../layouts/MainLayout.astro";
 
@@ -59,8 +60,8 @@ const websiteSchema = {
   keywords={pageKeywords}
 >
   <Fragment slot="schema">
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={jsonForScript(organizationSchema)} />
+    <script type="application/ld+json" set:html={jsonForScript(websiteSchema)} />
   </Fragment>
 
   <LandingHero />

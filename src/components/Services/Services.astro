@@ -25,14 +25,14 @@ const mainServices = allServices
                 "diseño-tarjeta-de-presentacion",
                 "sistema-carteleria-digital",
                 "desarrollo-links-bio",
-            ].includes(servicio.slug),
+            ].includes(servicio.id),
     )
     .sort((a, b) => a.data.id - b.data.id)
     .map((servicio) => ({
         icon: servicio.data.icon as IconName,
         title: servicio.data.title,
         description: servicio.data.cardDescription,
-        slug: servicio.slug,
+        slug: servicio.id,
     }));
 ---
 

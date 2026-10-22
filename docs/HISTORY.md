@@ -237,3 +237,15 @@ Cierra los pendientes de la nota anterior, salvo el número de demo. No hay mont
 - El paquete incluye la bandeja, el pipeline, la agenda y la configuración del agente.
 - El límite del agente queda así: tú defines en qué casos te pasa la conversación. No dice que la pase siempre que no sepa.
 - La ficha `vincrm-crm-whatsapp-con-ia.md` suma cuatro FAQ: tiempo de puesta en marcha (conectar el número toma unos 5 minutos; el total depende de los datos del negocio), la app de WhatsApp no convive con el mismo número, hasta 2 personas además de ti, y qué hace el agente cuando no sabe. `FAQPage` las incluye porque salen de `faqData`.
+
+---
+
+## 2026-10-22 — Dependencias parcheadas (Astro 7)
+
+No cambia el funnel, los CTAs ni los precios. El sitio sigue en salida estática con el adapter de Vercel.
+
+- Astro `5.16.6` pasa a `7.4.2`, con `@astrojs/react` `7.1.1`, `@astrojs/vercel` `11.0.16`, `@astrojs/sitemap` `3.7.4` y Tailwind `4.3.3`. Node mínimo `22.12.0` (`engines` en `package.json`).
+- El adapter se importa desde `@astrojs/vercel`. `compressHTML: true` conserva la compresión de espacios anterior.
+- Las fichas pasan al content layer: `src/content.config.ts`. El segmento de URL es `entry.id`, el nombre del archivo.
+- `RESEND_API_KEY` se lee con `process.env` en las APIs. Los textos del formulario se escapan con `src/lib/escapeHtml.ts` antes del HTML del correo.
+- `pnpm.overrides` fija `tar@7.5.22`, `fast-uri@3.1.9` y `source-map-js@1.2.2`. Después del cambio, `pnpm audit` no reporta avisos.
