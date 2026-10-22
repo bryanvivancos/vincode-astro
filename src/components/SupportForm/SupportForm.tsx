@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { email } from '../../CONSTANTS';
+import {
+    resolveSupportService,
+    VINBOOK_SUPPORT_OPTION,
+    type ContactService,
+} from '../../data/contactContext';
 
 const SERVICES = [
     'Setup Web',
@@ -8,7 +13,7 @@ const SERVICES = [
     'Tarjeta Digital',
     'Link Bio',
     'Portfolio Profesional',
-    'Vinbook - Sistema de Gestión de Reservas',
+    VINBOOK_SUPPORT_OPTION,
     'Página Web de Reservas',
     'VIN DISPLAY - Cartelería Digital',
     'Software a Medida',
@@ -23,6 +28,20 @@ const SERVICES = [
 export default function SupportForm() {
     const [btnText, setBtnText] = useState("Enviar Solicitud");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [supportService, setSupportService] = useState<ContactService | null>(null);
+    const [serviceValue, setServiceValue] = useState("");
+    const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        const resolved = resolveSupportService(
+            new URLSearchParams(window.location.search).get("servicio"),
+        );
+        setSupportService(resolved);
+        if (resolved) {
+            setServiceValue(resolved.label);
+            setMessage((current) => current || resolved.message);
+        }
+    }, []);
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -57,6 +76,8 @@ export default function SupportForm() {
                     position: 'bottom-right',
                     duration: 5000,
                 });
+                setServiceValue(supportService?.label ?? "");
+                setMessage(supportService?.message ?? "");
                 form.reset();
             } else {
                 toast.error(result.error || "Error al enviar la solicitud. Por favor, inténtalo de nuevo.", {
@@ -142,6 +163,8 @@ export default function SupportForm() {
                                 <select
                                     id="service"
                                     name="service"
+                                    value={serviceValue}
+                                    onChange={(event) => setServiceValue(event.target.value)}
                                     className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10"
                                     required
                                 >
@@ -193,6 +216,8 @@ export default function SupportForm() {
                                 <textarea
                                     id="message"
                                     name="message"
+                                    value={message}
+                                    onChange={(event) => setMessage(event.target.value)}
                                     placeholder="Describe tu consulta o problema..."
                                     className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-base text-text-primary outline-none transition-all duration-200 placeholder:text-gray-400 focus:bg-[#f8f8fa] focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-32 resize-y"
                                     required

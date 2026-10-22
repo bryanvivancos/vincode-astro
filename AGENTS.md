@@ -66,7 +66,7 @@ listar docs/
 | Por qué existe una decisión o un cambio fechado | `docs/HISTORY.md`, luego el vigente | archivos nombrados en la nota |
 | Conocimiento, precios o límites que dice Vini | `docs/VINI.md` | ficha en `src/content/servicios/` y `CONVERSION_UX.md` |
 | Precio, alcance o ficha de un servicio | la ficha en content; `CONVERSION_UX.md` si cambia el CTA | `src/content.config.ts` si cambia el schema |
-| Contacto, WhatsApp, `?servicio=` | sección de contacto en `CONVERSION_UX.md` | `src/data/contactContext.ts`, `src/CONSTANTS.ts`, `WhatsAppFloat.astro` |
+| Contacto, WhatsApp, `?servicio=` de contacto y de soporte | sección de contacto en `CONVERSION_UX.md` | `src/data/contactContext.ts`, `src/components/SupportForm/SupportForm.tsx`, `src/CONSTANTS.ts`, `WhatsAppFloat.astro` |
 | Botón flotante de WhatsApp | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `src/components/WhatsAppFloat/WhatsAppFloat.astro`, `MainLayout.astro` |
 | Carrusel de proyectos en la home (mobile) | reglas mobile de `CONVERSION_UX.md`; nota del 2026-10-09 en `HISTORY.md` | `LandingProjectsCarousel.tsx`, `LandingFeaturedProjects.astro` |
 | Mockup de VINBOOK en la home | `docs/widget-demo-animacion.md`; nota del 2026-10-18 en `HISTORY.md` | `src/components/Landing/VinbookHeroMockup.tsx`, `LandingHero.astro` |
@@ -171,7 +171,7 @@ src/layouts/MainLayout.astro   header, footer y WhatsAppFloat
 src/components/WhatsAppFloat/  botón fijo de WhatsApp
 src/components/Landing/LandingProjectsCarousel.tsx  carrusel de proyectos, solo bajo md
 src/components/Landing/VinbookHeroMockup.tsx        mockup de reservas de la franja VINBOOK
-src/data/contactContext.ts mensajes, contactPath() y whatsappUrl()
+src/data/contactContext.ts mensajes de contacto y de soporte, contactPath(), supportPath() y whatsappUrl()
 src/data/landing.ts
 src/CONSTANTS.ts           teléfono, WhatsApp, correo, nav, proyectos
 src/global.css             Tailwind 4
@@ -273,7 +273,7 @@ Tras cambios en `.astro`, `.ts`, `.tsx` o schema de content, correr `pnpm check`
 - Páginas y layout en `.astro`. Interacción en `.tsx` con directiva `client:*`.
 - Fichas como Markdown de content collections, validadas por Zod en `src/content.config.ts`. Colección ES `servicios`, EN `services`. El loader es `glob`.
 - El campo de la entrada es `id` (nombre de archivo, sin extensión). Ese `id` es el segmento de `/servicios/{id}` o `/services/{id}`. No usar `entry.slug`: el content layer ya no lo expone.
-- Alias de `?servicio=` solo si está en `src/data/contactContext.ts`; otro valor cae al mensaje general.
+- Alias de `?servicio=` en `/contacto` solo si está en el mapa de contacto de `src/data/contactContext.ts`; otro valor cae al mensaje general. En `/soporte` el mapa es aparte (`resolveSupportService`): hoy solo `vinbook`. Un slug de contacto no rellena soporte, y `vinbook` no abre `/contacto` con mensaje de venta.
 - Estilos con utilidades Tailwind en `src/global.css` (Tailwind 4 por Vite, sin `tailwind.config`).
 - Estado de menú: nanostores en `src/store/menuStore.ts`.
 - Copys y datos de negocio en español. No renombrar CTAs primarios fuera de lo que permita `CONVERSION_UX.md`.

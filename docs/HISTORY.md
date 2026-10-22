@@ -240,12 +240,60 @@ Cierra los pendientes de la nota anterior, salvo el número de demo. No hay mont
 
 ---
 
-## 2026-10-22 — Dependencias parcheadas (Astro 7)
+## 2026-10-22 — Incidencia: vulnerabilidades de dependencias y correo
 
 No cambia el funnel, los CTAs ni los precios. El sitio sigue en salida estática con el adapter de Vercel.
 
-- Astro `5.16.6` pasa a `7.4.2`, con `@astrojs/react` `7.1.1`, `@astrojs/vercel` `11.0.16`, `@astrojs/sitemap` `3.7.4` y Tailwind `4.3.3`. Node mínimo `22.12.0` (`engines` en `package.json`).
-- El adapter se importa desde `@astrojs/vercel`. `compressHTML: true` conserva la compresión de espacios anterior.
-- Las fichas pasan al content layer: `src/content.config.ts`. El segmento de URL es `entry.id`, el nombre del archivo.
-- `RESEND_API_KEY` se lee con `process.env` en las APIs. Los textos del formulario se escapan con `src/lib/escapeHtml.ts` antes del HTML del correo.
-- `pnpm.overrides` fija `tar@7.5.22`, `fast-uri@3.1.9` y `source-map-js@1.2.2`. Después del cambio, `pnpm audit` no reporta avisos.
+### Qué se encontró
+
+`pnpm audit` del 2026-10-22, con Astro `5.16.6`: 2 críticas, 34 altas, 24 moderadas y 6 bajas (66 avisos, 584 dependencias).
+
+Las que obligaban a salir de Astro 5:
+
+- Crítica `GHSA-26w7-cxv4-gfx2`: ejecución remota si el servicio de imágenes de Astro (Sharp / libheif) optimiza un AVIF no confiable. Parche en Astro `>=7.2.8`.
+- Alta `GHSA-2pvr-wf23-7pc7`: SSRF por el header `Host` al pedir la página de error prerenderizada. Parche en Astro `>=6.4.6`.
+- Alta `GHSA-8hv8-536x-4wqp`: XSS reflejado por el nombre de slot sin escapar en islas `client:*`. Parche en Astro `>=6.3.3`.
+- Moderada `GHSA-mr6q-rp88-fx84`: `@astrojs/vercel` reescribe la ruta con `x-astro-path` o `x_astro_path` sin autenticación. Parche en `@astrojs/vercel` `>=10.0.2`.
+- El resto de altas y moderadas de Astro (XSS en spread, view transitions, `<script>` / `<style>`, bypass de `base`) solo están parcheadas en Astro 6 o 7. El piso que cubre todas es Astro `>=7.3.2`.
+
+El mismo audit arrastraba altas en dependencias del framework (`devalue`, `vite`, `sharp`, `js-yaml`, `postcss`, `svgo`, `brace-expansion`, `nanoid`, `smol-toml`, `browserslist`). Subir Astro las saca.
+
+En el código propio, aparte del audit:
+
+- `/api/contact` y `/api/support` interpolaban nombre, correo, teléfono, empresa, servicio y mensaje en el HTML del correo sin escapar.
+- Astro 6+ inlinea `import.meta.env` en el build. `RESEND_API_KEY` no puede leerse así: en Vercel la clave existe en runtime, no hace falta hornearla en el bundle.
+- `new Resend(undefined)` lanza al cargar el módulo. Sin clave, la ruta devolvía un HTML de error de Vite en lugar del JSON `500`.
+
+### Resolución
+
+- Astro `7.4.2`, `@astrojs/react` `7.1.1`, `@astrojs/vercel` `11.0.16`, `@astrojs/sitemap` `3.7.4`, `@astrojs/check` `0.9.12`, `@astrojs/ts-plugin` `1.10.12`.
+- Tailwind `4.3.3` y `@tailwindcss/vite` `4.3.3`, porque Astro 7 usa Vite 8 y el plugin `4.1.18` no declara ese peer.
+- Node `>=22.12.0` en `engines` de `package.json`. Astro 7 no corre en Node 18 ni 20.
+- Adapter: `import vercel from '@astrojs/vercel'`. El entrypoint `@astrojs/vercel/serverless` ya no existe.
+- `compressHTML: true` en `astro.config.mjs`. Astro 7 comprime espacios como JSX; esta opción deja la compresión anterior.
+- Colecciones en el content layer. `src/content/config.ts` pasa a `src/content.config.ts`, con `glob` sobre `src/content/servicios` y `src/content/services`. El segmento de URL es `entry.id` (nombre de archivo, sin extensión). Las rutas publicadas no cambian.
+- `src/lib/escapeHtml.ts` escapa el HTML del correo, aplana saltos de línea en el asunto y en `mailto:` / `tel:`, y escribe el JSON-LD sin un cierre `</script>`.
+- Las APIs leen `process.env.RESEND_API_KEY` dentro del `POST` y solo construyen `Resend` si la clave existe. La respuesta de error sigue siendo `{ success: false, error }`, sin `details` ni el cuerpo de Resend.
+- `pnpm.overrides`: `tar@7.5.22` (venía `7.5.13` por `@vercel/nft` → `@mapbox/node-pre-gyp`; incluye la crítica `GHSA-23hp-3jrh-7fpw`), `fast-uri@3.1.9` (solo en el language server de `@astrojs/check`) y `source-map-js@1.2.2` (había copias en `1.2.1`).
+
+### Cierre
+
+`pnpm audit` después de los overrides: sin avisos.
+
+`pnpm check`: 0 errores. Siguen hints de variables sin usar que ya estaban. `pnpm build` generó las mismas rutas de fichas, incluida `/servicios/vincrm-crm-whatsapp-con-ia`.
+
+En local se abrieron `/`, `/servicios`, `/servicios/vincrm-crm-whatsapp-con-ia` y la pestaña de correo de `/contacto`. `POST /api/contact` sin campos responde `400`. Con campos y sin `RESEND_API_KEY` responde `500` en JSON. No se envió un correo real.
+
+En Vercel el runtime tiene que ser Node `22.12` o superior. Si el proyecto sigue fijado en Node 20, el deploy falla aunque `engines` ya lo declare.
+
+---
+
+## 2026-10-22 — Soporte de VINBOOK con `?servicio=`
+
+`/soporte` sigue siendo postventa. El footer no cambia: va a `/soporte` sin query.
+
+`?servicio=vinbook` deja el selector en `Vinbook - Sistema de Gestión de Reservas` y el mensaje `Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas.`. Otro valor se ignora. `vinbook` no está en el mapa de `/contacto`.
+
+El enlace que debe usar la app VINBOOK es `https://www.vincode.dev/soporte?servicio=vinbook`. Esa app no vive en este repositorio.
+
+Archivos: `src/data/contactContext.ts` (`resolveSupportService`, `supportPath`, `VINBOOK_SUPPORT_OPTION`), `src/components/SupportForm/SupportForm.tsx`. Vigente en [CONVERSION_UX.md](./CONVERSION_UX.md). El siguiente paso que repite Vini está en [VINI.md](./VINI.md).

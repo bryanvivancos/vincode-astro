@@ -186,7 +186,7 @@ Ver un caso externo (`Visitar el sitio`) es exploración. La página `/nuestros-
 - El header muestra `Hablemos de tu proyecto` desde 640px (`sm`). Por debajo de ese ancho el mismo texto y el mismo destino están en el menú móvil (`MobileNav.tsx`). No hace falta un segundo botón en la barra.
 - El logo del header, del menú móvil y del footer enlaza a `/`. Es marca, no CTA: no compite con `Hablemos de tu proyecto`. Archivos en `public/brand/`. Detalle en [HISTORY.md](./HISTORY.md) (2026-10-09).
 - Nav principal: Servicios, Proyectos, Sobre nosotros, más el botón primario. VINBOOK puede ser un ítem de producto, visualmente aparte, hacia el bloque o hacia la app.
-- Soporte (`/soporte`) permanece en el footer. Es postventa, no un CTA de venta.
+- Soporte (`/soporte`) permanece en el footer, sin query. Es postventa, no un CTA de venta. El detalle de `?servicio=` está en las reglas de contacto.
 - Los enlaces del footer de servicios cubren la oferta que se quiere vender, no los primeros cinco slugs alfabéticos.
 - Un enlace externo (cliente, Instagram, caso) no sustituye el CTA de la página.
 - Precios con ancla rota (`#pricing` sin sección) no se publican.
@@ -221,7 +221,9 @@ Canal por defecto: WhatsApp, como enlace `<a href="https://wa.me/51986966477?tex
 
 Campos del correo: nombre, teléfono, empresa (opcional), mensaje y correo. No alargar el formulario.
 
-`?servicio=` solo cambia el mensaje si el valor está en `src/data/contactContext.ts`. Cualquier otro valor se ignora y se usa el mensaje general: `Hola, quiero hablar sobre un proyecto para mi negocio.`
+`?servicio=` en `/contacto` solo cambia el mensaje si el valor está en el mapa de contacto de `src/data/contactContext.ts` (`resolveContactService`, `contactPath`). Cualquier otro valor se ignora y se usa el mensaje general: `Hola, quiero hablar sobre un proyecto para mi negocio.`
+
+`?servicio=` en `/soporte` es otro mapa, en el mismo archivo (`resolveSupportService`, `supportPath`). Rellena el selector y el mensaje. Hoy el único valor es `vinbook`: la opción `Vinbook - Sistema de Gestión de Reservas` y el texto `Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas.`. Cualquier otro valor, incluido un slug de contacto, se ignora y el formulario queda vacío. `vinbook` no abre `/contacto`. El footer sigue en `/soporte`. El enlace desde la app VINBOOK es `https://www.vincode.dev/soporte?servicio=vinbook`.
 
 Placeholders en español, con ejemplo de negocio real.
 
@@ -305,3 +307,4 @@ Si alguna respuesta empeora el funnel, el cambio no se publica así.
 - 2026-10-04: VINCRM vive en `/servicios/vincrm-crm-whatsapp-con-ia`. Primaria a `/contacto?servicio=vincrm`. Sin precio público. No es el funnel de VINBOOK. El conocimiento del agente está en [VINI.md](./VINI.md). Detalle en [HISTORY.md](./HISTORY.md).
 - 2026-10-18: la ficha VINCRM reordena el relato. La primaria no cambia. No hay CTA de demo ni monto. Al escribir, responden en 24 h hábiles. FAQPage solo en esa ficha, sin `Offer`. Detalle en [HISTORY.md](./HISTORY.md).
 - 2026-10-18: el mockup de la franja VINBOOK conserva su tarjeta y recorre el demo solo (servicio, especialista, fecha, hora y `¡Reserva confirmada!`) mientras está en pantalla. Un clic lo deja manual. No crea una reserva y no sustituye `Empezar ahora`. Sigue oculto bajo `md`. Estructura y recorrido en [widget-demo-animacion.md](./widget-demo-animacion.md). Contexto en [HISTORY.md](./HISTORY.md).
+- 2026-10-22: `/soporte?servicio=vinbook` deja elegido `Vinbook - Sistema de Gestión de Reservas` y el mensaje `Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas.`. El footer sigue en `/soporte`. No es un CTA de venta y no mete a VINBOOK en `/contacto`. Detalle en [HISTORY.md](./HISTORY.md).

@@ -87,8 +87,25 @@ const ALIASES: Record<string, string> = {
     "vin-rest": "sistema-para-restaurante",
 };
 
-export function resolveContactService(
+/** Texto exacto de la opción VINBOOK en el selector de `/soporte`. */
+export const VINBOOK_SUPPORT_OPTION = "Vinbook - Sistema de Gestión de Reservas";
+
+/**
+ * Postventa. No entra en SERVICES: `vinbook` no debe abrir `/contacto`
+ * con un mensaje de venta.
+ */
+const SUPPORT_SERVICES: Record<string, Omit<ContactService, "id">> = {
+    vinbook: {
+        label: VINBOOK_SUPPORT_OPTION,
+        message:
+            "Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas.",
+    },
+};
+
+function resolveListedService(
     raw: string | null | undefined,
+    services: Record<string, Omit<ContactService, "id">>,
+    aliases: Record<string, string>,
 ): ContactService | null {
     if (!raw) return null;
 
@@ -104,17 +121,35 @@ export function resolveContactService(
 
     if (!/^[a-z0-9-]+$/.test(value)) return null;
 
-    const id = SERVICES[value] ? value : ALIASES[value];
-    const service = id ? SERVICES[id] : undefined;
+    const id = services[value] ? value : aliases[value];
+    const service = id ? services[id] : undefined;
     if (!id || !service) return null;
 
     return { id, label: service.label, message: service.message };
+}
+
+export function resolveContactService(
+    raw: string | null | undefined,
+): ContactService | null {
+    return resolveListedService(raw, SERVICES, ALIASES);
+}
+
+export function resolveSupportService(
+    raw: string | null | undefined,
+): ContactService | null {
+    return resolveListedService(raw, SUPPORT_SERVICES, {});
 }
 
 export function contactPath(slug?: string | null): string {
     const service = resolveContactService(slug);
     if (!service) return "/contacto";
     return `/contacto?servicio=${service.id}`;
+}
+
+export function supportPath(slug?: string | null): string {
+    const service = resolveSupportService(slug);
+    if (!service) return "/soporte";
+    return `/soporte?servicio=${service.id}`;
 }
 
 export function whatsappUrl(message: string): string {

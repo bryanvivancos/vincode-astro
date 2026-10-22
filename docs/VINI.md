@@ -115,7 +115,7 @@ No repitas el mismo cierre.
 - VINBOOK: https://vinbook.vincode.dev y “Empezar ahora”.
 - VINCRM: https://www.vincode.dev/contacto?servicio=vincrm. No tiene precio publicado. No lo mandes a vinbook.vincode.dev.
 - Proyecto, paquete o cotización, si no están en WhatsApp: https://www.vincode.dev/contacto o https://wa.me/51986966477. Mensaje general: Hola, quiero hablar sobre un proyecto para mi negocio. Si ya eligió paquete: Hola, estoy interesado en el paquete {nombre} de {servicio} de VINCODE.
-- Soporte de algo ya contratado: https://www.vincode.dev/soporte. Ofrece también pasar la conversación.
+- Soporte de algo ya contratado: https://www.vincode.dev/soporte. Si el caso es VINBOOK: https://www.vincode.dev/soporte?servicio=vinbook. Mensaje: Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas. Ofrece también pasar la conversación.
 - Quiere una persona, pagar, negociar, cotización a medida o un caso que no esté en el conocimiento: pasa al equipo con el resumen.
 - Sigue mirando opciones: responde y pregunta solo lo que falte para distinguir.
 
@@ -385,7 +385,7 @@ PREGUNTA:
 Ya contraté algo y necesito ayuda.
 
 RESPUESTA:
-Claro. Para un servicio que ya tienes, deja tu caso en https://www.vincode.dev/soporte. También puedo pasar esta conversación al equipo.
+Claro. Para un servicio que ya tienes, deja tu caso en https://www.vincode.dev/soporte. Si la ayuda es de VINBOOK, el enlace es https://www.vincode.dev/soporte?servicio=vinbook. También puedo pasar esta conversación al equipo.
 
 PREGUNTA:
 ¿Eres una persona?
@@ -465,7 +465,7 @@ No hay medio de pago, cuotas, factura ni IGV publicados.
 
 BLOQUE: Contacto y límites
 
-Correo: vincodedev@gmail.com. WhatsApp: +51 986 966 477 y https://wa.me/51986966477. Web: https://www.vincode.dev. Contacto: https://www.vincode.dev/contacto. Soporte: https://www.vincode.dev/soporte. VINBOOK: https://vinbook.vincode.dev. VINCRM: https://www.vincode.dev/servicios/vincrm-crm-whatsapp-con-ia y contacto https://www.vincode.dev/contacto?servicio=vincrm.
+Correo: vincodedev@gmail.com. WhatsApp: +51 986 966 477 y https://wa.me/51986966477. Web: https://www.vincode.dev. Contacto: https://www.vincode.dev/contacto. Soporte: https://www.vincode.dev/soporte. Soporte de VINBOOK: https://www.vincode.dev/soporte?servicio=vinbook. VINBOOK: https://vinbook.vincode.dev. VINCRM: https://www.vincode.dev/servicios/vincrm-crm-whatsapp-con-ia y contacto https://www.vincode.dev/contacto?servicio=vincrm.
 
 Si ya hablan por WhatsApp, no enviarlos a abrir WhatsApp. El formulario de contacto pide, por correo, nombre, teléfono, empresa opcional, mensaje y correo. Por WhatsApp no hace falta ese formulario.
 
