@@ -3,27 +3,11 @@ import toast from 'react-hot-toast';
 import { email } from '../../CONSTANTS';
 import {
     resolveSupportService,
-    VINBOOK_SUPPORT_OPTION,
+    SUPPORT_FORM_OPTIONS,
     type ContactService,
 } from '../../data/contactContext';
 
-const SERVICES = [
-    'Setup Web',
-    'Landing Page - Pagina web',
-    'Tarjeta Digital',
-    'Link Bio',
-    'Portfolio Profesional',
-    VINBOOK_SUPPORT_OPTION,
-    'Página Web de Reservas',
-    'VIN DISPLAY - Cartelería Digital',
-    'Software a Medida',
-    'Software Licenciado',
-    'Otro'
-];
-
-    // 'E-commerce',
-    // 'Punto de Venta',
-    // 'VIN REST - Software para Restaurantes',
+const SERVICES = SUPPORT_FORM_OPTIONS;
 
 export default function SupportForm() {
     const [btnText, setBtnText] = useState("Enviar Solicitud");

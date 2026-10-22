@@ -273,7 +273,7 @@ Tras cambios en `.astro`, `.ts`, `.tsx` o schema de content, correr `pnpm check`
 - Páginas y layout en `.astro`. Interacción en `.tsx` con directiva `client:*`.
 - Fichas como Markdown de content collections, validadas por Zod en `src/content.config.ts`. Colección ES `servicios`, EN `services`. El loader es `glob`.
 - El campo de la entrada es `id` (nombre de archivo, sin extensión). Ese `id` es el segmento de `/servicios/{id}` o `/services/{id}`. No usar `entry.slug`: el content layer ya no lo expone.
-- Alias de `?servicio=` en `/contacto` solo si está en el mapa de contacto de `src/data/contactContext.ts`; otro valor cae al mensaje general. En `/soporte` el mapa es aparte (`resolveSupportService`): hoy solo `vinbook`. Un slug de contacto no rellena soporte, y `vinbook` no abre `/contacto` con mensaje de venta.
+- Alias de `?servicio=` en `/contacto` solo si está en el mapa de contacto de `src/data/contactContext.ts`; otro valor cae al mensaje general. En `/soporte` el mapa es aparte (`resolveSupportService`, `SUPPORT_FORM_OPTIONS`): las diez opciones del selector salvo `Otro`. Un slug de contacto no rellena soporte, y un slug de soporte no abre `/contacto` con mensaje de venta.
 - Estilos con utilidades Tailwind en `src/global.css` (Tailwind 4 por Vite, sin `tailwind.config`).
 - Estado de menú: nanostores en `src/store/menuStore.ts`.
 - Copys y datos de negocio en español. No renombrar CTAs primarios fuera de lo que permita `CONVERSION_UX.md`.

@@ -292,8 +292,23 @@ En Vercel el runtime tiene que ser Node `22.12` o superior. Si el proyecto sigue
 
 `/soporte` sigue siendo postventa. El footer no cambia: va a `/soporte` sin query.
 
-`?servicio=vinbook` deja el selector en `Vinbook - Sistema de Gestión de Reservas` y el mensaje `Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas.`. Otro valor se ignora. `vinbook` no está en el mapa de `/contacto`.
+Primero se aceptó solo `vinbook`: selector `Vinbook - Sistema de Gestión de Reservas` y mensaje `Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas.`.
 
-El enlace que debe usar la app VINBOOK es `https://www.vincode.dev/soporte?servicio=vinbook`. Esa app no vive en este repositorio.
+El mismo día se registró el resto del selector, salvo `Otro`. El mensaje de VINBOOK no cambia. Las demás opciones usan `Hola, necesito ayuda con {opción}.`.
 
-Archivos: `src/data/contactContext.ts` (`resolveSupportService`, `supportPath`, `VINBOOK_SUPPORT_OPTION`), `src/components/SupportForm/SupportForm.tsx`. Vigente en [CONVERSION_UX.md](./CONVERSION_UX.md). El siguiente paso que repite Vini está en [VINI.md](./VINI.md).
+| Slug | Opción |
+| --- | --- |
+| `setup-web` | Setup Web |
+| `landing-page` | Landing Page - Pagina web |
+| `tarjeta-digital` | Tarjeta Digital |
+| `link-bio` | Link Bio |
+| `portfolio` | Portfolio Profesional |
+| `vinbook` | Vinbook - Sistema de Gestión de Reservas |
+| `pagina-web-de-reservas` | Página Web de Reservas |
+| `vin-display` | VIN DISPLAY - Cartelería Digital |
+| `software-a-medida` | Software a Medida |
+| `software-licenciado` | Software Licenciado |
+
+Un slug de `/contacto` sigue sin rellenar soporte, y estos slugs no abren `/contacto`. El footer sigue en `/soporte`. El enlace de cada app es `https://www.vincode.dev/soporte?servicio={slug}`. Esas apps no viven en este repositorio.
+
+Archivos: `src/data/contactContext.ts` (`resolveSupportService`, `supportPath`, `SUPPORT_FORM_OPTIONS`), `src/components/SupportForm/SupportForm.tsx`. Vigente en [CONVERSION_UX.md](./CONVERSION_UX.md). El siguiente paso que repite Vini está en [VINI.md](./VINI.md).

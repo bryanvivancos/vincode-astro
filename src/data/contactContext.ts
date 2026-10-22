@@ -91,16 +91,58 @@ const ALIASES: Record<string, string> = {
 export const VINBOOK_SUPPORT_OPTION = "Vinbook - Sistema de Gestión de Reservas";
 
 /**
- * Postventa. No entra en SERVICES: `vinbook` no debe abrir `/contacto`
- * con un mensaje de venta.
+ * Postventa. No entra en SERVICES: estos slugs no abren `/contacto`.
+ * El orden es el del selector. `Otro` no tiene slug.
  */
 const SUPPORT_SERVICES: Record<string, Omit<ContactService, "id">> = {
+    "setup-web": {
+        label: "Setup Web",
+        message: "Hola, necesito ayuda con Setup Web.",
+    },
+    "landing-page": {
+        label: "Landing Page - Pagina web",
+        message: "Hola, necesito ayuda con Landing Page - Pagina web.",
+    },
+    "tarjeta-digital": {
+        label: "Tarjeta Digital",
+        message: "Hola, necesito ayuda con Tarjeta Digital.",
+    },
+    "link-bio": {
+        label: "Link Bio",
+        message: "Hola, necesito ayuda con Link Bio.",
+    },
+    portfolio: {
+        label: "Portfolio Profesional",
+        message: "Hola, necesito ayuda con Portfolio Profesional.",
+    },
     vinbook: {
         label: VINBOOK_SUPPORT_OPTION,
         message:
             "Hola, necesito ayuda con VINBOOK, el sistema de gestión de reservas.",
     },
+    "pagina-web-de-reservas": {
+        label: "Página Web de Reservas",
+        message: "Hola, necesito ayuda con Página Web de Reservas.",
+    },
+    "vin-display": {
+        label: "VIN DISPLAY - Cartelería Digital",
+        message: "Hola, necesito ayuda con VIN DISPLAY - Cartelería Digital.",
+    },
+    "software-a-medida": {
+        label: "Software a Medida",
+        message: "Hola, necesito ayuda con Software a Medida.",
+    },
+    "software-licenciado": {
+        label: "Software Licenciado",
+        message: "Hola, necesito ayuda con Software Licenciado.",
+    },
 };
+
+/** Opciones del selector de `/soporte`, en el orden publicado. */
+export const SUPPORT_FORM_OPTIONS: readonly string[] = [
+    ...Object.values(SUPPORT_SERVICES).map((service) => service.label),
+    "Otro",
+];
 
 function resolveListedService(
     raw: string | null | undefined,
